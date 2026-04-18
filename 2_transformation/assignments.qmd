@@ -1,0 +1,291 @@
+---
+title: "Transformations — Practice Questions"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+execute:
+  echo: false
+  warning: false
+jupyter: python3
+---
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+
+ROOT_CLR  = "#2563EB"
+YINT_CLR  = "#16A34A"
+ASYM_CLR  = "#DC2626"
+CURVE_CLR = "#1e1e1e"
+STAT_CLR  = "#9333EA"   # stationary points
+
+def base_ax(ax, xlim=(-5,5), ylim=(-6,6), title="", xlabel="x", ylabel="y"):
+    ax.set_xlim(*xlim); ax.set_ylim(*ylim)
+    ax.spines[["left","bottom"]].set_position("zero")
+    ax.spines[["right","top"]].set_visible(False)
+    ax.set_xlabel(xlabel, loc="right", fontsize=9)
+    ax.set_ylabel(ylabel, loc="top", rotation=0, fontsize=9)
+    ax.set_title(title, fontsize=10, pad=6)
+    ax.tick_params(labelsize=7)
+    ax.grid(True, linestyle=":", alpha=0.3)
+
+def mark_stat(ax, x, y, label=None, offset=(0.15,0.15)):
+    ax.plot(x, y, "o", color=STAT_CLR, ms=7, zorder=5)
+    if label:
+        ax.annotate(label, (x,y), (x+offset[0], y+offset[1]),
+                    fontsize=7.5, color=STAT_CLR,
+                    arrowprops=dict(arrowstyle="->", color=STAT_CLR, lw=0.7))
+
+def mark_point(ax, x, y, label=None, color=ROOT_CLR, offset=(0.15,0.15)):
+    ax.plot(x, y, "o", color=color, ms=7, zorder=5)
+    if label:
+        ax.annotate(label, (x,y), (x+offset[0], y+offset[1]),
+                    fontsize=7.5, color=color,
+                    arrowprops=dict(arrowstyle="->", color=color, lw=0.7))
+
+def asymptote_v(ax, x, label=None):
+    ax.axvline(x, color=ASYM_CLR, lw=1.2, ls="--", alpha=0.85)
+    if label:
+        ax.text(x+0.07, ax.get_ylim()[1]*0.88, label, color=ASYM_CLR, fontsize=7)
+
+def asymptote_h(ax, y, label=None):
+    ax.axhline(y, color=ASYM_CLR, lw=1.2, ls="--", alpha=0.85)
+    if label:
+        ax.text(ax.get_xlim()[0]+0.1, y+0.15, label, color=ASYM_CLR, fontsize=7)
+
+# Define f(x): cubic with max at (-3,2) and min at (2,-4)
+# f'(x) = k(x+3)(x-2), solved: k=36/125, C=-236/125
+k  = 36/125
+C  = -236/125
+def f(x):
+    return k*(x**3/3 + x**2/2 - 6*x) + C
+```
+
+---
+
+## Question 1
+
+```{python}
+fig, ax = plt.subplots(figsize=(4.5, 4))
+base_ax(ax, xlim=(-5.5,5.5), ylim=(-5.5,4), title="Figure 1")
+
+x = np.linspace(-5.2, 4.5, 600)
+ax.plot(x, f(x), color=CURVE_CLR, lw=2)
+
+mark_stat(ax, -3, 2,  label="(−3, 2)",  offset=(-1.8, 0.1))
+mark_stat(ax,  2, -4, label="(2, −4)",  offset=( 0.2,-0.6))
+
+ax.text(3.5, f(3.5)-0.4, r"$y = f(x)$", fontsize=9)
+ax.plot([-5.2],[f(-5.2)]); ax.plot([4.5],[f(4.5)])   # extend curve to edges
+
+plt.tight_layout()
+plt.show()
+```
+
+**Figure 1** shows the curve $y = f(x)$, which has a maximum point at $(-3,\,2)$ and a minimum point at $(2,\,-4)$.
+
+**(a)** Showing the coordinates of any stationary points, sketch on **separate diagrams** the graphs of
+
+> **(i)** $y = f(|x|)$ **(4)**
+>
+> **(ii)** $y = 3f(2x)$ **(3)**
+
+**(b)** Write down the values of the constants $a$ and $b$ such that the curve $y = a + f(x+b)$ has a minimum point at the **origin** $O$. **(2)**
+
+---
+
+## Question 2
+
+**(a)** Sketch the graph of $y = 2 + \sec\!\left(x - \dfrac{\pi}{6}\right)$ for $x$ in the interval $0 \le x \le 2\pi$.
+
+Show on your sketch the coordinates of any turning points and the equations of any asymptotes. **(5)**
+
+**(b)** Find, in terms of $\pi$, the $x$-coordinates of the points where the graph crosses the $x$-axis. **(5)**
+
+---
+
+---
+
+# Mark Scheme
+
+## Q1 (a)(i) — $y = f(|x|)$ [4 marks]
+
+```{python}
+fig, ax = plt.subplots(figsize=(5, 4))
+base_ax(ax, xlim=(-5.5,5.5), ylim=(-5.5,4),
+        title=r"$y = f(|x|)$  — Mark Scheme")
+
+# Right half (x≥0): same as f(x)
+x_right = np.linspace(0, 4.5, 400)
+ax.plot(x_right, f(x_right), color=CURVE_CLR, lw=2)
+
+# Left half (x<0): mirror of right half, i.e. f(|x|) = f(-x) for x<0
+x_left = np.linspace(-4.5, 0, 400)
+ax.plot(x_left, f(-x_left), color=CURVE_CLR, lw=2)
+
+# Stationary points
+mark_stat(ax,  2, -4, label="(2, −4)",   offset=( 0.25,-0.55))
+mark_stat(ax, -2, -4, label="(−2, −4)",  offset=(-1.8, -0.55))
+mark_stat(ax,  0, f(0), label=f"(0, {f(0):.2f})", offset=(0.2, 0.2))
+
+ax.text(3.2, f(3.2)+0.3, r"$y = f(|x|)$", fontsize=9)
+plt.tight_layout()
+plt.show()
+```
+
+| Mark | Criteria |
+|------|----------|
+| M1 | Right half ($x \ge 0$) identical to original $f(x)$ |
+| A1 | Minimum at $(2,\,-4)$ correctly labelled |
+| M1 | Left half is a **reflection** of the right half in the $y$-axis |
+| A1 | Minimum at $(-2,\,-4)$ correctly labelled; original $(-3,\,2)$ max **removed** |
+
+> **Key idea:** $f(|x|)$ replaces the entire left half of $f(x)$ with the mirror image of the right half. The original maximum at $(-3,2)$ disappears.
+
+---
+
+## Q1 (a)(ii) — $y = 3f(2x)$ [3 marks]
+
+```{python}
+fig, ax = plt.subplots(figsize=(5, 4))
+base_ax(ax, xlim=(-4, 4), ylim=(-14, 9),
+        title=r"$y = 3f(2x)$  — Mark Scheme")
+
+x = np.linspace(-4, 3, 600)
+ax.plot(x, 3*f(2*x), color=CURVE_CLR, lw=2)
+
+# Max: (-3,2) → (-3/2, 6)
+mark_stat(ax, -1.5,  6,  label=r"$(-\frac{3}{2},\,6)$",  offset=(-1.5, 0.3))
+# Min: (2,-4) → (1, -12)
+mark_stat(ax,  1,  -12, label="$(1,\,-12)$", offset=(0.3,-0.8))
+
+ax.text(1.6, 3*f(2*1.6)+0.5, r"$y=3f(2x)$", fontsize=9)
+plt.tight_layout()
+plt.show()
+```
+
+| Mark | Criteria |
+|------|----------|
+| M1 | Horizontal stretch by factor $\tfrac{1}{2}$: $x$-coordinates halved |
+| A1 | Maximum at $\left(-\tfrac{3}{2},\,6\right)$ correctly labelled |
+| A1 | Minimum at $(1,\,-12)$ correctly labelled |
+
+> **Transformation:** $f(x) \to f(2x)$ compresses horizontally by $\tfrac{1}{2}$; then $\times 3$ stretches vertically by $3$.
+>
+> $$(-3,\,2) \xrightarrow{\div 2 \text{ on }x} \left(-\tfrac{3}{2},\,2\right) \xrightarrow{\times 3 \text{ on }y} \left(-\tfrac{3}{2},\,6\right)$$
+> $$(2,\,-4) \xrightarrow{\div 2 \text{ on }x} (1,\,-4) \xrightarrow{\times 3 \text{ on }y} (1,\,-12)$$
+
+---
+
+## Q1 (b) — Values of $a$ and $b$ [2 marks]
+
+**Required:** $y = a + f(x+b)$ has minimum at the origin $(0,\,0)$.
+
+- $f(x+b)$ translates $f(x)$ **left** by $b$. The minimum $(2,\,-4)$ moves to $(2-b,\,-4)$.
+- Adding $a$ shifts the graph **up** by $a$. The minimum becomes $(2-b,\,-4+a)$.
+
+Setting this equal to $(0,\,0)$:
+
+$$2 - b = 0 \implies \boxed{b = 2}$$
+$$-4 + a = 0 \implies \boxed{a = 4}$$
+
+| Mark | Criteria |
+|------|----------|
+| B1 | $b = 2$ |
+| B1 | $a = 4$ |
+
+---
+
+## Q2 (a) — Sketch of $y = 2 + \sec\!\left(x-\tfrac{\pi}{6}\right)$ [5 marks]
+
+```{python}
+fig, ax = plt.subplots(figsize=(7, 4.5))
+base_ax(ax, xlim=(-0.2, 2*np.pi+0.2), ylim=(-4, 7),
+        title=r"$y = 2 + \sec(x - \pi/6),\quad 0 \leq x \leq 2\pi$  — Mark Scheme")
+
+eps = 0.06
+a1 = 2*np.pi/3          # first vertical asymptote
+a2 = 5*np.pi/3          # second vertical asymptote
+
+segs = [
+    (0,        a1 - eps),
+    (a1 + eps, a2 - eps),
+    (a2 + eps, 2*np.pi),
+]
+for lo, hi in segs:
+    xs = np.linspace(lo, hi, 500)
+    ax.plot(xs, 2 + 1/np.cos(xs - np.pi/6), color=CURVE_CLR, lw=2)
+
+# Asymptotes
+asymptote_v(ax, a1, label=r"$x=\frac{2\pi}{3}$")
+asymptote_v(ax, a2, label=r"$x=\frac{5\pi}{3}$")
+
+# Turning points
+mark_stat(ax, np.pi/6,   3,  label=r"$(\frac{\pi}{6},\,3)$",   offset=(0.18, 0.25))
+mark_stat(ax, 7*np.pi/6, 1,  label=r"$(\frac{7\pi}{6},\,1)$",  offset=(0.18,-0.55))
+
+# x-intercepts
+x1 = 5*np.pi/6; x2 = 3*np.pi/2
+mark_point(ax, x1, 0, label=r"$\frac{5\pi}{6}$", color=ROOT_CLR, offset=(0.1, 0.3))
+mark_point(ax, x2, 0, label=r"$\frac{3\pi}{2}$", color=ROOT_CLR, offset=(0.1, 0.3))
+
+ax.set_xticks([0, np.pi/6, np.pi/2, 2*np.pi/3, np.pi, 7*np.pi/6,
+               5*np.pi/6, 3*np.pi/2, 5*np.pi/3, 2*np.pi])
+ax.set_xticklabels(["$0$", r"$\frac{\pi}{6}$", r"$\frac{\pi}{2}$", r"$\frac{2\pi}{3}$",
+                    r"$\pi$", r"$\frac{7\pi}{6}$", r"$\frac{5\pi}{6}$",
+                    r"$\frac{3\pi}{2}$", r"$\frac{5\pi}{3}$", r"$2\pi$"], fontsize=7)
+
+legend = [
+    mpatches.Patch(color=STAT_CLR, label="Turning point"),
+    mpatches.Patch(color=ROOT_CLR, label="x-intercept"),
+    mpatches.Patch(color=ASYM_CLR, label="Asymptote"),
+]
+ax.legend(handles=legend, fontsize=7.5, loc="upper right")
+plt.tight_layout()
+plt.show()
+```
+
+| Mark | Criteria |
+|------|----------|
+| M1 | Correct shape: two branches of $\sec$ with a minimum-type branch in $[0, \tfrac{2\pi}{3})$ |
+| A1 | Vertical asymptotes $x = \tfrac{2\pi}{3}$ and $x = \tfrac{5\pi}{3}$ labelled |
+| A1 | Turning point $\left(\tfrac{\pi}{6},\,3\right)$ labelled |
+| A1 | Turning point $\left(\tfrac{7\pi}{6},\,1\right)$ labelled |
+| A1 | Correct overall shape across all three branches within $[0,2\pi]$ |
+
+**Derivation of key features:**
+
+- **Asymptotes:** $\cos\!\left(x-\tfrac{\pi}{6}\right)=0 \implies x-\tfrac{\pi}{6} = \tfrac{\pi}{2}+n\pi$
+
+  $$x = \tfrac{2\pi}{3} \quad (n=0), \qquad x = \tfrac{5\pi}{3} \quad (n=1)$$
+
+- **Turning points** where $\tan\!\left(x-\tfrac{\pi}{6}\right)=0$, i.e. $x-\tfrac{\pi}{6}=n\pi$:
+
+  $$x=\tfrac{\pi}{6}: \quad y = 2+\sec(0) = 3 \quad \longrightarrow \quad \left(\tfrac{\pi}{6},\,3\right)$$
+  $$x=\tfrac{7\pi}{6}: \quad y = 2+\sec(\pi) = 2+(-1) = 1 \quad \longrightarrow \quad \left(\tfrac{7\pi}{6},\,1\right)$$
+
+---
+
+## Q2 (b) — $x$-intercepts [5 marks]
+
+**Set** $y = 0$:
+
+$$2 + \sec\!\left(x-\tfrac{\pi}{6}\right) = 0 \implies \sec\!\left(x-\tfrac{\pi}{6}\right) = -2 \implies \cos\!\left(x-\tfrac{\pi}{6}\right) = -\tfrac{1}{2}$$
+
+Let $\theta = x - \tfrac{\pi}{6}$. Then $\cos\theta = -\tfrac{1}{2}$.
+
+$$\theta = \tfrac{2\pi}{3} \quad \text{or} \quad \theta = \tfrac{4\pi}{3} \qquad (\text{principal values in }[0,2\pi])$$
+
+$$x = \tfrac{2\pi}{3} + \tfrac{\pi}{6} = \tfrac{5\pi}{6} \qquad \text{and} \qquad x = \tfrac{4\pi}{3} + \tfrac{\pi}{6} = \tfrac{3\pi}{2}$$
+
+$$\boxed{x = \dfrac{5\pi}{6} \qquad \text{and} \qquad x = \dfrac{3\pi}{2}}$$
+
+| Mark | Criteria |
+|------|----------|
+| M1 | Sets $y=0$ and reaches $\sec(\cdots) = -2$ |
+| M1 | Converts to $\cos\!\left(x-\tfrac{\pi}{6}\right) = -\tfrac{1}{2}$ |
+| A1 | Correct principal value $\theta = \tfrac{2\pi}{3}$ |
+| A1 | Second value $\theta = \tfrac{4\pi}{3}$ |
+| A1 | Both final answers $x = \tfrac{5\pi}{6}$ and $x = \tfrac{3\pi}{2}$ |

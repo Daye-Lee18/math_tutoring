@@ -1,0 +1,6 @@
+_output/
+.quarto/
+*.ipynb
+이상민_과제채점/
+__pycache__/
+.DS_Store

@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: _output
+
+website:
+  title: "A-Level Maths Tutoring"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Pure Mathematics"
+        menu:
+          - text: "2 · Transformation"
+            href: 2_transformation/basic_forms.qmd
+          - text: "3 · Numerical Methods"
+            href: 3_numerical_method/core_concept.qmd
+          - text: "4 · Further Trigonometry"
+            href: 4_further_tria/further_trigonometry.qmd
+          - text: "5 · Differentiation Pt.1"
+            href: 5_differentiation_part1/core_concepts.md
+          - text: "6 · Review Exercise"
+            href: 6_review_exercise/review_exercise.qmd
+          - text: "7 · Differentiation Pt.2"
+            href: 7_differentiation_part2/core_concepts_v2.md
+          - text: "8 · Integration"
+            href: 8_integration/core_concepts.md
+          - text: "9 · Differential Equations"
+            href: 9_differential_equation/core_concepts.md
+
+format:
+  html:
+    toc: true
+    theme: cosmo
+    math: mathjax
+
+execute:
+  echo: false
+  warning: false
