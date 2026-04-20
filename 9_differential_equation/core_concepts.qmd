@@ -387,7 +387,95 @@ $$\boxed{V \to 50\ \text{litres}}$$
 | $\dfrac{dy}{dx} = ky$ | Exponential growth | $y = Ae^{kx}$ |
 | $\dfrac{dy}{dx} = -ky$ | Exponential decay | $y = Ae^{-kx}$ |
 | $\dfrac{dy}{dx} = k(L - y)$ | Approaches limit $L$ | $y = L - Ae^{-kx}$ |
-| $\dfrac{dy}{dx} = ky(L-y)$ | Logistic (S-curve) | Not in C3/C4 |
+| $\dfrac{dy}{dx} = ky(L-y)$ | Logistic (S-curve) | $y = \dfrac{L}{1+Ae^{-kLx}}$ |
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+ROOT_CLR = '#2563EB'
+ASYM_CLR = '#DC2626'
+PT_CLR   = '#16A34A'
+
+x = np.linspace(-0.2, 5, 400)
+k = 0.9
+L = 8
+
+fig, axes = plt.subplots(1, 4, figsize=(15, 3.8))
+fig.suptitle('Solution shapes — Quick Reference', fontsize=12, y=1.01)
+
+# ── 1. Exponential growth  y = Ae^{kx} ───────────────────────────────────
+ax = axes[0]
+A = 0.5
+y = A * np.exp(k * x)
+ax.plot(x[x >= 0], y[x >= 0], color=ROOT_CLR, lw=2.2)
+ax.scatter([0], [A], color=PT_CLR, zorder=6, s=55)
+ax.annotate('$(0, A)$', xy=(0, A), xytext=(0.15, A - 0.8), color=PT_CLR, fontsize=9)
+ax.set_title('Exponential Growth\n' r'$\frac{dy}{dx}=ky$', fontsize=10, pad=6)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$', rotation=0, labelpad=8)
+ax.set_xlim(-0.2, 5); ax.set_ylim(-0.5, 10)
+ax.spines[['top','right']].set_visible(False)
+ax.set_xticks([]); ax.set_yticks([])
+
+# ── 2. Exponential decay  y = Ae^{-kx} ───────────────────────────────────
+ax = axes[1]
+A2 = 8
+y = A2 * np.exp(-k * x)
+ax.plot(x[x >= 0], y[x >= 0], color=ROOT_CLR, lw=2.2)
+ax.axhline(0, color=ASYM_CLR, lw=1.3, ls='--', label='$y=0$')
+ax.scatter([0], [A2], color=PT_CLR, zorder=6, s=55)
+ax.annotate('$(0, A)$', xy=(0, A2), xytext=(0.15, A2 - 1.1), color=PT_CLR, fontsize=9)
+ax.set_title('Exponential Decay\n' r'$\frac{dy}{dx}=-ky$', fontsize=10, pad=6)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$', rotation=0, labelpad=8)
+ax.set_xlim(-0.2, 5); ax.set_ylim(-0.8, 10)
+ax.legend(fontsize=8, loc='upper right')
+ax.spines[['top','right']].set_visible(False)
+ax.set_xticks([]); ax.set_yticks([])
+
+# ── 3. Approaches limit  y = L − Ae^{-kx} ───────────────────────────────
+ax = axes[2]
+A3 = L          # starts at 0 when A = L
+y = L - A3 * np.exp(-k * x)
+ax.plot(x[x >= 0], y[x >= 0], color=ROOT_CLR, lw=2.2)
+ax.axhline(L, color=ASYM_CLR, lw=1.3, ls='--')
+ax.scatter([0], [0], color=PT_CLR, zorder=6, s=55)
+ax.annotate('$(0,\,L\!-\!A)$', xy=(0, 0), xytext=(0.15, 0.4), color=PT_CLR, fontsize=9)
+ax.text(4.7, L + 0.25, '$L$', color=ASYM_CLR, fontsize=10)
+ax.set_title('Approaches Limit\n' r'$\frac{dy}{dx}=k(L-y)$', fontsize=10, pad=6)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$', rotation=0, labelpad=8)
+ax.set_xlim(-0.2, 5); ax.set_ylim(-0.8, 10)
+ax.spines[['top','right']].set_visible(False)
+ax.set_xticks([]); ax.set_yticks([])
+
+# ── 4. Logistic S-curve  y = L / (1 + Ae^{-kLx}) ────────────────────────
+ax = axes[3]
+xL = np.linspace(-3, 6, 400)
+A4 = np.exp(k * L * 1.5)          # inflection at x ≈ 1.5
+y = L / (1 + A4 * np.exp(-k * L * xL))
+y0 = L / (1 + A4)                  # value at x = 0
+
+ax.plot(xL, y, color=ROOT_CLR, lw=2.2)
+ax.axhline(L, color=ASYM_CLR, lw=1.3, ls='--', label=f'$y=L$')
+ax.axhline(0, color=ASYM_CLR, lw=1.3, ls='--', label='$y=0$')
+
+# inflection point at y = L/2
+x_inf = np.log(A4) / (k * L)
+ax.scatter([x_inf], [L/2], color=PT_CLR, zorder=6, s=55)
+ax.annotate('inflection\n$(y=L/2)$', xy=(x_inf, L/2),
+            xytext=(x_inf + 0.3, L/2 - 1.5), color=PT_CLR, fontsize=8)
+
+ax.text(5.7, L + 0.25, '$L$', color=ASYM_CLR, fontsize=10)
+ax.text(5.7, 0 + 0.25, '$0$', color=ASYM_CLR, fontsize=10)
+ax.set_title('Logistic (S-curve)\n' r'$\frac{dy}{dx}=ky(L-y)$', fontsize=10, pad=6)
+ax.set_xlabel('$x$'); ax.set_ylabel('$y$', rotation=0, labelpad=8)
+ax.set_xlim(-3, 6); ax.set_ylim(-0.8, 10)
+ax.legend(fontsize=8, loc='upper left')
+ax.spines[['top','right']].set_visible(False)
+ax.set_xticks([]); ax.set_yticks([])
+
+plt.tight_layout()
+plt.show()
+```
 
 ::: {.callout-tip title="Exam Strategy"}
 1. **Identify the type**: is it separable? What form does the right-hand side take?
