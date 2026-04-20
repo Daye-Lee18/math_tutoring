@@ -1,6 +1,9 @@
 _output/
 .quarto/
 *.ipynb
-이상민_과제채점/
+Issac_tutoring/
 __pycache__/
 .DS_Store
+
+/.quarto/
+**/*.quarto_ipynb
