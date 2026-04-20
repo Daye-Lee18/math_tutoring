@@ -16,4 +16,5 @@ A-Level Pure Mathematics (P3/P4) 과외 수업 자료입니다.
 | 6 | [Review Exercise](6_review_exercise/review_exercise.qmd) |
 | 7 | [Differentiation Pt.2](7_differentiation_part2/core_concepts_v2.md) |
 | 8 | [Integration](8_integration/core_concepts.md) |
-| 9 | [Differential Equations](9_differential_equation/core_concepts.md) |
+| 9 | [Differential Equations](9_differential_equation/core_concepts.qmd) |
+| 10 | [Vectors](10_vectors/core_concepts.qmd) |
