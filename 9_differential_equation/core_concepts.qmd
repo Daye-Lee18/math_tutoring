@@ -1,9 +1,5 @@
 ---
 title: "Differential Equations — Core Concepts"
-format:
-  html:
-    embed-resources: true
-jupyter: python3
 ---
 
 # Differential Equations — Core Concepts
