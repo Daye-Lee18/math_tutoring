@@ -1,0 +1,215 @@
+---
+title: "Vectors — Core Concepts"
+---
+
+# Vectors — Core Concepts
+
+---
+
+## 1. Scalar Product
+
+$$\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta$$
+
+::: {.callout-tip title="KEY"}
+- $\vec{a} \cdot \vec{b} = \vec{b} \cdot \vec{a}$ **(commutative)** and $\vec{a} \cdot (\vec{b} + \vec{c}) = \vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c}$ **(distributive)**
+- $\vec{a} \cdot \vec{b} = 0$ if $\vec{a}$ and $\vec{b}$ are **perpendicular**
+- $\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|$ if $\vec{a}$ and $\vec{b}$ are **parallel**; in particular, $\vec{a} \cdot \vec{a} = |\vec{a}|^2$
+:::
+
+**Unit vectors** $i, j, k$:
+
+$$i \cdot i = 1, \qquad i \cdot j = 0$$
+
+**Column matrix form:**
+
+$$\begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix} \cdot \begin{pmatrix}b_1\\b_2\\b_3\end{pmatrix} = a_1b_1 + a_2b_2 + a_3b_3$$
+
+::: {.callout-tip title="KEY — Finding the angle"}
+$$\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta = a_1b_1 + a_2b_2 + a_3b_3$$
+
+$$\cos\theta = \frac{a_1b_1 + a_2b_2 + a_3b_3}{|\vec{a}||\vec{b}|}$$
+:::
+
+---
+
+<details>
+<summary>**Ex 1 — Angle between two vectors**</summary>
+
+Given $\vec{a} = -i+j+3k$ and $\vec{b} = 7i-2j+2k$, find the angle between $\vec{a}$ and $\vec{b}$.
+
+$$\vec{a} \cdot \vec{b} = (-1)(7) + (1)(-2) + (3)(2) = -7 - 2 + 6 = -3$$
+
+$$|\vec{a}| = \sqrt{1+1+9} = \sqrt{11}, \qquad |\vec{b}| = \sqrt{49+4+4} = \sqrt{57}$$
+
+$$\cos\theta = \frac{-3}{\sqrt{11}\cdot\sqrt{57}} = \frac{-3}{\sqrt{627}}$$
+
+$$\boxed{\theta = \arccos\!\left(\frac{-3}{\sqrt{627}}\right) \approx 96.9°}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Ex 2 — Perpendicular vectors: find $\lambda$**</summary>
+
+Given $\vec{a} = 2i-6j+k$ and $\vec{b} = 5i+2j+\lambda k$ are perpendicular, find $\lambda$.
+
+If perpendicular: $\vec{a} \cdot \vec{b} = 0$
+
+$$(2)(5) + (-6)(2) + (1)(\lambda) = 0$$
+
+$$10 - 12 + \lambda = 0$$
+
+$$\boxed{\lambda = 2}$$
+
+</details>
+
+---
+
+## 2. Line Equation in 3D
+
+| Equation Type | 2D | 3D |
+|---|---|---|
+| **Vector** | $\vec{r} = \vec{a} + \lambda\vec{b} = \begin{pmatrix}a_1\\a_2\end{pmatrix} + \lambda\begin{pmatrix}b_1\\b_2\end{pmatrix}$ | $\vec{r} = \begin{pmatrix}a_1\\a_2\\a_3\end{pmatrix} + \lambda\begin{pmatrix}b_1\\b_2\\b_3\end{pmatrix}$ |
+| **Parametric** | $\begin{cases}x = a_1 + \lambda b_1\\y = a_2 + \lambda b_2\end{cases}$ | $\begin{cases}x = a_1 + \lambda b_1\\y = a_2 + \lambda b_2\\z = a_3 + \lambda b_3\end{cases}$ |
+| **Cartesian** | $\dfrac{x-a_1}{b_1} = \dfrac{y-a_2}{b_2}$ | $\dfrac{x-a_1}{b_1} = \dfrac{y-a_2}{b_2} = \dfrac{z-a_3}{b_3}$ |
+
+::: {.callout-note title="Note"}
+- $\vec{a}$: **position vector** of a point on the line
+- $\vec{b}$: **direction vector** of the line
+- $\lambda$: scalar **parameter**
+:::
+
+---
+
+<details>
+<summary>**Ex 3 — Line through a point, parallel to a vector**</summary>
+
+Find a vector equation of the straight line which passes through $A(3,4,4)$ and is parallel to $(7i-4k)$.
+
+$$\boxed{\vec{r} = \begin{pmatrix}3\\4\\4\end{pmatrix} + \lambda\begin{pmatrix}7\\0\\-4\end{pmatrix}}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Ex 4 — Line through two points**</summary>
+
+Find a vector equation of the line through $A(4,5,-1)$ and $B(6,3,2)$.
+
+Direction vector: $\overrightarrow{AB} = B - A = \begin{pmatrix}2\\-2\\3\end{pmatrix}$
+
+$$\boxed{\vec{r} = \begin{pmatrix}4\\5\\-1\end{pmatrix} + \lambda\begin{pmatrix}2\\-2\\3\end{pmatrix}}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Ex 5 — Parametric form from vector equation**</summary>
+
+Express in parametric form: $\vec{r} = (3i+2j-5k) + t(i-6j-2k)$
+
+$$\begin{cases}x = 3 + t\\y = 2 - 6t\\z = -5 - 2t\end{cases}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Ex 6 — Cartesian equation from two points**</summary>
+
+Find a Cartesian equation of the line through $A(2,1,9)$ and $B(4,1,-8)$.
+
+Direction vector: $\overrightarrow{AB} = \begin{pmatrix}2\\0\\-17\end{pmatrix}$
+
+$$\frac{x-2}{2} = \frac{y-1}{0} = \frac{z-9}{-17}$$
+
+Note: $\dfrac{y-1}{0}$ means $y = 1$ (constant — direction component is zero).
+
+</details>
+
+---
+
+## 3. Types of Questions
+
+| | **Point** | **Line** |
+|---|---|---|
+| **Point** | ① distance between two points | |
+| **Line** | ② distance from point to line | ③ intersection point, ④ angle between lines, ⑤ distance between skew lines (FP) |
+
+### ① Distance between two points
+
+$$d = |\vec{b} - \vec{a}| = \sqrt{(b_1-a_1)^2+(b_2-a_2)^2+(b_3-a_3)^2}$$
+
+### ③ Intersection of two lines
+
+Set $l_1 = l_2$ using parameters $\lambda$ and $\mu$. Solve the system (2 equations, 2 unknowns). Substitute back to verify the third equation — if inconsistent, lines are **skew**.
+
+### ④ Angle between two lines
+
+Use direction vectors $\vec{b}_1$ and $\vec{b}_2$:
+
+$$\cos\theta = \frac{|\vec{b}_1 \cdot \vec{b}_2|}{|\vec{b}_1||\vec{b}_2|}$$
+
+> Take the **absolute value** to always get the **acute** angle.
+
+### ② Distance from a point to a line (foot of perpendicular)
+
+Let $F$ be the foot of perpendicular from point $P$ to line $l: \vec{r} = \vec{a} + \lambda\vec{b}$.
+
+1. Write $F = \vec{a} + \lambda\vec{b}$ (unknown $\lambda$)
+2. $\overrightarrow{PF} \cdot \vec{b} = 0$ (perpendicularity condition) → solve for $\lambda$
+3. Find $F$, then $d = |\overrightarrow{PF}|$
+
+---
+
+<details>
+<summary>**Ex 7 — Intersection point of two lines**</summary>
+
+$$l_1: \vec{r} = \begin{pmatrix}3\\8\\-2\end{pmatrix} + \lambda\begin{pmatrix}2\\-1\\3\end{pmatrix}, \qquad l_2: \vec{r} = \begin{pmatrix}7\\4\\3\end{pmatrix} + \mu\begin{pmatrix}2\\1\\4\end{pmatrix}$$
+
+Setting equal: $3+2\lambda = 7+2\mu,\; 8-\lambda = 4+\mu,\; -2+3\lambda = 3+4\mu$
+
+From equations 1 and 2: $\lambda = 2,\; \mu = -1$.
+
+Check equation 3: $-2+6 = 4$ and $3-4 = -1$ — **not equal**, so lines are **skew**.
+
+</details>
+
+---
+
+<details>
+<summary>**Ex 8 — Acute angle between two lines**</summary>
+
+$$l_1: \vec{r} = \begin{pmatrix}2\\1\\1\end{pmatrix} + \lambda\begin{pmatrix}3\\-8\\-1\end{pmatrix}, \qquad l_2: \vec{r} = \begin{pmatrix}7\\4\\1\end{pmatrix} + \mu\begin{pmatrix}2\\2\\3\end{pmatrix}$$
+
+$$\vec{b}_1 \cdot \vec{b}_2 = (3)(2)+(-8)(2)+(-1)(3) = 6-16-3 = -13$$
+
+$$|\vec{b}_1| = \sqrt{9+64+1} = \sqrt{74}, \qquad |\vec{b}_2| = \sqrt{4+4+9} = \sqrt{17}$$
+
+$$\cos\theta = \frac{|-13|}{\sqrt{74}\cdot\sqrt{17}} = \frac{13}{\sqrt{1258}}$$
+
+$$\boxed{\theta \approx 68.6°}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Ex 9 — Distance from point to line**</summary>
+
+Find the distance from $P(4,1,-1)$ to $l: \vec{r} = (4i-4i+3k) + t(i-2j+2k)$.
+
+Let $F = \begin{pmatrix}4+t\\-4-2t\\3+2t\end{pmatrix}$. Then $\overrightarrow{PF} = \begin{pmatrix}t\\-5-2t\\4+2t\end{pmatrix}$.
+
+Perpendicularity: $\overrightarrow{PF} \cdot \begin{pmatrix}1\\-2\\2\end{pmatrix} = 0$
+
+$$t + 10 + 4t + 8 + 4t = 0 \implies 9t = -18 \implies t = -2$$
+
+$$F = \begin{pmatrix}2\\0\\-1\end{pmatrix}, \qquad \overrightarrow{PF} = \begin{pmatrix}-2\\-1\\0\end{pmatrix}$$
+
+$$\boxed{d = \sqrt{4+1+0} = \sqrt{5}}$$
+
+</details>

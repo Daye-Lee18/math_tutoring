@@ -504,6 +504,20 @@ the rate of change of $y$ can be also known through the **chain rule**
 
 $$\frac{dy}{dt} = \frac{dy}{dx}\cdot\frac{dx}{dt} = \frac{1}{f'(y)}\,g(x) = \frac{g(f(y))}{f'(y)}$$
 
+::: {.callout-note title="What is a geometric relationship?"}
+A **geometric relationship** is a formula connecting two variables purely from the **shape or geometry** of the object — independent of time $t$.
+
+| Situation | Geometric relationship |
+|---|---|
+| Cube (side $s$) | $A = 6s^2$,\ $V = s^3$ $\;\Rightarrow\;$ $A = 6V^{2/3}$ |
+| Sphere (radius $r$) | $A = 4\pi r^2$,\ $V = \tfrac{4}{3}\pi r^3$ $\;\Rightarrow\;$ $r = \!\left(\tfrac{3V}{4\pi}\right)^{1/3}$ |
+| Conical tank | $r \propto h$ $\;\Rightarrow\;$ $V = kh^3$ |
+
+**Why it matters:** the problem gives $\dfrac{dA}{dt}$ but asks for $\dfrac{dV}{dt}$. The geometric relationship bridges the two via the chain rule:
+
+$$\frac{dV}{dt} = \underbrace{\frac{dV}{dA}}_{\text{differentiate geometric formula}} \cdot \underbrace{\frac{dA}{dt}}_{\text{given rate}}$$
+:::
+
 ::: {.callout-tip title="KEY"}
 - You may have to find **for yourself** a geometric relationship between $x$ and $y$
 - You may have to find for yourself extra information for a particular solution (**when $t = 0$, usually**)
