@@ -1,3 +1,11 @@
+---
+title: "Differential Equations — Core Concepts"
+format:
+  html:
+    embed-resources: true
+jupyter: python3
+---
+
 # Differential Equations — Core Concepts
 
 ---
@@ -137,7 +145,9 @@ U-substitution works when **the derivative of the "inner" function is already pr
 
 ---
 
-## 2. Important Applied D.E.s (in relation to C3)
+## 2. Important Applied D.E.s (in relation to C3/C4)
+
+> **C3/C4**: old UK A-Level module names. C3 = differentiation, integration, exponentials/logs, trig. C4 = partial fractions, binomial expansion, **differential equations**, vectors. Now merged into A-Level Pure Mathematics.
 
 These three models appear frequently in exam questions. Understand the **physical meaning** of each equation, not just the formula.
 
@@ -149,10 +159,109 @@ These three models appear frequently in exam questions. Understand the **physica
 | **General solution** | $N = Ae^{-kt}$ | $\theta = \theta_0 + Ae^{-kt}$ | $V = \dfrac{P}{k} - Ae^{-kt}$ |
 
 ::: {.callout-tip title="KEY"}
-- All three are separable — solve each by separating variables  
-- The $-k$ in the exponent means all three **approach a limit** as $t \to \infty$: $N \to 0$, $\theta \to \theta_0$, $V \to P/k$  
+- All three are separable — solve each by separating variables
+- The $-k$ in the exponent means all three **approach a limit** as $t \to \infty$: $N \to 0$, $\theta \to \theta_0$, $V \to P/k$
 - In exam questions, the constant $A$ is always determined by the **initial condition** (값을 알고 있는 시점 = $t = 0$)
 :::
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+ROOT_CLR = '#2563EB'   # curve — blue
+ASYM_CLR = '#DC2626'   # asymptote — red
+PT_CLR   = '#16A34A'   # key point — green
+FILL_CLR = '#DBEAFE'   # fill under curve — light blue
+
+t = np.linspace(0, 6, 400)
+k = 0.7
+
+fig, axes = plt.subplots(1, 3, figsize=(13, 4.2))
+fig.suptitle('Solution shapes for the three applied D.E. models', fontsize=13, y=1.01)
+
+# ── 1. Decay  N = A·e^{-kt} ──────────────────────────────────────────────
+ax = axes[0]
+A = 8
+N = A * np.exp(-k * t)
+
+ax.plot(t, N, color=ROOT_CLR, lw=2.2, label=r'$N = Ae^{-kt}$')
+ax.axhline(0, color=ASYM_CLR, lw=1.4, ls='--', label=r'$N \to 0$')
+ax.fill_between(t, N, 0, alpha=0.08, color=ROOT_CLR)
+
+# initial point
+ax.scatter([0], [A], color=PT_CLR, zorder=6, s=60)
+ax.annotate(r'$(0,\,A)$', xy=(0, A), xytext=(0.25, A - 0.9),
+            color=PT_CLR, fontsize=10)
+
+ax.set_xlim(-0.2, 6.2)
+ax.set_ylim(-1, 10)
+ax.set_xlabel('$t$', fontsize=12)
+ax.set_ylabel('$N$', fontsize=12, rotation=0, labelpad=10)
+ax.set_title("Decay\n" r"$\dfrac{dN}{dt} = -kN$", fontsize=11, pad=8)
+ax.legend(fontsize=9, loc='upper right')
+ax.spines[['top', 'right']].set_visible(False)
+ax.set_xticks([])
+ax.set_yticks([])
+
+# ── 2. Newton's Law of Cooling  θ = θ₀ + A·e^{-kt} ──────────────────────
+ax = axes[1]
+theta0 = 2
+A2 = 7
+theta = theta0 + A2 * np.exp(-k * t)
+
+ax.plot(t, theta, color=ROOT_CLR, lw=2.2, label=r'$\theta = \theta_0 + Ae^{-kt}$')
+ax.axhline(theta0, color=ASYM_CLR, lw=1.4, ls='--', label=r'$\theta \to \theta_0$')
+ax.fill_between(t, theta, theta0, alpha=0.08, color=ROOT_CLR)
+
+# initial point
+ax.scatter([0], [theta0 + A2], color=PT_CLR, zorder=6, s=60)
+ax.annotate(r'$(0,\,\theta_0\!+\!A)$', xy=(0, theta0 + A2),
+            xytext=(0.2, theta0 + A2 - 1.1), color=PT_CLR, fontsize=10)
+
+# θ₀ label on asymptote
+ax.text(5.9, theta0 + 0.25, r'$\theta_0$', color=ASYM_CLR, fontsize=11, ha='right')
+
+ax.set_xlim(-0.2, 6.2)
+ax.set_ylim(0, 11)
+ax.set_xlabel('$t$', fontsize=12)
+ax.set_ylabel(r'$\theta$', fontsize=12, rotation=0, labelpad=10)
+ax.set_title("Newton's Law of Cooling\n" r"$\dfrac{d\theta}{dt} = -k(\theta - \theta_0)$",
+             fontsize=11, pad=8)
+ax.legend(fontsize=9, loc='upper right')
+ax.spines[['top', 'right']].set_visible(False)
+ax.set_xticks([])
+ax.set_yticks([])
+
+# ── 3. Leaking Container  V = P/k − A·e^{-kt}  (empty at t=0 → A = P/k) ─
+ax = axes[2]
+P, k3 = 5, 0.7
+V_lim = P / k3          # equilibrium volume
+V = V_lim * (1 - np.exp(-k3 * t))   # starts at 0, rises to P/k
+
+ax.plot(t, V, color=ROOT_CLR, lw=2.2, label=r'$V = \dfrac{P}{k}(1-e^{-kt})$')
+ax.axhline(V_lim, color=ASYM_CLR, lw=1.4, ls='--', label=r'$V \to P/k$')
+ax.fill_between(t, V, 0, alpha=0.08, color=ROOT_CLR)
+
+# initial point
+ax.scatter([0], [0], color=PT_CLR, zorder=6, s=60)
+ax.annotate('$(0,\,0)$', xy=(0, 0), xytext=(0.2, 0.4), color=PT_CLR, fontsize=10)
+
+# P/k label on asymptote
+ax.text(5.9, V_lim + 0.2, r'$P/k$', color=ASYM_CLR, fontsize=11, ha='right')
+
+ax.set_xlim(-0.2, 6.2)
+ax.set_ylim(-0.5, V_lim + 2)
+ax.set_xlabel('$t$', fontsize=12)
+ax.set_ylabel('$V$', fontsize=12, rotation=0, labelpad=10)
+ax.set_title("Leaking Container\n" r"$\dfrac{dV}{dt} = P - kV$", fontsize=11, pad=8)
+ax.legend(fontsize=9, loc='lower right')
+ax.spines[['top', 'right']].set_visible(False)
+ax.set_xticks([])
+ax.set_yticks([])
+
+plt.tight_layout()
+plt.show()
+```
 
 ---
 

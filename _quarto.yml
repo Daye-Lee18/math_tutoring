@@ -1,6 +1,10 @@
 project:
   type: website
   output-dir: _output
+  render:
+    - "**/*.qmd"
+    - "**/*.md"
+    - "!9_differential_equation/core_concepts.md"
 
 website:
   title: "A-Level Maths Tutoring"
@@ -16,16 +20,26 @@ website:
             href: 3_numerical_method/core_concept.qmd
           - text: "4 · Further Trigonometry"
             href: 4_further_tria/further_trigonometry.qmd
+          - text: "4 · Further Trig — Practice"
+            href: 4_further_tria/further_trig_practice_basic.md
           - text: "5 · Differentiation Pt.1"
             href: 5_differentiation_part1/core_concepts.md
+          - text: "5 · Differentiation Pt.1 — Practice"
+            href: 5_differentiation_part1/practice_basic.md
           - text: "6 · Review Exercise"
             href: 6_review_exercise/review_exercise.qmd
           - text: "7 · Differentiation Pt.2"
             href: 7_differentiation_part2/core_concepts_v2.md
+          - text: "7 · Differentiation Pt.2 — Practice"
+            href: 7_differentiation_part2/practice_basic.md
           - text: "8 · Integration"
             href: 8_integration/core_concepts.md
+          - text: "8 · Integration — Practice"
+            href: 8_integration/integration_practice_basic.md
           - text: "9 · Differential Equations"
-            href: 9_differential_equation/core_concepts.md
+            href: 9_differential_equation/core_concepts.qmd
+          - text: "9 · Differential Eq. — Practice"
+            href: 9_differential_equation/differential_equation_practice_basic.md
 
 format:
   html:
