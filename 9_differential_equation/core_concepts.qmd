@@ -485,3 +485,57 @@ plt.show()
 4. **Apply initial conditions** — substitute and solve for $C$ (or $A$) immediately
 5. **Answer the question** — general solution vs particular solution vs numerical value
 :::
+
+---
+
+## 4. Connected Rate of Change
+
+For three variables $x,\, y;\; t$
+
+if the **geometric** relationship between $x$ and $y$ can be given as
+
+$$x = f(y)$$
+
+and also if the rate of change of $x$ is known implicitly as
+
+$$\frac{dx}{dt} = g(x)$$
+
+the rate of change of $y$ can be also known through the **chain rule**
+
+$$\frac{dy}{dt} = \frac{dy}{dx}\cdot\frac{dx}{dt} = \frac{1}{f'(y)}\,g(x) = \frac{g(f(y))}{f'(y)}$$
+
+::: {.callout-tip title="KEY"}
+- You may have to find **for yourself** a geometric relationship between $x$ and $y$
+- You may have to find for yourself extra information for a particular solution (**when $t = 0$, usually**)
+:::
+
+---
+
+<details>
+<summary>**Ex 5 — Connected rate of change: expanding cube**</summary>
+
+At time $t$ seconds the surface area of a cube is $A\,\text{cm}^2$ and the volume is $V\,\text{cm}^3$. The surface area of the cube is expanding at a constant rate of $2\,\text{cm}^2\text{s}^{-1}$. Show that $\dfrac{dV}{dt} = \dfrac{1}{2}\,V^{1/3}$.
+
+---
+
+**Geometric relationship** — let the side length be $s$:
+
+$$A = 6s^2 \implies s = \sqrt{\frac{A}{6}}, \qquad V = s^3 = \left(\frac{A}{6}\right)^{3/2}$$
+
+So $A = 6V^{2/3}$, i.e.\ $A = f(V) = 6V^{2/3}$.
+
+**Given:** $\dfrac{dA}{dt} = 2$
+
+**Chain rule:**
+
+$$\frac{dV}{dt} = \frac{dV}{dA}\cdot\frac{dA}{dt}$$
+
+Differentiate $A = 6V^{2/3}$ with respect to $V$:
+
+$$\frac{dA}{dV} = 6\cdot\frac{2}{3}V^{-1/3} = 4V^{-1/3} \implies \frac{dV}{dA} = \frac{1}{4}V^{1/3}$$
+
+Therefore:
+
+$$\boxed{\frac{dV}{dt} = \frac{1}{4}V^{1/3}\cdot 2 = \frac{1}{2}\,V^{1/3}}$$
+
+</details>
