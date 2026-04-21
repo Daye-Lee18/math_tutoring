@@ -227,7 +227,14 @@ window.Quarto = {
   <li><a href="#cooling-dfracdthetadt--ktheta---theta_0" id="toc-cooling-dfracdthetadt--ktheta---theta_0" class="nav-link" data-scroll-target="#cooling-dfracdthetadt--ktheta---theta_0">Cooling: <span class="math inline">\(\dfrac{d\theta}{dt} = -k(\theta - \theta_0)\)</span></a></li>
   <li><a href="#leaking-dfracdvdt-p---kv" id="toc-leaking-dfracdvdt-p---kv" class="nav-link" data-scroll-target="#leaking-dfracdvdt-p---kv">Leaking: <span class="math inline">\(\dfrac{dV}{dt} = P - kV\)</span></a></li>
   </ul></li>
-  <li><a href="#quick-reference-solution-shapes" id="toc-quick-reference-solution-shapes" class="nav-link" data-scroll-target="#quick-reference-solution-shapes">3. Quick Reference — Solution Shapes</a></li>
+  <li><a href="#quick-reference-solution-shapes" id="toc-quick-reference-solution-shapes" class="nav-link" data-scroll-target="#quick-reference-solution-shapes">3. Quick Reference — Solution Shapes</a>
+  <ul class="collapse">
+  <li><a href="#step-1-변수분리" id="toc-step-1-변수분리" class="nav-link" data-scroll-target="#step-1-변수분리">Step 1 — 변수분리</a></li>
+  <li><a href="#step-2-좌변-부분분수" id="toc-step-2-좌변-부분분수" class="nav-link" data-scroll-target="#step-2-좌변-부분분수">Step 2 — 좌변 부분분수</a></li>
+  <li><a href="#step-3-적분" id="toc-step-3-적분" class="nav-link" data-scroll-target="#step-3-적분">Step 3 — 적분</a></li>
+  <li><a href="#step-4-y에-대해-풀기" id="toc-step-4-y에-대해-풀기" class="nav-link" data-scroll-target="#step-4-y에-대해-풀기">Step 4 — <span class="math inline">\(y\)</span>에 대해 풀기</a></li>
+  <li><a href="#왜-s자-곡선인가-변곡점-증명" id="toc-왜-s자-곡선인가-변곡점-증명" class="nav-link" data-scroll-target="#왜-s자-곡선인가-변곡점-증명">왜 S자 곡선인가 — 변곡점 증명</a></li>
+  </ul></li>
   <li><a href="#connected-rate-of-change" id="toc-connected-rate-of-change" class="nav-link" data-scroll-target="#connected-rate-of-change">4. Connected Rate of Change</a></li>
   </ul></li>
   </ul>
@@ -526,7 +533,7 @@ window.Quarto = {
 </ul>
 </div>
 </div>
-<div id="94f05fb9" class="cell" data-execution_count="1">
+<div id="f5536991" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -648,7 +655,66 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="22c8912e" class="cell" data-execution_count="2">
+<details>
+<summary>
+<strong>Logistic equation — 풀이 증명</strong>
+</summary>
+<section id="step-1-변수분리" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-변수분리">Step 1 — 변수분리</h3>
+<p><span class="math display">\[\frac{dy}{y(L-y)} = k\,dx\]</span></p>
+</section>
+<section id="step-2-좌변-부분분수" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-좌변-부분분수">Step 2 — 좌변 부분분수</h3>
+<p><span class="math display">\[\frac{1}{y(L-y)} = \frac{A}{y} + \frac{B}{L-y}\]</span></p>
+<p><span class="math inline">\(1 = A(L-y) + By\)</span>에서:</p>
+<ul>
+<li><span class="math inline">\(y = 0\)</span>: <span class="math inline">\(\quad A = \dfrac{1}{L}\)</span></li>
+<li><span class="math inline">\(y = L\)</span>: <span class="math inline">\(\quad B = \dfrac{1}{L}\)</span></li>
+</ul>
+<p><span class="math display">\[\frac{1}{L}\left(\frac{1}{y} + \frac{1}{L-y}\right)dy = k\,dx\]</span></p>
+</section>
+<section id="step-3-적분" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-적분">Step 3 — 적분</h3>
+<p><span class="math display">\[\frac{1}{L}\int\left(\frac{1}{y} + \frac{1}{L-y}\right)dy = \int k\,dx\]</span></p>
+<p><span class="math display">\[\frac{1}{L}\left(\ln|y| - \ln|L-y|\right) = kx + C\]</span></p>
+<p><span class="math display">\[\ln\left|\frac{y}{L-y}\right| = kLx + C'\]</span></p>
+<p><span class="math display">\[\frac{y}{L-y} = Ae^{kLx}\]</span></p>
+</section>
+<section id="step-4-y에-대해-풀기" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-y에-대해-풀기">Step 4 — <span class="math inline">\(y\)</span>에 대해 풀기</h3>
+<p><span class="math display">\[y = Ae^{kLx}(L-y) \implies y\left(1 + Ae^{kLx}\right) = ALe^{kLx}\]</span></p>
+<p>분자분모를 <span class="math inline">\(Ae^{kLx}\)</span>로 나누면:</p>
+<p><span class="math display">\[\boxed{y = \frac{L}{1 + Be^{-kLx}}} \quad \left(B = \frac{1}{A}\right)\]</span></p>
+</section>
+<section id="왜-s자-곡선인가-변곡점-증명" class="level3">
+<h3 class="anchored" data-anchor-id="왜-s자-곡선인가-변곡점-증명">왜 S자 곡선인가 — 변곡점 증명</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x \to -\infty\)</span></td>
+<td><span class="math inline">\(y \to 0\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x \to +\infty\)</span></td>
+<td><span class="math inline">\(y \to L\)</span></td>
+</tr>
+<tr class="odd">
+<td>변곡점</td>
+<td><span class="math inline">\(y = \dfrac{L}{2}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\dfrac{dy}{dx} = ky(L-y)\)</span>를 <span class="math inline">\(x\)</span>로 한 번 더 미분:</p>
+<p><span class="math display">\[\frac{d^2y}{dx^2} = k\frac{dy}{dx}(L-2y) = k^2y(L-y)(L-2y)\]</span></p>
+<p><span class="math inline">\(0 &lt; y &lt; L\)</span> 구간에서 <span class="math inline">\(\dfrac{d^2y}{dx^2} = 0\)</span>이 되는 조건은 <span class="math inline">\(y = \dfrac{L}{2}\)</span> → 이 점에서 증가 속도 최대, S자 곡선의 변곡점.</p>
+</section></details>
+<div id="7a3032fe" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -678,6 +744,7 @@ window.Quarto = {
 </div>
 <hr>
 </section>
+
 <section id="connected-rate-of-change" class="level2">
 <h2 class="anchored" data-anchor-id="connected-rate-of-change">4. Connected Rate of Change</h2>
 <p>For three variables <span class="math inline">\(x,\, y;\; t\)</span></p>
