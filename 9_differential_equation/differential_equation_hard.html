@@ -245,6 +245,11 @@ window.Quarto = {
 <hr>
 <section id="q1.-separable-de-양변-모두-부분분수-double-partial-fractions" class="level2">
 <h2 class="anchored" data-anchor-id="q1.-separable-de-양변-모두-부분분수-double-partial-fractions">Q1. Separable DE — 양변 모두 부분분수 (Double Partial Fractions)</h2>
+<blockquote class="blockquote">
+<p><strong>[문제 해석]</strong><br>
+우변이 <span class="math inline">\(y\)</span>끼리의 곱 × <span class="math inline">\(x\)</span>끼리의 곱으로 완전히 분리되는 형태다. 각 변수를 한쪽으로 몰아 변수분리한 뒤, 좌변(<span class="math inline">\(y\)</span> 쪽)과 우변(<span class="math inline">\(x\)</span> 쪽) <strong>각각에</strong> 부분분수를 적용해야 한다. 적분하면 양변 모두 로그 형태가 나오고, 이 로그들을 합치면서 초기조건으로 <span class="math inline">\(C\)</span>를 결정해 implicit solution을 도출하는 것이 핵심이다.<br>
+(e)는 implicit solution에 <span class="math inline">\(x=6\)</span>을 대입한 뒤, 2차방정식처럼 <span class="math inline">\(y\)</span>를 풀어내면 된다.</p>
+</blockquote>
 <p><span class="math display">\[\frac{dy}{dx} = \frac{y(y-3)}{x(x+2)}, \qquad y = 6 \text{ when } x = 2\]</span></p>
 <p><strong>(a)</strong> Show that the equation can be written in the separated form</p>
 <p><span class="math display">\[\frac{dy}{y(y-3)} = \frac{dx}{x(x+2)}\]</span></p>
@@ -325,6 +330,11 @@ window.Quarto = {
 </section>
 <section id="q2.-separable-de-치환-u-ln-y-부분분수" class="level2">
 <h2 class="anchored" data-anchor-id="q2.-separable-de-치환-u-ln-y-부분분수">Q2. Separable DE — 치환 <span class="math inline">\(u = \ln y\)</span> + 부분분수</h2>
+<blockquote class="blockquote">
+<p><strong>[문제 해석]</strong><br>
+우변에 <span class="math inline">\(\ln y\)</span>가 붙어 있어서 그냥 변수분리하면 <span class="math inline">\(\int \frac{dy}{y \ln y}\)</span>가 나온다 — 이 적분이 <span class="math inline">\(u = \ln y\)</span>로 치환해야 깔끔해진다는 신호다. 치환 후 방정식이 <span class="math inline">\(u\)</span>에 대한 separable DE로 바뀌고, 우변 <span class="math inline">\(\frac{1}{x(x+1)}\)</span>은 다시 부분분수로 처리한다. 최종적으로 <span class="math inline">\(y = e^{u(x)}\)</span> 형태로 explicit solution을 구할 수 있다.<br>
+<span class="math inline">\(x \to \infty\)</span>일 때의 점근값을 구하는 것도 중요한 포인트.</p>
+</blockquote>
 <p><span class="math display">\[x(x+1)\,\frac{dy}{dx} = y\ln y, \qquad y = e \text{ when } x = 1\]</span></p>
 <p><strong>(a)</strong> Let <span class="math inline">\(u = \ln y\)</span>. Show that this substitution transforms the equation into</p>
 <p><span class="math display">\[x(x+1)\,\frac{du}{dx} = u\]</span></p>
@@ -380,6 +390,11 @@ window.Quarto = {
 </section>
 <section id="q3.-connected-rates-of-change-원통형-탱크-배수" class="level2">
 <h2 class="anchored" data-anchor-id="q3.-connected-rates-of-change-원통형-탱크-배수">Q3. Connected Rates of Change — 원통형 탱크 배수</h2>
+<blockquote class="blockquote">
+<p><strong>[문제 해석]</strong><br>
+주어진 건 <span class="math inline">\(\frac{dV}{dt}\)</span>인데, 구해야 하는 건 <span class="math inline">\(\frac{dh}{dt}\)</span>다. 원통형이므로 <span class="math inline">\(V = \pi r^2 h\)</span>로 <span class="math inline">\(V\)</span>와 <span class="math inline">\(h\)</span>를 연결한 뒤 양변을 <span class="math inline">\(t\)</span>로 미분하면 <span class="math inline">\(\frac{dV}{dt}\)</span>와 <span class="math inline">\(\frac{dh}{dt}\)</span>가 연결된다 — 이게 connected rates의 핵심이다. 이후 나온 <span class="math inline">\(\frac{dh}{dt} = -\frac{2}{9\pi}\sqrt{h}\)</span>를 separable DE로 풀면 <span class="math inline">\(h(t)\)</span>를 구할 수 있다.<br>
+<span class="math inline">\(h\)</span>가 작아질수록 배수 속도가 느려진다는 물리적 의미도 이해해두면 좋다.</p>
+</blockquote>
 <p>A large cylindrical water tank has a circular cross-section of radius 3 metres. Water drains through a small hole at the base. By Torricelli’s Law, the volume flow rate satisfies</p>
 <p><span class="math display">\[\frac{dV}{dt} = -2\sqrt{h}\]</span></p>
 <p>where <span class="math inline">\(V\)</span> m<span class="math inline">\(^3\)</span> is the volume of water and <span class="math inline">\(h\)</span> metres is the depth. Initially, the depth is 9 metres.</p>
@@ -440,6 +455,11 @@ window.Quarto = {
 </section>
 <section id="q4.-applied-de-drug-infusion-model-다단계-문제" class="level2">
 <h2 class="anchored" data-anchor-id="q4.-applied-de-drug-infusion-model-다단계-문제">Q4. Applied DE — Drug Infusion Model (다단계 문제)</h2>
+<blockquote class="blockquote">
+<p><strong>[문제 해석]</strong><br>
+약물이 일정 속도로 들어오고 체내에서 비율로 빠져나가는 모델로, 형태는 <span class="math inline">\(\frac{dQ}{dt} = R - kQ\)</span>다. 장기 평형값 <span class="math inline">\(Q_\infty = R/k\)</span>를 먼저 구하면 해의 형태를 미리 예측할 수 있다. 특히 (e)에서 주입이 <strong>중단되는 순간</strong> 새로운 초기조건 <span class="math inline">\(Q_0 = 400\)</span>이 설정되며, 이후는 완전히 다른 DE (<span class="math inline">\(\frac{dQ}{d\tau} = -kQ\)</span>)를 새로 풀어야 한다 — 원래 식을 그대로 이어가면 틀린다.<br>
+(d)와 (e)(ii)의 답이 같게 나오는 대칭 구조를 이해하면 개념이 잡힌다.</p>
+</blockquote>
 <p>A drug is administered intravenously at a constant rate of <span class="math inline">\(60\)</span> mg/hour. The body eliminates the drug at a rate proportional to the current amount <span class="math inline">\(Q\)</span> mg present, with elimination constant <span class="math inline">\(k = 0.15\)</span> hr<span class="math inline">\(^{-1}\)</span>.</p>
 <p><strong>(a)</strong> Write down the differential equation for <span class="math inline">\(\dfrac{dQ}{dt}\)</span>.</p>
 <p><strong>(b)</strong> Find the equilibrium (long-term) level <span class="math inline">\(Q_\infty\)</span> and determine whether it lies within the safe therapeutic range of <span class="math inline">\([200,\ 500]\)</span> mg.</p>
