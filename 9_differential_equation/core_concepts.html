@@ -498,8 +498,17 @@ window.Quarto = {
 <td><span class="math inline">\(\theta = \theta_0 + Ae^{-kt}\)</span></td>
 <td><span class="math inline">\(V = \dfrac{P}{k} - Ae^{-kt}\)</span></td>
 </tr>
+<tr class="odd">
+<td><strong>Graph starts at</strong></td>
+<td><span class="math inline">\((0,\, A)\)</span> — initial amount</td>
+<td><span class="math inline">\((0,\, \theta_0 + A)\)</span> — initial temp</td>
+<td>depends on <span class="math inline">\(V_0\)</span>: see note ↓</td>
+</tr>
 </tbody>
 </table>
+<blockquote class="blockquote">
+<p><strong>Note (Leaking Container):</strong> The graph shows the special case <span class="math inline">\(V_0 = 0\)</span> (tank starts empty), which gives <span class="math inline">\(A = \dfrac{P}{k}\)</span> and simplifies to <span class="math inline">\(V = \dfrac{P}{k}(1-e^{-kt})\)</span>, starting at <span class="math inline">\((0,0)\)</span>. In general, if the tank starts with volume <span class="math inline">\(V_0\)</span>, then <span class="math inline">\(A = \dfrac{P}{k} - V_0\)</span>, so the curve starts at <span class="math inline">\((0,\, V_0)\)</span> instead.</p>
+</blockquote>
 <div class="callout callout-style-default callout-tip callout-titled" title="KEY">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -517,7 +526,7 @@ window.Quarto = {
 </ul>
 </div>
 </div>
-<div id="9a5f99aa" class="cell" data-execution_count="1">
+<div id="94f05fb9" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -639,7 +648,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="6792f96e" class="cell" data-execution_count="2">
+<div id="22c8912e" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
