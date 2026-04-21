@@ -436,6 +436,58 @@ $$\boxed{V \to 50\ \text{litres}}$$
 | $\dfrac{dy}{dx} = k(L - y)$ | Approaches limit $L$ | $y = L - Ae^{-kx}$ |
 | $\dfrac{dy}{dx} = ky(L-y)$ | Logistic (S-curve) | $y = \dfrac{L}{1+Ae^{-kLx}}$ |
 
+<details>
+<summary>**Logistic equation — 풀이 증명**</summary>
+
+### Step 1 — 변수분리
+
+$$\frac{dy}{y(L-y)} = k\,dx$$
+
+### Step 2 — 좌변 부분분수
+
+$$\frac{1}{y(L-y)} = \frac{A}{y} + \frac{B}{L-y}$$
+
+$1 = A(L-y) + By$에서:
+
+- $y = 0$: $\quad A = \dfrac{1}{L}$
+- $y = L$: $\quad B = \dfrac{1}{L}$
+
+$$\frac{1}{L}\left(\frac{1}{y} + \frac{1}{L-y}\right)dy = k\,dx$$
+
+### Step 3 — 적분
+
+$$\frac{1}{L}\int\left(\frac{1}{y} + \frac{1}{L-y}\right)dy = \int k\,dx$$
+
+$$\frac{1}{L}\left(\ln|y| - \ln|L-y|\right) = kx + C$$
+
+$$\ln\left|\frac{y}{L-y}\right| = kLx + C'$$
+
+$$\frac{y}{L-y} = Ae^{kLx}$$
+
+### Step 4 — $y$에 대해 풀기
+
+$$y = Ae^{kLx}(L-y) \implies y\left(1 + Ae^{kLx}\right) = ALe^{kLx}$$
+
+분자분모를 $Ae^{kLx}$로 나누면:
+
+$$\boxed{y = \frac{L}{1 + Be^{-kLx}}} \quad \left(B = \frac{1}{A}\right)$$
+
+### 왜 S자 곡선인가 — 변곡점 증명
+
+| | 값 |
+|---|---|
+| $x \to -\infty$ | $y \to 0$ |
+| $x \to +\infty$ | $y \to L$ |
+| 변곡점 | $y = \dfrac{L}{2}$ |
+
+$\dfrac{dy}{dx} = ky(L-y)$를 $x$로 한 번 더 미분:
+
+$$\frac{d^2y}{dx^2} = k\frac{dy}{dx}(L-2y) = k^2y(L-y)(L-2y)$$
+
+$0 < y < L$ 구간에서 $\dfrac{d^2y}{dx^2} = 0$이 되는 조건은 $y = \dfrac{L}{2}$ → 이 점에서 증가 속도 최대, S자 곡선의 변곡점.
+
+</details>
+
 ```{python}
 import numpy as np
 import matplotlib.pyplot as plt
