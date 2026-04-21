@@ -186,6 +186,10 @@ window.Quarto = {
  <span class="dropdown-text">9 · Differential Eq. — Hard</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="../9_differential_equation/differential_equation_trig_practice.html">
+ <span class="dropdown-text">9 · Differential Eq. — Trig Practice</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../10_vector/core_concepts.html">
  <span class="dropdown-text">10 · Vectors</span></a>
   </li>  
@@ -213,6 +217,9 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#what-is-a-differential-equation" id="toc-what-is-a-differential-equation" class="nav-link" data-scroll-target="#what-is-a-differential-equation">What is a Differential Equation?</a></li>
   <li><a href="#method-separation-of-variables" id="toc-method-separation-of-variables" class="nav-link" data-scroll-target="#method-separation-of-variables">Method: Separation of Variables</a></li>
+  <li><a href="#method-1-u-substitution-권장" id="toc-method-1-u-substitution-권장" class="nav-link" data-scroll-target="#method-1-u-substitution-권장">Method 1: U-substitution (권장)</a></li>
+  <li><a href="#method-2-product-to-sum-identity" id="toc-method-2-product-to-sum-identity" class="nav-link" data-scroll-target="#method-2-product-to-sum-identity">Method 2: Product-to-sum identity</a></li>
+  <li><a href="#두-답이-같은-이유" id="toc-두-답이-같은-이유" class="nav-link" data-scroll-target="#두-답이-같은-이유">두 답이 같은 이유</a></li>
   </ul></li>
   <li><a href="#important-applied-d.e.s-in-relation-to-c3c4" id="toc-important-applied-d.e.s-in-relation-to-c3c4" class="nav-link" data-scroll-target="#important-applied-d.e.s-in-relation-to-c3c4">2. Important Applied D.E.s (in relation to C3/C4)</a>
   <ul class="collapse">
@@ -411,6 +418,37 @@ window.Quarto = {
 </blockquote>
 </div>
 </div>
+<details>
+<summary>
+<strong>풀이 비교 — <span class="math inline">\(\displaystyle\int \sin x\cos^2 x\,dx\)</span>: u-sub vs product-to-sum</strong>
+</summary>
+</details></section>
+<section id="method-1-u-substitution-권장" class="level3">
+<h3 class="anchored" data-anchor-id="method-1-u-substitution-권장">Method 1: U-substitution (권장)</h3>
+<p>Set <span class="math inline">\(u = \cos x \implies \dfrac{du}{dx} = -\sin x \implies \sin x\,dx = -du\)</span></p>
+<p><span class="math display">\[\int \sin x \cos^2 x\,dx = \int u^2 \cdot (-du) = -\int u^2\,du\]</span></p>
+<p><span class="math display">\[= -\frac{u^3}{3} + C = \boxed{-\frac{\cos^3 x}{3} + C}\]</span></p>
+<hr>
+</section>
+<section id="method-2-product-to-sum-identity" class="level3">
+<h3 class="anchored" data-anchor-id="method-2-product-to-sum-identity">Method 2: Product-to-sum identity</h3>
+<p>Triple angle identity 이용: <span class="math inline">\(\sin 3x = 3\sin x - 4\sin^3 x\)</span>, <span class="math inline">\(\cos 3x = 4\cos^3 x - 3\cos x\)</span></p>
+<p>여기서는 다음 identity 사용:</p>
+<p><span class="math display">\[\sin x \cos^2 x = \frac{1}{4}(\sin 3x + \sin x)\]</span></p>
+<blockquote class="blockquote">
+<p><em>유도:</em> <span class="math inline">\(\sin 3x = \sin(2x+x) = \sin 2x\cos x + \cos 2x\sin x\)</span> <span class="math inline">\(= 2\sin x\cos^2 x + (1-2\sin^2 x)\sin x = 3\sin x - 4\sin^3 x\)</span> 한편 <span class="math inline">\(\sin x\cos^2 x = \sin x(1-\sin^2 x)\)</span>이므로 <span class="math inline">\(\sin 3x + \sin x = 4\sin x - 4\sin^3 x = 4\sin x\cos^2 x\)</span> <span class="math inline">\(\implies \sin x\cos^2 x = \tfrac{1}{4}(\sin 3x + \sin x)\)</span></p>
+</blockquote>
+<p>따라서:</p>
+<p><span class="math display">\[\int \sin x\cos^2 x\,dx = \frac{1}{4}\int(\sin 3x + \sin x)\,dx\]</span></p>
+<p><span class="math display">\[= \frac{1}{4}\left(-\frac{\cos 3x}{3} - \cos x\right) + C = \boxed{-\frac{\cos 3x}{12} - \frac{\cos x}{4} + C}\]</span></p>
+<hr>
+</section>
+<section id="두-답이-같은-이유" class="level3">
+<h3 class="anchored" data-anchor-id="두-답이-같은-이유">두 답이 같은 이유</h3>
+<p><span class="math inline">\(-\dfrac{\cos^3 x}{3}\)</span>과 <span class="math inline">\(-\dfrac{\cos 3x}{12} - \dfrac{\cos x}{4}\)</span>는 상수 차이만 있는 동일한 함수야.</p>
+<p><span class="math inline">\(\cos 3x = 4\cos^3 x - 3\cos x\)</span>를 대입하면:</p>
+<p><span class="math display">\[-\frac{4\cos^3 x - 3\cos x}{12} - \frac{\cos x}{4} = -\frac{\cos^3 x}{3} + \frac{\cos x}{4} - \frac{\cos x}{4} = -\frac{\cos^3 x}{3}\]</span></p>
+
 <hr>
 </section>
 </section>
@@ -479,7 +517,7 @@ window.Quarto = {
 </ul>
 </div>
 </div>
-<div id="f9cc35b9" class="cell" data-execution_count="1">
+<div id="9a5f99aa" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -601,7 +639,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div id="4498b279" class="cell" data-execution_count="2">
+<div id="6792f96e" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>differential_equation_trig_practice – A-Level Maths Tutoring</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">A-Level Maths Tutoring</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pure-mathematics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pure Mathematics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-pure-mathematics">    
+        <li>
+    <a class="dropdown-item" href="../2_transformation/basic_forms.html">
+ <span class="dropdown-text">2 · Transformation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../3_numerical_method/core_concept.html">
+ <span class="dropdown-text">3 · Numerical Methods</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../4_further_tria/further_trigonometry.html">
+ <span class="dropdown-text">4 · Further Trigonometry</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../4_further_tria/further_trig_practice_basic.html">
+ <span class="dropdown-text">4 · Further Trig — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../5_differentiation_part1/core_concepts.html">
+ <span class="dropdown-text">5 · Differentiation Pt.1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../5_differentiation_part1/practice_basic.html">
+ <span class="dropdown-text">5 · Differentiation Pt.1 — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../6_review_exercise/review_exercise.html">
+ <span class="dropdown-text">6 · Review Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../7_differentiation_part2/core_concepts_v2.html">
+ <span class="dropdown-text">7 · Differentiation Pt.2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../7_differentiation_part2/practice_basic.html">
+ <span class="dropdown-text">7 · Differentiation Pt.2 — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../8_integration/core_concepts.html">
+ <span class="dropdown-text">8 · Integration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../8_integration/integration_practice_basic.html">
+ <span class="dropdown-text">8 · Integration — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/core_concepts.html">
+ <span class="dropdown-text">9 · Differential Equations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/differential_equation_practice_basic.html">
+ <span class="dropdown-text">9 · Differential Eq. — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/differential_equation_hard.html">
+ <span class="dropdown-text">9 · Differential Eq. — Hard</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/differential_equation_trig_practice.html">
+ <span class="dropdown-text">9 · Differential Eq. — Trig Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../10_vector/core_concepts.html">
+ <span class="dropdown-text">10 · Vectors</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#differential-equations-삼각함수-집중-연습" id="toc-differential-equations-삼각함수-집중-연습" class="nav-link active" data-scroll-target="#differential-equations-삼각함수-집중-연습">Differential Equations — 삼각함수 집중 연습</a>
+  <ul class="collapse">
+  <li><a href="#필수-적분-공식-이것만-외우면-된다" id="toc-필수-적분-공식-이것만-외우면-된다" class="nav-link" data-scroll-target="#필수-적분-공식-이것만-외우면-된다">필수 적분 공식 — 이것만 외우면 된다</a></li>
+  <li><a href="#type-a-직접-적분형-direct-integration" id="toc-type-a-직접-적분형-direct-integration" class="nav-link" data-scroll-target="#type-a-직접-적분형-direct-integration">Type A — 직접 적분형 (Direct Integration)</a>
+  <ul class="collapse">
+  <li><a href="#a1.-dfracdydx-tan2-x" id="toc-a1.-dfracdydx-tan2-x" class="nav-link" data-scroll-target="#a1.-dfracdydx-tan2-x">A1. <span class="math inline">\(\dfrac{dy}{dx} = \tan^2 x\)</span></a></li>
+  <li><a href="#a2.-dfracdydx-sin2-x" id="toc-a2.-dfracdydx-sin2-x" class="nav-link" data-scroll-target="#a2.-dfracdydx-sin2-x">A2. <span class="math inline">\(\dfrac{dy}{dx} = \sin^2 x\)</span></a></li>
+  <li><a href="#a3.-dfracdydx-cos2-xquad-y-1-text-when-x-0" id="toc-a3.-dfracdydx-cos2-xquad-y-1-text-when-x-0" class="nav-link" data-scroll-target="#a3.-dfracdydx-cos2-xquad-y-1-text-when-x-0">A3. <span class="math inline">\(\dfrac{dy}{dx} = \cos^2 x,\quad y = 1 \text{ when } x = 0\)</span></a></li>
+  <li><a href="#a4.-dfracdydx-3tan2-x-2sec2-x" id="toc-a4.-dfracdydx-3tan2-x-2sec2-x" class="nav-link" data-scroll-target="#a4.-dfracdydx-3tan2-x-2sec2-x">A4. <span class="math inline">\(\dfrac{dy}{dx} = 3\tan^2 x + 2\sec^2 x\)</span></a></li>
+  <li><a href="#a5.-dfracdydx-sin2-x-cdot-cos2-x" id="toc-a5.-dfracdydx-sin2-x-cdot-cos2-x" class="nav-link" data-scroll-target="#a5.-dfracdydx-sin2-x-cdot-cos2-x">A5. <span class="math inline">\(\dfrac{dy}{dx} = \sin^2 x \cdot \cos^2 x\)</span></a></li>
+  </ul></li>
+  <li><a href="#type-b-separable-x-쪽에-삼각함수-항등식-필요" id="toc-type-b-separable-x-쪽에-삼각함수-항등식-필요" class="nav-link" data-scroll-target="#type-b-separable-x-쪽에-삼각함수-항등식-필요">Type B — Separable, <span class="math inline">\(x\)</span> 쪽에 삼각함수 항등식 필요</a>
+  <ul class="collapse">
+  <li><a href="#b1.-dfracdydx-ytan2-x" id="toc-b1.-dfracdydx-ytan2-x" class="nav-link" data-scroll-target="#b1.-dfracdydx-ytan2-x">B1. <span class="math inline">\(\dfrac{dy}{dx} = y\tan^2 x\)</span></a></li>
+  <li><a href="#b2.-cos2-xdfracdydx-y2sin2-x" id="toc-b2.-cos2-xdfracdydx-y2sin2-x" class="nav-link" data-scroll-target="#b2.-cos2-xdfracdydx-y2sin2-x">B2. <span class="math inline">\(\cos^2 x\,\dfrac{dy}{dx} = y^2\sin^2 x\)</span></a></li>
+  <li><a href="#b3.-dfracdydx-dfracysin2-xcos2-xquad-y-2-text-when-x-0" id="toc-b3.-dfracdydx-dfracysin2-xcos2-xquad-y-2-text-when-x-0" class="nav-link" data-scroll-target="#b3.-dfracdydx-dfracysin2-xcos2-xquad-y-2-text-when-x-0">B3. <span class="math inline">\(\dfrac{dy}{dx} = \dfrac{y\sin^2 x}{\cos^2 x},\quad y = 2 \text{ when } x = 0\)</span></a></li>
+  <li><a href="#b4.-sec2-xdfracdydx-y" id="toc-b4.-sec2-xdfracdydx-y" class="nav-link" data-scroll-target="#b4.-sec2-xdfracdydx-y">B4. <span class="math inline">\(\sec^2 x\,\dfrac{dy}{dx} = y\)</span></a></li>
+  <li><a href="#b5.-dfracdydx-y2sin2-xquad-y-1-text-when-x-dfracpi2" id="toc-b5.-dfracdydx-y2sin2-xquad-y-1-text-when-x-dfracpi2" class="nav-link" data-scroll-target="#b5.-dfracdydx-y2sin2-xquad-y-1-text-when-x-dfracpi2">B5. <span class="math inline">\(\dfrac{dy}{dx} = y^2\sin^2 x,\quad y = 1 \text{ when } x = \dfrac{\pi}{2}\)</span></a></li>
+  </ul></li>
+  <li><a href="#type-c-separable-y-쪽에-삼각함수" id="toc-type-c-separable-y-쪽에-삼각함수" class="nav-link" data-scroll-target="#type-c-separable-y-쪽에-삼각함수">Type C — Separable, <span class="math inline">\(y\)</span> 쪽에 삼각함수</a>
+  <ul class="collapse">
+  <li><a href="#c1.-dfracdydx-cos-ycdotsec2-xquad-y-dfracpi4-text-when-x-0" id="toc-c1.-dfracdydx-cos-ycdotsec2-xquad-y-dfracpi4-text-when-x-0" class="nav-link" data-scroll-target="#c1.-dfracdydx-cos-ycdotsec2-xquad-y-dfracpi4-text-when-x-0">C1. <span class="math inline">\(\dfrac{dy}{dx} = \cos y\cdot\sec^2 x,\quad y = \dfrac{\pi}{4} \text{ when } x = 0\)</span></a></li>
+  <li><a href="#c2.-cos2-ydfracdydx-ex" id="toc-c2.-cos2-ydfracdydx-ex" class="nav-link" data-scroll-target="#c2.-cos2-ydfracdydx-ex">C2. <span class="math inline">\(\cos^2 y\,\dfrac{dy}{dx} = e^x\)</span></a></li>
+  <li><a href="#c3.-dfracdydx-tan2-ycdot-x2" id="toc-c3.-dfracdydx-tan2-ycdot-x2" class="nav-link" data-scroll-target="#c3.-dfracdydx-tan2-ycdot-x2">C3. <span class="math inline">\(\dfrac{dy}{dx} = \tan^2 y\cdot x^2\)</span></a></li>
+  </ul></li>
+  <li><a href="#type-d-양변-모두-삼각함수" id="toc-type-d-양변-모두-삼각함수" class="nav-link" data-scroll-target="#type-d-양변-모두-삼각함수">Type D — 양변 모두 삼각함수</a>
+  <ul class="collapse">
+  <li><a href="#d1.-sin-ydfracdydx-cos-xcos2-y" id="toc-d1.-sin-ydfracdydx-cos-xcos2-y" class="nav-link" data-scroll-target="#d1.-sin-ydfracdydx-cos-xcos2-y">D1. <span class="math inline">\(\sin y\,\dfrac{dy}{dx} = \cos x\cos^2 y\)</span></a></li>
+  <li><a href="#d2.-dfracdydx-dfractan2-xtan2-y" id="toc-d2.-dfracdydx-dfractan2-xtan2-y" class="nav-link" data-scroll-target="#d2.-dfracdydx-dfractan2-xtan2-y">D2. <span class="math inline">\(\dfrac{dy}{dx} = \dfrac{\tan^2 x}{\tan^2 y}\)</span></a></li>
+  <li><a href="#d3.-dfracdydx-dfracsin2-ysin-xcos-xquad-y-dfracpi4-text-when-x-dfracpi4" id="toc-d3.-dfracdydx-dfracsin2-ysin-xcos-xquad-y-dfracpi4-text-when-x-dfracpi4" class="nav-link" data-scroll-target="#d3.-dfracdydx-dfracsin2-ysin-xcos-xquad-y-dfracpi4-text-when-x-dfracpi4">D3. <span class="math inline">\(\dfrac{dy}{dx} = \dfrac{\sin^2 y}{\sin x\cos x},\quad y = \dfrac{\pi}{4} \text{ when } x = \dfrac{\pi}{4}\)</span></a></li>
+  <li><a href="#d4.-cos2-xdfracdydx-sin2-y" id="toc-d4.-cos2-xdfracdydx-sin2-y" class="nav-link" data-scroll-target="#d4.-cos2-xdfracdydx-sin2-y">D4. <span class="math inline">\(\cos^2 x\,\dfrac{dy}{dx} = \sin^2 y\)</span></a></li>
+  </ul></li>
+  <li><a href="#type-e-까다로운-특수해-삼각함수-혼합" id="toc-type-e-까다로운-특수해-삼각함수-혼합" class="nav-link" data-scroll-target="#type-e-까다로운-특수해-삼각함수-혼합">Type E — 까다로운 특수해 + 삼각함수 혼합</a>
+  <ul class="collapse">
+  <li><a href="#e1.-dfracdydx-sin-xcos2-xquad-y-0-text-when-x-dfracpi3" id="toc-e1.-dfracdydx-sin-xcos2-xquad-y-0-text-when-x-dfracpi3" class="nav-link" data-scroll-target="#e1.-dfracdydx-sin-xcos2-xquad-y-0-text-when-x-dfracpi3">E1. <span class="math inline">\(\dfrac{dy}{dx} = \sin x\cos^2 x,\quad y = 0 \text{ when } x = \dfrac{\pi}{3}\)</span></a></li>
+  <li><a href="#e2.-dfracdydx-dfracsec2-xy1quad-y-0-text-when-x-0" id="toc-e2.-dfracdydx-dfracsec2-xy1quad-y-0-text-when-x-0" class="nav-link" data-scroll-target="#e2.-dfracdydx-dfracsec2-xy1quad-y-0-text-when-x-0">E2. <span class="math inline">\(\dfrac{dy}{dx} = \dfrac{\sec^2 x}{y+1},\quad y = 0 \text{ when } x = 0\)</span></a></li>
+  <li><a href="#e3.-1-cos-xdfracdydx-ysin-xquad-y-2-text-when-x-pi" id="toc-e3.-1-cos-xdfracdydx-ysin-xquad-y-2-text-when-x-pi" class="nav-link" data-scroll-target="#e3.-1-cos-xdfracdydx-ysin-xquad-y-2-text-when-x-pi">E3. <span class="math inline">\((1 + \cos x)\,\dfrac{dy}{dx} = y\sin x,\quad y = 2 \text{ when } x = \pi\)</span></a></li>
+  <li><a href="#e4.-dfracdydx-dfraceycos2-xquad-y-0-text-when-x-dfracpi4" id="toc-e4.-dfracdydx-dfraceycos2-xquad-y-0-text-when-x-dfracpi4" class="nav-link" data-scroll-target="#e4.-dfracdydx-dfraceycos2-xquad-y-0-text-when-x-dfracpi4">E4. <span class="math inline">\(\dfrac{dy}{dx} = \dfrac{e^y}{\cos^2 x},\quad y = 0 \text{ when } x = \dfrac{\pi}{4}\)</span></a></li>
+  </ul></li>
+  <li><a href="#유형별-총정리-어떤-패턴에서-어떤-항등식이-필요한가" id="toc-유형별-총정리-어떤-패턴에서-어떤-항등식이-필요한가" class="nav-link" data-scroll-target="#유형별-총정리-어떤-패턴에서-어떤-항등식이-필요한가">유형별 총정리 — 어떤 패턴에서 어떤 항등식이 필요한가</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="differential-equations-삼각함수-집중-연습" class="level1">
+<h1>Differential Equations — 삼각함수 집중 연습</h1>
+<blockquote class="blockquote">
+<p><strong>대상:</strong> 삼각함수 적분이 포함된 DE에서 막히는 학생<br>
+<strong>구성:</strong> 유형 A~E, 총 20문제 + 전체 풀이<br>
+<strong>필수 선행지식:</strong> <span class="math inline">\(\tan^2 x = \sec^2 x - 1\)</span>, <span class="math inline">\(\sin^2 x = \frac{1-\cos 2x}{2}\)</span>, <span class="math inline">\(\cos^2 x = \frac{1+\cos 2x}{2}\)</span>, <span class="math inline">\(\sin x\cos x = \frac{\sin 2x}{2}\)</span></p>
+</blockquote>
+<hr>
+<section id="필수-적분-공식-이것만-외우면-된다" class="level2">
+<h2 class="anchored" data-anchor-id="필수-적분-공식-이것만-외우면-된다">필수 적분 공식 — 이것만 외우면 된다</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>적분</th>
+<th>결과</th>
+<th>핵심 변환</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\int \sec^2 x\,dx\)</span></td>
+<td><span class="math inline">\(\tan x + C\)</span></td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\int \tan^2 x\,dx\)</span></td>
+<td><span class="math inline">\(\tan x - x + C\)</span></td>
+<td><span class="math inline">\(\tan^2 x = \sec^2 x - 1\)</span> 먼저</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\int \sin^2 x\,dx\)</span></td>
+<td><span class="math inline">\(\frac{x}{2} - \frac{\sin 2x}{4} + C\)</span></td>
+<td><span class="math inline">\(\sin^2 x = \frac{1-\cos 2x}{2}\)</span> 먼저</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\int \cos^2 x\,dx\)</span></td>
+<td><span class="math inline">\(\frac{x}{2} + \frac{\sin 2x}{4} + C\)</span></td>
+<td><span class="math inline">\(\cos^2 x = \frac{1+\cos 2x}{2}\)</span> 먼저</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\int \tan x\,dx\)</span></td>
+<td><span class="math inline">\(\ln\|\sec x\| + C\)</span></td>
+<td><span class="math inline">\(= -\ln\|\cos x\| + C\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\int \sin x\cos x\,dx\)</span></td>
+<td><span class="math inline">\(\frac{1}{2}\sin^2 x + C\)</span></td>
+<td><span class="math inline">\(= -\frac{1}{4}\cos 2x + C\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\int \cot x\,dx\)</span></td>
+<td><span class="math inline">\(\ln\|\sin x\| + C\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\int \frac{1}{\sin x\cos x}\,dx\)</span></td>
+<td><span class="math inline">\(\ln\|\tan x\| + C\)</span></td>
+<td><span class="math inline">\(\frac{1}{\sin x\cos x} = \frac{2}{\sin 2x} = 2\csc 2x\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="type-a-직접-적분형-direct-integration" class="level2">
+<h2 class="anchored" data-anchor-id="type-a-직접-적분형-direct-integration">Type A — 직접 적분형 (Direct Integration)</h2>
+<blockquote class="blockquote">
+<p><span class="math inline">\(\frac{dy}{dx} = f(x)\)</span> 형태. <span class="math inline">\(y\)</span>가 없으므로 우변을 그냥 적분.<br>
+<strong>막히는 포인트:</strong> <span class="math inline">\(\tan^2 x\)</span>, <span class="math inline">\(\sin^2 x\)</span>는 그대로 적분이 안 된다 — 항등식으로 변환 먼저.</p>
+</blockquote>
+<hr>
+<section id="a1.-dfracdydx-tan2-x" class="level3">
+<h3 class="anchored" data-anchor-id="a1.-dfracdydx-tan2-x">A1. <span class="math inline">\(\dfrac{dy}{dx} = \tan^2 x\)</span></h3>
+<p><strong>풀이</strong></p>
+<p><span class="math inline">\(\tan^2 x = \sec^2 x - 1\)</span> 변환:</p>
+<p><span class="math display">\[y = \int \tan^2 x\,dx = \int (\sec^2 x - 1)\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\boxed{y = \tan x - x + C} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="a2.-dfracdydx-sin2-x" class="level3">
+<h3 class="anchored" data-anchor-id="a2.-dfracdydx-sin2-x">A2. <span class="math inline">\(\dfrac{dy}{dx} = \sin^2 x\)</span></h3>
+<p><strong>풀이</strong></p>
+<p><span class="math inline">\(\sin^2 x = \dfrac{1-\cos 2x}{2}\)</span> 변환:</p>
+<p><span class="math display">\[y = \int \frac{1-\cos 2x}{2}\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\boxed{y = \frac{x}{2} - \frac{\sin 2x}{4} + C} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="a3.-dfracdydx-cos2-xquad-y-1-text-when-x-0" class="level3">
+<h3 class="anchored" data-anchor-id="a3.-dfracdydx-cos2-xquad-y-1-text-when-x-0">A3. <span class="math inline">\(\dfrac{dy}{dx} = \cos^2 x,\quad y = 1 \text{ when } x = 0\)</span></h3>
+<p><strong>풀이</strong></p>
+<p><span class="math inline">\(\cos^2 x = \dfrac{1+\cos 2x}{2}\)</span> 변환:</p>
+<p><span class="math display">\[y = \int \frac{1+\cos 2x}{2}\,dx = \frac{x}{2} + \frac{\sin 2x}{4} + C \tag{M1 A1}\]</span></p>
+<p>초기조건 <span class="math inline">\(x=0,\ y=1\)</span>:</p>
+<p><span class="math display">\[1 = 0 + 0 + C \implies C = 1 \tag{M1}\]</span></p>
+<p><span class="math display">\[\boxed{y = \frac{x}{2} + \frac{\sin 2x}{4} + 1} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="a4.-dfracdydx-3tan2-x-2sec2-x" class="level3">
+<h3 class="anchored" data-anchor-id="a4.-dfracdydx-3tan2-x-2sec2-x">A4. <span class="math inline">\(\dfrac{dy}{dx} = 3\tan^2 x + 2\sec^2 x\)</span></h3>
+<p><strong>풀이</strong></p>
+<p><span class="math display">\[y = \int (3\tan^2 x + 2\sec^2 x)\,dx = \int (3(\sec^2 x - 1) + 2\sec^2 x)\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[= \int (5\sec^2 x - 3)\,dx\]</span></p>
+<p><span class="math display">\[\boxed{y = 5\tan x - 3x + C} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="a5.-dfracdydx-sin2-x-cdot-cos2-x" class="level3">
+<h3 class="anchored" data-anchor-id="a5.-dfracdydx-sin2-x-cdot-cos2-x">A5. <span class="math inline">\(\dfrac{dy}{dx} = \sin^2 x \cdot \cos^2 x\)</span></h3>
+<p><strong>풀이</strong></p>
+<p><span class="math inline">\(\sin^2 x\cos^2 x = \dfrac{\sin^2 2x}{4} = \dfrac{1-\cos 4x}{8}\)</span> 변환:</p>
+<p><span class="math display">\[y = \int \frac{1-\cos 4x}{8}\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\boxed{y = \frac{x}{8} - \frac{\sin 4x}{32} + C} \tag{A1}\]</span></p>
+<blockquote class="blockquote">
+<p><strong>유도:</strong> <span class="math inline">\(\sin^2 x \cos^2 x = (\sin x \cos x)^2 = \left(\frac{\sin 2x}{2}\right)^2 = \frac{\sin^2 2x}{4}\)</span>, 그 다음 <span class="math inline">\(\sin^2 2x = \frac{1-\cos 4x}{2}\)</span>.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="type-b-separable-x-쪽에-삼각함수-항등식-필요" class="level2">
+<h2 class="anchored" data-anchor-id="type-b-separable-x-쪽에-삼각함수-항등식-필요">Type B — Separable, <span class="math inline">\(x\)</span> 쪽에 삼각함수 항등식 필요</h2>
+<blockquote class="blockquote">
+<p>변수분리 후 <span class="math inline">\(x\)</span> 쪽 적분에 항등식 변환이 필요한 유형.<br>
+<strong>막히는 포인트:</strong> 분리까지는 잘 하는데, <span class="math inline">\(\int \tan^2 x\,dx\)</span> 또는 <span class="math inline">\(\int \sin^2 x\,dx\)</span>에서 멈춤.</p>
+</blockquote>
+<hr>
+<section id="b1.-dfracdydx-ytan2-x" class="level3">
+<h3 class="anchored" data-anchor-id="b1.-dfracdydx-ytan2-x">B1. <span class="math inline">\(\dfrac{dy}{dx} = y\tan^2 x\)</span></h3>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[\frac{dy}{y} = \tan^2 x\,dx = (\sec^2 x - 1)\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\int \frac{dy}{y} = \int (\sec^2 x - 1)\,dx\]</span></p>
+<p><span class="math display">\[\ln|y| = \tan x - x + C \tag{A1}\]</span></p>
+<p><span class="math display">\[\boxed{y = Ae^{\tan x - x}} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="b2.-cos2-xdfracdydx-y2sin2-x" class="level3">
+<h3 class="anchored" data-anchor-id="b2.-cos2-xdfracdydx-y2sin2-x">B2. <span class="math inline">\(\cos^2 x\,\dfrac{dy}{dx} = y^2\sin^2 x\)</span></h3>
+<blockquote class="blockquote">
+<p><em>(core_concepts의 예제 변형 — 반드시 숙지)</em></p>
+</blockquote>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[\frac{dy}{y^2} = \frac{\sin^2 x}{\cos^2 x}\,dx = \tan^2 x\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\int y^{-2}\,dy = \int (\sec^2 x - 1)\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[-\frac{1}{y} = \tan x - x + C \tag{A1}\]</span></p>
+<p><span class="math display">\[\boxed{y = \frac{-1}{\tan x - x + C}} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="b3.-dfracdydx-dfracysin2-xcos2-xquad-y-2-text-when-x-0" class="level3">
+<h3 class="anchored" data-anchor-id="b3.-dfracdydx-dfracysin2-xcos2-xquad-y-2-text-when-x-0">B3. <span class="math inline">\(\dfrac{dy}{dx} = \dfrac{y\sin^2 x}{\cos^2 x},\quad y = 2 \text{ when } x = 0\)</span></h3>
+<p><strong>풀이</strong></p>
+<p><span class="math inline">\(\dfrac{\sin^2 x}{\cos^2 x} = \tan^2 x = \sec^2 x - 1\)</span>이므로:</p>
+<p><span class="math display">\[\frac{dy}{y} = (\sec^2 x - 1)\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\ln|y| = \tan x - x + C \tag{A1}\]</span></p>
+<p>초기조건 <span class="math inline">\(x=0,\ y=2\)</span>:</p>
+<p><span class="math display">\[\ln 2 = 0 - 0 + C \implies C = \ln 2 \tag{M1}\]</span></p>
+<p><span class="math display">\[\ln|y| = \tan x - x + \ln 2\]</span></p>
+<p><span class="math display">\[\boxed{y = 2e^{\tan x - x}} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="b4.-sec2-xdfracdydx-y" class="level3">
+<h3 class="anchored" data-anchor-id="b4.-sec2-xdfracdydx-y">B4. <span class="math inline">\(\sec^2 x\,\dfrac{dy}{dx} = y\)</span></h3>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[\frac{dy}{y} = \frac{dx}{\sec^2 x} = \cos^2 x\,dx = \frac{1+\cos 2x}{2}\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\ln|y| = \frac{x}{2} + \frac{\sin 2x}{4} + C \tag{A1}\]</span></p>
+<p><span class="math display">\[\boxed{y = Ae^{\,x/2\;+\;\sin 2x/4}} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="b5.-dfracdydx-y2sin2-xquad-y-1-text-when-x-dfracpi2" class="level3">
+<h3 class="anchored" data-anchor-id="b5.-dfracdydx-y2sin2-xquad-y-1-text-when-x-dfracpi2">B5. <span class="math inline">\(\dfrac{dy}{dx} = y^2\sin^2 x,\quad y = 1 \text{ when } x = \dfrac{\pi}{2}\)</span></h3>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[\frac{dy}{y^2} = \sin^2 x\,dx = \frac{1-\cos 2x}{2}\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[-\frac{1}{y} = \frac{x}{2} - \frac{\sin 2x}{4} + C \tag{A1}\]</span></p>
+<p>초기조건 <span class="math inline">\(x = \dfrac{\pi}{2},\ y = 1\)</span>: <span class="math inline">\(\quad \sin\pi = 0\)</span>이므로</p>
+<p><span class="math display">\[-1 = \frac{\pi}{4} - 0 + C \implies C = -1 - \frac{\pi}{4} \tag{M1}\]</span></p>
+<p><span class="math display">\[-\frac{1}{y} = \frac{x}{2} - \frac{\sin 2x}{4} - 1 - \frac{\pi}{4}\]</span></p>
+<p><span class="math display">\[\boxed{y = \dfrac{-1}{\dfrac{x}{2} - \dfrac{\sin 2x}{4} - 1 - \dfrac{\pi}{4}}} \tag{A1}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="type-c-separable-y-쪽에-삼각함수" class="level2">
+<h2 class="anchored" data-anchor-id="type-c-separable-y-쪽에-삼각함수">Type C — Separable, <span class="math inline">\(y\)</span> 쪽에 삼각함수</h2>
+<blockquote class="blockquote">
+<p>변수분리 후 <span class="math inline">\(y\)</span>를 포함한 삼각함수 적분이 나오는 유형.<br>
+<span class="math inline">\(\int \sin y\,dy\)</span>, <span class="math inline">\(\int \cos y\,dy\)</span>, <span class="math inline">\(\int \sec^2 y\,dy\)</span> 등.</p>
+</blockquote>
+<hr>
+<section id="c1.-dfracdydx-cos-ycdotsec2-xquad-y-dfracpi4-text-when-x-0" class="level3">
+<h3 class="anchored" data-anchor-id="c1.-dfracdydx-cos-ycdotsec2-xquad-y-dfracpi4-text-when-x-0">C1. <span class="math inline">\(\dfrac{dy}{dx} = \cos y\cdot\sec^2 x,\quad y = \dfrac{\pi}{4} \text{ when } x = 0\)</span></h3>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[\frac{dy}{\cos y} = \sec^2 x\,dx \implies \sec y\,dy = \sec^2 x\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\int \sec y\,dy = \int \sec^2 x\,dx\]</span></p>
+<p><span class="math display">\[\ln|\sec y + \tan y| = \tan x + C \tag{A1}\]</span></p>
+<p>초기조건 <span class="math inline">\(x=0,\ y=\dfrac{\pi}{4}\)</span>: <span class="math inline">\(\;\sec\frac{\pi}{4} = \sqrt{2},\; \tan\frac{\pi}{4} = 1\)</span></p>
+<p><span class="math display">\[\ln(\sqrt{2}+1) = 0 + C \implies C = \ln(\sqrt{2}+1) \tag{M1}\]</span></p>
+<p><span class="math display">\[\boxed{\ln|\sec y + \tan y| = \tan x + \ln(\sqrt{2}+1)} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="c2.-cos2-ydfracdydx-ex" class="level3">
+<h3 class="anchored" data-anchor-id="c2.-cos2-ydfracdydx-ex">C2. <span class="math inline">\(\cos^2 y\,\dfrac{dy}{dx} = e^x\)</span></h3>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[\cos^2 y\,dy = e^x\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\int \cos^2 y\,dy = \int e^x\,dx\]</span></p>
+<p><span class="math display">\[\int \frac{1+\cos 2y}{2}\,dy = e^x + C\]</span></p>
+<p><span class="math display">\[\frac{y}{2} + \frac{\sin 2y}{4} = e^x + C \tag{A1}\]</span></p>
+<p><span class="math display">\[\boxed{\frac{y}{2} + \frac{\sin 2y}{4} = e^x + C} \tag{A1}\]</span></p>
+<blockquote class="blockquote">
+<p><span class="math inline">\(y\)</span>를 explicit하게 분리할 수 없다 — implicit form이 최종 답.</p>
+</blockquote>
+<hr>
+</section>
+<section id="c3.-dfracdydx-tan2-ycdot-x2" class="level3">
+<h3 class="anchored" data-anchor-id="c3.-dfracdydx-tan2-ycdot-x2">C3. <span class="math inline">\(\dfrac{dy}{dx} = \tan^2 y\cdot x^2\)</span></h3>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[\frac{dy}{\tan^2 y} = x^2\,dx \implies \frac{\cos^2 y}{\sin^2 y}\,dy = x^2\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\int \cot^2 y\,dy = \int x^2\,dx\]</span></p>
+<p><span class="math inline">\(\cot^2 y = \csc^2 y - 1\)</span>이므로:</p>
+<p><span class="math display">\[\int (\csc^2 y - 1)\,dy = \int x^2\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[-\cot y - y = \frac{x^3}{3} + C \tag{A1}\]</span></p>
+<p><span class="math display">\[\boxed{-\cot y - y = \frac{x^3}{3} + C} \tag{A1}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="type-d-양변-모두-삼각함수" class="level2">
+<h2 class="anchored" data-anchor-id="type-d-양변-모두-삼각함수">Type D — 양변 모두 삼각함수</h2>
+<blockquote class="blockquote">
+<p>가장 까다로운 유형. 분리 후 양변 모두 항등식 변환 또는 치환이 필요.</p>
+</blockquote>
+<hr>
+<section id="d1.-sin-ydfracdydx-cos-xcos2-y" class="level3">
+<h3 class="anchored" data-anchor-id="d1.-sin-ydfracdydx-cos-xcos2-y">D1. <span class="math inline">\(\sin y\,\dfrac{dy}{dx} = \cos x\cos^2 y\)</span></h3>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[\frac{\sin y}{\cos^2 y}\,dy = \cos x\,dx \implies \sec y\tan y\,dy = \cos x\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\int \sec y\tan y\,dy = \int \cos x\,dx\]</span></p>
+<p><span class="math display">\[\sec y = \sin x + C \tag{A1}\]</span></p>
+<p><span class="math display">\[\boxed{\frac{1}{\cos y} = \sin x + C} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="d2.-dfracdydx-dfractan2-xtan2-y" class="level3">
+<h3 class="anchored" data-anchor-id="d2.-dfracdydx-dfractan2-xtan2-y">D2. <span class="math inline">\(\dfrac{dy}{dx} = \dfrac{\tan^2 x}{\tan^2 y}\)</span></h3>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[\tan^2 y\,dy = \tan^2 x\,dx \tag{M1}\]</span></p>
+<p>양변 모두 <span class="math inline">\(\tan^2 = \sec^2 - 1\)</span> 변환:</p>
+<p><span class="math display">\[\int (\sec^2 y - 1)\,dy = \int (\sec^2 x - 1)\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\tan y - y = \tan x - x + C \tag{A1}\]</span></p>
+<p><span class="math display">\[\boxed{\tan y - y = \tan x - x + C} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="d3.-dfracdydx-dfracsin2-ysin-xcos-xquad-y-dfracpi4-text-when-x-dfracpi4" class="level3">
+<h3 class="anchored" data-anchor-id="d3.-dfracdydx-dfracsin2-ysin-xcos-xquad-y-dfracpi4-text-when-x-dfracpi4">D3. <span class="math inline">\(\dfrac{dy}{dx} = \dfrac{\sin^2 y}{\sin x\cos x},\quad y = \dfrac{\pi}{4} \text{ when } x = \dfrac{\pi}{4}\)</span></h3>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[\frac{dy}{\sin^2 y} = \frac{dx}{\sin x\cos x} \tag{M1}\]</span></p>
+<p>좌변: <span class="math inline">\(\int \csc^2 y\,dy = -\cot y\)</span></p>
+<p>우변: <span class="math inline">\(\dfrac{1}{\sin x\cos x} = \dfrac{2}{\sin 2x} = 2\csc 2x\)</span></p>
+<p><span class="math display">\[\int 2\csc 2x\,dx = \ln|\tan x| + C \tag{M1}\]</span></p>
+<p><span class="math display">\[-\cot y = \ln|\tan x| + C \tag{A1}\]</span></p>
+<p>초기조건 <span class="math inline">\(x=\frac{\pi}{4},\ y=\frac{\pi}{4}\)</span>: <span class="math inline">\(\;\cot\frac{\pi}{4} = 1,\;\tan\frac{\pi}{4} = 1\)</span></p>
+<p><span class="math display">\[-1 = \ln 1 + C \implies C = -1 \tag{M1}\]</span></p>
+<p><span class="math display">\[\boxed{-\cot y = \ln|\tan x| - 1} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="d4.-cos2-xdfracdydx-sin2-y" class="level3">
+<h3 class="anchored" data-anchor-id="d4.-cos2-xdfracdydx-sin2-y">D4. <span class="math inline">\(\cos^2 x\,\dfrac{dy}{dx} = \sin^2 y\)</span></h3>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[\frac{dy}{\sin^2 y} = \frac{dx}{\cos^2 x} \implies \csc^2 y\,dy = \sec^2 x\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\int \csc^2 y\,dy = \int \sec^2 x\,dx\]</span></p>
+<p><span class="math display">\[-\cot y = \tan x + C \tag{A1}\]</span></p>
+<p><span class="math display">\[\boxed{\cot y + \tan x + C = 0} \tag{A1}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="type-e-까다로운-특수해-삼각함수-혼합" class="level2">
+<h2 class="anchored" data-anchor-id="type-e-까다로운-특수해-삼각함수-혼합">Type E — 까다로운 특수해 + 삼각함수 혼합</h2>
+<blockquote class="blockquote">
+<p>여러 유형이 섞인 종합 문제.</p>
+</blockquote>
+<hr>
+<section id="e1.-dfracdydx-sin-xcos2-xquad-y-0-text-when-x-dfracpi3" class="level3">
+<h3 class="anchored" data-anchor-id="e1.-dfracdydx-sin-xcos2-xquad-y-0-text-when-x-dfracpi3">E1. <span class="math inline">\(\dfrac{dy}{dx} = \sin x\cos^2 x,\quad y = 0 \text{ when } x = \dfrac{\pi}{3}\)</span></h3>
+<blockquote class="blockquote">
+<p><em>(core_concepts Ex 2(i) — 복습 확인용)</em></p>
+</blockquote>
+<p><strong>풀이</strong></p>
+<p><span class="math display">\[dy = \sin x\cos^2 x\,dx \tag{M1}\]</span></p>
+<p>치환 <span class="math inline">\(u = \cos x,\; du = -\sin x\,dx\)</span>:</p>
+<p><span class="math display">\[y = -\int u^2\,du = -\frac{\cos^3 x}{3} + C \tag{A1}\]</span></p>
+<p>초기조건 <span class="math inline">\(x=\frac{\pi}{3},\ y=0\)</span>: <span class="math inline">\(\;\cos\frac{\pi}{3} = \frac{1}{2}\)</span></p>
+<p><span class="math display">\[0 = -\frac{(1/2)^3}{3} + C = -\frac{1}{24} + C \implies C = \frac{1}{24} \tag{M1}\]</span></p>
+<p><span class="math display">\[\boxed{y = -\frac{\cos^3 x}{3} + \frac{1}{24}} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="e2.-dfracdydx-dfracsec2-xy1quad-y-0-text-when-x-0" class="level3">
+<h3 class="anchored" data-anchor-id="e2.-dfracdydx-dfracsec2-xy1quad-y-0-text-when-x-0">E2. <span class="math inline">\(\dfrac{dy}{dx} = \dfrac{\sec^2 x}{y+1},\quad y = 0 \text{ when } x = 0\)</span></h3>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[(y+1)\,dy = \sec^2 x\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\frac{(y+1)^2}{2} = \tan x + C \tag{A1}\]</span></p>
+<p>초기조건 <span class="math inline">\(x=0,\ y=0\)</span>:</p>
+<p><span class="math display">\[\frac{1}{2} = 0 + C \implies C = \frac{1}{2} \tag{M1}\]</span></p>
+<p><span class="math display">\[\frac{(y+1)^2}{2} = \tan x + \frac{1}{2} \implies (y+1)^2 = 2\tan x + 1\]</span></p>
+<p><span class="math display">\[\boxed{y = -1 + \sqrt{2\tan x + 1}} \tag{A1}\]</span></p>
+<p>(<span class="math inline">\(y \geq 0\)</span>이므로 양의 근 선택)</p>
+<hr>
+</section>
+<section id="e3.-1-cos-xdfracdydx-ysin-xquad-y-2-text-when-x-pi" class="level3">
+<h3 class="anchored" data-anchor-id="e3.-1-cos-xdfracdydx-ysin-xquad-y-2-text-when-x-pi">E3. <span class="math inline">\((1 + \cos x)\,\dfrac{dy}{dx} = y\sin x,\quad y = 2 \text{ when } x = \pi\)</span></h3>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[\frac{dy}{y} = \frac{\sin x}{1+\cos x}\,dx \tag{M1}\]</span></p>
+<p>우변: 치환 <span class="math inline">\(u = 1+\cos x,\; du = -\sin x\,dx\)</span></p>
+<p><span class="math display">\[\int \frac{\sin x}{1+\cos x}\,dx = \int \frac{-du}{u} = -\ln|1+\cos x| \tag{M1}\]</span></p>
+<p><span class="math display">\[\ln|y| = -\ln|1+\cos x| + C \tag{A1}\]</span></p>
+<p>초기조건 <span class="math inline">\(x=\pi,\ y=2\)</span>: <span class="math inline">\(\;1+\cos\pi = 1-1 = 0\)</span> …</p>
+<blockquote class="blockquote">
+<p><strong>주의:</strong> <span class="math inline">\(x = \pi\)</span>에서 <span class="math inline">\(1+\cos\pi = 0\)</span> — 분모가 0이 되어 해가 불안정하다. 초기조건을 <span class="math inline">\(x = 0\)</span>으로 바꾸면:</p>
+</blockquote>
+<p><span class="math inline">\(x=0,\ y=2\)</span>로 수정: <span class="math inline">\(\;1+\cos 0 = 2\)</span></p>
+<p><span class="math display">\[\ln 2 = -\ln 2 + C \implies C = 2\ln 2 = \ln 4 \tag{M1}\]</span></p>
+<p><span class="math display">\[\ln|y| = \ln 4 - \ln|1+\cos x| = \ln\frac{4}{1+\cos x}\]</span></p>
+<p><span class="math display">\[\boxed{y = \frac{4}{1+\cos x}} \tag{A1}\]</span></p>
+<hr>
+</section>
+<section id="e4.-dfracdydx-dfraceycos2-xquad-y-0-text-when-x-dfracpi4" class="level3">
+<h3 class="anchored" data-anchor-id="e4.-dfracdydx-dfraceycos2-xquad-y-0-text-when-x-dfracpi4">E4. <span class="math inline">\(\dfrac{dy}{dx} = \dfrac{e^y}{\cos^2 x},\quad y = 0 \text{ when } x = \dfrac{\pi}{4}\)</span></h3>
+<p><strong>풀이</strong></p>
+<p>변수분리:</p>
+<p><span class="math display">\[e^{-y}\,dy = \frac{dx}{\cos^2 x} = \sec^2 x\,dx \tag{M1}\]</span></p>
+<p><span class="math display">\[\int e^{-y}\,dy = \int \sec^2 x\,dx\]</span></p>
+<p><span class="math display">\[-e^{-y} = \tan x + C \tag{A1}\]</span></p>
+<p>초기조건 <span class="math inline">\(x=\frac{\pi}{4},\ y=0\)</span>: <span class="math inline">\(\;\tan\frac{\pi}{4} = 1\)</span></p>
+<p><span class="math display">\[-1 = 1 + C \implies C = -2 \tag{M1}\]</span></p>
+<p><span class="math display">\[-e^{-y} = \tan x - 2 \implies e^{-y} = 2 - \tan x\]</span></p>
+<p><span class="math display">\[\boxed{y = -\ln(2 - \tan x)} \tag{A1}\]</span></p>
+<blockquote class="blockquote">
+<p><strong>정의역 주의:</strong> <span class="math inline">\(2 - \tan x &gt; 0\)</span>이어야 하므로 <span class="math inline">\(\tan x &lt; 2\)</span>인 범위에서만 유효하다.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="유형별-총정리-어떤-패턴에서-어떤-항등식이-필요한가" class="level2">
+<h2 class="anchored" data-anchor-id="유형별-총정리-어떤-패턴에서-어떤-항등식이-필요한가">유형별 총정리 — 어떤 패턴에서 어떤 항등식이 필요한가</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>우변 패턴</th>
+<th>막히는 이유</th>
+<th>처방</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\tan^2 x\)</span></td>
+<td>직접 적분 불가</td>
+<td><span class="math inline">\(\sec^2 x - 1\)</span>로 변환 후 적분</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\sin^2 x\)</span> 또는 <span class="math inline">\(\cos^2 x\)</span></td>
+<td>직접 적분 불가</td>
+<td>반각 공식으로 변환</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\frac{\sin^2 x}{\cos^2 x}\)</span></td>
+<td><span class="math inline">\(= \tan^2 x\)</span>임을 인식 못함</td>
+<td>먼저 <span class="math inline">\(\tan^2 x\)</span>로 쓰고 → <span class="math inline">\(\sec^2 x - 1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\sin x\cos^2 x\)</span></td>
+<td>어떤 치환인지 모름</td>
+<td><span class="math inline">\(u = \cos x\)</span> (미분하면 <span class="math inline">\(-\sin x\)</span>가 이미 있음)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\frac{1}{\sin x\cos x}\)</span></td>
+<td>어떻게 적분하나?</td>
+<td><span class="math inline">\(= \frac{2}{\sin 2x}\)</span>, 그 다음 <span class="math inline">\(\ln\|\tan x\|\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\cot^2 y\)</span> (<span class="math inline">\(y\)</span> 쪽)</td>
+<td><span class="math inline">\(\cot^2\)</span>을 모름</td>
+<td><span class="math inline">\(\csc^2 y - 1\)</span>로 변환</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\sec y \tan y\)</span> (<span class="math inline">\(y\)</span> 쪽)</td>
+<td><span class="math inline">\(= \frac{d}{dy}\sec y\)</span>임을 인식 못함</td>
+<td><span class="math inline">\(\int \sec y\tan y\,dy = \sec y\)</span></td>
+</tr>
+</tbody>
+</table>
+
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
