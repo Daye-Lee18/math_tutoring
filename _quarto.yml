@@ -40,8 +40,10 @@ website:
             href: 9_differential_equation/core_concepts.qmd
           - text: "9 · Differential Eq. — Practice"
             href: 9_differential_equation/differential_equation_practice_basic.md
+          - text: "9 · Differential Eq. — Hard"
+            href: 9_differential_equation/differential_equation_hard.md
           - text: "10 · Vectors"
-            href: 10_vectors/core_concepts.qmd
+            href: 10_vector/core_concepts.qmd
 
 format:
   html:
