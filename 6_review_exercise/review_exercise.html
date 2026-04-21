@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Review Exercise — A-Level Mathematics – A-Level Maths Tutoring</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">A-Level Maths Tutoring</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pure-mathematics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pure Mathematics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-pure-mathematics">    
+        <li>
+    <a class="dropdown-item" href="../2_transformation/basic_forms.html">
+ <span class="dropdown-text">2 · Transformation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../3_numerical_method/core_concept.html">
+ <span class="dropdown-text">3 · Numerical Methods</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../4_further_tria/further_trigonometry.html">
+ <span class="dropdown-text">4 · Further Trigonometry</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../4_further_tria/further_trig_practice_basic.html">
+ <span class="dropdown-text">4 · Further Trig — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../5_differentiation_part1/core_concepts.html">
+ <span class="dropdown-text">5 · Differentiation Pt.1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../5_differentiation_part1/practice_basic.html">
+ <span class="dropdown-text">5 · Differentiation Pt.1 — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../6_review_exercise/review_exercise.html">
+ <span class="dropdown-text">6 · Review Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../7_differentiation_part2/core_concepts_v2.html">
+ <span class="dropdown-text">7 · Differentiation Pt.2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../7_differentiation_part2/practice_basic.html">
+ <span class="dropdown-text">7 · Differentiation Pt.2 — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../8_integration/core_concepts.html">
+ <span class="dropdown-text">8 · Integration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../8_integration/integration_practice_basic.html">
+ <span class="dropdown-text">8 · Integration — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/core_concepts.html">
+ <span class="dropdown-text">9 · Differential Equations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/differential_equation_practice_basic.html">
+ <span class="dropdown-text">9 · Differential Eq. — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/differential_equation_hard.html">
+ <span class="dropdown-text">9 · Differential Eq. — Hard</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../10_vector/core_concepts.html">
+ <span class="dropdown-text">10 · Vectors</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#q1-algebraic-fractions" id="toc-q1-algebraic-fractions" class="nav-link active" data-scroll-target="#q1-algebraic-fractions">Q1 — Algebraic Fractions</a>
+  <ul class="collapse">
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
+  </ul></li>
+  <li><a href="#q2-exponential-logarithm-equations-8" id="toc-q2-exponential-logarithm-equations-8" class="nav-link" data-scroll-target="#q2-exponential-logarithm-equations-8">Q2 — Exponential &amp; Logarithm Equations <strong>(8)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-1" id="toc-solution-1" class="nav-link" data-scroll-target="#solution-1">Solution</a></li>
+  </ul></li>
+  <li><a href="#q3-logarithms-7" id="toc-q3-logarithms-7" class="nav-link" data-scroll-target="#q3-logarithms-7">Q3 — Logarithms <strong>(7)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-2" id="toc-solution-2" class="nav-link" data-scroll-target="#solution-2">Solution</a></li>
+  </ul></li>
+  <li><a href="#q4-simultaneous-equations-8" id="toc-q4-simultaneous-equations-8" class="nav-link" data-scroll-target="#q4-simultaneous-equations-8">Q4 — Simultaneous Equations <strong>(8)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-3" id="toc-solution-3" class="nav-link" data-scroll-target="#solution-3">Solution</a></li>
+  </ul></li>
+  <li><a href="#q5-algebraic-fractions-9" id="toc-q5-algebraic-fractions-9" class="nav-link" data-scroll-target="#q5-algebraic-fractions-9">Q5 — Algebraic Fractions <strong>(9)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-4" id="toc-solution-4" class="nav-link" data-scroll-target="#solution-4">Solution</a></li>
+  </ul></li>
+  <li><a href="#q6-exponential-logarithm-equations-7" id="toc-q6-exponential-logarithm-equations-7" class="nav-link" data-scroll-target="#q6-exponential-logarithm-equations-7">Q6 — Exponential &amp; Logarithm Equations <strong>(7)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-5" id="toc-solution-5" class="nav-link" data-scroll-target="#solution-5">Solution</a></li>
+  </ul></li>
+  <li><a href="#q7-functions-inverses" id="toc-q7-functions-inverses" class="nav-link" data-scroll-target="#q7-functions-inverses">Q7 — Functions &amp; Inverses</a>
+  <ul class="collapse">
+  <li><a href="#solution-6" id="toc-solution-6" class="nav-link" data-scroll-target="#solution-6">Solution</a></li>
+  </ul></li>
+  <li><a href="#q8-functions-6" id="toc-q8-functions-6" class="nav-link" data-scroll-target="#q8-functions-6">Q8 — Functions <strong>(6)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-7" id="toc-solution-7" class="nav-link" data-scroll-target="#solution-7">Solution</a></li>
+  </ul></li>
+  <li><a href="#q9-functions-transformations-inverse-13" id="toc-q9-functions-transformations-inverse-13" class="nav-link" data-scroll-target="#q9-functions-transformations-inverse-13">Q9 — Functions, Transformations &amp; Inverse <strong>(13)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-8" id="toc-solution-8" class="nav-link" data-scroll-target="#solution-8">Solution</a></li>
+  </ul></li>
+  <li><a href="#q10-composite-functions-inverse-12" id="toc-q10-composite-functions-inverse-12" class="nav-link" data-scroll-target="#q10-composite-functions-inverse-12">Q10 — Composite Functions &amp; Inverse <strong>(12)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-9" id="toc-solution-9" class="nav-link" data-scroll-target="#solution-9">Solution</a></li>
+  </ul></li>
+  <li><a href="#q11-graph-transformations-11" id="toc-q11-graph-transformations-11" class="nav-link" data-scroll-target="#q11-graph-transformations-11">Q11 — Graph Transformations <strong>(11)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-10" id="toc-solution-10" class="nav-link" data-scroll-target="#solution-10">Solution</a></li>
+  </ul></li>
+  <li><a href="#q12-modulus-graphs-equations-10" id="toc-q12-modulus-graphs-equations-10" class="nav-link" data-scroll-target="#q12-modulus-graphs-equations-10">Q12 — Modulus Graphs &amp; Equations <strong>(10)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-11" id="toc-solution-11" class="nav-link" data-scroll-target="#solution-11">Solution</a></li>
+  </ul></li>
+  <li><a href="#q13-trigonometric-identities" id="toc-q13-trigonometric-identities" class="nav-link" data-scroll-target="#q13-trigonometric-identities">Q13 — Trigonometric Identities</a>
+  <ul class="collapse">
+  <li><a href="#solution-12" id="toc-solution-12" class="nav-link" data-scroll-target="#solution-12">Solution</a></li>
+  </ul></li>
+  <li><a href="#q14-trig-identity-equation-11" id="toc-q14-trig-identity-equation-11" class="nav-link" data-scroll-target="#q14-trig-identity-equation-11">Q14 — Trig Identity &amp; Equation <strong>(11)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-13" id="toc-solution-13" class="nav-link" data-scroll-target="#solution-13">Solution</a></li>
+  </ul></li>
+  <li><a href="#q15-differentiation-find-fx" id="toc-q15-differentiation-find-fx" class="nav-link" data-scroll-target="#q15-differentiation-find-fx">Q15 — Differentiation (Find <span class="math inline">\(f'(x)\)</span>)</a></li>
+  <li><a href="#q16-differentiation-9" id="toc-q16-differentiation-9" class="nav-link" data-scroll-target="#q16-differentiation-9">Q16 — Differentiation <strong>(9)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-14" id="toc-solution-14" class="nav-link" data-scroll-target="#solution-14">Solution</a></li>
+  </ul></li>
+  <li><a href="#q17-exponential-model-10" id="toc-q17-exponential-model-10" class="nav-link" data-scroll-target="#q17-exponential-model-10">Q17 — Exponential Model <strong>(10)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-15" id="toc-solution-15" class="nav-link" data-scroll-target="#solution-15">Solution</a></li>
+  </ul></li>
+  <li><a href="#q18-fx-2x-sin-x-3-cos-x-14" id="toc-q18-fx-2x-sin-x-3-cos-x-14" class="nav-link" data-scroll-target="#q18-fx-2x-sin-x-3-cos-x-14">Q18 — f(x) = 2x + sin x − 3 cos x <strong>(14)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-16" id="toc-solution-16" class="nav-link" data-scroll-target="#solution-16">Solution</a></li>
+  </ul></li>
+  <li><a href="#q19-curve-y-sqrtx-e1-4x-14" id="toc-q19-curve-y-sqrtx-e1-4x-14" class="nav-link" data-scroll-target="#q19-curve-y-sqrtx-e1-4x-14">Q19 — Curve: <span class="math inline">\(y = \sqrt{x} + e^{1-4x}\)</span> <strong>(14)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-17" id="toc-solution-17" class="nav-link" data-scroll-target="#solution-17">Solution</a></li>
+  </ul></li>
+  <li><a href="#q20-fx-x²-5x-2-sec-x-11" id="toc-q20-fx-x²-5x-2-sec-x-11" class="nav-link" data-scroll-target="#q20-fx-x²-5x-2-sec-x-11">Q20 — f(x) = x² + 5x − 2 sec x <strong>(11)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-18" id="toc-solution-18" class="nav-link" data-scroll-target="#solution-18">Solution</a></li>
+  </ul></li>
+  <li><a href="#q21-fx-2x²-3-ln2-x-13" id="toc-q21-fx-2x²-3-ln2-x-13" class="nav-link" data-scroll-target="#q21-fx-2x²-3-ln2-x-13">Q21 — f(x) = 2x² + 3 ln(2 − x) <strong>(13)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-19" id="toc-solution-19" class="nav-link" data-scroll-target="#solution-19">Solution</a></li>
+  </ul></li>
+  <li><a href="#q22-curve-y-x2---5x-2lnfracx3-8" id="toc-q22-curve-y-x2---5x-2lnfracx3-8" class="nav-link" data-scroll-target="#q22-curve-y-x2---5x-2lnfracx3-8">Q22 — Curve: <span class="math inline">\(y = x^2 - 5x + 2\ln\frac{x}{3}\)</span> <strong>(8)</strong></a>
+  <ul class="collapse">
+  <li><a href="#solution-20" id="toc-solution-20" class="nav-link" data-scroll-target="#solution-20">Solution</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Review Exercise — A-Level Mathematics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<hr>
+<section id="q1-algebraic-fractions" class="level1">
+<h1>Q1 — Algebraic Fractions</h1>
+<p><strong>(a)</strong> Express <span class="math inline">\(\dfrac{5(x-3)(x+1)}{(x-12)(x+3)} - \dfrac{3(x+1)}{x-12}\)</span> as a single fraction in its simplest form.</p>
+<p><strong>(b)</strong> Express <span class="math inline">\(\dfrac{x}{(x+1)(x+3)} - \dfrac{3(x+1)}{x^2-9}\)</span> as a single fraction in its simplest form.</p>
+<section id="solution" class="level2">
+<h2 class="anchored" data-anchor-id="solution">Solution</h2>
+<p><strong>(a)</strong> Common denominator <span class="math inline">\((x-12)(x+3)\)</span>:</p>
+<p><span class="math display">\[\frac{5(x-3)(x+1) - 3(x+1)(x+3)}{(x-12)(x+3)} = \frac{(x+1)[5(x-3)-3(x+3)]}{(x-12)(x+3)}\]</span></p>
+<p><span class="math display">\[= \frac{(x+1)(2x-24)}{(x-12)(x+3)} = \frac{2(x+1)\cancel{(x-12)}}{\cancel{(x-12)}(x+3)} = \boxed{\dfrac{2(x+1)}{x+3}}\]</span></p>
+<p><strong>(b)</strong> Note <span class="math inline">\(x^2-9 = (x-3)(x+3)\)</span>. Common denominator <span class="math inline">\((x+1)(x+3)(x-3)\)</span>:</p>
+<p><span class="math display">\[\frac{x(x-3) - 3(x+1)^2}{(x+1)(x+3)(x-3)} = \frac{x^2-3x-3x^2-6x-3}{(x+1)(x^2-9)} = \boxed{\dfrac{-(2x^2+9x+3)}{(x+1)(x^2-9)}}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="q2-exponential-logarithm-equations-8" class="level1">
+<h1>Q2 — Exponential &amp; Logarithm Equations <strong>(8)</strong></h1>
+<p>Solve each equation, giving your answers in exact form.</p>
+<p><strong>(a)</strong> <span class="math inline">\(\ln(2x-3) = 1\)</span> <strong>(3)</strong></p>
+<p><strong>(b)</strong> <span class="math inline">\(3e^y + 5e^{-y} = 16\)</span> <strong>(5)</strong></p>
+<section id="solution-1" class="level2">
+<h2 class="anchored" data-anchor-id="solution-1">Solution</h2>
+<p><strong>(a)</strong> <span class="math display">\[2x - 3 = e \implies \boxed{x = \tfrac{e+3}{2}} \tag{M1, A1, A1}\]</span></p>
+<p><strong>(b)</strong> Multiply by <span class="math inline">\(e^y\)</span>: <span class="math inline">\(3e^{2y} - 16e^y + 5 = 0 \implies (3e^y-1)(e^y-5) = 0\)</span> <span class="math inline">\(\tag{M1, A1}\)</span></p>
+<p><span class="math display">\[e^y = \tfrac{1}{3} \text{ or } e^y = 5 \implies \boxed{y = -\ln 3 \text{ or } y = \ln 5} \tag{A1, A1, A1}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="q3-logarithms-7" class="level1">
+<h1>Q3 — Logarithms <strong>(7)</strong></h1>
+<p><strong>(a)</strong> Simplify <span class="math inline">\(\dfrac{x^2+7x+12}{2x^2+9x+4}\)</span>. <strong>(3)</strong></p>
+<p><strong>(b)</strong> Solve <span class="math inline">\(\ln(x^2+7x+12) - 1 = \ln(2x^2+9x+4)\)</span>, giving your answer in terms of e. <strong>(4)</strong></p>
+<section id="solution-2" class="level2">
+<h2 class="anchored" data-anchor-id="solution-2">Solution</h2>
+<p><strong>(a)</strong> Factor both: <span class="math inline">\((x+3)(x+4)\)</span> and <span class="math inline">\((2x+1)(x+4)\)</span>:</p>
+<p><span class="math display">\[\frac{(x+3)\cancel{(x+4)}}{(2x+1)\cancel{(x+4)}} = \boxed{\dfrac{x+3}{2x+1}} \tag{M1, A1, A1}\]</span></p>
+<p><strong>(b)</strong> Rewrite: <span class="math inline">\(\ln\dfrac{x^2+7x+12}{2x^2+9x+4} = 1\)</span>. Using part (a):</p>
+<p><span class="math display">\[\frac{x+3}{2x+1} = e \implies x+3 = 2ex+e \implies x(1-2e) = e-3\]</span></p>
+<p><span class="math display">\[\boxed{x = \dfrac{e-3}{1-2e} = \dfrac{3-e}{2e-1}} \tag{M1, M1, A1, A1}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="q4-simultaneous-equations-8" class="level1">
+<h1>Q4 — Simultaneous Equations <strong>(8)</strong></h1>
+<div style="font-size: 0.8em; color: #666;">
+<p>Simultaneous equations = 연립방정식</p>
+</div>
+<p>Giving your answers to 2 decimal places, solve the simultaneous equations:</p>
+<p><span class="math display">\[e^{2y} - x + 2 = 0\]</span> <span class="math display">\[\ln(x+3) - 2y - 1 = 0\]</span></p>
+<section id="solution-3" class="level2">
+<h2 class="anchored" data-anchor-id="solution-3">Solution</h2>
+<p>From equation 1: <span class="math inline">\(x = e^{2y}+2\)</span>. Substitute into equation 2: <span class="math inline">\(\tag{M1}\)</span></p>
+<p><span class="math display">\[\ln(e^{2y}+5) = 2y+1 \implies e^{2y}+5 = e^{2y+1} = e\cdot e^{2y} \tag{M1, A1}\]</span></p>
+<p><span class="math display">\[e^{2y}(e-1) = 5 \implies e^{2y} = \frac{5}{e-1} \tag{M1}\]</span></p>
+<p><span class="math display">\[y = \tfrac{1}{2}\ln\!\left(\tfrac{5}{e-1}\right) \approx \boxed{0.53} \qquad x = \frac{5}{e-1}+2 \approx \boxed{4.91} \tag{A1, A1, A1, A1}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="q5-algebraic-fractions-9" class="level1">
+<h1>Q5 — Algebraic Fractions <strong>(9)</strong></h1>
+<p><strong>(a)</strong> Express <span class="math inline">\(\dfrac{x-10}{(x-3)(x+4)} - \dfrac{x-8}{(x-3)(2x-1)}\)</span> as a single fraction in its simplest form. <strong>(5)</strong></p>
+<p><strong>(b)</strong> Hence, show that the equation <span class="math inline">\(\dfrac{x-10}{(x-3)(x+4)} - \dfrac{x-8}{(x-3)(2x-1)} = 1\)</span> has no real roots. <strong>(4)</strong></p>
+<section id="solution-4" class="level2">
+<h2 class="anchored" data-anchor-id="solution-4">Solution</h2>
+<p><strong>(a)</strong> Common denominator <span class="math inline">\((x-3)(x+4)(2x-1)\)</span>:</p>
+<p><span class="math display">\[\frac{(x-10)(2x-1)-(x-8)(x+4)}{(x-3)(x+4)(2x-1)}\]</span></p>
+<p>Numerator: <span class="math inline">\((2x^2-21x+10)-(x^2-4x-32) = x^2-17x+42 = (x-3)(x-14)\)</span> <span class="math inline">\(\tag{M1, A1, A1}\)</span></p>
+<p><span class="math display">\[= \frac{\cancel{(x-3)}(x-14)}{\cancel{(x-3)}(x+4)(2x-1)} = \boxed{\dfrac{x-14}{(x+4)(2x-1)}} \tag{M1, A1}\]</span></p>
+<p><strong>(b)</strong> Set equal to 1: <span class="math inline">\(x-14 = (x+4)(2x-1) = 2x^2+7x-4\)</span></p>
+<p><span class="math display">\[2x^2+6x+10 = 0 \implies x^2+3x+5 = 0 \tag{M1, A1}\]</span></p>
+<p>Discriminant: <span class="math inline">\(9-20 = -11 &lt; 0\)</span> → <strong>no real roots</strong> <span class="math inline">\(\blacksquare\)</span> <span class="math inline">\(\tag{A1, A1}\)</span></p>
+<hr>
+</section>
+</section>
+<section id="q6-exponential-logarithm-equations-7" class="level1">
+<h1>Q6 — Exponential &amp; Logarithm Equations <strong>(7)</strong></h1>
+<p>Solve each equation, giving your answers in exact form.</p>
+<p><strong>(a)</strong> <span class="math inline">\(e^{4x-3} = 2\)</span> <strong>(3)</strong></p>
+<p><strong>(b)</strong> <span class="math inline">\(\ln(2y-1) = 1 + \ln(3-y)\)</span> <strong>(4)</strong></p>
+<section id="solution-5" class="level2">
+<h2 class="anchored" data-anchor-id="solution-5">Solution</h2>
+<p><strong>(a)</strong> <span class="math inline">\(4x-3 = \ln 2 \implies \boxed{x = \dfrac{3+\ln 2}{4}}\)</span> <span class="math inline">\(\tag{M1, A1, A1}\)</span></p>
+<p><strong>(b)</strong> <span class="math inline">\(\ln\dfrac{2y-1}{3-y} = 1 \implies \dfrac{2y-1}{3-y} = e \implies 2y-1 = 3e-ey\)</span> <span class="math inline">\(\tag{M1, A1}\)</span></p>
+<p><span class="math display">\[y(2+e) = 3e+1 \implies \boxed{y = \dfrac{3e+1}{e+2}} \tag{M1, A1}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="q7-functions-inverses" class="level1">
+<h1>Q7 — Functions &amp; Inverses</h1>
+<p><strong>(a)</strong> The function <span class="math inline">\(f\)</span> is defined by <span class="math inline">\(f: x \mapsto \dfrac{3x-1}{x-3}\)</span>, <span class="math inline">\(x \in \mathbb{R}\)</span>, <span class="math inline">\(x \neq 3\)</span>.</p>
+<p> (i) Prove that <span class="math inline">\(f^{-1}(x) = f(x)\)</span> for all <span class="math inline">\(x \in \mathbb{R}\)</span>, <span class="math inline">\(x \neq 3\)</span>.</p>
+<p> (ii) Hence find, in terms of <span class="math inline">\(k\)</span>, <span class="math inline">\(ff(k)\)</span>, where <span class="math inline">\(x \neq 3\)</span>.</p>
+<p><strong>(b)</strong> Show that a function of the form <span class="math inline">\(f: x \mapsto \dfrac{x+a}{x-1}\)</span>, <span class="math inline">\(x \in \mathbb{R}\)</span>, <span class="math inline">\(x \neq -1\)</span>, is self-inverse for all values of <span class="math inline">\(a\)</span> except one. Find the exceptional value of <span class="math inline">\(a\)</span>.</p>
+<section id="solution-6" class="level2">
+<h2 class="anchored" data-anchor-id="solution-6">Solution</h2>
+<p><strong>(a)(i)</strong> Let <span class="math inline">\(y = \dfrac{3x-1}{x-3}\)</span>. Rearrange for <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[y(x-3) = 3x-1 \implies xy-3y = 3x-1 \implies x(y-3) = 3y-1 \implies x = \frac{3y-1}{y-3}\]</span></p>
+<p>So <span class="math inline">\(f^{-1}(x) = \dfrac{3x-1}{x-3} = f(x) \quad \blacksquare\)</span></p>
+<p><strong>(a)(ii)</strong> Since <span class="math inline">\(f^{-1} = f\)</span>, applying <span class="math inline">\(f\)</span> twice gives the identity: <span class="math inline">\(ff(k) = k\)</span></p>
+<p><strong>(b)</strong> Compute <span class="math inline">\(f(f(x))\)</span>:</p>
+<p><span class="math display">\[f\!\left(\frac{x+a}{x-1}\right) = \frac{\frac{x+a}{x-1}+a}{\frac{x+a}{x-1}-1} = \frac{x+a+a(x-1)}{x+a-(x-1)} = \frac{x(1+a)}{a+1}\]</span></p>
+<p>This equals <span class="math inline">\(x\)</span> provided <span class="math inline">\(a+1 \neq 0\)</span>, i.e., <span class="math inline">\(a \neq -1\)</span>.</p>
+<p>When <span class="math inline">\(a = -1\)</span>: <span class="math inline">\(f(x) = \dfrac{x-1}{x-1} = 1\)</span> (constant — not self-inverse).</p>
+<p><strong>Exceptional value: <span class="math inline">\(a = -1\)</span>.</strong></p>
+<hr>
+</section>
+</section>
+<section id="q8-functions-6" class="level1">
+<h1>Q8 — Functions <strong>(6)</strong></h1>
+<p><span class="math display">\[f(x) \equiv \frac{2x-3}{x-2}, \quad x \in \mathbb{R},\ x &gt; 2\]</span></p>
+<p><strong>(a)</strong> Find the range of f.&nbsp;<strong>(2)</strong></p>
+<p><strong>(b)</strong> Show that <span class="math inline">\(ff(x) = x\)</span> for all <span class="math inline">\(x &gt; 2\)</span>. <strong>(3)</strong></p>
+<p><strong>(c)</strong> Hence, write down an expression for <span class="math inline">\(f^{-1}(x)\)</span>. <strong>(1)</strong></p>
+<section id="solution-7" class="level2">
+<h2 class="anchored" data-anchor-id="solution-7">Solution</h2>
+<p><strong>(a)</strong> Write <span class="math inline">\(f(x) = 2 + \dfrac{1}{x-2}\)</span>. For <span class="math inline">\(x &gt; 2\)</span>: <span class="math inline">\(\dfrac{1}{x-2} &gt; 0\)</span>, so <span class="math inline">\(f(x) &gt; 2\)</span>.</p>
+<p><strong>Range: <span class="math inline">\(f &gt; 2\)</span></strong> (i.e., <span class="math inline">\((2, \infty)\)</span>) <span class="math inline">\(\tag{M1, A1}\)</span></p>
+<p><strong>(b)</strong> <span class="math display">\[ff(x) = f\!\left(\frac{2x-3}{x-2}\right) = \frac{2\cdot\frac{2x-3}{x-2}-3}{\frac{2x-3}{x-2}-2} = \frac{2(2x-3)-3(x-2)}{(2x-3)-2(x-2)} = \frac{x}{1} = x \quad \blacksquare \tag{M1, A1, A1}\]</span></p>
+<p><strong>(c)</strong> Since <span class="math inline">\(ff(x)=x\)</span>: <span class="math inline">\(\quad f^{-1}(x) = f(x) = \dfrac{2x-3}{x-2}\)</span> <span class="math inline">\(\tag{B1}\)</span></p>
+<hr>
+</section>
+</section>
+<section id="q9-functions-transformations-inverse-13" class="level1">
+<h1>Q9 — Functions, Transformations &amp; Inverse <strong>(13)</strong></h1>
+<p><span class="math display">\[f(x) \equiv 2x^2 + 4x + 2, \quad x \in \mathbb{R},\ x \geq -1\]</span></p>
+<p><strong>(a)</strong> Express <span class="math inline">\(f(x)\)</span> in the form <span class="math inline">\(a(x+b)^2 + c\)</span>. <strong>(2)</strong></p>
+<p><strong>(b)</strong> Describe fully two transformations that would map the graph of <span class="math inline">\(y = x^2\)</span>, <span class="math inline">\(x \geq 0\)</span> onto the graph of <span class="math inline">\(y = f(x)\)</span>. <strong>(3)</strong></p>
+<p><strong>(c)</strong> Find an expression for <span class="math inline">\(f^{-1}(x)\)</span> and state its domain. <strong>(4)</strong></p>
+<p><strong>(d)</strong> Sketch the graphs of <span class="math inline">\(y = f(x)\)</span> and <span class="math inline">\(y = f^{-1}(x)\)</span> on the same diagram and state the relationship between them. <strong>(4)</strong></p>
+<section id="solution-8" class="level2">
+<h2 class="anchored" data-anchor-id="solution-8">Solution</h2>
+<p><strong>(a)</strong> <span class="math display">\[2x^2+4x+2 = 2(x^2+2x)+2 = 2(x+1)^2-2+2 = \boxed{2(x+1)^2} \tag{M1, A1}\]</span></p>
+<p><strong>(b)</strong> 1. <strong>Translation</strong> of 1 unit in the negative <span class="math inline">\(x\)</span>-direction (left): <span class="math inline">\(y = x^2 \to y = (x+1)^2\)</span>, domain shifts to <span class="math inline">\(x \geq -1\)</span>. <span class="math inline">\(\tag{B1}\)</span> 2. <strong>Stretch</strong> parallel to the <span class="math inline">\(y\)</span>-axis, scale factor 2: <span class="math inline">\(y = (x+1)^2 \to y = 2(x+1)^2\)</span>. <span class="math inline">\(\tag{B1, B1}\)</span></p>
+<p><strong>(c)</strong> Let <span class="math inline">\(y = 2(x+1)^2\)</span>, <span class="math inline">\(x \geq -1\)</span> (so <span class="math inline">\(y \geq 0\)</span>):</p>
+<p><span class="math display">\[x+1 = \sqrt{\frac{y}{2}} \implies x = \sqrt{\frac{y}{2}}-1\]</span></p>
+<p><span class="math display">\[\boxed{f^{-1}(x) = \sqrt{\tfrac{x}{2}}-1, \quad \text{domain: } x \geq 0} \tag{M1, A1, A1, A1}\]</span></p>
+<p><strong>(d)</strong></p>
+<div id="b802735f" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="review_exercise_files/figure-html/cell-3-output-1.png" width="563" height="564" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The graphs are <strong>reflections of each other in the line <span class="math inline">\(y = x\)</span></strong>. <span class="math inline">\(\tag{B1 \times 4}\)</span></p>
+<hr>
+</section>
+</section>
+<section id="q10-composite-functions-inverse-12" class="level1">
+<h1>Q10 — Composite Functions &amp; Inverse <strong>(12)</strong></h1>
+<p><span class="math display">\[f: x \to 3e^{x-1}, \quad x \in \mathbb{R}\]</span></p>
+<p><strong>(a)</strong> State the range of f.&nbsp;<strong>(1)</strong></p>
+<p><strong>(b)</strong> Find an expression for <span class="math inline">\(f^{-1}(x)\)</span> and state its domain. <strong>(4)</strong></p>
+<p>The function <span class="math inline">\(g\)</span> is defined by <span class="math inline">\(g: x \to 5x-2\)</span>, <span class="math inline">\(x \in \mathbb{R}\)</span>. Find, in terms of e,</p>
+<p><strong>(c)</strong> the value of <span class="math inline">\(gf(\ln 2)\)</span>, <strong>(3)</strong></p>
+<p><strong>(d)</strong> the solution of the equation <span class="math inline">\(f^{-1}g(x) = 4\)</span>. <strong>(4)</strong></p>
+<section id="solution-9" class="level2">
+<h2 class="anchored" data-anchor-id="solution-9">Solution</h2>
+<p><strong>(a)</strong> Range of f: <span class="math inline">\(\{f(x) : f(x) &gt; 0\}\)</span>, i.e., <span class="math inline">\((0, \infty)\)</span> <span class="math inline">\(\tag{B1}\)</span></p>
+<p><strong>(b)</strong> Let <span class="math inline">\(y = 3e^{x-1}\)</span>: <span class="math inline">\(e^{x-1} = \dfrac{y}{3} \implies x = 1 + \ln\dfrac{y}{3}\)</span></p>
+<p><span class="math display">\[\boxed{f^{-1}(x) = 1 + \ln\tfrac{x}{3}, \quad \text{domain: } x &gt; 0} \tag{M1, A1, A1, A1}\]</span></p>
+<p><strong>(c)</strong> <span class="math display">\[f(\ln 2) = 3e^{\ln 2 - 1} = 3 \cdot \frac{2}{e} = \frac{6}{e} \tag{M1, A1}\]</span> <span class="math display">\[gf(\ln 2) = g\!\left(\tfrac{6}{e}\right) = \frac{30}{e}-2 = \boxed{\frac{30-2e}{e}} \tag{A1}\]</span></p>
+<p><strong>(d)</strong> <span class="math inline">\(f^{-1}(g(x)) = 4 \implies f^{-1}(5x-2) = 4\)</span>:</p>
+<p><span class="math display">\[1 + \ln\frac{5x-2}{3} = 4 \implies \ln\frac{5x-2}{3} = 3 \implies \frac{5x-2}{3} = e^3 \tag{M1, A1}\]</span></p>
+<p><span class="math display">\[\boxed{x = \dfrac{3e^3+2}{5}} \tag{A1, A1}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="q11-graph-transformations-11" class="level1">
+<h1>Q11 — Graph Transformations <strong>(11)</strong></h1>
+<div id="34e3f5e1" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="review_exercise_files/figure-html/cell-4-output-1.png" width="1523" height="396" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Figure 1 shows <span class="math inline">\(y = f(x)\)</span> with minimum <span class="math inline">\(\left(-\dfrac{3}{2}, 0\right)\)</span>, maximum <span class="math inline">\((3, 6)\)</span>, crossing the <span class="math inline">\(y\)</span>-axis at <span class="math inline">\((0, 4)\)</span>.</p>
+<p>Sketch each of the following, showing coordinates of turning points and axis intercepts.</p>
+<p><strong>(a)</strong> <span class="math inline">\(y = f(|x|)\)</span> <strong>(3)</strong></p>
+<p><strong>(b)</strong> <span class="math inline">\(y = 2 + f(x+3)\)</span> <strong>(4)</strong></p>
+<p><strong>(c)</strong> <span class="math inline">\(y = \dfrac{1}{2}f(-x)\)</span> <strong>(4)</strong></p>
+<section id="solution-10" class="level2">
+<h2 class="anchored" data-anchor-id="solution-10">Solution</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 21%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Transform</th>
+<th>Rule</th>
+<th>Key points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>(a)</strong> <span class="math inline">\(f(\|x\|)\)</span></td>
+<td>Reflect right half in <span class="math inline">\(y\)</span>-axis; left half is mirror image of right</td>
+<td>Max <span class="math inline">\((\pm 3, 6)\)</span>; y-int <span class="math inline">\((0,4)\)</span>; left min removed</td>
+</tr>
+<tr class="even">
+<td><strong>(b)</strong> <span class="math inline">\(2+f(x+3)\)</span></td>
+<td>Translate <span class="math inline">\(\leftarrow 3\)</span>, <span class="math inline">\(\uparrow 2\)</span></td>
+<td>Min <span class="math inline">\((-\frac{9}{2}, 2)\)</span>; max <span class="math inline">\((0, 8)\)</span> (new y-int); no <span class="math inline">\(x\)</span>-intercepts since <span class="math inline">\(y \geq 2\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>(c)</strong> <span class="math inline">\(\frac{1}{2}f(-x)\)</span></td>
+<td>Reflect in <span class="math inline">\(y\)</span>-axis; compress <span class="math inline">\(y\)</span> by factor <span class="math inline">\(2\)</span></td>
+<td>Min <span class="math inline">\((\frac{3}{2}, 0)\)</span>; max <span class="math inline">\((-3, 3)\)</span>; y-int <span class="math inline">\((0, 2)\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="q12-modulus-graphs-equations-10" class="level1">
+<h1>Q12 — Modulus Graphs &amp; Equations <strong>(10)</strong></h1>
+<p><strong>(a)</strong> Sketch on the same diagram the graphs of <span class="math inline">\(y = |x| - a\)</span> and <span class="math inline">\(y = |3x+5a|\)</span>, where <span class="math inline">\(a\)</span> is a positive constant. Show the coordinates of any points where each graph meets the coordinate axes. <strong>(6)</strong></p>
+<p><strong>(b)</strong> Solve the equation <span class="math inline">\(|x| - a = |3x+5a|\)</span>. <strong>(4)</strong></p>
+<section id="solution-11" class="level2">
+<h2 class="anchored" data-anchor-id="solution-11">Solution</h2>
+<p><strong>(a)</strong></p>
+<div id="d6cd488c" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="review_exercise_files/figure-html/cell-5-output-1.png" width="659" height="467" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>(b)</strong> Consider cases based on sign of <span class="math inline">\(x\)</span> and <span class="math inline">\(3x+5a\)</span>.</p>
+<p><strong>Case: <span class="math inline">\(x &lt; 0\)</span> and <span class="math inline">\(3x+5a \geq 0\)</span></strong> (i.e., <span class="math inline">\(-\frac{5a}{3} \leq x &lt; 0\)</span>):</p>
+<p><span class="math display">\[-x - a = 3x + 5a \implies -4x = 6a \implies x = -\tfrac{3a}{2}\]</span></p>
+<p>Check: <span class="math inline">\(-\frac{5a}{3} &lt; -\frac{3a}{2} &lt; 0\)</span> ✓ (valid)</p>
+<p><strong>Case: <span class="math inline">\(x &lt; 0\)</span> and <span class="math inline">\(3x+5a &lt; 0\)</span></strong> (i.e., <span class="math inline">\(x &lt; -\frac{5a}{3}\)</span>):</p>
+<p><span class="math display">\[-x - a = -(3x+5a) \implies -x-a = -3x-5a \implies 2x = -4a \implies x = -2a\]</span></p>
+<p>Check: <span class="math inline">\(-2a &lt; -\frac{5a}{3}\)</span> ✓ (valid)</p>
+<p><strong>Case: <span class="math inline">\(x \geq 0\)</span>:</strong></p>
+<p><span class="math display">\[x - a = 3x + 5a \implies -2x = 6a \implies x = -3a \quad (\text{invalid since } x \geq 0, a &gt; 0)\]</span></p>
+<p><span class="math display">\[\boxed{x = -\tfrac{3a}{2} \quad \text{or} \quad x = -2a} \tag{A1, A1, A1, A1}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="q13-trigonometric-identities" class="level1">
+<h1>Q13 — Trigonometric Identities</h1>
+<p>Prove the following identities.</p>
+<section id="solution-12" class="level2">
+<h2 class="anchored" data-anchor-id="solution-12">Solution</h2>
+<p><strong>(a)</strong> <span class="math inline">\(\dfrac{\cos 2A}{\cos A+\sin A} \equiv \cos A - \sin A\)</span></p>
+<p><span class="math display">\[\text{LHS} = \frac{\cos^2 A-\sin^2 A}{\cos A+\sin A} = \frac{(\cos A+\sin A)(\cos A-\sin A)}{\cos A+\sin A} = \cos A-\sin A \quad \blacksquare\]</span></p>
+<p><strong>(b)</strong> <span class="math inline">\(\dfrac{\sin B}{\sin A} - \dfrac{\cos B}{\cos A} \equiv 2\csc 2A\sin(B-A)\)</span></p>
+<p><span class="math display">\[\text{LHS} = \frac{\sin B\cos A-\cos B\sin A}{\sin A\cos A} = \frac{\sin(B-A)}{\frac{1}{2}\sin 2A} = 2\csc 2A\sin(B-A) \quad \blacksquare\]</span></p>
+<p><strong>(c)</strong> <span class="math inline">\(\dfrac{1-\cos 2\theta}{\sin 2\theta} \equiv \tan\theta\)</span></p>
+<p><span class="math display">\[\frac{2\sin^2\theta}{2\sin\theta\cos\theta} = \frac{\sin\theta}{\cos\theta} = \tan\theta \quad \blacksquare\]</span></p>
+<p><strong>(d)</strong> <span class="math inline">\(\dfrac{\sec^2\theta}{1-\tan^2\theta} \equiv \sec 2\theta\)</span></p>
+<p><span class="math display">\[\frac{1/\cos^2\theta}{(\cos^2\theta-\sin^2\theta)/\cos^2\theta} = \frac{1}{\cos 2\theta} = \sec 2\theta \quad \blacksquare\]</span></p>
+<p><strong>(e)</strong> <span class="math inline">\(2(\sin^3\theta\cos\theta+\cos^3\theta\sin\theta) \equiv \sin 2\theta\)</span></p>
+<p><span class="math display">\[2\sin\theta\cos\theta(\sin^2\theta+\cos^2\theta) = 2\sin\theta\cos\theta = \sin 2\theta \quad \blacksquare\]</span></p>
+<p><strong>(f)</strong> <span class="math inline">\(\dfrac{\sin 3\theta}{\sin\theta} - \dfrac{\cos 3\theta}{\cos\theta} \equiv 2\)</span></p>
+<p><strong>Step 1.</strong> 통분 — 분모를 <span class="math inline">\(\sin\theta\cos\theta\)</span>로 맞춤:</p>
+<p><span class="math display">\[\frac{\sin 3\theta\cos\theta - \cos 3\theta\sin\theta}{\sin\theta\cos\theta}\]</span></p>
+<p><strong>Step 2.</strong> 분자는 sine의 차 공식 <span class="math inline">\(\sin(A-B) = \sin A\cos B - \cos A\sin B\)</span> 역방향:</p>
+<p><span class="math display">\[= \frac{\sin(3\theta - \theta)}{\sin\theta\cos\theta} = \frac{\sin 2\theta}{\sin\theta\cos\theta}\]</span></p>
+<p><strong>Step 3.</strong> 분모를 double angle 공식으로 변환 — <span class="math inline">\(\sin 2\theta = 2\sin\theta\cos\theta\)</span>:</p>
+<p><span class="math display">\[= \frac{\sin 2\theta}{\frac{1}{2}\sin 2\theta} = 2 \quad \blacksquare\]</span></p>
+<hr>
+<p><strong>(g)</strong> <span class="math inline">\(\csc\theta - 2\cot 2\theta\cos\theta \equiv 2\sin\theta\)</span></p>
+<p><strong>Step 1.</strong> 정의로 풀어쓰기 — <span class="math inline">\(\csc\theta = \dfrac{1}{\sin\theta}\)</span>, <span class="math inline">\(\cot 2\theta = \dfrac{\cos 2\theta}{\sin 2\theta}\)</span>:</p>
+<p><span class="math display">\[\frac{1}{\sin\theta} - \frac{2\cos 2\theta\cos\theta}{\sin 2\theta}\]</span></p>
+<p><strong>Step 2.</strong> <span class="math inline">\(\sin 2\theta = 2\sin\theta\cos\theta\)</span> 대입해서 통분:</p>
+<p><span class="math display">\[\frac{1}{\sin\theta} - \frac{2\cos 2\theta\cos\theta}{2\sin\theta\cos\theta} = \frac{1}{\sin\theta} - \frac{\cos 2\theta}{\sin\theta} = \frac{1 - \cos 2\theta}{\sin\theta}\]</span></p>
+<p><strong>Step 3.</strong> <span class="math inline">\(1 - \cos 2\theta = 2\sin^2\theta\)</span> 적용:</p>
+<p><span class="math display">\[= \frac{2\sin^2\theta}{\sin\theta} = 2\sin\theta \quad \blacksquare\]</span></p>
+<hr>
+<p><strong>(h)</strong> <span class="math inline">\(\dfrac{\sec\theta-1}{\sec\theta+1} \equiv \tan^2\dfrac{\theta}{2}\)</span></p>
+<p><strong>Step 1.</strong> <span class="math inline">\(\sec\theta = \dfrac{1}{\cos\theta}\)</span> 로 바꿔서 분모/분자 정리:</p>
+<p><span class="math display">\[\frac{1/\cos\theta - 1}{1/\cos\theta + 1} = \frac{1 - \cos\theta}{1 + \cos\theta}\]</span></p>
+<p><strong>Step 2.</strong> half-angle 공식 적용 — <span class="math inline">\(1-\cos\theta = 2\sin^2\!\tfrac{\theta}{2}\)</span>, <span class="math inline">\(1+\cos\theta = 2\cos^2\!\tfrac{\theta}{2}\)</span>:</p>
+<p><span class="math display">\[= \frac{2\sin^2(\theta/2)}{2\cos^2(\theta/2)} = \tan^2\frac{\theta}{2} \quad \blacksquare\]</span></p>
+<div style="font-size: 0.85em; color: #666;">
+<p><strong>Half-angle 공식 유도:</strong> <span class="math inline">\(\cos 2\alpha = 1 - 2\sin^2\alpha\)</span> 에서 <span class="math inline">\(\alpha = \theta/2\)</span> 로 놓으면 <span class="math inline">\(1 - \cos\theta = 2\sin^2(\theta/2)\)</span>. 같은 방식으로 <span class="math inline">\(\cos 2\alpha = 2\cos^2\alpha - 1\)</span> 에서 <span class="math inline">\(1 + \cos\theta = 2\cos^2(\theta/2)\)</span>.</p>
+</div>
+<hr>
+<p><strong>(i)</strong> <span class="math inline">\(\tan\!\left(\dfrac{\pi}{4}-x\right) \equiv \dfrac{1-\sin 2x}{\cos 2x}\)</span></p>
+<p><strong>Step 1.</strong> <span class="math inline">\(\tan\!\left(\dfrac{\pi}{4} - x\right)\)</span>에 tan 차 공식 적용 — <span class="math inline">\(\tan\!\left(\dfrac{\pi}{4}\right) = 1\)</span>:</p>
+<p><span class="math display">\[= \frac{1 - \tan x}{1 + \tan x}\]</span></p>
+<p><strong>Step 2.</strong> <span class="math inline">\(\tan x = \dfrac{\sin x}{\cos x}\)</span> 로 바꿔서 분자/분모에 <span class="math inline">\(\cos x\)</span> 곱하기:</p>
+<p><span class="math display">\[= \frac{\cos x - \sin x}{\cos x + \sin x}\]</span></p>
+<p><strong>Step 3.</strong> 분자/분모에 <span class="math inline">\((\cos x - \sin x)\)</span>를 곱해서 분자를 제곱 형태로 만들기:</p>
+<p><span class="math display">\[= \frac{(\cos x - \sin x)^2}{\cos^2 x - \sin^2 x} = \frac{\cos^2 x - 2\sin x\cos x + \sin^2 x}{\cos^2 x - \sin^2 x}\]</span></p>
+<p><strong>Step 4.</strong> <span class="math inline">\(\cos^2 x + \sin^2 x = 1\)</span>, <span class="math inline">\(2\sin x\cos x = \sin 2x\)</span>, <span class="math inline">\(\cos^2 x - \sin^2 x = \cos 2x\)</span> 적용:</p>
+<p><span class="math display">\[= \frac{1 - \sin 2x}{\cos 2x} \quad \blacksquare\]</span></p>
+<hr>
+</section>
+</section>
+<section id="q14-trig-identity-equation-11" class="level1">
+<h1>Q14 — Trig Identity &amp; Equation <strong>(11)</strong></h1>
+<p><strong>(a)</strong> Prove the identity <span class="math inline">\(2\cot 2x + \tan x \equiv \cot x\)</span>, <span class="math inline">\(x \neq \dfrac{n}{2}\pi\)</span>, <span class="math inline">\(n \in \mathbb{Z}\)</span>. <strong>(5)</strong></p>
+<p><strong>(b)</strong> Solve, for <span class="math inline">\(0 \leq x &lt; \pi\)</span>, the equation <span class="math inline">\(2\cot 2x + \tan x = \csc^2 x - 7\)</span>, giving your answers to 2 decimal places. <strong>(6)</strong></p>
+<section id="solution-13" class="level2">
+<h2 class="anchored" data-anchor-id="solution-13">Solution</h2>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[2\cot 2x + \tan x = \frac{2\cos 2x}{\sin 2x} + \frac{\sin x}{\cos x} = \frac{2\cos 2x\cos x + \sin x\cdot 2\sin x\cos x}{2\sin x\cos^2 x}\]</span></p>
+<p>Numerator: <span class="math inline">\(2\cos x(\cos 2x + \sin^2 x) = 2\cos x \cdot \cos^2 x = 2\cos^3 x\)</span></p>
+<p><span class="math display">\[= \frac{2\cos^3 x}{2\sin x\cos^2 x} = \frac{\cos x}{\sin x} = \cot x \quad \blacksquare\]</span></p>
+<p><strong>(b)</strong> Using (a): <span class="math inline">\(\cot x = \csc^2 x - 7\)</span></p>
+<p><span class="math display">\[\frac{\cos x}{\sin x} = \frac{1}{\sin^2 x} - 7 \implies \sin x\cos x = 1-7\sin^2 x\]</span></p>
+<p><span class="math display">\[\tfrac{1}{2}\sin 2x = 1 - \tfrac{7(1-\cos 2x)}{2} \implies \sin 2x - 7\cos 2x = -5\]</span></p>
+<p>Write <span class="math inline">\(\sin 2x - 7\cos 2x = 5\sqrt{2}\sin(2x-\phi)\)</span> where <span class="math inline">\(\tan\phi = 7\)</span>, <span class="math inline">\(\phi = \arctan 7 \approx 1.4289\)</span>:</p>
+<p><span class="math display">\[\sin(2x-\phi) = \frac{-5}{5\sqrt{2}} = -\frac{1}{\sqrt{2}}\]</span></p>
+<p>For <span class="math inline">\(0 \leq x &lt; \pi\)</span> (i.e., <span class="math inline">\(-\phi \leq 2x-\phi &lt; 2\pi-\phi\)</span>):</p>
+<p><span class="math display">\[2x-\phi = -\frac{\pi}{4} \implies x = \frac{\phi-\pi/4}{2} \approx \boxed{0.32}\]</span></p>
+<p><span class="math display">\[2x-\phi = \frac{5\pi}{4} \implies x = \frac{\phi+5\pi/4}{2} \approx \boxed{2.68}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="q15-differentiation-find-fx" class="level1">
+<h1>Q15 — Differentiation (Find <span class="math inline">\(f'(x)\)</span>)</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 42%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(f(x)\)</span></th>
+<th><span class="math inline">\(f'(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a)</td>
+<td><span class="math inline">\(x\cos x\)</span></td>
+<td><span class="math inline">\(\cos x - x\sin x\)</span></td>
+</tr>
+<tr class="even">
+<td>b)</td>
+<td><span class="math inline">\(x^2\sec 3x\)</span></td>
+<td><span class="math inline">\(x\sec 3x(2+3x\tan 3x)\)</span></td>
+</tr>
+<tr class="odd">
+<td>c)</td>
+<td><span class="math inline">\(\dfrac{\tan 2x}{x}\)</span></td>
+<td><span class="math inline">\(\dfrac{2x\sec^2 2x-\tan 2x}{x^2}\)</span></td>
+</tr>
+<tr class="even">
+<td>d)</td>
+<td><span class="math inline">\(\sin^3 x\cos x\)</span></td>
+<td><span class="math inline">\(\sin^2 x(3\cos^2 x-\sin^2 x)\)</span></td>
+</tr>
+<tr class="odd">
+<td>e)</td>
+<td><span class="math inline">\(\dfrac{x^2}{\tan x}\)</span></td>
+<td><span class="math inline">\(\dfrac{x(2\tan x - x\sec^2 x)}{\tan^2 x}\)</span></td>
+</tr>
+<tr class="even">
+<td>f)</td>
+<td><span class="math inline">\(\dfrac{1+\sin x}{\cos x}\)</span></td>
+<td><span class="math inline">\(\dfrac{1+\sin x}{\cos^2 x}\)</span></td>
+</tr>
+<tr class="odd">
+<td>g)</td>
+<td><span class="math inline">\(e^{2x}\cos x\)</span></td>
+<td><span class="math inline">\(e^{2x}(2\cos x-\sin x)\)</span></td>
+</tr>
+<tr class="even">
+<td>h)</td>
+<td><span class="math inline">\(e^x\sec 3x\)</span></td>
+<td><span class="math inline">\(e^x\sec 3x(1+3\tan 3x)\)</span></td>
+</tr>
+<tr class="odd">
+<td>i)</td>
+<td><span class="math inline">\(\dfrac{\sin 3x}{e^x}\)</span></td>
+<td><span class="math inline">\(e^{-x}(3\cos 3x-\sin 3x)\)</span></td>
+</tr>
+<tr class="even">
+<td>j)</td>
+<td><span class="math inline">\(e^x\sin^2 x\)</span></td>
+<td><span class="math inline">\(e^x\sin x(\sin x+2\cos x)\)</span></td>
+</tr>
+<tr class="odd">
+<td>k)</td>
+<td><span class="math inline">\(\dfrac{\ln x}{\tan x}\)</span></td>
+<td><span class="math inline">\(\dfrac{\tan x - x\ln x\sec^2 x}{x\tan^2 x}\)</span></td>
+</tr>
+<tr class="even">
+<td>l)</td>
+<td><span class="math inline">\(\dfrac{e^{\sin x}}{\cos x}\)</span></td>
+<td><span class="math inline">\(\dfrac{e^{\sin x}(\cos^2 x+\sin x)}{\cos^2 x}\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="q16-differentiation-9" class="level1">
+<h1>Q16 — Differentiation <strong>(9)</strong></h1>
+<p>Differentiate each of the following with respect to <span class="math inline">\(x\)</span> and simplify.</p>
+<p><strong>(a)</strong> <span class="math inline">\(\cot x^2\)</span> <strong>(2)</strong></p>
+<p><strong>(b)</strong> <span class="math inline">\(x^2e^{-x}\)</span> <strong>(3)</strong></p>
+<p><strong>(c)</strong> <span class="math inline">\(\dfrac{\sin x}{3+2\cos x}\)</span> <strong>(4)</strong></p>
+<section id="solution-14" class="level2">
+<h2 class="anchored" data-anchor-id="solution-14">Solution</h2>
+<p><strong>(a)</strong> Chain rule: <span class="math inline">\(\boxed{-2x\csc^2(x^2)}\)</span> <span class="math inline">\(\tag{M1, A1}\)</span></p>
+<p><strong>(b)</strong> Product rule: <span class="math inline">\(2xe^{-x} - x^2e^{-x} = \boxed{xe^{-x}(2-x)}\)</span> <span class="math inline">\(\tag{M1, A1, A1}\)</span></p>
+<p><strong>(c)</strong> Quotient rule:</p>
+<p><span class="math display">\[\frac{\cos x(3+2\cos x)-\sin x(-2\sin x)}{(3+2\cos x)^2} = \frac{3\cos x+2(\cos^2 x+\sin^2 x)}{(3+2\cos x)^2} = \boxed{\frac{3\cos x+2}{(3+2\cos x)^2}} \tag{M1, A1, M1, A1}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="q17-exponential-model-10" class="level1">
+<h1>Q17 — Exponential Model <strong>(10)</strong></h1>
+<p>The number of bacteria in a culture at time <span class="math inline">\(t\)</span> hours is modelled by <span class="math inline">\(N = 2000e^{kt}\)</span>, where <span class="math inline">\(k\)</span> is a constant.</p>
+<p>Given that when <span class="math inline">\(t=3\)</span>, <span class="math inline">\(N=18\,000\)</span>, find:</p>
+<p><strong>(a)</strong> the value of <span class="math inline">\(k\)</span> to 3 significant figures, <strong>(3)</strong></p>
+<p><strong>(b)</strong> how long it takes for the number of bacteria to double, giving your answer to the nearest minute, <strong>(4)</strong></p>
+<p><strong>(c)</strong> the rate at which the number of bacteria is increasing when <span class="math inline">\(t = 3\)</span>. <strong>(3)</strong></p>
+<section id="solution-15" class="level2">
+<h2 class="anchored" data-anchor-id="solution-15">Solution</h2>
+<p><strong>(a)</strong> <span class="math inline">\(18000 = 2000e^{3k} \implies e^{3k} = 9 \implies k = \dfrac{\ln 9}{3} = \dfrac{2\ln 3}{3} \approx \boxed{0.732}\)</span> <span class="math inline">\(\tag{M1, A1, A1}\)</span></p>
+<p><strong>(b)</strong> <span class="math inline">\(4000 = 2000e^{kt} \implies kt = \ln 2 \implies t = \dfrac{\ln 2}{k} = \dfrac{3\ln 2}{2\ln 3} \approx 0.946\)</span> hours <span class="math inline">\(\tag{M1, A1}\)</span></p>
+<p><span class="math inline">\(0.946 \times 60 \approx 56.8\)</span> minutes <span class="math inline">\(\approx \boxed{57 \text{ minutes}}\)</span> <span class="math inline">\(\tag{M1, A1}\)</span></p>
+<p><strong>(c)</strong> <span class="math inline">\(\dfrac{dN}{dt} = kN\)</span>. At <span class="math inline">\(t=3\)</span>: <span class="math inline">\(\dfrac{dN}{dt} = \dfrac{2\ln 3}{3} \times 18000 = 12000\ln 3 \approx \boxed{13\,183 \text{ bacteria per hour}}\)</span> <span class="math inline">\(\tag{M1, A1, A1}\)</span></p>
+<hr>
+</section>
+</section>
+<section id="q18-fx-2x-sin-x-3-cos-x-14" class="level1">
+<h1>Q18 — f(x) = 2x + sin x − 3 cos x <strong>(14)</strong></h1>
+<p><span class="math display">\[f(x) = 2x + \sin x - 3\cos x\]</span></p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(f(x) = 0\)</span> has a root in the interval <span class="math inline">\([0.7, 0.8]\)</span>. <strong>(2)</strong></p>
+<p><strong>(b)</strong> Find an equation for the tangent to <span class="math inline">\(y = f(x)\)</span> at the point where it crosses the <span class="math inline">\(y\)</span>-axis. <strong>(4)</strong></p>
+<p><strong>(c)</strong> Find the values of the constants <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> where <span class="math inline">\(b &gt; 0\)</span> and <span class="math inline">\(0 &lt; c &lt; \dfrac{\pi}{2}\)</span>, such that <span class="math inline">\(f'(x) = a + b\cos(x-c)\)</span>. <strong>(4)</strong></p>
+<p><strong>(d)</strong> Hence find the <span class="math inline">\(x\)</span>-coordinates of the stationary points of <span class="math inline">\(y = f(x)\)</span> in <span class="math inline">\(0 \leq x \leq 2\pi\)</span>, to 2 decimal places. <strong>(4)</strong></p>
+<section id="solution-16" class="level2">
+<h2 class="anchored" data-anchor-id="solution-16">Solution</h2>
+<p><strong>(a)</strong> <span class="math inline">\(f(0.7) = 1.4+\sin(0.7)-3\cos(0.7) \approx 1.4+0.644-2.294 = -0.250 &lt; 0\)</span></p>
+<p><span class="math inline">\(f(0.8) = 1.6+\sin(0.8)-3\cos(0.8) \approx 1.6+0.717-2.090 = +0.227 &gt; 0\)</span></p>
+<p>Sign change <span class="math inline">\(\Rightarrow\)</span> root in <span class="math inline">\((0.7, 0.8)\)</span> <span class="math inline">\(\blacksquare\)</span> <span class="math inline">\(\tag{B1, B1}\)</span></p>
+<p><strong>(b)</strong> At <span class="math inline">\(x=0\)</span>: <span class="math inline">\(f(0) = -3\)</span>, point <span class="math inline">\((0,-3)\)</span>.</p>
+<p><span class="math inline">\(f'(x) = 2+\cos x+3\sin x\)</span>. <span class="math inline">\(f'(0) = 3\)</span>.</p>
+<p>Tangent: <span class="math inline">\(\boxed{y = 3x-3}\)</span> <span class="math inline">\(\tag{M1, A1, M1, A1}\)</span></p>
+<p><strong>(c)</strong> <span class="math inline">\(f'(x) = 2 + (\cos x + 3\sin x)\)</span></p>
+<p><span class="math inline">\(\cos x + 3\sin x = \sqrt{10}\cos(x-\arctan 3)\)</span></p>
+<p><span class="math display">\[\boxed{a = 2,\quad b = \sqrt{10},\quad c = \arctan 3 \approx 1.249} \tag{M1, A1, A1, A1}\]</span></p>
+<p><strong>(d)</strong> <span class="math inline">\(f'(x) = 0 \Rightarrow \cos(x-c) = -\dfrac{2}{\sqrt{10}}\)</span>, so <span class="math inline">\(x - c = \pm\arccos\!\left(-\dfrac{2}{\sqrt{10}}\right) \approx \pm 2.246\)</span></p>
+<p><span class="math display">\[x = c + 2.246 \approx \boxed{3.49}, \qquad x = c - 2.246 + 2\pi \approx \boxed{5.29} \tag{A1, A1, A1, A1}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="q19-curve-y-sqrtx-e1-4x-14" class="level1">
+<h1>Q19 — Curve: <span class="math inline">\(y = \sqrt{x} + e^{1-4x}\)</span> <strong>(14)</strong></h1>
+<p>The curve <span class="math inline">\(C\)</span> has equation <span class="math inline">\(y = \sqrt{x} + e^{1-4x}\)</span>, <span class="math inline">\(x \geq 0\)</span>.</p>
+<p><strong>(a)</strong> Find an equation for the normal to the curve at <span class="math inline">\(\left(\dfrac{1}{4}, \dfrac{3}{2}\right)\)</span>. <strong>(4)</strong></p>
+<p><strong>(b)</strong> Show that <span class="math inline">\(\alpha\)</span> (the <span class="math inline">\(x\)</span>-coordinate of the stationary point, <span class="math inline">\(0.5 &lt; \alpha &lt; 1\)</span>) is a solution of <span class="math inline">\(x = \dfrac{1}{4}[1+\ln(8\sqrt{x})]\)</span>. <strong>(3)</strong></p>
+<p><strong>(c)</strong> Use <span class="math inline">\(x_{n+1} = \dfrac{1}{4}[1+\ln(8\sqrt{x_n})]\)</span> with <span class="math inline">\(x_0 = 1\)</span> to find <span class="math inline">\(x_1, x_2, x_3, x_4\)</span> to 3 decimal places. <strong>(3)</strong></p>
+<p><strong>(d)</strong> Show that your value of <span class="math inline">\(x_4\)</span> is <span class="math inline">\(\alpha\)</span> correct to 3 decimal places. <strong>(2)</strong></p>
+<p><strong>(e)</strong> Another attempt uses <span class="math inline">\(x_{n+1} = \dfrac{1}{64}e^{8x_n-2}\)</span> with <span class="math inline">\(x_0 = 1\)</span>. Describe the outcome. <strong>(2)</strong></p>
+<section id="solution-17" class="level2">
+<h2 class="anchored" data-anchor-id="solution-17">Solution</h2>
+<p><strong>(a)</strong> <span class="math inline">\(\dfrac{dy}{dx} = \dfrac{1}{2\sqrt{x}}-4e^{1-4x}\)</span>. At <span class="math inline">\(x=\frac{1}{4}\)</span>: <span class="math inline">\(\dfrac{dy}{dx} = 1-4 = -3\)</span>. <span class="math inline">\(\tag{M1, A1}\)</span></p>
+<p>Normal slope <span class="math inline">\(= \frac{1}{3}\)</span>. Normal equation:</p>
+<p><span class="math display">\[y-\tfrac{3}{2} = \tfrac{1}{3}\!\left(x-\tfrac{1}{4}\right) \implies \boxed{12y = 4x+17} \tag{M1, A1}\]</span></p>
+<p><strong>(b)</strong> Set <span class="math inline">\(\dfrac{dy}{dx} = 0\)</span>: <span class="math inline">\(\dfrac{1}{2\sqrt{x}} = 4e^{1-4x} \Rightarrow e^{1-4x} = \dfrac{1}{8\sqrt{x}}\)</span> <span class="math inline">\(\tag{M1}\)</span></p>
+<p>Take ln: <span class="math inline">\(1-4x = -\ln(8\sqrt{x}) \Rightarrow 4x = 1+\ln(8\sqrt{x}) \Rightarrow x = \dfrac{1}{4}[1+\ln(8\sqrt{x})]\)</span> <span class="math inline">\(\blacksquare\)</span> <span class="math inline">\(\tag{A1, A1}\)</span></p>
+<p><strong>(c)</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(n\)</span></th>
+<th><span class="math inline">\(x_n\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1.000</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0.770</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>0.737</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>0.732</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td><strong>0.731</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>(d)</strong> Evaluate <span class="math inline">\(g(x) = \frac{1}{2\sqrt{x}}-4e^{1-4x}\)</span> at <span class="math inline">\(x = 0.7305\)</span> and <span class="math inline">\(x = 0.7315\)</span>:</p>
+<p><span class="math inline">\(g(0.7305) \approx -0.0003 &lt; 0\)</span> and <span class="math inline">\(g(0.7315) \approx +0.0015 &gt; 0\)</span></p>
+<p>Sign change <span class="math inline">\(\Rightarrow 0.7305 &lt; \alpha &lt; 0.7315\)</span>, so <span class="math inline">\(\alpha = 0.731\)</span> to 3 d.p. <span class="math inline">\(\blacksquare\)</span> <span class="math inline">\(\tag{M1, A1}\)</span></p>
+<p><strong>(e)</strong> <span class="math inline">\(x_1 = \frac{1}{64}e^6 \approx 6.3\)</span> then <span class="math inline">\(x_2 \to \infty\)</span>. The <strong>sequence diverges</strong> — it does not converge to <span class="math inline">\(\alpha\)</span>. <span class="math inline">\(\tag{B1, B1}\)</span></p>
+<hr>
+</section>
+</section>
+<section id="q20-fx-x²-5x-2-sec-x-11" class="level1">
+<h1>Q20 — f(x) = x² + 5x − 2 sec x <strong>(11)</strong></h1>
+<p><span class="math display">\[f(x) = x^2+5x-2\sec x, \quad x \in \mathbb{R},\ -\tfrac{\pi}{2} &lt; x &lt; \tfrac{\pi}{2}\]</span></p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(f(x) = 0\)</span> has a root in <span class="math inline">\([1, 1.5]\)</span>. <strong>(2)</strong></p>
+<p><strong>(b)</strong> Find a suitable form for <span class="math inline">\(g(x)\)</span> and use <span class="math inline">\(x_{n+1} = \arccos g(x_n)\)</span> with <span class="math inline">\(x_0 = 1.25\)</span> to find <span class="math inline">\(x_1, x_2, x_3, x_4\)</span> to 3 decimal places. <strong>(6)</strong></p>
+<p><strong>(c)</strong> Show that the <span class="math inline">\(x\)</span>-coordinate of the stationary point <span class="math inline">\(P\)</span> is <span class="math inline">\(1.0535\)</span> correct to 5 significant figures. <strong>(3)</strong></p>
+<section id="solution-18" class="level2">
+<h2 class="anchored" data-anchor-id="solution-18">Solution</h2>
+<p><strong>(a)</strong> <span class="math inline">\(f(1) = 1+5-2\sec(1) \approx 6-3.70 = 2.30 &gt; 0\)</span></p>
+<p><span class="math inline">\(f(1.5) = 2.25+7.5-2\sec(1.5) \approx 9.75-28.3 = -18.5 &lt; 0\)</span></p>
+<p>Sign change <span class="math inline">\(\Rightarrow\)</span> root in <span class="math inline">\((1, 1.5)\)</span> <span class="math inline">\(\blacksquare\)</span> <span class="math inline">\(\tag{B1, B1}\)</span></p>
+<p><strong>(b)</strong> <span class="math inline">\(f(x) = 0 \Rightarrow \cos x = \dfrac{2}{x(x+5)}\)</span>, so <span class="math inline">\(\boxed{g(x) = \dfrac{2}{x(x+5)}}\)</span> <span class="math inline">\(\tag{M1, A1}\)</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(n\)</span></th>
+<th><span class="math inline">\(x_n\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1.250</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1.312</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>1.327</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>1.330</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td><strong>1.331</strong></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\tag{A1, A1, A1, A1}\)</span></p>
+<p><strong>(c)</strong> <span class="math inline">\(f'(x) = 2x+5-2\sec x\tan x\)</span>. Evaluate at boundaries <span class="math inline">\(1.05345\)</span> and <span class="math inline">\(1.05355\)</span>:</p>
+<p><span class="math inline">\(f'(1.05345) &lt; 0\)</span> and <span class="math inline">\(f'(1.05355) &gt; 0\)</span> (sign change confirms root)</p>
+<p><span class="math inline">\(\Rightarrow\)</span> stationary point <span class="math inline">\(x\)</span>-coordinate <span class="math inline">\(= 1.0535\)</span> to 5 s.f. <span class="math inline">\(\blacksquare\)</span> <span class="math inline">\(\tag{M1, A1, A1}\)</span></p>
+<hr>
+</section>
+</section>
+<section id="q21-fx-2x²-3-ln2-x-13" class="level1">
+<h1>Q21 — f(x) = 2x² + 3 ln(2 − x) <strong>(13)</strong></h1>
+<p><span class="math display">\[f(x) = 2x^2+3\ln(2-x), \quad x \in \mathbb{R},\ x &lt; 2\]</span></p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(f(x) = 0\)</span> can be written in the form <span class="math inline">\(x = 2-e^{kx^2}\)</span>, where <span class="math inline">\(k\)</span> is a constant to be found. <strong>(3)</strong></p>
+<p>The root <span class="math inline">\(\alpha\)</span> of <span class="math inline">\(f(x) = 0\)</span> is <span class="math inline">\(1.9\)</span> correct to 1 decimal place.</p>
+<p><strong>(b)</strong> Use <span class="math inline">\(x_{n+1} = 2-e^{kx_n^2}\)</span> with <span class="math inline">\(x_0 = 1.9\)</span> and your value of <span class="math inline">\(k\)</span> to find <span class="math inline">\(\alpha\)</span> to 3 decimal places and justify the accuracy of your answer. <strong>(5)</strong></p>
+<p><strong>(c)</strong> Solve the equation <span class="math inline">\(f'(x) = 0\)</span>. <strong>(5)</strong></p>
+<section id="solution-19" class="level2">
+<h2 class="anchored" data-anchor-id="solution-19">Solution</h2>
+<p><strong>(a)</strong> <span class="math inline">\(2x^2+3\ln(2-x) = 0 \Rightarrow \ln(2-x) = -\dfrac{2x^2}{3} \Rightarrow 2-x = e^{-2x^2/3}\)</span> <span class="math inline">\(\tag{M1, A1}\)</span></p>
+<p><span class="math display">\[\boxed{x = 2-e^{-2x^2/3}, \quad k = -\tfrac{2}{3}} \tag{A1}\]</span></p>
+<p><strong>(b)</strong> <span class="math inline">\(x_{n+1} = 2-e^{-2x_n^2/3}\)</span>, <span class="math inline">\(x_0 = 1.9\)</span>:</p>
+<p><span class="math inline">\(x_1 \approx 1.910\)</span>, <span class="math inline">\(x_2 \approx 1.912\)</span>, <span class="math inline">\(x_3 \approx 1.912\)</span>, <span class="math inline">\(x_4 \approx 1.913\)</span></p>
+<p>To justify <span class="math inline">\(\alpha = 1.913\)</span>: <span class="math inline">\(\tag{A1, A1, A1}\)</span></p>
+<p><span class="math inline">\(f(1.9125) \approx +0.007 &gt; 0\)</span> and <span class="math inline">\(f(1.9135) \approx -0.020 &lt; 0\)</span></p>
+<p>Sign change <span class="math inline">\(\Rightarrow 1.9125 &lt; \alpha &lt; 1.9135\)</span>, so <span class="math inline">\(\alpha = 1.913\)</span> to 3 d.p. <span class="math inline">\(\blacksquare\)</span> <span class="math inline">\(\tag{M1, A1}\)</span></p>
+<p><strong>(c)</strong> <span class="math inline">\(f'(x) = 4x - \dfrac{3}{2-x} = 0 \Rightarrow 4x(2-x) = 3 \Rightarrow 4x^2-8x+3 = 0\)</span> <span class="math inline">\(\tag{M1, A1}\)</span></p>
+<p><span class="math display">\[(2x-1)(2x-3) = 0 \implies \boxed{x = \tfrac{1}{2} \text{ or } x = \tfrac{3}{2}} \tag{M1, A1, A1}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="q22-curve-y-x2---5x-2lnfracx3-8" class="level1">
+<h1>Q22 — Curve: <span class="math inline">\(y = x^2 - 5x + 2\ln\frac{x}{3}\)</span> <strong>(8)</strong></h1>
+<p>The curve <span class="math inline">\(C\)</span> has equation <span class="math inline">\(y = x^2-5x+2\ln\dfrac{x}{3}\)</span>, <span class="math inline">\(x &gt; 0\)</span>.</p>
+<p><strong>(a)</strong> Show that the normal to <span class="math inline">\(C\)</span> at the point where <span class="math inline">\(x = 3\)</span> has the equation <span class="math inline">\(3x+5y+21 = 0\)</span>. <strong>(5)</strong></p>
+<p><strong>(b)</strong> Find the <span class="math inline">\(x\)</span>-coordinates of the stationary points of <span class="math inline">\(C\)</span>. <strong>(3)</strong></p>
+<section id="solution-20" class="level2">
+<h2 class="anchored" data-anchor-id="solution-20">Solution</h2>
+<p><strong>(a)</strong> At <span class="math inline">\(x=3\)</span>: <span class="math inline">\(y = 9-15+2\ln 1 = -6\)</span>. Point <span class="math inline">\((3,-6)\)</span>. <span class="math inline">\(\tag{B1}\)</span></p>
+<p><span class="math display">\[\frac{dy}{dx} = 2x-5+\frac{2}{x}. \quad \text{At } x=3: \frac{dy}{dx} = 6-5+\frac{2}{3} = \frac{5}{3} \tag{M1, A1}\]</span></p>
+<p>Normal slope <span class="math inline">\(= -\dfrac{3}{5}\)</span>. Normal: <span class="math inline">\(y+6 = -\dfrac{3}{5}(x-3)\)</span> <span class="math inline">\(\tag{M1}\)</span></p>
+<p><span class="math display">\[5y+30 = -3x+9 \implies 3x+5y+21 = 0 \quad \blacksquare \tag{A1}\]</span></p>
+<p><strong>(b)</strong> <span class="math inline">\(\dfrac{dy}{dx} = 0\)</span>: <span class="math inline">\(2x-5+\dfrac{2}{x} = 0 \Rightarrow 2x^2-5x+2 = 0 \Rightarrow (2x-1)(x-2) = 0\)</span> <span class="math inline">\(\tag{M1, A1}\)</span></p>
+<p><span class="math display">\[\boxed{x = \tfrac{1}{2} \quad \text{or} \quad x = 2} \tag{A1}\]</span></p>
+
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

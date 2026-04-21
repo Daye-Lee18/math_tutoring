@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>numerical_methods – A-Level Maths Tutoring</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">A-Level Maths Tutoring</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pure-mathematics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pure Mathematics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-pure-mathematics">    
+        <li>
+    <a class="dropdown-item" href="../2_transformation/basic_forms.html">
+ <span class="dropdown-text">2 · Transformation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../3_numerical_method/core_concept.html">
+ <span class="dropdown-text">3 · Numerical Methods</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../4_further_tria/further_trigonometry.html">
+ <span class="dropdown-text">4 · Further Trigonometry</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../4_further_tria/further_trig_practice_basic.html">
+ <span class="dropdown-text">4 · Further Trig — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../5_differentiation_part1/core_concepts.html">
+ <span class="dropdown-text">5 · Differentiation Pt.1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../5_differentiation_part1/practice_basic.html">
+ <span class="dropdown-text">5 · Differentiation Pt.1 — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../6_review_exercise/review_exercise.html">
+ <span class="dropdown-text">6 · Review Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../7_differentiation_part2/core_concepts_v2.html">
+ <span class="dropdown-text">7 · Differentiation Pt.2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../7_differentiation_part2/practice_basic.html">
+ <span class="dropdown-text">7 · Differentiation Pt.2 — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../8_integration/core_concepts.html">
+ <span class="dropdown-text">8 · Integration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../8_integration/integration_practice_basic.html">
+ <span class="dropdown-text">8 · Integration — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/core_concepts.html">
+ <span class="dropdown-text">9 · Differential Equations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/differential_equation_practice_basic.html">
+ <span class="dropdown-text">9 · Differential Eq. — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/differential_equation_hard.html">
+ <span class="dropdown-text">9 · Differential Eq. — Hard</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../10_vector/core_concepts.html">
+ <span class="dropdown-text">10 · Vectors</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#채점지-03-numerical-methods" id="toc-채점지-03-numerical-methods" class="nav-link active" data-scroll-target="#채점지-03-numerical-methods">채점지 — 03 Numerical Methods</a>
+  <ul class="collapse">
+  <li><a href="#mark-scheme-정답-및-배점" id="toc-mark-scheme-정답-및-배점" class="nav-link" data-scroll-target="#mark-scheme-정답-및-배점">MARK SCHEME (정답 및 배점)</a>
+  <ul class="collapse">
+  <li><a href="#q1-13-marks" id="toc-q1-13-marks" class="nav-link" data-scroll-target="#q1-13-marks">Q1 [13 marks]</a></li>
+  <li><a href="#q2-12-marks" id="toc-q2-12-marks" class="nav-link" data-scroll-target="#q2-12-marks">Q2 [12 marks]</a></li>
+  </ul></li>
+  <li><a href="#학생-답안-채점" id="toc-학생-답안-채점" class="nav-link" data-scroll-target="#학생-답안-채점">학생 답안 채점</a>
+  <ul class="collapse">
+  <li><a href="#q1-1213" id="toc-q1-1213" class="nav-link" data-scroll-target="#q1-1213">Q1 — 12/13</a></li>
+  <li><a href="#q2-812" id="toc-q2-812" class="nav-link" data-scroll-target="#q2-812">Q2 — 8/12</a></li>
+  </ul></li>
+  <li><a href="#총점-요약" id="toc-총점-요약" class="nav-link" data-scroll-target="#총점-요약">총점 요약</a></li>
+  <li><a href="#피드백-요약" id="toc-피드백-요약" class="nav-link" data-scroll-target="#피드백-요약">피드백 요약</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="채점지-03-numerical-methods" class="level1">
+<h1>채점지 — 03 Numerical Methods</h1>
+<p><strong>학생:</strong> 이상민 | <strong>총점:</strong> 20/25</p>
+<hr>
+<section id="mark-scheme-정답-및-배점" class="level2">
+<h2 class="anchored" data-anchor-id="mark-scheme-정답-및-배점">MARK SCHEME (정답 및 배점)</h2>
+<section id="q1-13-marks" class="level3">
+<h3 class="anchored" data-anchor-id="q1-13-marks">Q1 [13 marks]</h3>
+<p>f(x) = (x⁴ + x³ − 5x² − 9) / (x² + x − 6)</p>
+<p><strong>(a) 대수 나눗셈으로 f(x) = x² + A + B/(x+C) 임을 증명</strong> [5]</p>
+<p>먼저 x² + x − 6 = (x+3)(x−2) 인수분해.</p>
+<p>다항식 나눗셈:</p>
+<pre><code>x⁴ + x³ − 5x² + 0x − 9  ÷  (x² + x − 6)
+= x²  → x²(x² + x − 6) = x⁴ + x³ − 6x²
+나머지: x² − 9
+
+x² − 9  ÷  (x² + x − 6)
+= 1    → 1·(x² + x − 6) = x² + x − 6
+나머지: −x − 3</code></pre>
+<p>따라서: f(x) = x² + 1 + (−x−3)/((x+3)(x−2)) = x² + 1 + (−1)(x+3)/((x+3)(x−2)) = x² + 1 − 1/(x−2) = x² + 1 + (−1)/(x + (−2))</p>
+<p>→ <strong>A = 1, B = −1, C = −2</strong></p>
+<ul>
+<li>M1: 올바른 나눗셈 방법 수행</li>
+<li>A1: 몫 x² + 1 도출</li>
+<li>M1: 나머지 분수 처리 (−x−3)/((x+3)(x−2))</li>
+<li>A1: 약분 후 −1/(x−2)</li>
+<li>A1: A=1, B=−1, C=−2 명시</li>
+</ul>
+<p><strong>(b) f(x) = 0이 정확히 하나의 실근을 가짐을 그래프로 증명</strong> [3] f(x) = 0 → x² + 1 = 1/(x−2) (단, x ≠ 2)</p>
+<p>y = x² + 1 (위로 볼록 포물선, 최솟값 (0,1))과 y = 1/(x−2) (직각쌍곡선, x=2 점근선)를 같은 축에 그림.</p>
+<ul>
+<li>B1: y = x² + 1 올바른 스케치</li>
+<li>B1: y = 1/(x−2) 올바른 스케치 (x=2 점근선 포함)</li>
+<li>B1: 두 그래프가 x &gt; 2 영역에서 정확히 1번 교차함 → 실근 1개 결론</li>
+</ul>
+<p><strong>(c) 반복식으로 f(x) = 0의 근을 3 유효숫자로 구하기</strong> [5]</p>
+<p>시작값 결정 (부호변환): f(2.1) = (2.1)² + 1 − 1/(2.1−2) = 4.41 + 1 − 10 = −4.59 &lt; 0 f(2.5) = 6.25 + 1 − 1/0.5 = 5.25 &gt; 0 → 근 ∈ (2.1, 2.5)</p>
+<p>반복식: x_{n+1} = 2 + 1/(x_n² + 1), 시작값 x₀ 선택 (예: x₀ = 2.3)</p>
+<p>수렴값: α ≈ <strong>2.17</strong> (3 유효숫자)</p>
+<p>정당화: f(2.165) &lt; 0, f(2.175) &gt; 0 → 부호 변환 → α ∈ (2.165, 2.175) → <strong>α = 2.17 (3 s.f.)</strong></p>
+<ul>
+<li>M1: 적절한 시작값 및 부호 변환으로 근 위치 확인</li>
+<li>M1: 반복식 적용, 4회 이상 반복</li>
+<li>A1: 수렴값 ≈ 2.17</li>
+<li>M1: 3 유효숫자 정당화 방법 (f(2.165), f(2.175) 부호 검사)</li>
+<li>A1: 정당화 완료</li>
+</ul>
+<hr>
+</section>
+<section id="q2-12-marks" class="level3">
+<h3 class="anchored" data-anchor-id="q2-12-marks">Q2 [12 marks]</h3>
+<p><strong>(a) π − 3 arccos θ = 0 풀기</strong> [2] arccos θ = π/3 → <strong>θ = cos(π/3) = 1/2</strong></p>
+<ul>
+<li>M1: arccos θ = π/3 도출</li>
+<li>A1: <strong>θ = 1/2</strong></li>
+</ul>
+<p><strong>(b) y = arccos(x−1) (0≤x≤2)와 y = √(x+2) (x≥−2) 스케치</strong> [5]</p>
+<p>y = arccos(x−1): - 정의역: 0 ≤ x ≤ 2 - (0, π): x=0에서 arccos(−1) = π - (1, π/2): x=1에서 arccos(0) = π/2 - (2, 0): x=2에서 arccos(1) = 0 - 감소 곡선</p>
+<p>y = √(x+2): - 정의역: x ≥ −2 - (−2, 0): x=−2에서 y=0 - (0, √2): y-절편 - 증가 곡선</p>
+<ul>
+<li>B1: arccos 곡선 감소 형태</li>
+<li>B1: (0, π) 및 (2, 0) 표시</li>
+<li>B1: √(x+2) 증가 형태</li>
+<li>B1: (−2, 0) 및 (0, √2) 표시</li>
+<li>B1: 두 곡선 교점 1개 (0 &lt; α &lt; 1 부근)</li>
+</ul>
+<p><strong>(c) 0 &lt; α &lt; 1 임을 증명</strong> [3] g(x) = arccos(x−1) − √(x+2) 정의</p>
+<p>g(0) = arccos(−1) − √2 = π − √2 ≈ 3.14 − 1.41 &gt; <strong>0</strong> g(1) = arccos(0) − √3 = π/2 − √3 ≈ 1.57 − 1.73 &lt; <strong>0</strong></p>
+<p>g 연속, g(0) &gt; 0, g(1) &lt; 0 → 중간값 정리에 의해 α ∈ (0, 1)이 존재</p>
+<ul>
+<li>M1: g(x) = arccos(x−1) − √(x+2) 설정</li>
+<li>A1: g(0) = π − √2 &gt; 0 명시</li>
+<li>A1: g(1) = π/2 − √3 &lt; 0 명시 → 결론</li>
+</ul>
+<p><strong>(d) 반복식으로 α를 소수 3자리까지 구하기</strong> [4] x_{n+1} = 1 + cos(√(x_n + 2)), <strong>x₀ = 1</strong> (문제 조건)</p>
+<p>x₁ = 1 + cos(√3) ≈ 1 + cos(1.732) ≈ 0.8226 x₂ ≈ 0.8786, x₃ ≈ 0.8726, …</p>
+<p>수렴값: α ≈ <strong>0.875</strong> (소수 3자리)</p>
+<p>정당화: f(0.8745) &gt; 0, f(0.8755) &lt; 0 → α ∈ (0.8745, 0.8755) → <strong>α = 0.875 (3 d.p.)</strong></p>
+<ul>
+<li>M1: x₀ = 1 사용, 반복식 적용</li>
+<li>M1: 4회 이상 반복</li>
+<li>A1: α ≈ 0.875</li>
+<li>A1: 소수 3자리 정당화 (0.8745 &lt; α &lt; 0.8755 부호 검사)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="학생-답안-채점" class="level2">
+<h2 class="anchored" data-anchor-id="학생-답안-채점">학생 답안 채점</h2>
+<section id="q1-1213" class="level3">
+<h3 class="anchored" data-anchor-id="q1-1213">Q1 — 12/13</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 27%">
+<col style="width: 18%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>파트</th>
+<th>정답</th>
+<th>학생 답</th>
+<th>점수</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(a)</td>
+<td>A=1, B=−1, C=−2</td>
+<td><strong>A=1, B=−1, C=−2</strong></td>
+<td><strong>5/5</strong></td>
+<td>✓ 합성제법(synthetic division)과 긴 나눗셈 병용, 정확</td>
+</tr>
+<tr class="even">
+<td>(b)</td>
+<td>정확히 1 교점</td>
+<td>스케치 및 1개 교점 결론</td>
+<td><strong>3/3</strong></td>
+<td>✓ y=x²+1, y=1/(x−2) 모두 올바른 형태</td>
+</tr>
+<tr class="odd">
+<td>(c)</td>
+<td>α=2.17 (3 s.f.)</td>
+<td><strong>2.1745 (3 s.f.로 기재)</strong></td>
+<td><strong>4/5</strong></td>
+<td>수렴값 올바름. 단, <strong>3 유효숫자 정당화 오류</strong>: 학생은 f(2.1744), f(2.1746) 부호를 확인했으나, 3 유효숫자(2.17)를 정당화하려면 <strong>f(2.165) &lt; 0, f(2.175) &gt; 0</strong> 확인 필요. 또한 최종 답을 “2.1745”로 적었는데 이는 5 유효숫자임.</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>⚠️ <strong>Q1(c) 정당화 방법 오류</strong>: “3 significant figures” 답안은 2.17이며, 정당화는 [2.165, 2.175] 구간에서 부호 변화를 보여야 함. 학생은 [2.1744, 2.1746]에서 부호 확인 → 이는 소수 4자리 정당화. “3 s.f.”와 “3 d.p.”(소수점 3자리) 혼동 주의.</p>
+</blockquote>
+<hr>
+</section>
+<section id="q2-812" class="level3">
+<h3 class="anchored" data-anchor-id="q2-812">Q2 — 8/12</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 27%">
+<col style="width: 18%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>파트</th>
+<th>정답</th>
+<th>학생 답</th>
+<th>점수</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(a)</td>
+<td>θ = 1/2</td>
+<td><strong>θ = 1/2</strong></td>
+<td><strong>2/2</strong></td>
+<td>✓ cos(π/3)=1/2 정확</td>
+</tr>
+<tr class="even">
+<td>(b) 스케치</td>
+<td>arccos 감소, √(x+2) 증가, 교점 표시</td>
+<td>대략 올바른 형태</td>
+<td><strong>3/5</strong></td>
+<td>arccos 곡선 감소 형태 ✓. 그러나 <strong>(0, π), (2, 0)</strong> 좌표 표기 불명확. √(x+2) 형태 ✓. <strong>교점 위치는 표시됨.</strong> B1×3 획득</td>
+</tr>
+<tr class="odd">
+<td>(c)</td>
+<td>g(0)=π−√2&gt;0, g(1)=π/2−√3&lt;0</td>
+<td><strong>g(0)=π−√2&gt;0 ✓, g(1)=π/2−√3&lt;0 ✓</strong></td>
+<td><strong>3/3</strong></td>
+<td>✓ 완벽한 IVT 논증</td>
+</tr>
+<tr class="even">
+<td>(d)</td>
+<td>α=0.875 (3 d.p.)</td>
+<td><strong>α=0.875 ✓</strong>, 단 x₀=<strong>0.5 사용</strong></td>
+<td><strong>2/4</strong></td>
+<td>최종값 0.875 정확. 단, <strong>문제 조건 x₀=1 을 사용하지 않고 x₀=0.5 사용</strong> → M1 감점. 정당화 구간 [0.8752, 0.8755]으로 3 d.p. 정당화 불완전 (0.8745 &lt; α &lt; 0.8755 필요).</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>⚠️ <strong>Q2(d) x₀ 오류</strong>: 문제가 명시적으로 <strong>x₀ = 1</strong>을 요구했으나 학생은 x₀ = 0.5 사용. 우연히 같은 수렴값에 도달했으나 시작값 오류로 M1 감점. ⚠️ <strong>Q2(d) 정당화 간격</strong>: “3 decimal places” 정당화는 f(0.8745)와 f(0.8755)의 부호 변화 확인 필요. 학생의 구간은 너무 좁음.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="총점-요약" class="level2">
+<h2 class="anchored" data-anchor-id="총점-요약">총점 요약</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>문제</th>
+<th>배점</th>
+<th>획득</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Q1</td>
+<td>13</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>Q2</td>
+<td>12</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td><strong>합계</strong></td>
+<td><strong>25</strong></td>
+<td><strong>20</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="피드백-요약" class="level2">
+<h2 class="anchored" data-anchor-id="피드백-요약">피드백 요약</h2>
+<p><strong>잘한 점:</strong> - Q1(a) 대수 나눗셈: 합성제법 + 긴 나눗셈 병용하여 A=1, B=−1, C=−2 완벽 도출 - Q1(b) 그래프 증명: 두 그래프로 유일 교점 논증 명확 - Q2(a) arccos 방정식: θ=1/2 정확 - Q2(c) IVT 논증: g(0), g(1) 부호 확인 + 결론 완벽</p>
+<p><strong>개선 필요:</strong> 1. <strong>유효숫자 vs 소수자리 구분</strong>: “3 significant figures”는 2.17이고 정당화 구간은 [2.165, 2.175]. “3 decimal places”는 0.875이고 정당화 구간은 [0.8745, 0.8755]. 학생이 두 개념을 혼용함. 2. <strong>반복식 시작값</strong>: 문제에서 x₀ 값이 주어지면 반드시 그것을 사용 (Q2(d): x₀=1 요구). 3. <strong>스케치 좌표 표기</strong>: 특징점 (0, π), (2, 0) 등을 스케치에 명확히 레이블링.</p>
+
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

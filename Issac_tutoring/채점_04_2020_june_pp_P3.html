@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>june_pp_p3 – A-Level Maths Tutoring</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">A-Level Maths Tutoring</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pure-mathematics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pure Mathematics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-pure-mathematics">    
+        <li>
+    <a class="dropdown-item" href="../2_transformation/basic_forms.html">
+ <span class="dropdown-text">2 · Transformation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../3_numerical_method/core_concept.html">
+ <span class="dropdown-text">3 · Numerical Methods</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../4_further_tria/further_trigonometry.html">
+ <span class="dropdown-text">4 · Further Trigonometry</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../4_further_tria/further_trig_practice_basic.html">
+ <span class="dropdown-text">4 · Further Trig — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../5_differentiation_part1/core_concepts.html">
+ <span class="dropdown-text">5 · Differentiation Pt.1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../5_differentiation_part1/practice_basic.html">
+ <span class="dropdown-text">5 · Differentiation Pt.1 — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../6_review_exercise/review_exercise.html">
+ <span class="dropdown-text">6 · Review Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../7_differentiation_part2/core_concepts_v2.html">
+ <span class="dropdown-text">7 · Differentiation Pt.2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../7_differentiation_part2/practice_basic.html">
+ <span class="dropdown-text">7 · Differentiation Pt.2 — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../8_integration/core_concepts.html">
+ <span class="dropdown-text">8 · Integration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../8_integration/integration_practice_basic.html">
+ <span class="dropdown-text">8 · Integration — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/core_concepts.html">
+ <span class="dropdown-text">9 · Differential Equations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/differential_equation_practice_basic.html">
+ <span class="dropdown-text">9 · Differential Eq. — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/differential_equation_hard.html">
+ <span class="dropdown-text">9 · Differential Eq. — Hard</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../10_vector/core_concepts.html">
+ <span class="dropdown-text">10 · Vectors</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#채점지-2020-june-pp-ial-p3-wma1301" id="toc-채점지-2020-june-pp-ial-p3-wma1301" class="nav-link active" data-scroll-target="#채점지-2020-june-pp-ial-p3-wma1301">채점지 — 2020 June PP · IAL P3 (WMA13/01)</a>
+  <ul class="collapse">
+  <li><a href="#문제별-점수-요약" id="toc-문제별-점수-요약" class="nav-link" data-scroll-target="#문제별-점수-요약">문제별 점수 요약</a></li>
+  <li><a href="#상세-채점" id="toc-상세-채점" class="nav-link" data-scroll-target="#상세-채점">상세 채점</a>
+  <ul class="collapse">
+  <li><a href="#q1-삼각방정식-55" id="toc-q1-삼각방정식-55" class="nav-link" data-scroll-target="#q1-삼각방정식-55">Q1 · 삼각방정식 [5/5] ✓</a></li>
+  <li><a href="#q2-지수로그-모델-66" id="toc-q2-지수로그-모델-66" class="nav-link" data-scroll-target="#q2-지수로그-모델-66">Q2 · 지수·로그 모델 [6/6] ✓</a></li>
+  <li><a href="#q3-미분치역-77" id="toc-q3-미분치역-77" class="nav-link" data-scroll-target="#q3-미분치역-77">Q3 · 미분·치역 [7/7] ✓</a></li>
+  <li><a href="#q4-합성함수변환-88" id="toc-q4-합성함수변환-88" class="nav-link" data-scroll-target="#q4-합성함수변환-88">Q4 · 합성함수·변환 [8/8] ✓</a></li>
+  <li><a href="#q5-삼각-항등식적분-68" id="toc-q5-삼각-항등식적분-68" class="nav-link" data-scroll-target="#q5-삼각-항등식적분-68">Q5 · 삼각 항등식·적분 [6/8] ⚠️</a></li>
+  <li><a href="#q6-수치해석-69" id="toc-q6-수치해석-69" class="nav-link" data-scroll-target="#q6-수치해석-69">Q6 · 수치해석 [6/9] ⚠️</a></li>
+  <li><a href="#q7-r형-변환응용-99" id="toc-q7-r형-변환응용-99" class="nav-link" data-scroll-target="#q7-r형-변환응용-99">Q7 · R형 변환·응용 [9/9] ✓</a></li>
+  <li><a href="#q8-미분적몫의-법칙-음함수-99" id="toc-q8-미분적몫의-법칙-음함수-99" class="nav-link" data-scroll-target="#q8-미분적몫의-법칙-음함수-99">Q8 · 미분(적·몫의 법칙, 음함수) [9/9] ✓</a></li>
+  <li><a href="#q9-대수-나눗셈미적분-1414" id="toc-q9-대수-나눗셈미적분-1414" class="nav-link" data-scroll-target="#q9-대수-나눗셈미적분-1414">Q9 · 대수 나눗셈·미적분 [14/14] ✓</a></li>
+  </ul></li>
+  <li><a href="#피드백-요약" id="toc-피드백-요약" class="nav-link" data-scroll-target="#피드백-요약">피드백 요약</a>
+  <ul class="collapse">
+  <li><a href="#잘한-점" id="toc-잘한-점" class="nav-link" data-scroll-target="#잘한-점">잘한 점</a></li>
+  <li><a href="#개선-필요" id="toc-개선-필요" class="nav-link" data-scroll-target="#개선-필요">개선 필요</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="채점지-2020-june-pp-ial-p3-wma1301" class="level1">
+<h1>채점지 — 2020 June PP · IAL P3 (WMA13/01)</h1>
+<p><strong>학생:</strong> Issac | <strong>총점: 70/75</strong> | <strong>등급 참고:</strong> A* 경계 약 68/75</p>
+<hr>
+<section id="문제별-점수-요약" class="level2">
+<h2 class="anchored" data-anchor-id="문제별-점수-요약">문제별 점수 요약</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Q</th>
+<th>배점</th>
+<th>획득</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>5</td>
+<td>5</td>
+<td>✓ 완벽</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>6</td>
+<td>6</td>
+<td>✓ 완벽</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>7</td>
+<td>7</td>
+<td>✓ 완벽</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>8</td>
+<td>8</td>
+<td>✓ 완벽</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>8</td>
+<td><strong>6</strong></td>
+<td>(b) 적분 계수 오류</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>9</td>
+<td><strong>6</strong></td>
+<td>(b) 구간 오류, (c) β 계산 오류</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>9</td>
+<td>9</td>
+<td>✓ 완벽</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>9</td>
+<td>9</td>
+<td>✓ 완벽</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>14</td>
+<td>14</td>
+<td>✓ 완벽</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="상세-채점" class="level2">
+<h2 class="anchored" data-anchor-id="상세-채점">상세 채점</h2>
+<hr>
+<section id="q1-삼각방정식-55" class="level3">
+<h3 class="anchored" data-anchor-id="q1-삼각방정식-55">Q1 · 삼각방정식 [5/5] ✓</h3>
+<p><code>2cos2x = 7cosx</code>, <code>0 ≤ x &lt; 360°</code></p>
+<p><strong>학생 풀이:</strong> - <code>cos2x = 2cos²x − 1</code> 대입 → <code>4cos²x − 7cosx − 2 = 0</code> <strong>(M1 ✓)</strong> - <code>(4c+1)(c−2) = 0</code> 인수분해 → cosx = −1/4, 2 <strong>(M1 A1 ✓)</strong> - <code>cosx = 2</code>는 범위 초과 제외, <code>cosx = −1/4</code> 선택 <strong>(dM1 ✓)</strong> - <code>x = 104.5°, 255.5°</code> <strong>(A1 ✓)</strong></p>
+<hr>
+</section>
+<section id="q2-지수로그-모델-66" class="level3">
+<h3 class="anchored" data-anchor-id="q2-지수로그-모델-66">Q2 · 지수·로그 모델 [6/6] ✓</h3>
+<p><code>log₁₀N = 0.0646t + 1.478</code></p>
+<p><strong>(a) N = ab^t 형태 [4/4]</strong> - <code>N = 10^(0.0646t + 1.478) = 10^1.478 × (10^0.0646)^t</code> <strong>(M1 A1 ✓)</strong> - <code>a = 30</code>, <code>b = 1.16</code> 도출, <code>N = 30 × 1.16^t</code> <strong>(dM1 A1 ✓)</strong></p>
+<p><strong>(b) t = 30일 때 N [2/2]</strong> - <code>N = 30 × 1.16^30 ≈ 2600 mm²</code> <strong>(M1 A1 ✓)</strong></p>
+<hr>
+</section>
+<section id="q3-미분치역-77" class="level3">
+<h3 class="anchored" data-anchor-id="q3-미분치역-77">Q3 · 미분·치역 [7/7] ✓</h3>
+<p><code>f(x) = (2x+3)/√(4x−1)</code>, <code>x &gt; 1/4</code></p>
+<p><strong>(a) f’(x) [4/4]</strong> - 몫의 법칙 올바르게 적용: 분자 <code>(4x−1)^(1/2)·2 − (2x+3)·2(4x−1)^(-1/2)</code> <strong>(M1 A1 ✓)</strong> - <code>(4x−1)^(1/2)</code> 곱해 정리 → <code>f'(x) = 4(x−2)/(4x−1)^(3/2)</code> = <code>(4x−8)/(4x−1)^(3/2)</code> <strong>(dM1 A1 ✓)</strong></p>
+<p><strong>(b) range of f [3/3]</strong> - <code>f'(x) = 0</code> → <code>x = 2</code> <strong>(M1 ✓)</strong> - <code>f(2) = 7/√7 = √7</code> → <code>dM1 A1 ✓</code> - range: <strong>f ≥ √7</strong> ✓</p>
+<hr>
+</section>
+<section id="q4-합성함수변환-88" class="level3">
+<h3 class="anchored" data-anchor-id="q4-합성함수변환-88">Q4 · 합성함수·변환 [8/8] ✓</h3>
+<p><code>f(x) = 21 − 2|2−x|</code>, <code>x ≥ 0</code></p>
+<p><strong>(a) ff(6) [2/2]</strong> - <code>f(6) = 21 − 2|2−6| = 21 − 8 = 13</code> <strong>(M1 ✓)</strong> - <code>ff(6) = f(13) = 21 − 2|2−13| = 21 − 22 = −1</code> <strong>(A1 ✓)</strong></p>
+<p><strong>(b) f(x) = 5x → x = 25/7 [2/2]</strong> - <code>x &gt; 2</code>인 경우: <code>21 − 2(x−2) = 5x</code> → <code>7x = 25</code> → <code>x = 25/7</code> <strong>(M1 A1 ✓)</strong></p>
+<p><strong>(c) f(x) = k의 근이 2개인 k 범위 [2/2]</strong> - <code>17 ≤ k &lt; 21</code> <strong>(M1 A1 ✓)</strong></p>
+<p><strong>(d) a, b 값 [2/2]</strong> - 꼭짓점 <code>(2, 21)</code> → <code>(6, 3)</code> 변환 이용 - <code>21 × a = 3</code> → <code>a = 1/7</code>, <code>2 + b = 6</code> → <code>b = 4</code> <strong>(B1 B1 ✓)</strong></p>
+<hr>
+</section>
+<section id="q5-삼각-항등식적분-68" class="level3">
+<h3 class="anchored" data-anchor-id="q5-삼각-항등식적분-68">Q5 · 삼각 항등식·적분 [6/8] ⚠️</h3>
+<p><strong>(a) sin3x ≡ 3sinx − 4sin³x 증명 [4/4] ✓</strong> - <code>sin3x = sin(2x+x) = sin2x·cosx + cos2x·sinx</code> <strong>(M1 ✓)</strong> - <code>= 2sinx·cos²x + (1−2sin²x)sinx</code> <strong>(M1 ✓)</strong> - <code>= sinx(2−2sin²x + 1−2sin²x)</code> → <code>= sinx(3−4sin²x)</code> <strong>(ddM1 ✓)</strong> - <code>= 3sinx − 4sin³x</code> ∴ 증명 완료 <strong>(A1* ✓)</strong></p>
+<p><strong>(b) ∫₀^(π/3) sin³x dx [2/4] ⚠️ −2점</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>마크</th>
+<th>기준</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>M1</td>
+<td>(a) 이용해 sin³x = 3/4 sinx − 1/4 sin3x</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>dM1</td>
+<td>A sinx + B sin3x → a cosx + b cos3x 형태</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td><strong>A1</strong></td>
+<td><strong>−3/4 cosx + 1/12 cos3x 正확한 계수</strong></td>
+<td><strong>✗ (1/4 cos3x 로 기재, 1/12가 맞음)</strong></td>
+</tr>
+<tr class="even">
+<td><strong>A1</strong></td>
+<td><strong>최종 답 5/24</strong></td>
+<td><strong>✗ (5/8로 오답)</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>오류 설명:</strong> <code>∫(−1/4 sin3x)dx = (1/12)cos3x</code> 인데, 학생이 <code>(1/4)cos3x</code>로 적분 상수를 빠뜨림(3으로 나누기 미적용). 따라서 최종 답 <code>5/8</code> ≠ <code>5/24</code>.</p>
+<p><strong>정확한 계산:</strong> <code>[−3/4 cosx + 1/12 cos3x]₀^(π/3)</code> = <code>(−3/8 − 1/12) − (−3/4 + 1/12)</code> = <code>−11/24 + 8/12</code> = <code>5/24</code></p>
+</blockquote>
+<hr>
+</section>
+<section id="q6-수치해석-69" class="level3">
+<h3 class="anchored" data-anchor-id="q6-수치해석-69">Q6 · 수치해석 [6/9] ⚠️</h3>
+<p><strong>(a) P점의 x좌표 [3/3] ✓</strong> - <code>5e^(x−1) + 3 = 18</code> → <code>e^(x−1) = 3</code> → <code>x = ln3 + 1 = ln3e</code> <strong>(M1 A1 A1 ✓)</strong></p>
+<p><strong>(b) α = 1.134 (3dp) 증명 [1/3] ⚠️ −2점</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>마크</th>
+<th>기준</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B1</td>
+<td>적절한 함수 정의: f(x) = x² + 5e^(x−1) − 7</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td><strong>M1</strong></td>
+<td><strong>x = 1.1335, x = 1.1345 대입 (또는 더 좁은 구간)</strong></td>
+<td><strong>✗</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>A1</strong></td>
+<td><strong>올바른 값, 부호 변화 이유, 결론</strong></td>
+<td><strong>✗ (M1 미획득으로 종속)</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>오류 설명:</strong> 학생이 <code>[1.133, 1.135]</code> 구간을 사용했으나, <strong>3dp 정밀도 증명</strong>에는 <code>[1.1335, 1.1345]</code> (또는 더 좁은 구간)이 필요. <code>[1.133, 1.135]</code>는 너무 넓어 α = 1.134를 3dp로 확정할 수 없음.</p>
+<p><strong>올바른 접근:</strong> <code>f(1.1335) ≈ −0.003 &lt; 0</code>, <code>f(1.1345) ≈ +0.004 &gt; 0</code>, 부호 변화 + 연속 → α = 1.134 (3dp)</p>
+</blockquote>
+<p><strong>(c) x₂, β 값 [2/3] ⚠️ −1점</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>마크</th>
+<th>기준</th>
+<th>결과</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>M1</td>
+<td>x₁ = −3 대입 시도</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>A1</td>
+<td>x₂ = awrt −2.628388</td>
+<td>✓ (−2.628388 ✓)</td>
+</tr>
+<tr class="odd">
+<td><strong>A1</strong></td>
+<td><strong>β = awrt −2.620330</strong></td>
+<td><strong>✗ (학생: −2.620535)</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>오류 설명:</strong> 학생이 x₃를 β로 정의했으나 x₃ ≈ −2.62054 ≠ β = −2.620330. β는 반복수열의 수렴값(극한)으로, 더 많은 반복이 필요: - x₃ ≈ −2.62054 - x₄ ≈ −2.62031 - x₅ ≈ β ≈ <strong>−2.620330</strong> (6dp)</p>
+</blockquote>
+<hr>
+</section>
+<section id="q7-r형-변환응용-99" class="level3">
+<h3 class="anchored" data-anchor-id="q7-r형-변환응용-99">Q7 · R형 변환·응용 [9/9] ✓</h3>
+<p><strong>(a) cosx + 4sinx = R cos(x−α) [3/3]</strong> - <code>R = √(1+16) = √17</code> <strong>(B1 ✓)</strong> - <code>tanα = 4</code> → <code>α = 1.326 rad</code> <strong>(M1 A1 ✓)</strong></p>
+<p><strong>(b) 최소 높이 [2/2]</strong> - <code>H_min = 24/(3+√17) ≈ 3.37 m</code> <strong>(M1 A1 ✓)</strong></p>
+<p><strong>(c) H = 10일 때 t [4/4]</strong> - <code>cos(t/2 − 1.326) = −0.6/√17</code> <strong>(M1 A1 ✓)</strong> - <code>t/2 − 1.326 = arccos(−0.6/√17) ≈ 1.7168</code> <strong>(M1 ✓)</strong> - <code>t = 2(1.7168 + 1.326) ≈ 6.09</code> <strong>(A1 ✓)</strong></p>
+<hr>
+</section>
+<section id="q8-미분적몫의-법칙-음함수-99" class="level3">
+<h3 class="anchored" data-anchor-id="q8-미분적몫의-법칙-음함수-99">Q8 · 미분(적·몫의 법칙, 음함수) [9/9] ✓</h3>
+<p><strong>(i)(a) g’(x) [2/2]</strong> - <code>g'(x) = 3e^(3x)sec2x + 2e^(3x)sec2x·tan2x = e^(3x)sec2x(3+2tan2x)</code> <strong>(M1 A1 ✓)</strong></p>
+<p><strong>(i)(b) 정류점 x좌표 [3/3]</strong> - <code>e^(3x) ≠ 0, sec2x ≠ 0</code> → <code>3 + 2tan2x = 0</code> → <code>tan2x = −1.5</code> <strong>(M1 dM1 ✓)</strong> - <code>x = −0.491</code> <strong>(A1 ✓)</strong></p>
+<p><strong>(ii) dy/dx = eˣ/f(x) 증명 [4/4]</strong> - <code>x = ln(siny)</code> → <code>dx/dy = cosy/siny</code> → <code>dy/dx = siny/cosy = tany</code> <strong>(B1 ✓)</strong> - <code>cosy = √(1−sin²y) = √(1−e^(2x))</code> 이용 <strong>(M1 ✓)</strong> - <code>dy/dx = siny/cosy = e^x/√(1−e^(2x))</code> <strong>(dM1 A1 ✓)</strong></p>
+<hr>
+</section>
+<section id="q9-대수-나눗셈미적분-1414" class="level3">
+<h3 class="anchored" data-anchor-id="q9-대수-나눗셈미적분-1414">Q9 · 대수 나눗셈·미적분 [14/14] ✓</h3>
+<p><strong>(a) P=2, Q=5 [4/4]</strong> - 조립제법으로 <code>(x+3)</code> 인수 분리 후 <code>x−4</code>로 나눗셈: 몫 <code>x²+2</code>, 나머지 <code>5</code> <strong>(M1 M1 ✓)</strong> - <code>P = 2</code>, <code>Q = 5</code> <strong>(A1 A1 ✓)</strong></p>
+<p><strong>(b) x=2에서 접선 방정식 [5/5]</strong> - <code>g'(x) = 2x − 5/(x−4)²</code> <strong>(M1 A1 ✓)</strong> - <code>g'(2) = 4 − 5/4 = 11/4</code> <strong>(M1 ✓)</strong> - <code>g(2) = 4+2−5/2 = 7/2</code>, 접선: <code>y = 11/4·x − 2</code> <strong>(dM1 A1 ✓)</strong></p>
+<p><strong>(c) 넓이 R (정확값) [5/5]</strong> - <code>∫₀²(x²+2+5/(x−4))dx = [1/3·x³+2x+5ln|x−4|]₀²</code> <strong>(M1 A1 ✓)</strong> - <code>= (8/3+4+5ln2) − (5ln4)</code> → <code>= 20/3 − 5ln2</code> <strong>(dM1 ddM1 A1 ✓)</strong></p>
+<hr>
+</section>
+</section>
+<section id="피드백-요약" class="level2">
+<h2 class="anchored" data-anchor-id="피드백-요약">피드백 요약</h2>
+<section id="잘한-점" class="level3">
+<h3 class="anchored" data-anchor-id="잘한-점">잘한 점</h3>
+<ul>
+<li>Q1–Q4, Q7–Q9 전 문항 만점 → 함수, 미분, 적분, 벡터 전반 탄탄</li>
+<li>Q8(ii) 음함수 미분 깔끔하게 완성 (어려운 문제)</li>
+<li>Q9 긴 대수 계산 실수 없이 완료</li>
+</ul>
+</section>
+<section id="개선-필요" class="level3">
+<h3 class="anchored" data-anchor-id="개선-필요">개선 필요</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Q5(b) 적분</strong></td>
+<td><code>∫sin3x dx = −cos3x/3 + C</code> → 치환 시 <strong>1/3 나누기</strong> 반드시 확인</td>
+</tr>
+<tr class="even">
+<td><strong>Q6(b) 변화부호법</strong></td>
+<td>3dp 증명 시 구간은 반드시 <code>[1.1335, 1.1345]</code> 사용 (단순히 좌우 근방 아님)</td>
+</tr>
+<tr class="odd">
+<td><strong>Q6(c) 반복수열</strong></td>
+<td>β는 <strong>수렴값(극한)</strong>, x₃ 한 번만으로는 부족 — 최소 x₄까지 계산하거나 “β ≈ −2.6203” 명확히 제시</td>
+</tr>
+</tbody>
+</table>
+
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

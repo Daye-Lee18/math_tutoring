@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>핵심개념 — Numerical Method (Iterative Method) – A-Level Maths Tutoring</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">A-Level Maths Tutoring</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pure-mathematics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pure Mathematics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-pure-mathematics">    
+        <li>
+    <a class="dropdown-item" href="../2_transformation/basic_forms.html">
+ <span class="dropdown-text">2 · Transformation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../3_numerical_method/core_concept.html">
+ <span class="dropdown-text">3 · Numerical Methods</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../4_further_tria/further_trigonometry.html">
+ <span class="dropdown-text">4 · Further Trigonometry</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../4_further_tria/further_trig_practice_basic.html">
+ <span class="dropdown-text">4 · Further Trig — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../5_differentiation_part1/core_concepts.html">
+ <span class="dropdown-text">5 · Differentiation Pt.1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../5_differentiation_part1/practice_basic.html">
+ <span class="dropdown-text">5 · Differentiation Pt.1 — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../6_review_exercise/review_exercise.html">
+ <span class="dropdown-text">6 · Review Exercise</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../7_differentiation_part2/core_concepts_v2.html">
+ <span class="dropdown-text">7 · Differentiation Pt.2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../7_differentiation_part2/practice_basic.html">
+ <span class="dropdown-text">7 · Differentiation Pt.2 — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../8_integration/core_concepts.html">
+ <span class="dropdown-text">8 · Integration</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../8_integration/integration_practice_basic.html">
+ <span class="dropdown-text">8 · Integration — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/core_concepts.html">
+ <span class="dropdown-text">9 · Differential Equations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/differential_equation_practice_basic.html">
+ <span class="dropdown-text">9 · Differential Eq. — Practice</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../9_differential_equation/differential_equation_hard.html">
+ <span class="dropdown-text">9 · Differential Eq. — Hard</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../10_vector/core_concepts.html">
+ <span class="dropdown-text">10 · Vectors</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#basic-notions" id="toc-basic-notions" class="nav-link active" data-scroll-target="#basic-notions">1. Basic Notions</a>
+  <ul class="collapse">
+  <li><a href="#수렴-패턴" id="toc-수렴-패턴" class="nav-link" data-scroll-target="#수렴-패턴">수렴 패턴</a></li>
+  </ul></li>
+  <li><a href="#standard-procedure-5-steps" id="toc-standard-procedure-5-steps" class="nav-link" data-scroll-target="#standard-procedure-5-steps">2. Standard Procedure (5 Steps)</a>
+  <ul class="collapse">
+  <li><a href="#step-1-fx-찾기" id="toc-step-1-fx-찾기" class="nav-link" data-scroll-target="#step-1-fx-찾기">Step 1 — f(x) 찾기</a></li>
+  <li><a href="#step-2-fx로-rough-range-찾기-alpha-x-beta" id="toc-step-2-fx로-rough-range-찾기-alpha-x-beta" class="nav-link" data-scroll-target="#step-2-fx로-rough-range-찾기-alpha-x-beta">Step 2 — f(x)로 rough range 찾기 (<span class="math inline">\(\alpha &lt; x &lt; \beta\)</span>)</a></li>
+  <li><a href="#step-3-x-gx-형태로-변환" id="toc-step-3-x-gx-형태로-변환" class="nav-link" data-scroll-target="#step-3-x-gx-형태로-변환">Step 3 — x = g(x) 형태로 변환</a></li>
+  <li><a href="#step-4-iteration-진행" id="toc-step-4-iteration-진행" class="nav-link" data-scroll-target="#step-4-iteration-진행">Step 4 — Iteration 진행</a></li>
+  <li><a href="#step-5-alpha-beta-범위에서-fx에-대입하여-답-확인" id="toc-step-5-alpha-beta-범위에서-fx에-대입하여-답-확인" class="nav-link" data-scroll-target="#step-5-alpha-beta-범위에서-fx에-대입하여-답-확인">Step 5 — <span class="math inline">\((\alpha', \beta')\)</span> 범위에서 f(x)에 대입하여 답 확인 ★★★</a></li>
+  </ul></li>
+  <li><a href="#key-요약" id="toc-key-요약" class="nav-link" data-scroll-target="#key-요약">3. KEY 요약</a></li>
+  <li><a href="#연습-예제-worked-examples" id="toc-연습-예제-worked-examples" class="nav-link" data-scroll-target="#연습-예제-worked-examples">4. 연습 예제 — Worked Examples</a>
+  <ul class="collapse">
+  <li><a href="#i.-x2---5x---7-0" id="toc-i.-x2---5x---7-0" class="nav-link" data-scroll-target="#i.-x2---5x---7-0">i. <span class="math inline">\(x^2 - 5x - 7 = 0\)</span></a></li>
+  <li><a href="#ii.-2---x-tan-x-quad--pi2-x-pi2" id="toc-ii.-2---x-tan-x-quad--pi2-x-pi2" class="nav-link" data-scroll-target="#ii.-2---x-tan-x-quad--pi2-x-pi2">ii. <span class="math inline">\(2 - x = \tan x \quad (-\pi/2 &lt; x &lt; \pi/2)\)</span></a></li>
+  <li><a href="#iii.-xex-2" id="toc-iii.-xex-2" class="nav-link" data-scroll-target="#iii.-xex-2">iii. <span class="math inline">\(xe^x = 2\)</span></a></li>
+  </ul></li>
+  <li><a href="#요약-비교" id="toc-요약-비교" class="nav-link" data-scroll-target="#요약-비교">5. 요약 비교</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">핵심개념 — Numerical Method (Iterative Method)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>f(x) = 0의 해를 직접 구하기 어려울 때, x = g(x) 형태로 변환하여 반복(iteration)으로 근사해를 구하는 방법.</p>
+<p>y = x와 y = g(x)의 교점이 바로 해(solution).</p>
+<hr>
+<section id="basic-notions" class="level2">
+<h2 class="anchored" data-anchor-id="basic-notions">1. Basic Notions</h2>
+<section id="수렴-패턴" class="level3">
+<h3 class="anchored" data-anchor-id="수렴-패턴">수렴 패턴</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>패턴</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Staircase</strong></td>
+<td>g(x)가 단조증가할 때 나타남. 수렴 속도가 더 빠름</td>
+</tr>
+<tr class="even">
+<td><strong>Cobweb</strong></td>
+<td>g(x)가 단조감소할 때 나타남. 진동하며 수렴 또는 발산</td>
+</tr>
+</tbody>
+</table>
+<p><strong>KEY: Why is y = x assumed?</strong></p>
+<ul>
+<li>iteration이 해로 <strong>수렴</strong>하거나 무한대로 <strong>발산</strong>할 수 있음</li>
+<li>Staircase 타입에서 더 빠르게 수렴</li>
+</ul>
+<div id="e147c64f" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="core_concept_files/figure-html/cell-2-output-1.png" width="1046" height="475" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="standard-procedure-5-steps" class="level2">
+<h2 class="anchored" data-anchor-id="standard-procedure-5-steps">2. Standard Procedure (5 Steps)</h2>
+<section id="step-1-fx-찾기" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-fx-찾기">Step 1 — f(x) 찾기</h3>
+<p>방정식을 <strong>f(x) = 0</strong> 형태로 정리한다.</p>
+<blockquote class="blockquote">
+<p>⚠️ <strong>Most important but often missing!</strong> 문제에서 주어진 식을 그대로 쓰는 게 아니라, 반드시 f(x) = 0 형태로 변형해야 함.</p>
+</blockquote>
+<p>예) <span class="math inline">\(x^2 - 5x - 7 = 0\)</span> → <strong><span class="math inline">\(f(x) = x^2 - 5x - 7\)</span></strong></p>
+<hr>
+</section>
+<section id="step-2-fx로-rough-range-찾기-alpha-x-beta" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-fx로-rough-range-찾기-alpha-x-beta">Step 2 — f(x)로 rough range 찾기 (<span class="math inline">\(\alpha &lt; x &lt; \beta\)</span>)</h3>
+<p><strong>부호 변환(sign change)</strong> 을 보임으로써 대략적인 범위를 확인한다.</p>
+<p>조건: <span class="math inline">\(f(\alpha) \cdot f(\beta) &lt; 0\)</span></p>
+<blockquote class="blockquote">
+<p>graph sketch를 그려서 확인하는 경우가 많음. 연속함수에서 <span class="math inline">\(f(\alpha)\)</span>와 <span class="math inline">\(f(\beta)\)</span>의 부호가 다르면 그 사이에 반드시 근이 존재 (중간값 정리).</p>
+</blockquote>
+<hr>
+</section>
+<section id="step-3-x-gx-형태로-변환" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-x-gx-형태로-변환">Step 3 — x = g(x) 형태로 변환</h3>
+<p>f(x) = 0을 x = g(x) 형태로 변환한다.</p>
+<blockquote class="blockquote">
+<p><strong>TIP: 여러 g(x)가 가능할 때 — 수렴 조건 확인 필수!</strong></p>
+<p>수렴하는 g(x)를 선택해야 함: <span class="math display">\[|g'(x)| &lt; 1 \quad \text{in the interval } (\alpha, \beta)\]</span></p>
+<ul>
+<li><span class="math inline">\(|g'(x)| &lt; 1\)</span> → <strong>수렴 (converge)</strong></li>
+<li><span class="math inline">\(|g'(x)| \geq 1\)</span> → <strong>발산 (diverge)</strong></li>
+</ul>
+<p>여러 g(x) 중에서 반드시 이 조건을 만족하는 것을 골라야 iteration이 의미 있음.</p>
+</blockquote>
+<hr>
+</section>
+<section id="step-4-iteration-진행" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-iteration-진행">Step 4 — Iteration 진행</h3>
+<p>초기값: <span class="math inline">\(x_0 = (\alpha + \beta) / 2\)</span> (midpoint, 문제에서 따로 명시 없으면 중점 사용)</p>
+<p>반복: <span class="math inline">\(x_1 = g(x_0),\; x_2 = g(x_1),\; x_3 = g(x_2), \ldots\)</span></p>
+<section id="언제-멈춰야-하나-stopping-criterion-heuristic" class="level4">
+<h4 class="anchored" data-anchor-id="언제-멈춰야-하나-stopping-criterion-heuristic">언제 멈춰야 하나? (Stopping Criterion — Heuristic)</h4>
+<p>문제에서 요구하는 <strong>소수점 자리수(decimal place)</strong> 기준으로 멈춘다.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>목표 정확도</th>
+<th>멈추는 기준</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 decimal place</td>
+<td><span class="math inline">\(x_n\)</span>와 <span class="math inline">\(x_{n-1}\)</span>이 소수점 첫째 자리에서 일치할 때</td>
+</tr>
+<tr class="even">
+<td>2 decimal places</td>
+<td><span class="math inline">\(x_n\)</span>과 <span class="math inline">\(x_{n-1}\)</span>이 소수점 둘째 자리에서 일치할 때</td>
+</tr>
+<tr class="odd">
+<td>n decimal places</td>
+<td>두 연속 iteration 값이 n번째 자리에서 일치할 때</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>문제에서 “correct to 2 decimal places” 등으로 명시하는 경우가 대부분.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="step-5-alpha-beta-범위에서-fx에-대입하여-답-확인" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-alpha-beta-범위에서-fx에-대입하여-답-확인">Step 5 — <span class="math inline">\((\alpha', \beta')\)</span> 범위에서 f(x)에 대입하여 답 확인 ★★★</h3>
+<p>iteration을 통해 더 좁은 범위 <span class="math inline">\(\alpha' &lt; x &lt; \beta'\)</span> 를 얻었으면, <strong>반드시 <span class="math inline">\(\alpha', \beta'\)</span>를 f(x)에 대입하여 부호 변환을 다시 확인해야 함</strong>.</p>
+<p>조건: <span class="math inline">\(f(\alpha') \cdot f(\beta') &lt; 0\)</span></p>
+<blockquote class="blockquote">
+<p>⚠️ <strong>이 마지막 step을 빠뜨리면 안 됨!</strong></p>
+<p>iteration 결과가 “진짜 근”을 포함하는 구간임을 <strong>수학적으로 정당화</strong>하는 단계. iteration 값 자체가 답이 아니라, 그 값을 경계로 하는 구간 안에 근이 있음을 f(x)로 검증해야 완성.</p>
+<p>즉, 이 step은 단순히 계산 확인이 아니라 <strong>정확도(degree of accuracy)를 justify하는 과정</strong>.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="key-요약" class="level2">
+<h2 class="anchored" data-anchor-id="key-요약">3. KEY 요약</h2>
+<ul>
+<li>수치해석은 <strong>정확한 해를 주지 않는다</strong>. 항상 근사 구간을 좁혀가는 것.</li>
+<li>전체 과정의 목적: rough interval <span class="math inline">\(\alpha &lt; x &lt; \beta\)</span> → accurate interval <span class="math inline">\(\alpha' &lt; x &lt; \beta'\)</span></li>
+<li>Step 5의 sign change 확인이 없으면 답이 완성되지 않은 것.</li>
+<li>문제는 위 5단계 순서를 따라 풀어야 함.</li>
+</ul>
+<hr>
+</section>
+<section id="연습-예제-worked-examples" class="level2">
+<h2 class="anchored" data-anchor-id="연습-예제-worked-examples">4. 연습 예제 — Worked Examples</h2>
+<p>세 문제 모두 <strong>Standard 5-Step Procedure</strong>를 따라 풀이함.</p>
+<hr>
+<section id="i.-x2---5x---7-0" class="level3">
+<h3 class="anchored" data-anchor-id="i.-x2---5x---7-0">i. <span class="math inline">\(x^2 - 5x - 7 = 0\)</span></h3>
+<p><strong>Step 1 — f(x) 찾기</strong></p>
+<p><span class="math display">\[f(x) = x^2 - 5x - 7\]</span></p>
+<p><strong>Step 2 — rough range 찾기</strong></p>
+<p>정수값에서 부호 확인:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(f(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>6</td>
+<td><span class="math inline">\(36 - 30 - 7 = -1 &lt; 0\)</span></td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td><span class="math inline">\(49 - 35 - 7 = 7 &gt; 0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[f(6) \cdot f(7) = (-1)(7) &lt; 0 \quad \Rightarrow \quad 6 &lt; x &lt; 7\]</span></p>
+<p>(양수 근 기준. 음수 근은 <span class="math inline">\(-2 &lt; x &lt; -1\)</span> 구간에 존재.)</p>
+<p><strong>Step 3 — x = g(x) 찾기</strong></p>
+<p>후보 1: <span class="math inline">\(x = \dfrac{x^2 - 7}{5}\)</span> → <span class="math inline">\(g'(x) = \dfrac{2x}{5}\)</span>, <span class="math inline">\(g'(6) = 2.4 &gt; 1\)</span> ✗ 발산</p>
+<p>후보 2: <span class="math inline">\(x = \sqrt{5x + 7}\)</span> → <span class="math inline">\(g'(x) = \dfrac{5}{2\sqrt{5x+7}}\)</span>, <span class="math inline">\(g'(6) \approx 0.411 &lt; 1\)</span> ✓</p>
+<p>따라서 <span class="math inline">\(g(x) = \sqrt{5x + 7}\)</span> 사용.</p>
+<p><strong>Step 4 — Iteration</strong> (초기값 <span class="math inline">\(x_0 = 6.5\)</span>)</p>
+<p><span class="math display">\[x_1 = \sqrt{39.5} \approx 6.285, \quad x_2 \approx 6.199, \quad x_3 \approx 6.164\]</span> <span class="math display">\[x_4 \approx 6.150, \quad x_5 \approx 6.144, \quad x_6 \approx 6.141, \quad x_7 \approx 6.140\]</span></p>
+<p>소수점 둘째 자리 수렴 → <span class="math inline">\(x \approx 6.14\)</span></p>
+<p><strong>Step 5 — f(x)로 검증</strong> ★★★</p>
+<p><span class="math display">\[f(6.14) = (6.14)^2 - 5(6.14) - 7 \approx -0.0004 &lt; 0\]</span> <span class="math display">\[f(6.15) = (6.15)^2 - 5(6.15) - 7 \approx 0.073 &gt; 0\]</span> <span class="math display">\[f(6.14) \cdot f(6.15) &lt; 0 \quad \checkmark \quad \therefore\; 6.14 &lt; x &lt; 6.15\]</span></p>
+<div id="963dc4a4" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="core_concept_files/figure-html/cell-3-output-1.png" width="1044" height="426" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="ii.-2---x-tan-x-quad--pi2-x-pi2" class="level3">
+<h3 class="anchored" data-anchor-id="ii.-2---x-tan-x-quad--pi2-x-pi2">ii. <span class="math inline">\(2 - x = \tan x \quad (-\pi/2 &lt; x &lt; \pi/2)\)</span></h3>
+<p><strong>Step 1 — f(x) 찾기</strong></p>
+<p><span class="math display">\[f(x) = \tan x + x - 2\]</span></p>
+<p><strong>Step 2 — rough range 찾기</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(f(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(-2 &lt; 0\)</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><span class="math inline">\(\tan 1 + 1 - 2 \approx 0.557 &gt; 0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[f(0) \cdot f(1) &lt; 0 \quad \Rightarrow \quad 0 &lt; x &lt; 1\]</span></p>
+<p><strong>Step 3 — x = g(x) 찾기</strong></p>
+<p><span class="math display">\[\tan x = 2 - x \;\Rightarrow\; x = \arctan(2 - x)\]</span></p>
+<p><span class="math display">\[g'(x) = \frac{-1}{1+(2-x)^2}, \quad |g'(x)| \leq \frac{1}{1+1} = 0.5 &lt; 1 \quad \checkmark\]</span></p>
+<p><strong>Step 4 — Iteration</strong> (초기값 <span class="math inline">\(x_0 = 0.5\)</span>)</p>
+<p><span class="math display">\[x_1 \approx 0.9828, \quad x_2 \approx 0.7954, \quad x_3 \approx 0.8745\]</span> <span class="math display">\[x_4 \approx 0.8439, \quad x_5 \approx 0.8560, \quad x_6 \approx 0.8513, \quad x_7 \approx 0.8532\]</span></p>
+<p>소수점 둘째 자리 수렴 → <span class="math inline">\(x \approx 0.85\)</span></p>
+<p><strong>Step 5 — f(x)로 검증</strong> ★★★</p>
+<p><span class="math display">\[f(0.85) = \tan(0.85) + 0.85 - 2 \approx -0.012 &lt; 0\]</span> <span class="math display">\[f(0.86) = \tan(0.86) + 0.86 - 2 \approx 0.022 &gt; 0\]</span> <span class="math display">\[f(0.85) \cdot f(0.86) &lt; 0 \quad \checkmark \quad \therefore\; 0.85 &lt; x &lt; 0.86\]</span></p>
+<div id="df0c5f4c" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="core_concept_files/figure-html/cell-4-output-1.png" width="1044" height="426" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="iii.-xex-2" class="level3">
+<h3 class="anchored" data-anchor-id="iii.-xex-2">iii. <span class="math inline">\(xe^x = 2\)</span></h3>
+<p><strong>Step 1 — f(x) 찾기</strong></p>
+<p><span class="math display">\[f(x) = xe^x - 2\]</span></p>
+<p><strong>Step 2 — rough range 찾기</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(f(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(-2 &lt; 0\)</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><span class="math inline">\(e - 2 \approx 0.718 &gt; 0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(f(0) \cdot f(1) &lt; 0 \Rightarrow 0 &lt; x &lt; 1\)</span>. 더 좁히면:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(f(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.8</td>
+<td><span class="math inline">\(0.8 e^{0.8} - 2 \approx -0.220 &lt; 0\)</span></td>
+</tr>
+<tr class="even">
+<td>0.9</td>
+<td><span class="math inline">\(0.9 e^{0.9} - 2 \approx 0.214 &gt; 0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\Rightarrow \quad 0.8 &lt; x &lt; 0.9\]</span></p>
+<p><strong>Step 3 — x = g(x) 찾기</strong></p>
+<p><span class="math display">\[xe^x = 2 \;\Rightarrow\; x = 2e^{-x}\]</span></p>
+<p><span class="math display">\[g'(x) = -2e^{-x}, \quad |g'(0.8)| = 2e^{-0.8} \approx 0.899 &lt; 1 \quad \checkmark\]</span></p>
+<p><strong>Step 4 — Iteration</strong> (초기값 <span class="math inline">\(x_0 = 0.85\)</span>)</p>
+<p><span class="math display">\[x_1 \approx 0.8549, \quad x_2 \approx 0.8526, \quad x_3 \approx 0.8536\]</span> <span class="math display">\[x_4 \approx 0.8532, \quad x_5 \approx 0.8530, \quad x_6 \approx 0.8530\]</span></p>
+<p>소수점 셋째 자리 수렴 → <span class="math inline">\(x \approx 0.853\)</span></p>
+<p><strong>Step 5 — f(x)로 검증</strong> ★★★</p>
+<p><span class="math display">\[f(0.852) = 0.852\, e^{0.852} - 2 \approx -0.003 &lt; 0\]</span> <span class="math display">\[f(0.853) = 0.853\, e^{0.853} - 2 \approx 0.002 &gt; 0\]</span> <span class="math display">\[f(0.852) \cdot f(0.853) &lt; 0 \quad \checkmark \quad \therefore\; 0.852 &lt; x &lt; 0.853\]</span></p>
+<div id="6d5be5a4" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="core_concept_files/figure-html/cell-5-output-1.png" width="1044" height="426" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="요약-비교" class="level2">
+<h2 class="anchored" data-anchor-id="요약-비교">5. 요약 비교</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 19%">
+<col style="width: 31%">
+<col style="width: 24%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>문제</th>
+<th><span class="math inline">\(g(x)\)</span></th>
+<th><span class="math inline">\(g'(x)\)</span> 부호</th>
+<th>수렴 패턴</th>
+<th>근</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x^2 - 5x - 7 = 0\)</span></td>
+<td><span class="math inline">\(\sqrt{5x+7}\)</span></td>
+<td><span class="math inline">\(+\)</span></td>
+<td>Staircase</td>
+<td><span class="math inline">\(6.14 &lt; x &lt; 6.15\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(2 - x = \tan x\)</span></td>
+<td><span class="math inline">\(\arctan(2-x)\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td>Cobweb</td>
+<td><span class="math inline">\(0.85 &lt; x &lt; 0.86\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(xe^x = 2\)</span></td>
+<td><span class="math inline">\(2e^{-x}\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td>Cobweb</td>
+<td><span class="math inline">\(0.852 &lt; x &lt; 0.853\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>Cobweb vs Staircase</strong>: <span class="math inline">\(g'(x) &gt; 0\)</span> → Staircase, <span class="math inline">\(g'(x) &lt; 0\)</span> → Cobweb</p>
+</blockquote>
+
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
