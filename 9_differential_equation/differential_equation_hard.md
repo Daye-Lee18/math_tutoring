@@ -7,6 +7,10 @@
 
 ## Q1. Separable DE — 양변 모두 부분분수 (Double Partial Fractions)
 
+> **[문제 해석]**  
+> 우변이 $y$끼리의 곱 × $x$끼리의 곱으로 완전히 분리되는 형태다. 각 변수를 한쪽으로 몰아 변수분리한 뒤, 좌변($y$ 쪽)과 우변($x$ 쪽) **각각에** 부분분수를 적용해야 한다. 적분하면 양변 모두 로그 형태가 나오고, 이 로그들을 합치면서 초기조건으로 $C$를 결정해 implicit solution을 도출하는 것이 핵심이다.  
+> (e)는 implicit solution에 $x=6$을 대입한 뒤, 2차방정식처럼 $y$를 풀어내면 된다.
+
 $$\frac{dy}{dx} = \frac{y(y-3)}{x(x+2)}, \qquad y = 6 \text{ when } x = 2$$
 
 **(a)** Show that the equation can be written in the separated form
@@ -125,6 +129,10 @@ $$\boxed{y \approx 36.8} \tag{A1}$$
 
 ## Q2. Separable DE — 치환 $u = \ln y$ + 부분분수
 
+> **[문제 해석]**  
+> 우변에 $\ln y$가 붙어 있어서 그냥 변수분리하면 $\int \frac{dy}{y \ln y}$가 나온다 — 이 적분이 $u = \ln y$로 치환해야 깔끔해진다는 신호다. 치환 후 방정식이 $u$에 대한 separable DE로 바뀌고, 우변 $\frac{1}{x(x+1)}$은 다시 부분분수로 처리한다. 최종적으로 $y = e^{u(x)}$ 형태로 explicit solution을 구할 수 있다.  
+> $x \to \infty$일 때의 점근값을 구하는 것도 중요한 포인트.
+
 $$x(x+1)\,\frac{dy}{dx} = y\ln y, \qquad y = e \text{ when } x = 1$$
 
 **(a)** Let $u = \ln y$. Show that this substitution transforms the equation into
@@ -206,6 +214,10 @@ $$y \to e^2 \approx 7.39 \tag{A1}$$
 ---
 
 ## Q3. Connected Rates of Change — 원통형 탱크 배수
+
+> **[문제 해석]**  
+> 주어진 건 $\frac{dV}{dt}$인데, 구해야 하는 건 $\frac{dh}{dt}$다. 원통형이므로 $V = \pi r^2 h$로 $V$와 $h$를 연결한 뒤 양변을 $t$로 미분하면 $\frac{dV}{dt}$와 $\frac{dh}{dt}$가 연결된다 — 이게 connected rates의 핵심이다. 이후 나온 $\frac{dh}{dt} = -\frac{2}{9\pi}\sqrt{h}$를 separable DE로 풀면 $h(t)$를 구할 수 있다.  
+> $h$가 작아질수록 배수 속도가 느려진다는 물리적 의미도 이해해두면 좋다.
 
 A large cylindrical water tank has a circular cross-section of radius 3 metres. Water drains through a small hole at the base. By Torricelli's Law, the volume flow rate satisfies
 
@@ -290,6 +302,10 @@ $$\frac{dh}{dt} = -\frac{2}{9\pi}\sqrt{1} = -\frac{2}{9\pi} \approx -0.0707 \tex
 ---
 
 ## Q4. Applied DE — Drug Infusion Model (다단계 문제)
+
+> **[문제 해석]**  
+> 약물이 일정 속도로 들어오고 체내에서 비율로 빠져나가는 모델로, 형태는 $\frac{dQ}{dt} = R - kQ$다. 장기 평형값 $Q_\infty = R/k$를 먼저 구하면 해의 형태를 미리 예측할 수 있다. 특히 (e)에서 주입이 **중단되는 순간** 새로운 초기조건 $Q_0 = 400$이 설정되며, 이후는 완전히 다른 DE ($\frac{dQ}{d\tau} = -kQ$)를 새로 풀어야 한다 — 원래 식을 그대로 이어가면 틀린다.  
+> (d)와 (e)(ii)의 답이 같게 나오는 대칭 구조를 이해하면 개념이 잡힌다.
 
 A drug is administered intravenously at a constant rate of $60$ mg/hour. The body eliminates the drug at a rate proportional to the current amount $Q$ mg present, with elimination constant $k = 0.15$ hr$^{-1}$.
 
