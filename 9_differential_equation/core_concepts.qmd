@@ -139,6 +139,49 @@ U-substitution works when **the derivative of the "inner" function is already pr
 > $\bigl(\sin x\cos^2 x = \tfrac{1}{4}(\sin 3x + \sin x)\bigr)$, giving $-\dfrac{\cos 3x}{12} - \dfrac{\cos x}{4} + C$ — identical answer, but u-sub is cleaner.
 :::
 
+<details>
+<summary>**풀이 비교 — $\displaystyle\int \sin x\cos^2 x\,dx$: u-sub vs product-to-sum**</summary>
+
+### Method 1: U-substitution (권장)
+
+Set $u = \cos x \implies \dfrac{du}{dx} = -\sin x \implies \sin x\,dx = -du$
+
+$$\int \sin x \cos^2 x\,dx = \int u^2 \cdot (-du) = -\int u^2\,du$$
+
+$$= -\frac{u^3}{3} + C = \boxed{-\frac{\cos^3 x}{3} + C}$$
+
+---
+
+### Method 2: Product-to-sum identity
+
+Triple angle identity 이용: $\sin 3x = 3\sin x - 4\sin^3 x$, $\cos 3x = 4\cos^3 x - 3\cos x$
+
+여기서는 다음 identity 사용:
+
+$$\sin x \cos^2 x = \frac{1}{4}(\sin 3x + \sin x)$$
+
+> *유도:* $\sin 3x = \sin(2x+x) = \sin 2x\cos x + \cos 2x\sin x$
+> $= 2\sin x\cos^2 x + (1-2\sin^2 x)\sin x = 3\sin x - 4\sin^3 x$
+> 한편 $\sin x\cos^2 x = \sin x(1-\sin^2 x)$이므로 $\sin 3x + \sin x = 4\sin x - 4\sin^3 x = 4\sin x\cos^2 x$ $\implies \sin x\cos^2 x = \tfrac{1}{4}(\sin 3x + \sin x)$
+
+따라서:
+
+$$\int \sin x\cos^2 x\,dx = \frac{1}{4}\int(\sin 3x + \sin x)\,dx$$
+
+$$= \frac{1}{4}\left(-\frac{\cos 3x}{3} - \cos x\right) + C = \boxed{-\frac{\cos 3x}{12} - \frac{\cos x}{4} + C}$$
+
+---
+
+### 두 답이 같은 이유
+
+$-\dfrac{\cos^3 x}{3}$과 $-\dfrac{\cos 3x}{12} - \dfrac{\cos x}{4}$는 상수 차이만 있는 동일한 함수야.
+
+$\cos 3x = 4\cos^3 x - 3\cos x$를 대입하면:
+
+$$-\frac{4\cos^3 x - 3\cos x}{12} - \frac{\cos x}{4} = -\frac{\cos^3 x}{3} + \frac{\cos x}{4} - \frac{\cos x}{4} = -\frac{\cos^3 x}{3}$$
+
+</details>
+
 ---
 
 ## 2. Important Applied D.E.s (in relation to C3/C4)
@@ -153,6 +196,10 @@ These three models appear frequently in exam questions. Understand the **physica
 | **Assumption** | Rate of decay proportional to amount remaining | Rate of cooling proportional to temperature *difference* from surroundings | Rate in $= P$; rate out $= kV$ |
 | **D.E.** | $\dfrac{dN}{dt} = -kN \quad (k>0)$ | $\dfrac{d\theta}{dt} = -k(\theta-\theta_0) \quad (k>0)$ | $\dfrac{dV}{dt} = P - kV \quad (k>0)$ |
 | **General solution** | $N = Ae^{-kt}$ | $\theta = \theta_0 + Ae^{-kt}$ | $V = \dfrac{P}{k} - Ae^{-kt}$ |
+| **Graph starts at** | $(0,\, A)$ — initial amount | $(0,\, \theta_0 + A)$ — initial temp | depends on $V_0$: see note ↓ |
+
+> **Note (Leaking Container):** The graph shows the special case $V_0 = 0$ (tank starts empty), which gives $A = \dfrac{P}{k}$ and simplifies to $V = \dfrac{P}{k}(1-e^{-kt})$, starting at $(0,0)$.
+> In general, if the tank starts with volume $V_0$, then $A = \dfrac{P}{k} - V_0$, so the curve starts at $(0,\, V_0)$ instead.
 
 ::: {.callout-tip title="KEY"}
 - All three are separable — solve each by separating variables
