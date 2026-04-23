@@ -1,0 +1,303 @@
+---
+title: "Trig Integration & DE — P3/P4 Question Types"
+---
+
+# Trig Integration & DE — P3/P4 Question Types
+
+> **범위:** Edexcel A-Level P3 (integration techniques) & P4 (separable differential equations)
+>
+> **필수 항등식:**
+> $\tan^2 x = \sec^2 x - 1$ &nbsp;|&nbsp; $\sin^2 x = \dfrac{1-\cos 2x}{2}$ &nbsp;|&nbsp; $\cos^2 x = \dfrac{1+\cos 2x}{2}$ &nbsp;|&nbsp; $\sin x\cos x = \dfrac{\sin 2x}{2}$
+
+---
+
+## P3 — Integration Techniques
+
+### Type 1 · Trig Identity → Direct Integration
+
+> $\sin^2 x$, $\cos^2 x$, $\tan^2 x$는 **그대로 적분 불가** — 항등식으로 변환 먼저.
+
+---
+
+<details>
+<summary>**Q1.** $\displaystyle\int \tan^2 x\,dx$</summary>
+
+$\tan^2 x = \sec^2 x - 1$:
+
+$$\int(\sec^2 x - 1)\,dx = \boxed{\tan x - x + C}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Q2.** $\displaystyle\int \sin^2 x\,dx$</summary>
+
+$\sin^2 x = \dfrac{1-\cos 2x}{2}$:
+
+$$\int\frac{1-\cos 2x}{2}\,dx = \boxed{\frac{x}{2} - \frac{\sin 2x}{4} + C}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Q3.** $\displaystyle\int \cos^2 x\,dx,\quad$ particular solution: $y=1$ when $x=0$</summary>
+
+$\cos^2 x = \dfrac{1+\cos 2x}{2}$:
+
+$$y = \frac{x}{2} + \frac{\sin 2x}{4} + C$$
+
+초기조건 $x=0,\ y=1$: $\;C = 1$
+
+$$\boxed{y = \frac{x}{2} + \frac{\sin 2x}{4} + 1}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Q4.** $\displaystyle\int(3\tan^2 x + 2\sec^2 x)\,dx$</summary>
+
+$3\tan^2 x = 3(\sec^2 x - 1)$이므로:
+
+$$\int(5\sec^2 x - 3)\,dx = \boxed{5\tan x - 3x + C}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Q5.** $\displaystyle\int \sin^2 x\cos^2 x\,dx$</summary>
+
+$\sin^2 x\cos^2 x = \left(\dfrac{\sin 2x}{2}\right)^2 = \dfrac{\sin^2 2x}{4} = \dfrac{1-\cos 4x}{8}$:
+
+$$\int\frac{1-\cos 4x}{8}\,dx = \boxed{\frac{x}{8} - \frac{\sin 4x}{32} + C}$$
+
+</details>
+
+---
+
+### Type 2 · U-Substitution with Trig
+
+> **패턴:** $\displaystyle\int f(g(x))\cdot g'(x)\,dx$ → $u = g(x)$
+>
+> $g'(x)$가 이미 적분 안에 있을 때 사용.
+
+---
+
+<details>
+<summary>**Q6.** $\displaystyle\int \sin x\cos^2 x\,dx$</summary>
+
+$u = \cos x,\; du = -\sin x\,dx$:
+
+$$\int u^2\cdot(-du) = -\frac{u^3}{3} + C = \boxed{-\frac{\cos^3 x}{3} + C}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Q7.** $\displaystyle\int x^2\sin(x^3)\,dx$</summary>
+
+$u = x^3,\; du = 3x^2\,dx$:
+
+$$\frac{1}{3}\int\sin u\,du = -\frac{\cos u}{3} + C = \boxed{-\frac{\cos(x^3)}{3} + C}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Q8.** $\displaystyle\int\frac{\sin x}{1+\cos x}\,dx$</summary>
+
+$u = 1+\cos x,\; du = -\sin x\,dx$:
+
+$$\int\frac{-du}{u} = -\ln|u| + C = \boxed{-\ln|1+\cos x| + C}$$
+
+</details>
+
+---
+
+### Type 3 · Reverse Chain Rule (Recognition)
+
+> 분자가 분모의 미분 꼴 → $\displaystyle\int\frac{f'(x)}{f(x)}\,dx = \ln|f(x)| + C$
+
+---
+
+<details>
+<summary>**Q9.** $\displaystyle\int\tan x\,dx$</summary>
+
+$\tan x = \dfrac{\sin x}{\cos x}$이고 $(\cos x)' = -\sin x$이므로:
+
+$$\int\frac{\sin x}{\cos x}\,dx = -\ln|\cos x| + C = \boxed{\ln|\sec x| + C}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Q10.** $\displaystyle\int\frac{1}{\sin x\cos x}\,dx$</summary>
+
+$\dfrac{1}{\sin x\cos x} = \dfrac{2}{\sin 2x} = 2\csc 2x$이므로:
+
+$$\int 2\csc 2x\,dx = \boxed{\ln|\tan x| + C}$$
+
+</details>
+
+---
+
+## P4 — Separable Differential Equations
+
+### Type 4 · DE — $x$ 쪽에 삼각함수 항등식 필요
+
+> 변수분리 후 $\displaystyle\int(\cdots)\,dx$ 계산에 항등식 변환이 필요한 유형.
+
+---
+
+<details>
+<summary>**Q11.** $\dfrac{dy}{dx} = y\tan^2 x$</summary>
+
+분리: $\dfrac{dy}{y} = (\sec^2 x - 1)\,dx$
+
+$$\ln|y| = \tan x - x + C \implies \boxed{y = Ae^{\tan x - x}}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Q12.** $\cos^2 x\,\dfrac{dy}{dx} = y^2\sin^2 x$</summary>
+
+분리: $\dfrac{dy}{y^2} = \tan^2 x\,dx = (\sec^2 x - 1)\,dx$
+
+$$\int y^{-2}\,dy = \int(\sec^2 x - 1)\,dx$$
+
+$$-\frac{1}{y} = \tan x - x + C \implies \boxed{y = \frac{-1}{\tan x - x + C}}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Q13.** $\sec^2 x\,\dfrac{dy}{dx} = y$</summary>
+
+분리: $\dfrac{dy}{y} = \cos^2 x\,dx = \dfrac{1+\cos 2x}{2}\,dx$
+
+$$\ln|y| = \frac{x}{2} + \frac{\sin 2x}{4} + C \implies \boxed{y = Ae^{\,x/2\,+\,\sin 2x/4}}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Q14.** $\dfrac{dy}{dx} = y^2\sin^2 x,\quad y=1$ when $x=\dfrac{\pi}{2}$</summary>
+
+분리: $\dfrac{dy}{y^2} = \dfrac{1-\cos 2x}{2}\,dx$
+
+$$-\frac{1}{y} = \frac{x}{2} - \frac{\sin 2x}{4} + C$$
+
+초기조건 $x=\dfrac{\pi}{2},\ y=1$: $\;\sin\pi = 0$이므로 $C = -1 - \dfrac{\pi}{4}$
+
+$$\boxed{y = \dfrac{-1}{\dfrac{x}{2} - \dfrac{\sin 2x}{4} - 1 - \dfrac{\pi}{4}}}$$
+
+</details>
+
+---
+
+### Type 5 · DE — $y$ 쪽에 삼각함수
+
+> 분리 후 $\displaystyle\int(\cdots)\,dy$ 계산에 삼각함수 적분이 나오는 유형.
+
+---
+
+<details>
+<summary>**Q15.** $\cos^2 y\,\dfrac{dy}{dx} = e^x$</summary>
+
+분리: $\cos^2 y\,dy = e^x\,dx$
+
+$$\int\frac{1+\cos 2y}{2}\,dy = e^x + C$$
+
+$$\boxed{\frac{y}{2} + \frac{\sin 2y}{4} = e^x + C}$$
+
+> $y$를 explicit하게 분리 불가 — implicit form이 최종 답.
+
+</details>
+
+---
+
+<details>
+<summary>**Q16.** $\dfrac{dy}{dx} = \tan^2 y\cdot x^2$</summary>
+
+분리: $\cot^2 y\,dy = x^2\,dx$, $\;\cot^2 y = \csc^2 y - 1$
+
+$$\int(\csc^2 y - 1)\,dy = \int x^2\,dx$$
+
+$$\boxed{-\cot y - y = \frac{x^3}{3} + C}$$
+
+</details>
+
+---
+
+### Type 6 · DE — 양변 모두 삼각함수
+
+> 가장 까다로운 유형. 양변 모두 항등식 변환 또는 치환 필요.
+
+---
+
+<details>
+<summary>**Q17.** $\sin y\,\dfrac{dy}{dx} = \cos x\cos^2 y$</summary>
+
+분리: $\dfrac{\sin y}{\cos^2 y}\,dy = \cos x\,dx \implies \sec y\tan y\,dy = \cos x\,dx$
+
+$$\int\sec y\tan y\,dy = \int\cos x\,dx$$
+
+$$\sec y = \sin x + C \implies \boxed{\frac{1}{\cos y} = \sin x + C}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Q18.** $\dfrac{dy}{dx} = \dfrac{\tan^2 x}{\tan^2 y}$</summary>
+
+분리 후 양변 $\tan^2 = \sec^2 - 1$ 변환:
+
+$$\int(\sec^2 y - 1)\,dy = \int(\sec^2 x - 1)\,dx$$
+
+$$\boxed{\tan y - y = \tan x - x + C}$$
+
+</details>
+
+---
+
+<details>
+<summary>**Q19.** $\dfrac{dy}{dx} = \dfrac{\sin^2 y}{\sin x\cos x},\quad y=\dfrac{\pi}{4}$ when $x=\dfrac{\pi}{4}$</summary>
+
+분리: $\csc^2 y\,dy = \dfrac{dx}{\sin x\cos x}$
+
+좌변: $\int\csc^2 y\,dy = -\cot y$
+
+우변: $\dfrac{1}{\sin x\cos x} = \dfrac{2}{\sin 2x}$ → $\displaystyle\int 2\csc 2x\,dx = \ln|\tan x|$
+
+$$-\cot y = \ln|\tan x| + C$$
+
+초기조건: $\cot\dfrac{\pi}{4} = 1,\;\tan\dfrac{\pi}{4} = 1$ → $C = -1$
+
+$$\boxed{-\cot y = \ln|\tan x| - 1}$$
+
+</details>
+
+---
+
+## 유형 요약표
+
+| 유형 | 시험 단원 | 막히는 포인트 | 처방 |
+|---|---|---|---|
+| $\int\tan^2 x\,dx$ | P3 | 직접 적분 불가 | $\sec^2 x - 1$로 변환 |
+| $\int\sin^2 x\,dx$, $\int\cos^2 x\,dx$ | P3 | 직접 적분 불가 | 반각 공식으로 변환 |
+| $\int\sin x\cos^2 x\,dx$ | P3 | 어떤 치환? | $u = \cos x$ (이미 $-\sin x$ 있음) |
+| $\int\tan x\,dx$ | P3 | $\ln$ 꼴 인식 못함 | $\frac{(\cos x)'}{\cos x}$ 역방향 |
+| DE: $x$쪽 $\tan^2 x$ | P4 | 분리 후 적분 막힘 | $\sec^2 x - 1$로 변환 |
+| DE: $y$쪽 $\cos^2 y$ | P4 | $\cos^2 y$ 적분 | 반각 공식으로 변환 |
+| DE: 양변 삼각함수 | P4 | 어떤 항등식 쓰나? | $\csc^2 = \cot^2 + 1$, $\sec\tan$ 인식 |

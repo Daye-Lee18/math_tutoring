@@ -80,6 +80,40 @@ $$\boxed{\lambda = 2}$$
 - $\lambda$: scalar **parameter**
 :::
 
+<details>
+<summary>**핵심 아이디어 — 왜 이렇게 쓰나?**</summary>
+
+직선은 **"직선 위의 한 점 + 방향"** 만 알면 완전히 결정돼.
+
+$$\vec{r} = \underbrace{\vec{a}}_{\text{직선 위 한 점}} + \lambda\underbrace{\vec{b}}_{\text{방향 벡터}}$$
+
+$\lambda$를 바꾸면 직선 위 모든 점을 다 찍을 수 있어. ($\lambda = 0$이면 점 $A$ 자체, $\lambda = 1$이면 $\vec{a}+\vec{b}$, 음수면 반대 방향.)
+
+**3가지 표현은 모두 같은 직선이야 — 형태만 다를 뿐:**
+
+$$\text{Vector} \xrightarrow{\text{성분별 분리}} \text{Parametric} \xrightarrow{\lambda \text{ 소거}} \text{Cartesian}$$
+
+</details>
+
+<details>
+<summary>**Vector → Parametric → Cartesian 변환 방법**</summary>
+
+**Step 1. Vector → Parametric** (성분별로 분리)
+
+$$\vec{r} = \begin{pmatrix}3\\2\\-5\end{pmatrix} + t\begin{pmatrix}1\\-6\\-2\end{pmatrix} \implies \begin{cases}x = 3+t\\y = 2-6t\\z = -5-2t\end{cases}$$
+
+**Step 2. Parametric → Cartesian** (각 식에서 $\lambda$ 구해 연결)
+
+각 식에서 $t$를 표현하면: $t = x-3$, $t = \dfrac{y-2}{-6}$, $t = \dfrac{z+5}{-2}$
+
+모두 같은 $t$이므로:
+
+$$\frac{x-3}{1} = \frac{y-2}{-6} = \frac{z+5}{-2}$$
+
+> **주의:** 방향벡터 성분이 $0$이면 $\dfrac{y-1}{0}$ 꼴이 나오는데, 이는 $y=1$ (그 좌표가 상수)를 의미해. (Ex 6 참고)
+
+</details>
+
 ---
 
 <details>

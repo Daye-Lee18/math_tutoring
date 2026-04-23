@@ -20,6 +20,8 @@ website:
             href: 3_numerical_method/core_concept.qmd
           - text: "4 · Further Trigonometry"
             href: 4_further_tria/further_trigonometry.qmd
+          - text: "4 · Further Trig — Formula Sheet"
+            href: 4_further_tria/trig_formulae.md
           - text: "4 · Further Trig — Practice"
             href: 4_further_tria/further_trig_practice_basic.md
           - text: "5 · Differentiation Pt.1"
@@ -36,6 +38,8 @@ website:
             href: 8_integration/core_concepts.md
           - text: "8 · Integration — Practice"
             href: 8_integration/integration_practice_basic.md
+          - text: "8 · Trig Integration P3&P4"
+            href: 8_integration/trig_practice_p3p4.qmd
           - text: "9 · Differential Equations"
             href: 9_differential_equation/core_concepts.qmd
           - text: "9 · Differential Eq. — Practice"
