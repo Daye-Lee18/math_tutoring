@@ -53,6 +53,8 @@
 
 ## Half Angle
 
+*삼각함수 제곱 → $\cos 2x$ 형태로 변환 (derived from Pythagorean + Double Angle)*
+
 | | Formula |
 |---|---------|
 | $\sin^2 x$ | $\dfrac{1 - \cos 2x}{2}$ |
@@ -115,7 +117,16 @@ $$a\cos x + b\sin x = R\cos(x - \alpha)$$
 | $\sin x$ | $-\cos x + C$ |
 | $\cos x$ | $\sin x + C$ |
 | $\tan x$ | $\ln\|\sec x\| + C$ |
+| $\cot x$ | $-\ln\|\csc x\| + C$ |
+| $\sec x$ | $\ln\|\sec x + \tan x\| + C$ &nbsp; ★ |
+| $\csc x$ | $-\ln\|\csc x + \cot x\| + C$ &nbsp; ★ |
 | $\sec^2 x$ | $\tan x + C$ |
 | $\csc^2 x$ | $-\cot x + C$ |
 | $\sec x\tan x$ | $\sec x + C$ |
 | $\csc x\cot x$ | $-\csc x + C$ |
+| $\sin^2 x$ | $\dfrac{x}{2} - \dfrac{\sin 2x}{4} + C$ |
+| $\cos^2 x$ | $\dfrac{x}{2} + \dfrac{\sin 2x}{4} + C$ |
+| $\tan^2 x$ | $\tan x - x + C$ |
+| $\cot^2 x$ | $-\cot x - x + C$ |
+
+★ FP (Further Pure) only — P3/P4에서는 시험에서 유도 과정 주어짐
