@@ -31,11 +31,8 @@ $$\left(\frac{y-3}{y}\right)^2 = \frac{2x^3}{(x+2)^3}$$
 
 **(e)** Find the value of $y$ when $x = 6$, giving your answer to 3 significant figures.
 
----
-
-### Solution
-
----
+<details>
+<summary>**Solution**</summary>
 
 #### (a) Separation of variables
 
@@ -124,6 +121,7 @@ $$y = \frac{24}{8 - 3\sqrt{6}} \approx \frac{24}{8 - 7.348} \approx \frac{24}{0.
 $$\boxed{y \approx 36.8} \tag{A1}$$
 
 > **검증:** $\left(\frac{36.8-3}{36.8}\right)^2 = \left(\frac{33.8}{36.8}\right)^2 \approx 0.919^2 \approx 0.844 \approx \frac{27}{32}$ ✓
+</detail>
 
 ---
 
@@ -145,12 +143,8 @@ $$x(x+1)\,\frac{du}{dx} = u$$
 
 **(d)** Hence find $y$ in terms of $x$, and state the value that $y$ approaches as $x \to \infty$.
 
----
-
-### Solution
-
----
-
+<details>
+<summary>Solution</summary>
 #### (a) 치환 $u = \ln y$
 
 $u = \ln y \implies y = e^u$이므로, 체인 룰:
@@ -210,8 +204,7 @@ $$\frac{2x}{x+1} = \frac{2}{1 + 1/x} \to 2$$
 $$y \to e^2 \approx 7.39 \tag{A1}$$
 
 > **해석:** $y$는 $e$에서 시작해 $e^2$에 점근적으로 접근한다. 초기조건 검증: $x=1$이면 $y = e^{2/2} = e$ ✓
-
----
+</detail>
 
 ## Q3. Connected Rates of Change — 원통형 탱크 배수
 
@@ -237,11 +230,8 @@ $$h = \left(3 - \frac{t}{9\pi}\right)^2$$
 
 **(e)** Find the rate at which the depth is decreasing at the instant when $h = 1$ m. Give units.
 
----
-
-### Solution
-
----
+<details>
+<summary>Solution</summary>
 
 #### (a) Connected rates
 
@@ -298,8 +288,7 @@ $$\frac{dh}{dt} = -\frac{2}{9\pi}\sqrt{1} = -\frac{2}{9\pi} \approx -0.0707 \tex
 > 깊이가 분당 약 0.0707 m (7.07 cm)씩 줄어들고 있다.
 
 > **핵심 포인트:** $h$가 작을수록 $\sqrt{h}$가 작아져 배수 속도가 느려진다 — 비어가면서 점점 느리게 빠진다.
-
----
+</detail>
 
 ## Q4. Applied DE — Drug Infusion Model (다단계 문제)
 
@@ -325,11 +314,8 @@ A drug is administered intravenously at a constant rate of $60$ mg/hour. The bod
 
 **(f)** Sketch a graph of $Q$ against $t$ for the entire process described in parts (c)–(e), labelling key values.
 
----
-
-### Solution
-
----
+<details>
+<summary>Solution</summary>
 
 #### (a) DE 세우기
 
@@ -431,8 +417,7 @@ Q (mg)
 - $Q_\infty = 400$ (수평 점근선)
 - 상승 구간: $Q = 400(1 - e^{-0.15t})$ — 위로 볼록, 오목
 - 하강 구간: $Q = 400e^{-0.15\tau}$ — 지수감쇠, 아래로 볼록
-
----
+</detail>
 
 ## Summary: Q1–Q4 핵심 기법 정리
 

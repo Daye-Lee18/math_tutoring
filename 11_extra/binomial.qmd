@@ -1,0 +1,288 @@
+# Binomial Expansion (P3)
+
+**Exam weighting: 5 marks** — almost always paired with partial fractions (Q30–Q44 range)
+
+---
+
+## Why Do We Study This?
+
+In P1, you learned to expand $(a+b)^n$ when $n$ is a positive integer — the expansion always terminates after a finite number of terms.
+
+But what happens when $n$ is **negative or a fraction**, like $(1+x)^{-1}$ or $(1+x)^{1/2}$?
+
+- The multiplication $n(n-1)(n-2)\cdots$ **never hits zero**, so the series never terminates — it goes on forever (an infinite series).
+- This infinite series only makes sense (converges to the correct value) when $|x| < 1$. Outside this range, the terms grow and the sum diverges.
+
+### Where does this actually come up?
+
+| Situation | Example |
+|---|---|
+| **Approximating roots** | $\sqrt{1.04} = (1+0.04)^{1/2} \approx 1 + \frac{1}{2}(0.04) = 1.02$ |
+| **Approximating fractions** | $\frac{1}{1.03} = (1+0.03)^{-1} \approx 1 - 0.03 = 0.97$ |
+| **After partial fractions** | Split a rational function → expand each term as a binomial series |
+| **Before integrating** | Rewrite $(1+x)^{-2}$ as a polynomial series, then integrate term by term |
+
+The core exam skill is: **partial fractions first, then binomial expand each piece.**
+
+---
+
+## P1 vs P3 Comparison
+
+| | **P1 Binomial** | **P3 Binomial** |
+|---|---|---|
+| Form | $(a+b)^n$ | $(1+x)^n$ |
+| $n$ | **Positive integer** (1, 2, 3, …) | **Fraction, decimal, or negative** |
+| Expansion | Finite terms | Infinite series (approximation) |
+| Condition | None | $-1 < x < 1$ |
+
+### The P3 Formula
+
+$$\boxed{(1+x)^n = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \cdots}$$
+
+::: {.callout-important title="Key Conditions"}
+- **The first term inside the bracket must be 1** before applying the formula
+- Valid only when $-1 < x < 1$ (i.e. $|x| < 1$) — outside this range the series diverges
+- Recall: $2! = 2\times1$, $\;3! = 3\times2\times1$, $\;5! = 5\times4\times3\times2\times1$
+:::
+
+<details>
+<summary>**왜 다항식으로 근사하나? — 그리고 Taylor → Maclaurin → Binomial 계층**</summary>
+
+**왜 다항식(polynomial)으로 근사하는가?**
+
+다항식은 더하기와 곱하기만으로 이루어진 가장 단순한 함수다. 복잡한 함수를 다항식으로 바꾸면:
+
+| 상황 | 이유 |
+|---|---|
+| **숫자 계산** | $\sqrt{1.04}$는 직접 못 구하지만 $1 + \frac{1}{2}(0.04) = 1.02$는 손으로 계산 가능 |
+| **적분** | $\int \frac{1}{\sqrt{1+x^3}}\,dx$는 닫힌 형태가 없지만 다항식으로 바꾸면 항별로 적분 가능 |
+| **물리/공학** | $\sin\theta \approx \theta$ (소각 근사) — 미분방정식을 단순화할 때 |
+| **컴퓨터** | 계산기 내부에서 $\sin x$, $e^x$, $\ln x$ 모두 다항식 근사로 계산함 |
+
+---
+
+**계층 구조:**
+
+$$\text{Taylor series} \supset \text{Maclaurin series} \supset \text{Binomial expansion}$$
+
+| | 공식 | 중심 | 조건 |
+|---|---|---|---|
+| **Taylor series** | $\displaystyle\sum_{r=0}^{\infty}\frac{f^{(r)}(a)}{r!}(x-a)^r$ | 임의의 점 $x=a$ | $x$가 $a$ 근방 |
+| **Maclaurin series** | $\displaystyle\sum_{r=0}^{\infty}\frac{f^{(r)}(0)}{r!}x^r$ | $x=0$ ($a=0$인 특수 케이스) | $x$가 $0$ 근방 |
+| **Binomial expansion** | $1 + nx + \dfrac{n(n-1)}{2!}x^2 + \cdots$ | $x=0$ | $\|x\| < 1$ |
+
+Binomial expansion은 $f(x) = (1+x)^n$에 Maclaurin을 적용한 결과다.
+
+---
+
+**왜 분수 지수가 $x$의 1, 2, 3승으로 표현되나?**
+
+$f(x) = (1+x)^n$을 반복 미분하면:
+
+| 미분 | $x=0$ 대입 |
+|---|---|
+| $f(x) = (1+x)^n$ | $f(0) = 1$ |
+| $f'(x) = n(1+x)^{n-1}$ | $f'(0) = n$ |
+| $f''(x) = n(n-1)(1+x)^{n-2}$ | $f''(0) = n(n-1)$ |
+| $f'''(x) = n(n-1)(n-2)(1+x)^{n-3}$ | $f'''(0) = n(n-1)(n-2)$ |
+
+Maclaurin 공식 $f(x) = f(0) + f'(0)x + \dfrac{f''(0)}{2!}x^2 + \cdots$에 대입하면:
+
+$$(1+x)^n = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \cdots$$
+
+$|x| < 1$은 다항식 근사값이 실제 값으로 수렴하는 조건이다.
+
+</details>
+
+---
+
+## Basic Expansion — First Term Already 1 ★
+
+<details>
+<summary>**Example 1** — Expand up to $x^3$</summary>
+
+**(i)** $(1+2x)^{-3}$
+
+$$= 1 + (-3)(2x) + \frac{(-3)(-4)}{2!}(2x)^2 + \frac{(-3)(-4)(-5)}{3!}(2x)^3$$
+
+$$\boxed{= 1 - 6x + 24x^2 - 80x^3}$$
+
+---
+
+**(ii)** $(1-3x)^{-1}$
+
+$$= 1 + (-1)(-3x) + \frac{(-1)(-2)}{2!}(-3x)^2 + \frac{(-1)(-2)(-3)}{3!}(-3x)^3$$
+
+$$\boxed{= 1 + 3x + 9x^2 + 27x^3}$$
+
+---
+
+**(iii)** $(1+2x)^{1/2}$
+
+$$= 1 + \frac{1}{2}(2x) + \frac{\frac{1}{2}\cdot(-\frac{1}{2})}{2!}(2x)^2 + \frac{\frac{1}{2}\cdot(-\frac{1}{2})\cdot(-\frac{3}{2})}{3!}(2x)^3$$
+
+$$\boxed{= 1 + x - \frac{1}{2}x^2 + \frac{1}{2}x^3}$$
+
+---
+
+**(iv)** $\left(1-\dfrac{3}{2}x\right)^{-1}$
+
+$$= 1 + (-1)\!\left(-\frac{3}{2}x\right) + \frac{(-1)(-2)}{2!}\!\left(-\frac{3}{2}x\right)^2 + \frac{(-1)(-2)(-3)}{3!}\!\left(-\frac{3}{2}x\right)^3$$
+
+$$\boxed{= 1 + \frac{3}{2}x + \frac{9}{4}x^2 + \frac{27}{8}x^3}$$
+
+</details>
+
+---
+
+## Advanced — First Term is Not 1 ★★★
+
+When the first term inside the bracket is **not 1**, factor out the constant first to get $(1+\cdots)^n$ form.
+
+::: {.callout-warning title="Common Mistake"}
+The index must be applied to **every factor**, by the law $(ab)^n = a^n b^n$:
+
+$$[2+x]^{-1} = \left[2\!\left(1+\frac{x}{2}\right)\right]^{-1} = 2^{-1}\!\left(1+\frac{x}{2}\right)^{-1} = \frac{1}{2}\!\left(1+\frac{x}{2}\right)^{-1}$$
+
+For $n = -1$ the wrong version $\dfrac{1}{2}\!\left(1+\dfrac{x}{2}\right)^{-1}$ happens to give the same answer — **a coincidence only for $n=-1$**.
+
+For $n = -2$ the mistake becomes clear:
+
+$$[2+x]^{-2} = 2^{-2}\!\left(1+\frac{x}{2}\right)^{-2} = \frac{1}{4}\!\left(1+\frac{x}{2}\right)^{-2}$$
+
+Writing $\dfrac{1}{2}\!\left(1+\dfrac{x}{2}\right)^{-2}$ instead is **wrong** — always factor properly first.
+:::
+
+<details>
+<summary>**Example 2** — Factor out the constant, then expand</summary>
+
+**(i)** $(x+2)^{-1}$, up to $x^3$
+
+**Step 1.** Rewrite in the correct order: $(2+x)^{-1}$
+
+**Step 2.** Factor out 2:
+
+$$\left[2\!\left(1+\frac{x}{2}\right)\right]^{-1} = 2^{-1}\!\left(1+\frac{x}{2}\right)^{-1}$$
+
+$$= \frac{1}{2}\left[1 + (-1)\!\left(\frac{x}{2}\right) + \frac{(-1)(-2)}{2!}\!\left(\frac{x}{2}\right)^2 + \frac{(-1)(-2)(-3)}{3!}\!\left(\frac{x}{2}\right)^3\right]$$
+
+$$\boxed{= \frac{1}{2}\!\left(1 - \frac{x}{2} + \frac{x^2}{4} - \frac{x^3}{8}\right)}$$
+
+---
+
+**(ii)** $(2x+3)^{-2}$, up to $x^3$
+
+$$(3+2x)^{-2} = \left[3\!\left(1+\frac{2x}{3}\right)\right]^{-2} = 3^{-2}\!\left(1+\frac{2x}{3}\right)^{-2}$$
+
+$$= \frac{1}{9}\left[1+(-2)\!\left(\frac{2x}{3}\right) + \frac{(-2)(-3)}{2!}\!\left(\frac{2x}{3}\right)^2 + \frac{(-2)(-3)(-4)}{3!}\!\left(\frac{2x}{3}\right)^3\right]$$
+
+$$\boxed{= \frac{1}{9}\!\left(1 - \frac{4}{3}x + \frac{4}{3}x^2 - \frac{32}{27}x^3\right)}$$
+
+</details>
+
+---
+
+## Validity Range ★★
+
+The series is only valid when the expression substituted in place of $x$ lies strictly between $-1$ and $1$:
+
+$$-1 < \underbrace{[\text{term in place of } x]}_{\text{the bracketed term}} < 1$$
+
+<details>
+<summary>**Example 3** — Finding the validity range</summary>
+
+What is the range of validity for $\left(1+\dfrac{2}{3}x\right)^{-1}$?
+
+$$-1 < \frac{2}{3}x < 1$$
+
+Multiply through by 3: $\quad -3 < 2x < 3$
+
+Divide by 2: $\quad \boxed{-\dfrac{3}{2} < x < \dfrac{3}{2}}$
+
+</details>
+
+---
+
+## Approximating Values ★
+
+Once you have a binomial expansion, you can substitute a small value of $x$ to get a numerical approximation.
+
+<details>
+<summary>**Example 4** — Approximating $\sqrt{1.04}$</summary>
+
+Use the expansion of $(1+2x)^{1/2}$ from Example 1(iii):
+
+$$(1+2x)^{1/2} \approx 1 + x - \frac{1}{2}x^2 + \frac{1}{2}x^3$$
+
+Set $2x = 0.04$, so $x = 0.02$:
+
+$$\sqrt{1.04} \approx 1 + 0.02 - \frac{1}{2}(0.02)^2 = 1 + 0.02 - 0.0002 = \boxed{1.0198}$$
+
+(Calculator gives $\sqrt{1.04} = 1.01980\ldots$ — excellent agreement.)
+
+</details>
+
+---
+
+## Exam Pattern: Partial Fractions + Binomial ★★★
+
+The most common exam question type. You are given a rational function, decompose it into partial fractions, then binomial-expand each piece.
+
+<details>
+<summary>**Exam Example 1** — $f(x) = \dfrac{-1}{x-1} + \dfrac{4}{x-2} - \dfrac{2}{x+1}$, expand up to $x^3$ (5 marks)</summary>
+
+Expand each term separately.
+
+**W1:** $(x-1)^{-1} = (-1+x)^{-1} = [-1(1-x)]^{-1} = -1\cdot(1-x)^{-1}$
+
+$$= -1\!\left[1 + (-x) + (-x)^2 + (-x)^3 + \cdots\right] = -(1+x+x^2+x^3)$$
+
+**W2:** $(x-2)^{-1} = (-2+x)^{-1} = \left[-2\!\left(1-\frac{x}{2}\right)\right]^{-1} = -\frac{1}{2}\!\left(1-\frac{x}{2}\right)^{-1}$
+
+$$= -\frac{1}{2}\!\left(1 + \frac{x}{2} + \frac{x^2}{4} + \frac{x^3}{8}\right)$$
+
+**W3:** $(x+1)^{-1} = (1+x)^{-1} = 1-x+x^2-x^3$
+
+$$f(x) = -1\!\cdot\!W1 + 4\!\cdot\!W2 - 2\!\cdot\!W3$$
+
+$$= (1+x+x^2+x^3) + \left(-2 - x - \frac{x^2}{2} - \frac{x^3}{4}\right) - 2(1-x+x^2-x^3)$$
+
+$$= \boxed{-3 + 2x - \frac{3}{2}x^2 + \frac{11}{4}x^3}$$
+
+</details>
+
+<details>
+<summary>**Exam Example 2** — $f(x) = \dfrac{-1}{1+x} + \dfrac{2x+1}{1+2x^2}$, expand up to $x^3$ (5 marks)</summary>
+
+**W1:** $(1+x)^{-1} = 1-x+x^2-x^3$
+
+**W2:** $(1+2x^2)^{-1} = 1 + (-1)(2x^2) + \cdots = 1-2x^2$ — the $(2x^2)^2$ term is $x^4$, so ignored
+
+$$f(x) = -1\!\cdot\!W1 + (2x+1)\!\cdot\!W2$$
+
+$$= -(1-x+x^2-x^3) + (2x+1)(1-2x^2)$$
+
+$$= -1+x-x^2+x^3 + 2x-4x^3+1-2x^2$$
+
+$$\boxed{= 3x - 3x^2 - 3x^3}$$
+
+</details>
+
+<details>
+<summary>**Challenge** — Expand $\dfrac{1}{\sqrt{1+x}+\sqrt{1-x}}$ up to $x^2$</summary>
+
+**Step 1.** Rationalise the denominator:
+
+$$\frac{1}{\sqrt{1+x}+\sqrt{1-x}} = \frac{\sqrt{1+x}-\sqrt{1-x}}{(\sqrt{1+x}+\sqrt{1-x})(\sqrt{1+x}-\sqrt{1-x})} = \frac{\sqrt{1+x}-\sqrt{1-x}}{2x}$$
+
+**Step 2.** Expand each square root:
+
+$(1+x)^{1/2} = 1 + \dfrac{x}{2} - \dfrac{x^2}{8} + \dfrac{x^3}{16} - \cdots$
+
+$(1-x)^{1/2} = 1 - \dfrac{x}{2} - \dfrac{x^2}{8} - \dfrac{x^3}{16} - \cdots$
+
+**Step 3.** Subtract and simplify:
+
+$$\frac{(1+x)^{1/2}-(1-x)^{1/2}}{2x} = \frac{x + \dfrac{x^3}{8} + \cdots}{2x} = \boxed{\frac{1}{2} + \frac{x^2}{16}}$$
+
+</details>

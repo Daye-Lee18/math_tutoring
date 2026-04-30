@@ -624,6 +624,170 @@ $$\frac{dV}{dt} = \underbrace{\frac{dV}{dA}}_{\text{differentiate geometric form
 
 ---
 
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+
+ROOT_CLR  = '#2563EB'
+DIM_CLR   = '#DC2626'
+FILL_CLR  = '#DBEAFE'
+FILL2_CLR = '#BFDBFE'
+FILL3_CLR = '#93C5FD'
+WATER_CLR = '#93C5FD'
+
+fig, axes = plt.subplots(2, 3, figsize=(14, 9))
+fig.suptitle('Geometric Relationships — Connected Rate of Change', fontsize=13, y=1.01)
+
+def arrow(ax, x0, y0, x1, y1, color=DIM_CLR):
+    ax.annotate('', xy=(x1, y1), xytext=(x0, y0),
+                arrowprops=dict(arrowstyle='<->', color=color, lw=1.5))
+
+def fbox(ax, x, y, text, fs=9.5):
+    ax.text(x, y, text, ha='center', va='center', fontsize=fs,
+            bbox=dict(boxstyle='round,pad=0.3', facecolor='white',
+                      edgecolor='#94A3B8', alpha=0.9))
+
+# ── 1. Cube ───────────────────────────────────────────────────────────────
+ax = axes[0, 0]
+ax.set_xlim(0, 4); ax.set_ylim(0, 4.5); ax.set_aspect('equal'); ax.axis('off')
+ax.set_title('Cube', fontsize=12, fontweight='bold', pad=8)
+
+s, ox, oy, d = 2.2, 0.5, 0.6, 0.55
+front = plt.Polygon([[ox,oy],[ox+s,oy],[ox+s,oy+s],[ox,oy+s]],
+                    facecolor=FILL_CLR, edgecolor=ROOT_CLR, lw=1.8)
+top   = plt.Polygon([[ox,oy+s],[ox+s,oy+s],[ox+s+d,oy+s+d],[ox+d,oy+s+d]],
+                    facecolor=FILL2_CLR, edgecolor=ROOT_CLR, lw=1.8)
+side  = plt.Polygon([[ox+s,oy],[ox+s+d,oy+d],[ox+s+d,oy+s+d],[ox+s,oy+s]],
+                    facecolor=FILL3_CLR, edgecolor=ROOT_CLR, lw=1.8)
+for p in [front, top, side]: ax.add_patch(p)
+arrow(ax, ox, oy-0.3, ox+s, oy-0.3)
+ax.text(ox+s/2, oy-0.55, '$s$', ha='center', color=DIM_CLR, fontsize=12)
+fbox(ax, ox+s/2+d/2, oy+s/2+0.05,
+     '$V = s^3$\n$A_{\\rm surf} = 6s^2$\n$\\Rightarrow A = 6V^{2/3}$')
+
+# ── 2. Sphere ─────────────────────────────────────────────────────────────
+ax = axes[0, 1]
+ax.set_xlim(0, 4); ax.set_ylim(0, 4.5); ax.set_aspect('equal'); ax.axis('off')
+ax.set_title('Sphere', fontsize=12, fontweight='bold', pad=8)
+
+cx, cy, r = 2.0, 2.3, 1.5
+ax.add_patch(plt.Circle((cx,cy), r, facecolor=FILL_CLR, edgecolor=ROOT_CLR, lw=1.8))
+ax.add_patch(patches.Ellipse((cx,cy), 2*r, 0.55,
+             facecolor='none', edgecolor=ROOT_CLR, lw=1.2, ls='--'))
+ax.annotate('', xy=(cx+r, cy), xytext=(cx, cy),
+            arrowprops=dict(arrowstyle='->', color=DIM_CLR, lw=1.8))
+ax.text(cx+r/2, cy+0.22, '$r$', ha='center', color=DIM_CLR, fontsize=12)
+fbox(ax, cx, cy-0.1,
+     r'$V = \dfrac{4}{3}\pi r^3$' + '\n' + r'$A_{\rm surf} = 4\pi r^2$')
+
+# ── 3. Conical Tank ───────────────────────────────────────────────────────
+ax = axes[0, 2]
+ax.set_xlim(-0.3, 4.2); ax.set_ylim(0, 4.8); ax.set_aspect('equal'); ax.axis('off')
+ax.set_title('Conical Tank', fontsize=12, fontweight='bold', pad=8)
+
+ox, oy, R, H = 2.0, 0.35, 1.6, 3.6
+h, r_h = 2.2, 1.6*2.2/3.6
+ax.plot([ox-R, ox+R], [oy+H, oy+H], color=ROOT_CLR, lw=1.8, ls='--')
+ax.plot([ox, ox-R], [oy, oy+H], color=ROOT_CLR, lw=1.8)
+ax.plot([ox, ox+R], [oy, oy+H], color=ROOT_CLR, lw=1.8)
+ax.add_patch(plt.Polygon([[ox,oy],[ox-r_h,oy+h],[ox+r_h,oy+h]],
+             facecolor=WATER_CLR, edgecolor='none', alpha=0.55))
+ax.add_patch(patches.Ellipse((ox,oy+h), 2*r_h, 0.28,
+             facecolor=WATER_CLR, edgecolor=ROOT_CLR, lw=1.2, alpha=0.8))
+ax.add_patch(patches.Ellipse((ox,oy+H), 2*R, 0.4,
+             facecolor='none', edgecolor=ROOT_CLR, lw=1.8, ls='--'))
+arrow(ax, ox-R-0.35, oy, ox-R-0.35, oy+H)
+ax.text(ox-R-0.65, oy+H/2, '$H$', ha='center', color=DIM_CLR, fontsize=11)
+arrow(ax, ox+r_h+0.22, oy, ox+r_h+0.22, oy+h)
+ax.text(ox+r_h+0.5, oy+h/2, '$h$', ha='center', color=DIM_CLR, fontsize=11)
+arrow(ax, ox, oy+H+0.45, ox+R, oy+H+0.45)
+ax.text(ox+R/2, oy+H+0.68, '$R$', ha='center', color=DIM_CLR, fontsize=11)
+arrow(ax, ox, oy+h-0.3, ox+r_h, oy+h-0.3, color='#1D4ED8')
+ax.text(ox+r_h/2, oy+h-0.55, '$r$', ha='center', color='#1D4ED8', fontsize=10)
+ax.text(ox+0.05, oy+0.85, r'$\frac{r}{h}=\frac{R}{H}$' + '\n(similar △)',
+        ha='left', va='center', fontsize=9, color='#1E40AF')
+fbox(ax, ox, oy+H/2+1.1,
+     r'$V=\dfrac{1}{3}\pi r^2 h$' + '\n' + r'$r=\dfrac{R}{H}h$' + '\n'
+     + r'$\Rightarrow V=\dfrac{\pi R^2}{3H^2}h^3$', fs=9)
+
+# ── 4. Cylinder ───────────────────────────────────────────────────────────
+ax = axes[1, 0]
+ax.set_xlim(0, 4); ax.set_ylim(0, 4.5); ax.set_aspect('equal'); ax.axis('off')
+ax.set_title('Cylinder', fontsize=12, fontweight='bold', pad=8)
+
+cx, cy_b, r_c, h_c = 2.0, 0.7, 1.3, 2.6
+ax.add_patch(patches.Ellipse((cx, cy_b), 2*r_c, 0.5,
+             facecolor=FILL3_CLR, edgecolor=ROOT_CLR, lw=1.8))
+ax.add_patch(patches.FancyArrowPatch((cx-r_c, cy_b), (cx-r_c, cy_b+h_c),
+             arrowstyle='-', color=ROOT_CLR, lw=1.8))
+ax.add_patch(patches.FancyArrowPatch((cx+r_c, cy_b), (cx+r_c, cy_b+h_c),
+             arrowstyle='-', color=ROOT_CLR, lw=1.8))
+ax.add_patch(patches.Ellipse((cx, cy_b+h_c), 2*r_c, 0.5,
+             facecolor=FILL_CLR, edgecolor=ROOT_CLR, lw=1.8))
+# fill side
+theta = np.linspace(0, np.pi, 100)
+ax.fill_betweenx([cy_b, cy_b+h_c],
+                 cx - r_c, cx + r_c,
+                 alpha=0.18, color=ROOT_CLR)
+arrow(ax, cx+r_c+0.2, cy_b, cx+r_c+0.2, cy_b+h_c)
+ax.text(cx+r_c+0.5, cy_b+h_c/2, '$h$', ha='center', color=DIM_CLR, fontsize=12)
+ax.annotate('', xy=(cx+r_c, cy_b+h_c+0.35), xytext=(cx, cy_b+h_c+0.35),
+            arrowprops=dict(arrowstyle='->', color=DIM_CLR, lw=1.8))
+ax.text(cx+r_c/2, cy_b+h_c+0.6, '$r$', ha='center', color=DIM_CLR, fontsize=12)
+fbox(ax, cx, cy_b+h_c/2,
+     '$V = \\pi r^2 h$\n$A_{\\rm surf} = 2\\pi r^2 + 2\\pi r h$\n(open top: $\\pi r^2 + 2\\pi r h$)')
+
+# ── 5. Hemisphere ─────────────────────────────────────────────────────────
+ax = axes[1, 1]
+ax.set_xlim(0, 4); ax.set_ylim(0, 4.5); ax.set_aspect('equal'); ax.axis('off')
+ax.set_title('Hemisphere', fontsize=12, fontweight='bold', pad=8)
+
+cx, cy, r = 2.0, 1.8, 1.6
+theta = np.linspace(0, np.pi, 200)
+xs = cx + r * np.cos(theta)
+ys = cy + r * np.sin(theta)
+ax.fill(np.append(xs, [cx+r, cx-r]), np.append(ys, [cy, cy]),
+        facecolor=FILL_CLR, edgecolor=ROOT_CLR, lw=1.8)
+ax.add_patch(patches.Ellipse((cx, cy), 2*r, 0.55,
+             facecolor=FILL3_CLR, edgecolor=ROOT_CLR, lw=1.8))
+ax.annotate('', xy=(cx+r, cy), xytext=(cx, cy),
+            arrowprops=dict(arrowstyle='->', color=DIM_CLR, lw=1.8))
+ax.text(cx+r/2, cy+0.22, '$r$', ha='center', color=DIM_CLR, fontsize=12)
+fbox(ax, cx, cy+r/2+0.3,
+     r'$V = \dfrac{2}{3}\pi r^3$' + '\n'
+     + r'$A_{\rm curved} = 2\pi r^2$' + '\n'
+     + r'$A_{\rm base} = \pi r^2$')
+
+# ── 6. Cone (general) ─────────────────────────────────────────────────────
+ax = axes[1, 2]
+ax.set_xlim(-0.3, 4.2); ax.set_ylim(0, 4.8); ax.set_aspect('equal'); ax.axis('off')
+ax.set_title('Cone (general)', fontsize=12, fontweight='bold', pad=8)
+
+ox, oy, R, H = 2.0, 3.8, 1.5, 3.2
+ax.add_patch(patches.Ellipse((ox, oy-H), 2*R, 0.45,
+             facecolor=FILL3_CLR, edgecolor=ROOT_CLR, lw=1.8))
+ax.add_patch(plt.Polygon([[ox,oy],[ox-R,oy-H],[ox+R,oy-H]],
+             facecolor=FILL_CLR, edgecolor=ROOT_CLR, lw=1.8, alpha=0.6))
+# slant line & label
+ax.plot([ox, ox+R], [oy, oy-H], color=ROOT_CLR, lw=1.8)
+mid_x, mid_y = (ox+ox+R)/2, (oy+oy-H)/2
+ax.text(mid_x+0.22, mid_y+0.1, '$l$', ha='left', color='#7C3AED', fontsize=12)
+# dims
+arrow(ax, ox-R-0.3, oy-H, ox-R-0.3, oy)
+ax.text(ox-R-0.6, oy-H/2, '$h$', ha='center', color=DIM_CLR, fontsize=12)
+ax.annotate('', xy=(ox+R, oy-H+0.35), xytext=(ox, oy-H+0.35),
+            arrowprops=dict(arrowstyle='->', color=DIM_CLR, lw=1.8))
+ax.text(ox+R/2, oy-H+0.6, '$r$', ha='center', color=DIM_CLR, fontsize=12)
+fbox(ax, ox, oy-H/2-0.1,
+     r'$V = \dfrac{1}{3}\pi r^2 h$' + '\n'
+     + r'$l = \sqrt{r^2+h^2}$' + '\n'
+     + r'$A_{\rm surf} = \pi r(r+l)$', fs=9)
+
+plt.tight_layout()
+plt.show()
+```
+
 <details>
 <summary>**Ex 5 — Connected rate of change: expanding cube**</summary>
 
@@ -650,5 +814,158 @@ $$\frac{dA}{dV} = 6\cdot\frac{2}{3}V^{-1/3} = 4V^{-1/3} \implies \frac{dV}{dA} =
 Therefore:
 
 $$\boxed{\frac{dV}{dt} = \frac{1}{4}V^{1/3}\cdot 2 = \frac{1}{2}\,V^{1/3}}$$
+
+</details>
+
+<details>
+<summary>**Ex 6 — Connected rate of change: inflating sphere**</summary>
+
+A spherical balloon is being inflated so that its volume increases at a constant rate of $2\,\text{cm}^3\text{s}^{-1}$. Find the rate at which the radius is increasing at the instant when $r = 5\,\text{cm}$.
+
+---
+
+**Geometric relationship:**
+
+$$V = \frac{4}{3}\pi r^3$$
+
+**Given:** $\dfrac{dV}{dt} = 2$, find $\dfrac{dr}{dt}$ when $r = 5$.
+
+**Chain rule:**
+
+$$\frac{dr}{dt} = \frac{dr}{dV}\cdot\frac{dV}{dt}$$
+
+Differentiate $V = \tfrac{4}{3}\pi r^3$ with respect to $r$:
+
+$$\frac{dV}{dr} = 4\pi r^2 \implies \frac{dr}{dV} = \frac{1}{4\pi r^2}$$
+
+Therefore:
+
+$$\frac{dr}{dt} = \frac{1}{4\pi r^2}\cdot 2 = \frac{1}{2\pi r^2}$$
+
+At $r = 5$:
+
+$$\boxed{\frac{dr}{dt} = \frac{1}{2\pi(25)} = \frac{1}{50\pi} \approx 0.00637\,\text{cm s}^{-1}}$$
+
+</details>
+
+<details>
+<summary>**Ex 7 — Connected rate of change: conical tank draining**</summary>
+
+A conical tank has height $H = 12\,\text{cm}$ and top radius $R = 4\,\text{cm}$, with its apex at the bottom. Water drains out at a rate of $3\,\text{cm}^3\text{s}^{-1}$. Find the rate at which the water depth $h$ is decreasing when $h = 6\,\text{cm}$.
+
+---
+
+**Geometric relationship** — similar triangles give $\dfrac{r}{h} = \dfrac{R}{H} = \dfrac{4}{12} = \dfrac{1}{3}$, so $r = \dfrac{h}{3}$.
+
+Substituting into $V = \dfrac{1}{3}\pi r^2 h$:
+
+$$V = \frac{1}{3}\pi\left(\frac{h}{3}\right)^2 h = \frac{\pi h^3}{27}$$
+
+**Given:** $\dfrac{dV}{dt} = -3$ (draining), find $\dfrac{dh}{dt}$ when $h = 6$.
+
+**Chain rule:**
+
+$$\frac{dh}{dt} = \frac{dh}{dV}\cdot\frac{dV}{dt}$$
+
+Differentiate $V = \dfrac{\pi h^3}{27}$ with respect to $h$:
+
+$$\frac{dV}{dh} = \frac{\pi h^2}{9} \implies \frac{dh}{dV} = \frac{9}{\pi h^2}$$
+
+Therefore:
+
+$$\frac{dh}{dt} = \frac{9}{\pi h^2}\cdot(-3) = \frac{-27}{\pi h^2}$$
+
+At $h = 6$:
+
+$$\boxed{\frac{dh}{dt} = \frac{-27}{36\pi} = \frac{-3}{4\pi} \approx -0.239\,\text{cm s}^{-1}}$$
+
+The negative sign confirms the depth is **decreasing**.
+
+</details>
+
+<details>
+<summary>**Ex 8 — Connected rate of change: cylinder filling**</summary>
+
+A cylindrical container of fixed radius $r = 3\,\text{cm}$ is being filled with water at $5\,\text{cm}^3\text{s}^{-1}$. At the same time, water leaks from the bottom at a rate proportional to the current height $h$, with constant of proportionality $k = 0.4$.
+
+**(a)** Write down a differential equation for $h$ in terms of $h$ and $t$.
+
+**(b)** Find the equilibrium height.
+
+---
+
+**(a)** Volume of cylinder: $V = \pi r^2 h = 9\pi h$
+
+$$\frac{dV}{dt} = 9\pi\,\frac{dh}{dt}$$
+
+Net rate of change: $\dfrac{dV}{dt} = 5 - 0.4h$
+
+$$9\pi\,\frac{dh}{dt} = 5 - 0.4h$$
+
+$$\boxed{\frac{dh}{dt} = \frac{5 - 0.4h}{9\pi}}$$
+
+**(b)** At equilibrium, $\dfrac{dh}{dt} = 0$:
+
+$$5 - 0.4h = 0 \implies \boxed{h = 12.5\,\text{cm}}$$
+
+</details>
+
+<details>
+<summary>**Ex 9 — Connected rate of change: hemisphere**</summary>
+
+A bowl in the shape of a hemisphere of fixed radius $R = 10\,\text{cm}$ is being filled with water. When the depth of water is $h$, the volume is $V = \pi h^2\!\left(R - \dfrac{h}{3}\right)$. Water is poured in at $4\,\text{cm}^3\text{s}^{-1}$. Find the rate at which the depth is increasing when $h = 4\,\text{cm}$.
+
+---
+
+**Given:** $V = \pi h^2\!\left(10 - \dfrac{h}{3}\right) = 10\pi h^2 - \dfrac{\pi h^3}{3}$, $\;\dfrac{dV}{dt} = 4$
+
+**Chain rule:**
+
+$$\frac{dh}{dt} = \frac{dh}{dV}\cdot\frac{dV}{dt}$$
+
+Differentiate $V$ with respect to $h$:
+
+$$\frac{dV}{dh} = 20\pi h - \pi h^2 = \pi h(20 - h)$$
+
+At $h = 4$:
+
+$$\frac{dV}{dh} = \pi(4)(16) = 64\pi$$
+
+Therefore:
+
+$$\boxed{\frac{dh}{dt} = \frac{1}{64\pi}\cdot 4 = \frac{1}{16\pi} \approx 0.0199\,\text{cm s}^{-1}}$$
+
+</details>
+
+<details>
+<summary>**Cone — $l$ 과 $A_{\rm surf}$ 유도**</summary>
+
+### Slant height $l = \sqrt{r^2 + h^2}$
+
+원뿔의 단면을 보면 반지름 $r$, 높이 $h$, 빗변 $l$ 로 이루어진 직각삼각형이 나온다.
+
+$$l^2 = r^2 + h^2 \implies \boxed{l = \sqrt{r^2 + h^2}}$$
+
+---
+
+### Lateral surface area $= \pi r l$
+
+원뿔의 옆면을 펼치면 **부채꼴**이 된다.
+
+| | 값 |
+|---|---|
+| 부채꼴의 반지름 | $l$ (slant height) |
+| 부채꼴의 호의 길이 | $2\pi r$ (원뿔 밑면의 둘레) |
+| 부채꼴의 넓이 | $\dfrac{1}{2} \times l \times 2\pi r = \pi r l$ |
+
+$$\boxed{A_{\rm lateral} = \pi r l}$$
+
+---
+
+### Total surface area $A_{\rm surf} = \pi r(r + l)$
+
+밑면(원) + 옆면(부채꼴):
+
+$$A_{\rm surf} = \underbrace{\pi r^2}_{\text{base}} + \underbrace{\pi r l}_{\text{lateral}} = \boxed{\pi r(r + l)}$$
 
 </details>

@@ -1,0 +1,37 @@
+﻿Week,Session,Day,Textbook Chapter,Lesson Content
+1,1,Tue,Chapter 9.1,"Introduction to 3D Vectors: position vectors, displacement vectors, magnitude"
+1,2,Thur,Chapter 9.2,"Vector Operations: addition, subtraction, scalar multiplication, unit vectors"
+1,3,Sat,Chapter 9.1-9.2,"Vector Algebra Practice: points, vectors, parallel vectors, basic exam-style questions"
+2,4,Tue,Chapter 9.3,"Scalar Product 1: dot product, algebraic form, geometric meaning"
+2,5,Thur,Chapter 9.3,"Scalar Product 2: angle between vectors, perpendicular vectors, unknown parameters"
+2,6,Sat,Chapter 9.1-9.3,Dot Product Applications: mixed practice and Chapter 9.1-9.3 consolidation
+3,7,Tue,Chapter 9.4,"Vector Equation of a Line 1: point and direction vector, vector form"
+3,8,Thur,Chapter 9.4,Vector Equation of a Line 2: parametric and Cartesian forms
+3,9,Sat,Chapter 9.4,"Lines in 3D: point on a line, parallel lines, intersection basics"
+4,10,Tue,Chapter 9.4,"Line Relationships: intersecting, parallel, and skew lines"
+4,11,Thur,Chapter 9.5,Vector Product 1: cross product calculation and perpendicular vectors
+4,12,Sat,Chapter 9.5,Vector Product 2: area of triangles/parallelograms and line applications
+5,13,Tue,Chapter 9.6,Vector Equation of a Plane 1: plane form and normal vectors
+5,14,Thur,Chapter 9.6,Vector Equation of a Plane 2: Cartesian equation and point-plane checks
+5,15,Sat,Chapter 9.7-9.8,"Lines, Planes, and Angles: line-plane intersection and Chapter 9 review"
+6,16,Tue,Chapter 10.1,"Complex Numbers 1: real and imaginary parts, conjugates, Argand diagram"
+6,17,Thur,Chapter 10.1,"Complex Numbers 2: modulus, argument, quadrant checks"
+6,18,Sat,Chapter 10.1,"Complex Numbers 3: Cartesian form, polar form, modulus-argument form"
+7,19,Tue,Chapter 10.2,Operations with Complex Numbers: multiplication and division in polar form
+7,20,Thur,Chapter 10.3,De Moivre's Theorem: powers of complex numbers
+7,21,Sat,Chapter 10.3,"Roots of Complex Numbers: nth roots, Argand diagrams, Chapter 10 review"
+8,22,Tue,Chapter 11.1,"Probability Axioms: sample spaces, events, complements, unions and intersections"
+8,23,Thur,Chapter 11.1,"Conditional Probability: tree diagrams, Venn diagrams, P(A|B)"
+8,24,Sat,Chapter 11.1,Independence and Mutually Exclusive Events: comparison and mixed practice
+9,25,Tue,Chapter 11.2,"Discrete Random Variables: probability distributions, expected value"
+9,26,Thur,Chapter 11.2,"Variance and Standard Deviation: E(X), E(X^2), Var(X)"
+9,27,Sat,Chapter 11.3,"Continuous Random Variables: PDFs, area under the curve, integration practice"
+10,28,Tue,Chapter 11.4,"Binomial Distribution 1: binomial conditions, X~B(n,p), exact probability"
+10,29,Thur,Chapter 11.4,"Binomial Distribution 2: cumulative probability, complements, calculator use"
+10,30,Sat,Chapter 11.4,"Binomial Distribution 3: mean, variance, unknown parameters, exam-style practice"
+11,31,Tue,Chapter 11.5,"Normal Distribution 1: shape, mean, standard deviation, standardization"
+11,32,Thur,Chapter 11.5,"Normal Distribution 2: normal CDF, interval probabilities, tail probabilities"
+11,33,Sat,Chapter 11.5,"Normal Distribution 3: inverse normal, unknown mean or standard deviation, Chapter 11 review"
+12,34,Tue,Chapter 12,"Exploration Introduction: purpose, assessment focus, research question basics"
+12,35,Thur,Chapter 12,"Exploration Topic Workshop: modelling ideas from vectors, complex numbers, and probability"
+12,36,Sat,Chapters 9-12,Final Consolidation: Chapters 9-11 mixed review and cumulative mini mock

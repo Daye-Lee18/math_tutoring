@@ -1,14 +1,41 @@
----
-title: "Vectors — Core Concepts"
----
-
 # Vectors — Core Concepts
 
 ---
 
-## 1. Scalar Product
+## 1. Scalar Product (내적)
+
+### 내적이란?
+
+벡터끼리 "곱하는" 방법 중 하나다. 두 벡터를 입력하면 **숫자(scalar) 하나**가 나온다 — 그래서 scalar product라고 부른다.
+
+::: {.callout-note title="왜 배우나? — 내적의 용도"}
+내적은 딱 두 가지 상황에서 쓴다:
+
+1. **두 벡터 사이의 각도를 구할 때** — $\cos\theta = \dfrac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}$
+2. **두 벡터가 수직인지 확인할 때** — 내적 $= 0$ 이면 수직
+
+좌표(성분)만 알면 각도를 바로 계산할 수 있다는 게 핵심이다. 내적이 없으면 두 직선이 이루는 각도, 점과 직선 사이의 거리 등을 구할 방법이 없다.
+:::
+
+**직관:** 두 벡터가 같은 방향을 향할수록 내적이 크다. 완전히 수직이면 0, 반대 방향이면 음수가 된다.
 
 $$\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta$$
+
+### Geometric Meaning (기하학적 의미)
+
+**Dot product = magnitude of one vector × projection of the other onto it**
+
+$$\vec{a} \cdot \vec{b} = |\vec{a}| \underbrace{|\vec{b}|\cos\theta}_{\text{projection of } \vec{b} \text{ onto } \vec{a}}$$
+
+The scalar projection of $\vec{b}$ onto $\vec{a}$ is $|\vec{b}|\cos\theta$ — how much of $\vec{b}$ lies in the direction of $\vec{a}$.
+
+**Sign tells you the angle:**
+
+| $\vec{a} \cdot \vec{b}$ | $\cos\theta$ | Angle | Meaning |
+|---|---|---|---|
+| $> 0$ | $> 0$ | $\theta < 90°$ | Vectors point in roughly the same direction |
+| $= 0$ | $= 0$ | $\theta = 90°$ | Perpendicular |
+| $< 0$ | $< 0$ | $\theta > 90°$ | Vectors point in roughly opposite directions |
 
 ::: {.callout-tip title="KEY"}
 - $\vec{a} \cdot \vec{b} = \vec{b} \cdot \vec{a}$ **(commutative)** and $\vec{a} \cdot (\vec{b} + \vec{c}) = \vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c}$ **(distributive)**
@@ -79,6 +106,179 @@ $$\boxed{\lambda = 2}$$
 - $\vec{b}$: **direction vector** of the line
 - $\lambda$: scalar **parameter**
 :::
+
+<details>
+<summary>**벡터 방정식과 $y = mx + c$ 의 연결**</summary>
+
+2D에서 벡터 방정식 $\vec{r} = \begin{pmatrix}x_0\\y_0\end{pmatrix} + \lambda\begin{pmatrix}p\\q\end{pmatrix}$은 parametric 형태로:
+
+$$x = x_0 + \lambda p, \qquad y = y_0 + \lambda q$$
+
+$\lambda$를 소거하면 $\lambda = \dfrac{x-x_0}{p} = \dfrac{y-y_0}{q}$이므로:
+
+$$y = \underbrace{\frac{q}{p}}_{m}\,x + \underbrace{\!\left(y_0 - \frac{q}{p}x_0\right)}_{c}$$
+
+즉 **방향벡터의 성분 비율이 그대로 기울기**가 된다:
+
+$$m = \frac{q}{p} = \frac{\Delta y}{\Delta x}$$
+
+**예:** $\vec{r} = \begin{pmatrix}1\\3\end{pmatrix} + \lambda\begin{pmatrix}2\\6\end{pmatrix}$ → $m = \dfrac{6}{2} = 3$, $c = 3 - 3(1) = 0$ → $y = 3x$
+
+::: {.callout-note}
+3D에서는 $y = mx+c$ 형태가 불가능하다. 미지수가 3개인데 식이 하나로는 직선을 특정할 수 없기 때문이다. 그래서 3D에서는 벡터 형태나 Cartesian 형태 $\dfrac{x-a_1}{b_1} = \dfrac{y-a_2}{b_2} = \dfrac{z-a_3}{b_3}$를 써야 한다.
+:::
+
+</details>
+
+---
+
+<details>
+<summary>**$\vec{a}$와 $\vec{b}$는 표기가 같은데 뭐가 달라?**</summary>
+
+둘 다 칼럼벡터 $\begin{pmatrix}x\\y\\z\end{pmatrix}$ 형태라 표기는 완전히 같아. 차이는 **의미**야.
+
+| | 위치벡터 $\vec{a}$ | 방향벡터 $\vec{b}$ |
+|---|---|---|
+| 의미 | 원점 O에서 직선 위 한 점까지 | 직선의 방향 (크기·방향만) |
+| 위치 | 원점에 묶여 있음 | 어디서 시작하든 상관없음 |
+
+**핵심 차이 — 스케일을 바꾸면?**
+
+- $\vec{a}$를 $2\vec{a}$로 바꾸면 → 다른 점을 가리키므로 **다른 직선**
+- $\vec{b}$를 $2\vec{b}$로 바꿔도 → 방향만 표현하는 거라 **같은 직선**
+
+즉 $\vec{b}$는 방향 정보만 담고 있어서 스칼라배해도 동일한 직선이야.
+
+</details>
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(11, 4.8))
+ax.set_xlim(-0.3, 11); ax.set_ylim(-0.8, 4.0)
+ax.set_aspect('equal'); ax.axis('off')
+
+BLUE  = '#2563EB'
+RED   = '#DC2626'
+GREEN = '#16A34A'
+PURP  = '#7C3AED'
+GREY  = '#9CA3AF'
+
+def arr(ax, x0, y0, dx, dy, color, lw=2.2, ms=14, ls='solid', zorder=3):
+    ax.annotate('', xy=(x0+dx, y0+dy), xytext=(x0, y0),
+                arrowprops=dict(arrowstyle='->', color=color, lw=lw,
+                                mutation_scale=ms, linestyle=ls),
+                zorder=zorder)
+
+O = np.array([0.0, 0.0])
+A = np.array([3.2, 1.4])      # position vector a points here
+b = np.array([1.6, 0.55])     # direction vector
+P = A + 2.0 * b               # general point at lambda=2
+
+# extended line
+t = np.linspace(-1.1, 3.5, 300)
+lpts = np.array([A + ti*b for ti in t])
+ax.plot(lpts[:,0], lpts[:,1], color=GREY, lw=1.3, ls='--', zorder=1)
+
+# lambda tick marks
+perp = np.array([-b[1], b[0]]) / np.linalg.norm(b) * 0.14
+for lv, label, voffset in [(-1, r'$\lambda{=}{-1}$', -0.30),
+                             ( 0, r'$\lambda{=}0\ (A)$', -0.30),
+                             ( 1, r'$\lambda{=}1$',      -0.30),
+                             ( 2, r'$\lambda{=}2$',      -0.30)]:
+    Pt = A + lv*b
+    ax.plot([Pt[0]-perp[0], Pt[0]+perp[0]],
+            [Pt[1]-perp[1], Pt[1]+perp[1]], color=GREY, lw=1.2, zorder=2)
+    ax.text(Pt[0], Pt[1]+voffset, label,
+            ha='center', va='top', fontsize=8, color=GREY)
+
+# O
+ax.plot(*O, 'ko', ms=6, zorder=6)
+ax.text(O[0]-0.05, O[1]-0.32, '$O$', fontsize=13, fontweight='bold', ha='center')
+
+# a : O → A  (blue)
+arr(ax, *O, *(A-O), BLUE, lw=2.4)
+ax.plot(*A, 'o', color=BLUE, ms=7, zorder=6)
+ax.text(A[0]-0.08, A[1]+0.2, '$A$', fontsize=12, color=BLUE, fontweight='bold')
+ax.text(A[0]/2 - 0.42, A[1]/2 + 0.15, r'$\vec{a}$',
+        fontsize=15, color=BLUE, fontweight='bold')
+
+# b : A → A+b  (green)
+arr(ax, *A, *b, GREEN, lw=2.5, ms=13)
+mid_b = A + b*0.5
+ax.text(mid_b[0] + 0.05, mid_b[1] + 0.22, r'$\vec{b}$',
+        fontsize=15, color=GREEN, fontweight='bold')
+
+# lambda*b : A → P  (purple dashed)
+arr(ax, *A, *(P-A), PURP, lw=1.8, ms=12, ls='dashed', zorder=4)
+mid_lb = A + (P-A)*0.5
+ax.text(mid_lb[0] + 0.05, mid_lb[1] + 0.22, r'$\lambda\vec{b}$',
+        fontsize=14, color=PURP, fontweight='bold')
+
+# r : O → P  (red)
+arr(ax, *O, *(P-O), RED, lw=2.2, zorder=2)
+ax.plot(*P, 'o', color=RED, ms=7, zorder=6)
+ax.text(P[0]+0.1, P[1]+0.2, '$P$', fontsize=12, color=RED, fontweight='bold')
+ax.text((O[0]+P[0])/2 + 0.35, (O[1]+P[1])/2 + 0.28, r'$\vec{r}$',
+        fontsize=15, color=RED, fontweight='bold')
+
+# equation box (top right)
+ax.text(9.0, 3.3, r'$\vec{r} = \vec{a} + \lambda\vec{b}$',
+        fontsize=15, ha='center',
+        bbox=dict(boxstyle='round,pad=0.55', facecolor='#EFF6FF',
+                  edgecolor=BLUE, lw=1.8))
+
+# legend — English only (avoids font rendering issues)
+legend = [
+    (BLUE,  r'$\vec{a}$ : position vector,  $O \to A$'),
+    (GREEN, r'$\vec{b}$ : direction vector  (free — can start anywhere)'),
+    (PURP,  r'$\lambda\vec{b}$ : scaled step from $A$ to $P$'),
+    (RED,   r'$\vec{r}$ : position vector of $P$,  $O \to P$'),
+]
+lx, ly0 = 7.2, 2.55
+for i, (c, txt) in enumerate(legend):
+    ax.plot(lx, ly0 - i*0.62, 'o', color=c, ms=7, zorder=5)
+    ax.text(lx+0.22, ly0 - i*0.62, txt, fontsize=9.2, color=c, va='center')
+
+plt.tight_layout()
+plt.show()
+```
+
+<details>
+<summary>**Cartesian form — 왜 저렇게 생겼나?**</summary>
+
+Parametric 각 식에서 $\lambda$를 표현하면:
+
+$$x = a_1 + \lambda b_1 \implies \lambda = \frac{x-a_1}{b_1}$$
+
+$$y = a_2 + \lambda b_2 \implies \lambda = \frac{y-a_2}{b_2}$$
+
+$$z = a_3 + \lambda b_3 \implies \lambda = \frac{z-a_3}{b_3}$$
+
+세 식이 **모두 같은 $\lambda$**이므로 등호로 연결 → $\lambda$ 소거:
+
+$$\frac{x-a_1}{b_1} = \frac{y-a_2}{b_2} = \frac{z-a_3}{b_3}$$
+
+즉 Cartesian form은 **Parametric에서 $\lambda$를 없앤 것**. $x, y, z$만으로 직선의 조건을 표현한 형태야.
+
+---
+
+**주의 — 방향벡터 성분이 0일 때**
+
+예: 방향벡터가 $(2, 0, 1)$이면 $y$ 성분이 $0$이라 $\dfrac{y-a_2}{0}$ 꼴이 나와.
+
+이건 "분모가 0" 이 아니라 **$y = a_2$ (상수)** 라는 뜻으로 따로 적어줘야 해:
+
+$$\frac{x-a_1}{2} = \frac{z-a_3}{1}, \quad y = a_2$$
+
+---
+
+**실전에서는?**
+
+A-Level에서 Cartesian form이 직접 요구되는 경우는 드물어. Vector/Parametric이 훨씬 많이 쓰이고, 교점·수선 등 계산도 Parametric으로 해.
+
+</details>
 
 <details>
 <summary>**핵심 아이디어 — 왜 이렇게 쓰나?**</summary>
@@ -168,14 +368,146 @@ Note: $\dfrac{y-1}{0}$ means $y = 1$ (constant — direction component is zero).
 
 ## 3. Types of Questions
 
-| | **Point** | **Line** |
-|---|---|---|
-| **Point** | ① distance between two points | |
-| **Line** | ② distance from point to line | ③ intersection point, ④ angle between lines, ⑤ distance between skew lines (FP) |
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.gridspec import GridSpec
+
+fig = plt.figure(figsize=(14, 6.5))
+gs = GridSpec(3, 4, figure=fig,
+              height_ratios=[0.55, 3.0, 3.0],
+              width_ratios=[0.85, 3.4, 3.4, 3.4],
+              hspace=0, wspace=0)
+
+GREY   = '#6B7280'
+BLACK  = '#111827'
+RED    = '#DC2626'
+HDR_BG = '#F3F4F6'
+BDR    = '#9CA3AF'
+
+def style_header(ax, text, rotation=0, fs=12):
+    ax.set_facecolor(HDR_BG)
+    ax.set_xticks([]); ax.set_yticks([])
+    for sp in ax.spines.values():
+        sp.set_edgecolor(BDR); sp.set_linewidth(1.2)
+    ax.text(0.5, 0.5, text, ha='center', va='center',
+            fontsize=fs, fontweight='bold',
+            transform=ax.transAxes, rotation=rotation)
+
+def style_cell(ax, bg='#FFFFFF'):
+    ax.set_facecolor(bg)
+    ax.set_xticks([]); ax.set_yticks([])
+    for sp in ax.spines.values():
+        sp.set_edgecolor(BDR); sp.set_linewidth(1.0)
+    ax.set_xlim(0, 4); ax.set_ylim(0, 3)
+
+def cell_title(ax, text, color):
+    ax.text(0.5, 0.96, text, ha='center', va='top', fontsize=9.5,
+            fontweight='bold', transform=ax.transAxes, color=color)
+
+# ── Headers ─────────────────────────────────────────────────────────────────
+style_header(fig.add_subplot(gs[0, 0]), '')
+style_header(fig.add_subplot(gs[0, 1]), 'Point')
+style_header(fig.add_subplot(gs[0, 2:4]), 'Line')
+style_header(fig.add_subplot(gs[1, 0]), 'Point', rotation=90)
+style_header(fig.add_subplot(gs[2, 0]), 'Line',  rotation=90)
+
+# ── ① Point × Point : distance ──────────────────────────────────────────────
+ax1 = fig.add_subplot(gs[1, 1])
+style_cell(ax1, '#F0F9FF')
+cell_title(ax1, '① distance', '#1E40AF')
+A = np.array([0.75, 0.85]); B = np.array([2.95, 2.0])
+ax1.plot(*A, 'ko', ms=7, zorder=5)
+ax1.text(A[0]-0.32, A[1]-0.36, '$A$', fontsize=12)
+ax1.plot(*B, 'ko', ms=7, zorder=5)
+ax1.text(B[0]+0.1, B[1]+0.1, '$B$', fontsize=12)
+ax1.plot([A[0],B[0]], [A[1],B[1]], 'k--', lw=1.6)
+mid = (A+B)/2
+ax1.text(mid[0]+0.14, mid[1]+0.1, '$d$', fontsize=13, style='italic')
+
+# ── Point × Line : empty ────────────────────────────────────────────────────
+ax_e = fig.add_subplot(gs[1, 2:4])
+style_cell(ax_e, '#FAFAFA')
+ax_e.text(0.5, 0.5, '—', ha='center', va='center', fontsize=16,
+          color=GREY, transform=ax_e.transAxes)
+
+# ── ② Line × Point : distance (foot of ⊥) ───────────────────────────────────
+ax2 = fig.add_subplot(gs[2, 1])
+style_cell(ax2, '#F0F9FF')
+cell_title(ax2, '② distance (foot of ⊥)', '#1E40AF')
+ldir = np.array([1.0, 0.18]); ldir /= np.linalg.norm(ldir)
+lstart = np.array([0.2, 0.82]); lend = lstart + 3.6*ldir
+ax2.annotate('', xy=lend, xytext=lstart,
+             arrowprops=dict(arrowstyle='->', color=BLACK, lw=1.4, mutation_scale=11))
+ax2.text(lend[0]-0.12, lend[1]+0.16, '$l$', fontsize=11)
+A2 = lstart + 0.7*ldir
+ax2.plot(*A2, 'ko', ms=5)
+ax2.text(A2[0]-0.26, A2[1]-0.3, '$A$', fontsize=10)
+P2 = np.array([1.9, 2.35])
+ax2.plot(*P2, 'ko', ms=5)
+ax2.text(P2[0]+0.1, P2[1]+0.1, '$P$', fontsize=10)
+t_val = np.dot(P2-lstart, ldir); F2 = lstart + t_val*ldir
+ax2.plot(*F2, 's', color=GREY, ms=6, zorder=5)
+ax2.text(F2[0]+0.1, F2[1]-0.3, '$F$', fontsize=10, color=GREY)
+ax2.plot([P2[0],F2[0]], [P2[1],F2[1]], '--', color=RED, lw=1.5)
+fp = (P2-F2)/np.linalg.norm(P2-F2); ra=0.11
+c1=F2+ldir*ra; c2=c1+fp*ra; c3=F2+fp*ra
+ax2.plot([c1[0],c2[0],c3[0]], [c1[1],c2[1],c3[1]], 'k-', lw=1)
+ax2.text((P2[0]+F2[0])/2+0.13, (P2[1]+F2[1])/2,
+         '$d$', fontsize=13, style='italic', color=RED)
+
+# ── ③④ Line × Line : intersection & angle ───────────────────────────────────
+ax3 = fig.add_subplot(gs[2, 2])
+style_cell(ax3, '#F0FFF4')
+cell_title(ax3, '③ intersection   ④ angle', '#166534')
+l1s=np.array([0.2,0.4]); l1e=np.array([3.6,2.6])
+ax3.annotate('', xy=l1e, xytext=l1s,
+             arrowprops=dict(arrowstyle='->', color=BLACK, lw=1.4, mutation_scale=11))
+ax3.text(l1e[0]+0.05, l1e[1]+0.05, '$l_1$', fontsize=10)
+l2s=np.array([0.2,2.7]); l2e=np.array([3.6,0.3])
+ax3.annotate('', xy=l2e, xytext=l2s,
+             arrowprops=dict(arrowstyle='->', color=BLACK, lw=1.4, mutation_scale=11))
+ax3.text(l2e[0]+0.05, l2e[1]-0.2, '$l_2$', fontsize=10)
+d1=l1e-l1s; d2=l2e-l2s
+A_m=np.array([[d1[0],-d2[0]],[d1[1],-d2[1]]]); b_v=l2s-l1s
+ts=np.linalg.solve(A_m, b_v); Pint=l1s+ts[0]*d1
+ax3.plot(*Pint, 'ko', ms=6, zorder=5)
+ax3.text(Pint[0]+0.12, Pint[1]+0.14, '$P$', fontsize=10)
+
+# ── ⑤ Line × Line : skew distance (FP) ─────────────────────────────────────
+ax4 = fig.add_subplot(gs[2, 3])
+style_cell(ax4, '#FFF7ED')
+cell_title(ax4, '⑤ skew distance  (FP only)', '#9A3412')
+l1s4=np.array([0.2,1.9]); l1e4=np.array([3.7,1.4])
+ax4.annotate('', xy=l1e4, xytext=l1s4,
+             arrowprops=dict(arrowstyle='->', color=BLACK, lw=1.4, mutation_scale=11))
+ax4.text(l1e4[0]+0.05, l1e4[1]+0.1, '$l_1$', fontsize=10)
+l2s4=np.array([0.4,0.4]); l2e4=np.array([2.9,2.75])
+ax4.annotate('', xy=l2e4, xytext=l2s4,
+             arrowprops=dict(arrowstyle='->', color=BLACK, lw=1.4, mutation_scale=11))
+ax4.text(l2e4[0]+0.05, l2e4[1]+0.05, '$l_2$', fontsize=10)
+m1_4=l1s4+0.50*(l1e4-l1s4); m2_4=l2s4+0.45*(l2e4-l2s4)
+ax4.plot([m1_4[0],m2_4[0]], [m1_4[1],m2_4[1]], '--', color=RED, lw=1.8)
+ax4.text((m1_4[0]+m2_4[0])/2+0.14, (m1_4[1]+m2_4[1])/2,
+         '$d$', fontsize=13, style='italic', color=RED)
+
+plt.show()
+```
 
 ### ① Distance between two points
 
 $$d = |\vec{b} - \vec{a}| = \sqrt{(b_1-a_1)^2+(b_2-a_2)^2+(b_3-a_3)^2}$$
+
+<details>
+<summary>**Ex — Distance between two points**</summary>
+
+Find the distance between two points whose position vectors are $\vec{a} = 5\mathbf{i} - 2\mathbf{j}$ and $\vec{b} = 4\mathbf{i} - \mathbf{j} + 3\mathbf{k}$.
+
+$$\vec{b} - \vec{a} = \begin{pmatrix}4-5\\-1+2\\3-0\end{pmatrix} = \begin{pmatrix}-1\\1\\3\end{pmatrix}$$
+
+$$d = \sqrt{(-1)^2+1^2+3^2} = \sqrt{1+1+9} = \boxed{\sqrt{11}}$$
+
+</details>
 
 ### ③ Intersection of two lines
 
@@ -183,11 +515,17 @@ Set $l_1 = l_2$ using parameters $\lambda$ and $\mu$. Solve the system (2 equati
 
 ### ④ Angle between two lines
 
-Use direction vectors $\vec{b}_1$ and $\vec{b}_2$:
+Use direction vectors $\vec{b}_1$ and $\vec{b}_2$ only — position vectors $\vec{a}_1$, $\vec{a}_2$ are irrelevant:
 
 $$\cos\theta = \frac{|\vec{b}_1 \cdot \vec{b}_2|}{|\vec{b}_1||\vec{b}_2|}$$
 
-> Take the **absolute value** to always get the **acute** angle.
+::: {.callout-note title="왜 방향벡터만 쓰나?"}
+**이유 1 — 각도는 위치가 아니라 방향의 성질이다.**
+$\vec{r} = \vec{a} + \lambda\vec{b}$에서 $\vec{a}$는 직선의 위치, $\vec{b}$는 직선의 방향이다. 두 직선을 아무리 평행이동해도 이루는 각도는 변하지 않으므로 $\vec{b}$만 사용한다.
+
+**이유 2 — 절댓값을 취하는 이유.**
+직선은 양방향으로 뻗어있어서 $\vec{b}$와 $-\vec{b}$는 같은 직선이다. 내적이 음수(둔각)로 나와도 직선 사이의 각도는 항상 **예각**으로 정의하므로 $|\vec{b}_1 \cdot \vec{b}_2|$로 절댓값을 취한다.
+:::
 
 ### ② Distance from a point to a line (foot of perpendicular)
 
@@ -196,6 +534,56 @@ Let $F$ be the foot of perpendicular from point $P$ to line $l: \vec{r} = \vec{a
 1. Write $F = \vec{a} + \lambda\vec{b}$ (unknown $\lambda$)
 2. $\overrightarrow{PF} \cdot \vec{b} = 0$ (perpendicularity condition) → solve for $\lambda$
 3. Find $F$, then $d = |\overrightarrow{PF}|$
+
+---
+
+### Skew Lines — 개념
+
+3D에서 두 직선의 관계는 **네 가지**야:
+
+| 관계 | 조건 |
+|---|---|
+| **Intersecting** | 방향벡터가 평행하지 않고, 공통점이 존재함 |
+| **Skew** | 방향벡터가 평행하지 않고, 공통점도 없음 — 3D에서만 존재 |
+| **Parallel** | 방향벡터가 scalar multiple, 만나지 않음 |
+| **Coincident** | 방향벡터가 scalar multiple, 같은 직선 |
+
+**Skew lines**는 아예 다른 평면 위에 있어서 어디서도 만나지 않아. 각도가 달라서가 아니라 **공간적으로 엇갈린** 거야.
+
+### 판별 흐름도
+
+$$\mathbf{b_1} = k\,\mathbf{b_2} \text{ ?}$$
+
+```
+방향벡터가 평행?  (b₁ = k·b₂)
+│
+├─ YES → line 1의 점 a₁을 line 2에 대입해서 t가 나오나?
+│         ├─ YES → Coincident (같은 선)
+│         └─ NO  → Parallel (평행, 절대 안 만남)
+│
+└─ NO  → 연립방정식으로 λ, μ 풀기 (2개 식으로)
+          ├─ 3번째 식도 성립 → Intersect (교점 존재)
+          └─ 3번째 식 불성립 → Skew
+```
+
+::: {.callout-important title="Parallel 판별 주의"}
+방향벡터가 **완전히 같을 필요 없다** — scalar multiple이면 충분.
+
+$\mathbf{b_1} = \begin{pmatrix}2\\4\\6\end{pmatrix}$, $\mathbf{b_2} = \begin{pmatrix}1\\2\\3\end{pmatrix}$ → $\mathbf{b_1} = 2\,\mathbf{b_2}$ 이므로 parallel (또는 coincident).
+
+Coincident인지 확인하려면: $\mathbf{a_1}$을 $\mathbf{r} = \mathbf{a_2} + t\mathbf{b_2}$에 대입해서 실수 $t$가 존재하면 coincident.
+:::
+
+**③에서 교점을 구할 때 판별하는 법:**
+
+연립방정식을 세워서 $\lambda$, $\mu$를 구한 뒤 **세 번째 방정식에 대입해 검증**해야 해.
+
+- 세 번째 식이 성립 → **intersecting** (교점 존재)
+- 세 번째 식이 불성립 → **skew** (교점 없음)
+
+::: {.callout-note title="⑤ Skew distance — FP only"}
+두 skew 직선 사이의 최단거리 공식은 **FP (Further Pure)** 과정이야. P3/P4에서는 skew 여부를 **판별**하는 것까지만 나와 — 거리 계산은 안 해도 돼.
+:::
 
 ---
 

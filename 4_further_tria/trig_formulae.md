@@ -112,6 +112,12 @@ $$a\cos x + b\sin x = R\cos(x - \alpha)$$
 
 ## Integrals
 
+> **이것만 외우면 끝:**
+> 단일 함수 6개 ($\sin$, $\cos$, $\tan$, $\cot$, $\sec$★, $\csc$★) +
+> 제곱 6개 ($\sin^2$, $\cos^2$, $\tan^2$, $\cot^2$, $\sec^2$, $\csc^2$) +
+> 곱 2개 ($\sec\tan$, $\csc\cot$)
+> — 나머지는 이 형태로 변환하는 테크닉의 문제
+
 | $f(x)$ | $\int f(x)\,dx$ |
 |--------|----------------|
 | $\sin x$ | $-\cos x + C$ |
@@ -130,3 +136,55 @@ $$a\cos x + b\sin x = R\cos(x - \alpha)$$
 | $\cot^2 x$ | $-\cot x - x + C$ |
 
 ★ FP (Further Pure) only — P3/P4에서는 시험에서 유도 과정 주어짐
+
+---
+
+### Derivations
+
+<details>
+<summary>$\int \sec x\,dx$ 유도</summary>
+
+분자·분모에 $(\sec x + \tan x)$를 곱한다:
+
+$$\int \sec x\,dx = \int \sec x \cdot \frac{\sec x + \tan x}{\sec x + \tan x}\,dx = \int \frac{\sec^2 x + \sec x\tan x}{\sec x + \tan x}\,dx$$
+
+$u = \sec x + \tan x$으로 치환하면 $du = (\sec x\tan x + \sec^2 x)\,dx$ — 분자와 정확히 일치:
+
+$$= \int \frac{1}{u}\,du = \ln|u| + C = \ln|\sec x + \tan x| + C$$
+
+</details>
+
+<details>
+<summary>$\int \csc x\,dx$ 유도</summary>
+
+분자·분모에 $(\csc x + \cot x)$를 곱한다:
+
+$$\int \csc x\,dx = \int \csc x \cdot \frac{\csc x + \cot x}{\csc x + \cot x}\,dx = \int \frac{\csc^2 x + \csc x\cot x}{\csc x + \cot x}\,dx$$
+
+$u = \csc x + \cot x$으로 치환하면 $du = (-\csc x\cot x - \csc^2 x)\,dx$ — 분자에 $-1$을 곱한 것:
+
+$$= \int \frac{-1}{u}\,du = -\ln|u| + C = -\ln|\csc x + \cot x| + C$$
+
+</details>
+
+<details>
+<summary>$\int \sin^2 x\,dx$,  $\int \cos^2 x\,dx$ 유도</summary>
+
+Half angle 공식으로 제곱을 없앤다:
+
+$$\int \sin^2 x\,dx = \int \frac{1 - \cos 2x}{2}\,dx = \frac{x}{2} - \frac{\sin 2x}{4} + C$$
+
+$$\int \cos^2 x\,dx = \int \frac{1 + \cos 2x}{2}\,dx = \frac{x}{2} + \frac{\sin 2x}{4} + C$$
+
+</details>
+
+<details>
+<summary>$\int \tan^2 x\,dx$,  $\int \cot^2 x\,dx$ 유도</summary>
+
+Pythagorean identity로 $\sec^2$ 또는 $\csc^2$ 형태로 바꾼다:
+
+$$\int \tan^2 x\,dx = \int (\sec^2 x - 1)\,dx = \tan x - x + C$$
+
+$$\int \cot^2 x\,dx = \int (\csc^2 x - 1)\,dx = -\cot x - x + C$$
+
+</details>

@@ -1,0 +1,714 @@
+---
+title: "Complex Numbers (P3)"
+---
+
+# Complex Numbers (P3)
+
+**시험 배점: 8–10 marks** — 50% 쉬움, 50% 어려움
+
+---
+
+## 기본 정의
+
+$$\boxed{i = \sqrt{-1}, \qquad i^2 = -1}$$
+
+### 음수 제곱근 단순화
+
+$$\sqrt{-36} = \sqrt{-1\times36} = \sqrt{-1}\cdot\sqrt{36} = i(6) = 6i$$
+$$\sqrt{-18} = \sqrt{-1\times9\times2} = i(3)(\sqrt{2}) = 3\sqrt{2}\,i$$
+
+### 복소수의 형태
+
+$$z = \underbrace{a}_{\text{real}} + \underbrace{b}_{\text{imaginary}}i$$
+
+예: $z = 3 + 4i$ → $\text{Re}(z) = 3$, $\text{Im}(z) = 4$
+
+::: {.callout-important}
+답은 반드시 $a + bi$ 형태로 써야 한다. $\dfrac{41-i}{29}$처럼 단일 분수로 쓰면 안 됨.
+:::
+
+---
+
+## 사칙연산 ★★
+
+$z = 3+7i$, $w = 2+5i$일 때:
+
+**덧셈:** $z+w = 5+12i$
+
+**뺄셈:** $z-w = 1+2i$
+
+**곱셈:** $z \times w = (3+7i)(2+5i) = 6+15i+14i+35i^2 = 6+29i+35(-1) = -29+29i$
+
+**나눗셈 — 켤레 이용:**
+
+$$\frac{z}{w} = \frac{3+7i}{2+5i} \times \frac{2-5i}{2-5i} = \frac{6-15i+14i-35i^2}{4-25i^2} = \frac{41-i}{29} = \frac{41}{29} - \frac{1}{29}i$$
+
+### Conjugate (켤레 복소수)
+
+$$z = a + bi \implies z^* = a - bi$$
+
+부호만 바꿈: $z = 1+2i-\sqrt{3}i \Rightarrow z^* = 1-2i+\sqrt{3}i$
+
+---
+
+## 복소수의 제곱근 ★★★
+
+$\sqrt{3+4i} = a+bi$ (단 $a,b$는 실수)
+
+**Step 1.** 양변을 제곱:
+
+$$3+4i = (a+bi)^2 = a^2 + 2abi + b^2i^2 = (a^2-b^2) + 2abi$$
+
+**Step 2.** 실수부/허수부 비교:
+
+$$a^2 - b^2 = 3 \qquad 2ab = 4 \implies b = \frac{2}{a}$$
+
+**Step 3.** 대입하여 풀기:
+
+$$a^2 - \frac{4}{a^2} = 3 \implies a^4 - 3a^2 - 4 = 0 \implies (a^2-4)(a^2+1) = 0$$
+
+$a^2 = 4 \implies a = \pm 2$ ($a^2 = -1$은 $a$가 실수이므로 기각)
+
+$$a=2: b=1 \implies 2+i \qquad a=-2: b=-1 \implies -2-i$$
+
+$$\boxed{\sqrt{3+4i} = 2+i \text{ 또는 } -2-i}$$
+
+---
+
+## Argand Diagram (아르강 다이어그램)
+
+$z = a + bi$를 좌표 $(a, b)$로 나타낸다 — 수직축은 허수축(Im), 수평축은 실수축(Re)
+
+```{python}
+#| label: fig-argand-basic
+#| fig-cap: "Argand diagram: z = 3 + 4i — 점의 위치, modulus 벡터, right triangle"
+
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.patches as patches
+
+ROOT_CLR = '#2563EB'
+YINT_CLR = '#16A34A'
+ASYM_CLR = '#DC2626'
+
+fig, ax = plt.subplots(figsize=(5, 5))
+
+a, b = 3, 4
+
+# axes with arrows
+ax.annotate('', xy=(5.3, 0), xytext=(-0.8, 0),
+            arrowprops=dict(arrowstyle='->', color='black', lw=1))
+ax.annotate('', xy=(0, 5.3), xytext=(0, -0.8),
+            arrowprops=dict(arrowstyle='->', color='black', lw=1))
+ax.text(5.4, 0, 'Re', fontsize=11, va='center')
+ax.text(0.1, 5.35, 'Im', fontsize=11)
+
+# right triangle legs
+ax.plot([0, a], [0, 0], '-', color=YINT_CLR, linewidth=2.5)
+ax.plot([a, a], [0, b], '-', color=YINT_CLR, linewidth=2.5)
+ax.plot([a, a], [0, b], '--', color='gray', linewidth=0.8, zorder=0)
+ax.plot([0, a], [b, b], '--', color='gray', linewidth=0.8, zorder=0)
+
+# modulus vector
+ax.annotate('', xy=(a, b), xytext=(0, 0),
+            arrowprops=dict(arrowstyle='->', color=ROOT_CLR, lw=2.5))
+ax.text(a/2 - 0.7, b/2 + 0.2, r'$R = |z| = 5$', color=ROOT_CLR, fontsize=10)
+
+# angle arc
+angle_rad = np.arctan2(b, a)
+arc = patches.Arc((0, 0), 1.2, 1.2, angle=0, theta1=0,
+                  theta2=np.degrees(angle_rad), color=ASYM_CLR, lw=2)
+ax.add_patch(arc)
+ax.text(0.75, 0.2, r'$\theta$', color=ASYM_CLR, fontsize=12)
+
+# axis tick labels
+ax.text(a, -0.28, '$a=3$', ha='center', color=YINT_CLR, fontsize=10)
+ax.text(-0.28, b, '$b=4$', ha='right', color=YINT_CLR, fontsize=10)
+
+# point
+ax.plot(a, b, 'o', color=ROOT_CLR, markersize=9, zorder=5)
+ax.text(a + 0.15, b + 0.12, r'$z = 3+4i$', color=ROOT_CLR, fontsize=11, fontweight='bold')
+
+ax.set_xlim(-0.8, 5.5)
+ax.set_ylim(-0.8, 5.5)
+ax.set_aspect('equal')
+ax.axis('off')
+ax.set_title(r'Argand Diagram: $z = 3+4i$', fontsize=12, pad=10)
+
+plt.tight_layout()
+plt.show()
+```
+
+### Modulus (크기) R = |z| ★★
+
+$$\boxed{R = |z| = \sqrt{a^2 + b^2}}$$
+
+::: {.callout-warning title="주의"}
+$i$는 공식에 포함되지 않는다. $R = \sqrt{(3)^2 + (4i)^2}$는 틀림.
+
+$z = 3+4i$: $R = \sqrt{3^2+4^2} = \sqrt{25} = 5$
+:::
+
+#### 연산 법칙
+
+- $z_1 \times z_2$: 모듈러스는 곱셈 $R_1 \times R_2$
+- $z_1 \div z_2$: 모듈러스는 나눗셈 $\dfrac{R_1}{R_2}$
+
+**예:** $z_1 = 3+4i$ ($R_1=5$), $z_2 = 6+8i$ ($R_2=10$)
+
+- $|z_1^2| = 5\times5 = 25$
+- $|z_1\times z_2^2| = 5\times10\times10 = 500$
+
+<details>
+<summary>**왜 그런가? — Modulus 곱셈 법칙 증명**</summary>
+
+$z_1 = a+bi$, $z_2 = c+di$로 놓으면:
+
+$$z_1 z_2 = (ac-bd) + (ad+bc)i$$
+
+$$|z_1 z_2|^2 = (ac-bd)^2 + (ad+bc)^2$$
+
+전개하면:
+
+$$= a^2c^2 \cancel{- 2abcd} + b^2d^2 + a^2d^2 + \cancel{2abcd} + b^2c^2$$
+
+$$= a^2c^2 + b^2d^2 + a^2d^2 + b^2c^2 = (a^2+b^2)(c^2+d^2) = |z_1|^2|z_2|^2$$
+
+따라서 $\boxed{|z_1 z_2| = |z_1||z_2|}$
+
+**지수 형태로 보면 더 직관적:**
+
+$$z_1 = R_1 e^{i\theta_1}, \quad z_2 = R_2 e^{i\theta_2}$$
+
+$$z_1 z_2 = R_1 R_2\, e^{i(\theta_1+\theta_2)}$$
+
+크기(R)끼리 곱해지는 게 그냥 보임. $\square$
+
+</details>
+
+### Argument (편각) θ = arg(z) ★★★
+
+사실 어떤 복소수의 argument는 무한히 많다 — 같은 방향에 $360°$씩 더하거나 빼도 같은 방향이기 때문이다:
+
+$$\arg(z) = \theta,\; \theta \pm 360°,\; \theta \pm 720°,\; \ldots$$
+
+그 중에서 딱 하나로 고정한 값을 **principal argument (주편각)** 라고 한다:
+
+$$\boxed{-180° < \arg(z) \leq 180°} \qquad \text{또는} \quad -\pi < \arg(z) \leq \pi$$
+
+::: {.callout-note title="왜 0°~360°가 아니라 −180°~180°인가?"}
+**켤레복소수 = 실수축(Re)에 대한 reflection**이라는 사실에서 자연스럽게 나온다.
+
+$$z = a+bi \quad \xrightarrow{\text{reflection on Re-axis}} \quad z^* = a-bi$$
+
+실수축을 기준으로 위쪽과 아래쪽을 대칭적으로 나누면:
+
+| 위치 | 범위 | 관계 |
+|---|---|---|
+| Re축 위쪽 (Im $> 0$) | $0° < \theta \leq 180°$ | $z$ |
+| Re축 아래쪽 (Im $< 0$) | $-180° < \theta < 0°$ | $z^*$ |
+| Re축 위 (Im $= 0$) | $\theta = 0°$ 또는 $180°$ | 실수 |
+
+이 구조 덕분에 $\arg(z^*) = -\arg(z)$ 가 항상 성립한다 — **부호만 뒤집으면 켤레**.
+
+$0°$~$360°$를 쓰면 $\arg(z^*) = 360° - \arg(z)$가 되어 이 대칭성이 깨진다.
+
+- $-180°$와 $+180°$는 **같은 방향** (음의 실수축)이므로 하나만 포함 → 관례상 $+180°$ 포함
+:::
+
+::: {.callout-important title="삼각함수 CAST vs Argument — 무엇이 다른가?"}
+예각 α 계산은 동일하다. **Q3, Q4에서 범위가 달라진다.**
+
+| 사분면 | CAST (0° ~ 360°) | Argument (−180° < θ ≤ 180°) | 예 (α = 45°) |
+|---|---|---|---|
+| Q1 | α | α | 45° |
+| Q2 | 180° − α | 180° − α | 135° |
+| Q3 | **180° + α** | **α − 180°** | 225° vs **−135°** |
+| Q4 | **360° − α** | **−α** | 315° vs **−45°** |
+
+같은 방향을 가리키는 각도지만 argument는 반드시 −180° ~ 180° 안에 있어야 하므로 Q3/Q4에서 음수로 표현한다.
+(225° − 360° = −135°, 315° − 360° = −45°)
+:::
+
+#### 2단계 방법
+
+**Step 1.** $\alpha$ 구하기: $\alpha = \tan^{-1}\!\left(\dfrac{|b|}{|a|}\right)$ — 부호와 $i$는 무시, 절댓값 사용
+
+**Step 2.** 사분면 규칙 적용:
+
+| 사분면 | 규칙 |
+|---|---|
+| 1사분면 (오른쪽 위) | $\text{Arg} = \alpha$ |
+| 2사분면 (왼쪽 위) | $\text{Arg} = 180° - \alpha$ |
+| 3사분면 (왼쪽 아래) | $\text{Arg} = \alpha - 180°$ |
+| 4사분면 (오른쪽 아래) | $\text{Arg} = -\alpha$ |
+
+```{python}
+#| label: fig-argument-quadrants
+#| fig-cap: "Argument — 4사분면 예제: 각 복소수와 편각"
+
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.patches as patches
+
+ROOT_CLR = '#2563EB'
+ASYM_CLR = '#DC2626'
+
+examples = [
+    (3,          4,  r'$3+4i$',          'Q1'),
+    (-np.sqrt(3), 1, r'$-\sqrt{3}+i$',   'Q2'),
+    (-2,         -2, r'$-2-2i$',         'Q3'),
+    (np.sqrt(3), -1, r'$\sqrt{3}-i$',    'Q4'),
+]
+
+fig, axes = plt.subplots(2, 2, figsize=(8, 8))
+axes = axes.flatten()
+
+for idx, (a, b, label, qname) in enumerate(examples):
+    ax = axes[idx]
+    R = np.sqrt(a**2 + b**2)
+    theta_rad = np.arctan2(b, a)
+    theta_deg = np.degrees(theta_rad)
+    alpha_deg = abs(theta_deg) if abs(theta_deg) <= 90 else 180 - abs(theta_deg)
+
+    # axes
+    margin = R * 0.5
+    lim = R + margin
+    ax.annotate('', xy=(lim, 0), xytext=(-lim, 0),
+                arrowprops=dict(arrowstyle='->', color='black', lw=0.9))
+    ax.annotate('', xy=(0, lim), xytext=(0, -lim),
+                arrowprops=dict(arrowstyle='->', color='black', lw=0.9))
+    ax.text(lim * 1.02, 0, 'Re', fontsize=9, va='center')
+    ax.text(0.05, lim * 1.02, 'Im', fontsize=9)
+
+    # vector
+    ax.annotate('', xy=(a, b), xytext=(0, 0),
+                arrowprops=dict(arrowstyle='->', color=ROOT_CLR, lw=2.2))
+
+    # point label
+    offset_x = 0.15 * R * np.sign(a) if a != 0 else 0.15 * R
+    offset_y = 0.15 * R * np.sign(b) if b != 0 else 0.15 * R
+    ax.text(a + offset_x, b + offset_y, label, color=ROOT_CLR, fontsize=10)
+
+    # angle arc (always from positive real axis)
+    arc_r = R * 0.35
+    if theta_deg >= 0:
+        arc = patches.Arc((0, 0), arc_r*2, arc_r*2,
+                          angle=0, theta1=0, theta2=theta_deg,
+                          color=ASYM_CLR, lw=2)
+    else:
+        arc = patches.Arc((0, 0), arc_r*2, arc_r*2,
+                          angle=0, theta1=theta_deg, theta2=0,
+                          color=ASYM_CLR, lw=2)
+    ax.add_patch(arc)
+
+    # angle label
+    mid_angle = theta_rad / 2
+    ax.text(arc_r * 1.3 * np.cos(mid_angle),
+            arc_r * 1.3 * np.sin(mid_angle),
+            f'{theta_deg:.1f}°', color=ASYM_CLR, fontsize=10, ha='center')
+
+    ax.set_xlim(-lim, lim)
+    ax.set_ylim(-lim, lim)
+    ax.set_aspect('equal')
+    ax.axis('off')
+    ax.set_title(f'{qname}: {label},  Arg $= {theta_deg:.1f}°$', fontsize=10)
+
+plt.suptitle('Argument — 4 Quadrant Examples', fontsize=13, fontweight='bold', y=1.01)
+plt.tight_layout()
+plt.show()
+```
+
+<details>
+<summary>**예제** — 4가지 복소수의 argument 구하기</summary>
+
+**(1)** $z = 3+4i$ → $(3,4)$, 1사분면
+
+$\alpha = \tan^{-1}\!\left(\frac{4}{3}\right) = 53.13°$
+
+$\text{Arg}(z) = \alpha = 53.13°$
+
+---
+
+**(2)** $z = -\sqrt{3}+i$ → $(-\sqrt{3},1)$, 2사분면
+
+$\alpha = \tan^{-1}\!\left(\frac{1}{\sqrt{3}}\right) = 30°$
+
+$\text{Arg}(z) = 180° - 30° = 150°$
+
+---
+
+**(3)** $z = -2-2i$ → $(-2,-2)$, 3사분면
+
+$\alpha = \tan^{-1}\!\left(\frac{2}{2}\right) = 45°$
+
+$\text{Arg}(z) = 45° - 180° = -135°$
+
+---
+
+**(4)** $z = \sqrt{3}-i$ → $(\sqrt{3},-1)$, 4사분면
+
+$\alpha = \tan^{-1}\!\left(\frac{1}{\sqrt{3}}\right) = 30°$
+
+$\text{Arg}(z) = -30°$
+
+</details>
+
+#### 연산 법칙
+
+- $z_1 \times z_2$: argument는 **덧셈** $\theta_1 + \theta_2$
+- $z_1 \div z_2$: argument는 **뺄셈** $\theta_1 - \theta_2$
+
+<details>
+<summary>**왜 그런가? — Argument 덧셈 법칙 증명**</summary>
+
+지수 형태를 쓰면 바로 보인다:
+
+$$z_1 = R_1 e^{i\theta_1}, \quad z_2 = R_2 e^{i\theta_2}$$
+
+$$z_1 z_2 = R_1 R_2\, e^{i(\theta_1+\theta_2)}$$
+
+지수의 $i$ 앞 숫자가 그대로 argument이므로:
+
+$$\arg(z_1 z_2) = \theta_1 + \theta_2 \qquad \square$$
+
+나눗셈도 동일:
+
+$$\frac{z_1}{z_2} = \frac{R_1}{R_2}\, e^{i(\theta_1 - \theta_2)} \implies \arg\!\left(\frac{z_1}{z_2}\right) = \theta_1 - \theta_2$$
+
+**직관적으로:** 복소수를 곱하면 Argand diagram에서 각도가 더해진다 — 회전(rotation)이 합쳐지는 것.
+
+</details>
+
+---
+
+## 복소수의 3가지 표현 형태 ★★
+
+| 형태 | 표현 | 용도 |
+|---|---|---|
+| **Rectangular (직교)** = Cartesian | $z = a + bi$ | Argand diagram 좌표 $(a,b)$ |
+| **Polar (극)** | $z = R(\cos\theta + i\sin\theta)$ | 지수형에서 직교형으로 변환 |
+| **Exponential (지수)** = Euler form | $z = Re^{i\theta}$ ($\theta$는 라디안) | 거듭제곱 계산 |
+
+변환 순서: $a+bi \leftrightarrow R(\cos\theta+i\sin\theta) \leftrightarrow Re^{i\theta}$
+
+### 변환 규칙 요약
+
+**직교 → 극/지수** (R과 θ 구하기):
+
+$$R = \sqrt{a^2+b^2}, \qquad \theta = \arg(z) \text{ (사분면 규칙 적용, 라디안으로)}$$
+
+**극/지수 → 직교** (a와 b 구하기):
+
+$$a = R\cos\theta, \qquad b = R\sin\theta$$
+
+---
+
+<details>
+<summary>**변환 예제 1** — 직교 → 극 → 지수: $z = -1+\sqrt{3}\,i$</summary>
+
+**Step 1.** Modulus:
+
+$$R = \sqrt{(-1)^2+(\sqrt{3})^2} = \sqrt{1+3} = 2$$
+
+**Step 2.** Argument (Q2):
+
+$$\alpha = \tan^{-1}\!\left(\frac{\sqrt{3}}{1}\right) = 60° = \frac{\pi}{3}$$
+
+$$\theta = 180° - 60° = 120° = \frac{2\pi}{3}$$
+
+**Step 3.** 세 가지 형태:
+
+$$\text{직교: } z = -1+\sqrt{3}\,i$$
+
+$$\text{극: } z = 2\!\left(\cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3}\right)$$
+
+$$\text{지수: } \boxed{z = 2e^{i \cdot 2\pi/3}}$$
+
+</details>
+
+<details>
+<summary>**변환 예제 2** — 지수 → 극 → 직교: $z = 4e^{i\pi/3}$</summary>
+
+$R = 4$, $\theta = \dfrac{\pi}{3} = 60°$ (Q1)
+
+**극 형태:**
+
+$$z = 4\!\left(\cos\frac{\pi}{3} + i\sin\frac{\pi}{3}\right)$$
+
+**직교 형태:** $\cos 60° = \dfrac{1}{2}$, $\sin 60° = \dfrac{\sqrt{3}}{2}$
+
+$$a = 4 \cdot \frac{1}{2} = 2, \qquad b = 4 \cdot \frac{\sqrt{3}}{2} = 2\sqrt{3}$$
+
+$$\boxed{z = 2 + 2\sqrt{3}\,i}$$
+
+</details>
+
+<details>
+<summary>**변환 예제 3** — 극 → 직교: $z = 3\!\left(\cos\dfrac{5\pi}{6} + i\sin\dfrac{5\pi}{6}\right)$</summary>
+
+$R = 3$, $\theta = \dfrac{5\pi}{6} = 150°$ (Q2)
+
+$$\cos 150° = -\frac{\sqrt{3}}{2}, \qquad \sin 150° = \frac{1}{2}$$
+
+$$a = 3\cdot\left(-\frac{\sqrt{3}}{2}\right) = -\frac{3\sqrt{3}}{2}, \qquad b = 3\cdot\frac{1}{2} = \frac{3}{2}$$
+
+$$\boxed{z = -\frac{3\sqrt{3}}{2} + \frac{3}{2}i}$$
+
+</details>
+
+---
+
+<details>
+<summary>**예제** — $z = \sqrt{3}+i$, $z^6$이 실수임을 보이기</summary>
+
+**(i)** Modulus and argument:
+
+$$R = \sqrt{(\sqrt{3})^2+1^2} = \sqrt{4} = 2$$
+
+$$\alpha = \tan^{-1}\!\left(\frac{1}{\sqrt{3}}\right) = 30° = \frac{\pi}{6} \text{ (1사분면)}$$
+
+$$\text{Arg}(z) = \frac{\pi}{6}$$
+
+**(ii)** 지수 형태로 변환:
+
+$$z = 2e^{i(\pi/6)}$$
+
+$$z^6 = \left(2e^{i\pi/6}\right)^6 = 2^6\left[e^{i\pi/6}\right]^6 = 64\,e^{i\pi}$$
+
+$$z^6 = 64(\cos\pi + i\sin\pi) = 64(-1 + i\cdot0) = -64$$
+
+$z^6 = -64$ — 허수부가 0이므로 실수. $\square$
+
+</details>
+
+---
+
+## Locus (자취/궤적) ★★★
+
+**Locus = 조건을 만족하는 모든 점 $z$의 집합.** 조건식을 보고 Argand diagram에서 어떤 도형이 그려지는지 파악하는 게 핵심이다.
+
+::: {.callout-note}
+스케치가 아닌 **정확한 scale drawing** 필요
+:::
+
+### 식 읽는 법
+
+$|z - (a+bi)|$는 "$z$와 점 $(a,b)$ 사이의 거리"다. 부호에 주의:
+
+| 식 | 같은 표현 | 의미 |
+|---|---|---|
+| $\|z-3+2i\|$ | $\|z-(3-2i)\|$ | $(3,-2)$로부터의 거리 |
+| $\|z+2+3i\|$ | $\|z-(-2-3i)\|$ | $(-2,-3)$으로부터의 거리 |
+| $\|z-4\|$ | $\|z-(4+0i)\|$ | $(4,0)$으로부터의 거리 |
+| $\|z+2i\|$ | $\|z-(0-2i)\|$ | $(0,-2)$으로부터의 거리 |
+| $\|z\|$ | $\|z-0\|$ | 원점으로부터의 거리 |
+
+### 자취의 종류 — 패턴 3가지
+
+| 조건식 | 도형 |
+|---|---|
+| $\|z - c\| = r$ | 중심 $c$, 반지름 $r$인 **원** |
+| $\|z - z_1\| = \|z - z_2\|$ | $z_1$과 $z_2$의 **수직이등분선** |
+| $\arg(z - c) = \theta$ | 점 $c$에서 각도 $\theta$ 방향 **반직선** |
+
+---
+
+**(a) $|z - c| = r$ — 원**
+
+<details>
+<summary>**예제** — $|z-(1+2i)| = 3$의 locus를 구하고 Argand diagram에 나타내라.</summary>
+
+$c = 1+2i$ → 중심 $(1, 2)$, 반지름 $r = 3$
+
+→ **중심 $(1,2)$, 반지름 $3$인 원**
+
+Cartesian 방정식으로 나타내면: $(x-1)^2 + (y-2)^2 = 9$
+
+</details>
+
+---
+
+**(b) $|z - z_1| = |z - z_2|$ — 수직이등분선**
+
+<details>
+<summary>**예제** — $|z - 3| = |z - i|$의 locus를 구하고 방정식을 써라.</summary>
+
+$z_1 = 3 = (3, 0)$, $z_2 = i = (0, 1)$ — 이 두 점으로부터 거리가 같은 점의 집합.
+
+**기하적 방법:**
+
+- 중점: $\left(\dfrac{3}{2},\, \dfrac{1}{2}\right)$
+- $z_1 z_2$의 기울기: $\dfrac{1-0}{0-3} = -\dfrac{1}{3}$
+- 수직이등분선 기울기: $3$ (음의 역수)
+
+$$y - \frac{1}{2} = 3\!\left(x - \frac{3}{2}\right) \implies \boxed{y = 3x - 4}$$
+
+**대수적 방법** ($z = x+yi$로 놓고 계산):
+
+$$|z-3|^2 = |z-i|^2$$
+
+$$(x-3)^2 + y^2 = x^2 + (y-1)^2$$
+
+$$x^2 - 6x + 9 + y^2 = x^2 + y^2 - 2y + 1$$
+
+$$-6x + 9 = -2y + 1 \implies \boxed{y = 3x-4}$$
+
+</details>
+
+---
+
+**(c) $|z - z_1| < |z - z_2|$ — 수직이등분선의 한쪽 (region)**
+
+<details>
+<summary>**예제** — $|z - 3| < |z - i|$를 만족하는 영역을 나타내라.</summary>
+
+수직이등분선 $y = 3x - 4$를 먼저 그린다.
+
+$|z-3| < |z-i|$는 "$z$가 $z_2 = i = (0,1)$보다 $z_1 = 3 = (3,0)$에 더 가깝다"는 뜻이므로,
+
+→ 수직이등분선을 기준으로 **$z_1 = (3,0)$ 쪽** (오른쪽 아래)을 shade.
+
+확인: 원점 $(0,0)$ 대입 → $|0-3| = 3$, $|0-i| = 1$ → $3 < 1$ 거짓 → 원점은 포함 안 됨 (반대편 맞음).
+
+</details>
+
+---
+
+**(d) $\arg(z - c) = \theta$ — 반직선 (half-line)**
+
+<details>
+<summary>**예제** — $\arg(z - 2 - i) = \dfrac{\pi}{3}$의 locus를 나타내라.</summary>
+
+$c = 2+i$ → 시작점 $(2, 1)$, 각도 $\theta = \dfrac{\pi}{3} = 60°$
+
+→ 점 $(2,1)$에서 수평축과 $60°$를 이루며 뻗어나가는 **반직선**
+
+::: {.callout-warning title="주의"}
+시작점 $(2,1)$은 **열린 원 (open circle)** 으로 표시한다 — $z = 2+i$ 자체는 $\arg(0)$이 정의되지 않으므로 포함하지 않는다.
+:::
+
+</details>
+
+```{python}
+#| label: fig-locus
+#| fig-cap: "Locus 3가지 타입 — 원, 수직이등분선, 반직선"
+
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.patches as mpatches
+
+ROOT_CLR = '#2563EB'
+YINT_CLR = '#16A34A'
+ASYM_CLR = '#DC2626'
+
+fig, axes = plt.subplots(1, 3, figsize=(13, 4.5))
+
+# ── (a) Circle: |z-(2+3i)| = 2 ──
+ax = axes[0]
+cx, cy, r = 2, 3, 2
+theta = np.linspace(0, 2*np.pi, 300)
+ax.plot(cx + r*np.cos(theta), cy + r*np.sin(theta), color=ROOT_CLR, lw=2.5)
+ax.plot(cx, cy, '+', color=ROOT_CLR, markersize=12, markeredgewidth=2)
+ax.text(cx + 0.1, cy + 0.1, '$(2,\\ 3)$', fontsize=9, color=ROOT_CLR)
+# radius arrow
+ax.annotate('', xy=(cx + r, cy), xytext=(cx, cy),
+            arrowprops=dict(arrowstyle='->', color=ASYM_CLR, lw=1.5))
+ax.text(cx + r/2, cy + 0.18, '$r=2$', color=ASYM_CLR, fontsize=9, ha='center')
+ax.axhline(0, color='black', lw=0.7)
+ax.axvline(0, color='black', lw=0.7)
+ax.set_xlim(-0.5, 5.5); ax.set_ylim(-0.5, 6)
+ax.set_aspect('equal'); ax.grid(True, alpha=0.2)
+ax.set_xlabel('Re', fontsize=10)
+ax.set_ylabel('Im', fontsize=10, rotation=0, labelpad=12)
+ax.set_title(r'$|z-(2+3i)|=2$' + '\n(Circle)', fontsize=10)
+
+# ── (b) Perpendicular bisector: |z-4| = |z-4i| ──
+ax = axes[1]
+p1 = np.array([4.0, 0.0])   # z1 = 4
+p2 = np.array([0.0, 4.0])   # z2 = 4i
+mid = (p1 + p2) / 2          # (2, 2)
+# perp bisector: passes through (2,2), slope +1 (⊥ to slope −1)
+x_line = np.linspace(-1, 5.5, 200)
+y_line = mid[1] + (x_line - mid[0])   # slope = +1
+ax.plot(x_line, y_line, color=ROOT_CLR, lw=2.5, label='perp bisector')
+ax.plot(*p1, 's', color=ASYM_CLR, markersize=9, zorder=5)
+ax.text(p1[0] + 0.12, p1[1] - 0.35, r'$z_1=4$', color=ASYM_CLR, fontsize=9)
+ax.plot(*p2, 's', color=YINT_CLR, markersize=9, zorder=5)
+ax.text(p2[0] + 0.12, p2[1] + 0.12, r'$z_2=4i$', color=YINT_CLR, fontsize=9)
+ax.plot(*mid, 'o', color=ROOT_CLR, markersize=7, zorder=5)
+ax.text(mid[0] + 0.12, mid[1] - 0.38, '$(2,\\ 2)$', color=ROOT_CLR, fontsize=9)
+ax.plot([p1[0], p2[0]], [p1[1], p2[1]], '--', color='gray', lw=1)
+ax.axhline(0, color='black', lw=0.7)
+ax.axvline(0, color='black', lw=0.7)
+ax.set_xlim(-1, 5.5); ax.set_ylim(-1, 5.5)
+ax.set_aspect('equal'); ax.grid(True, alpha=0.2)
+ax.set_xlabel('Re', fontsize=10)
+ax.set_ylabel('Im', fontsize=10, rotation=0, labelpad=12)
+ax.set_title(r'$|z-4|=|z-4i|$' + '\n(Perpendicular bisector)', fontsize=10)
+
+# ── (c) Half-line: arg(z-(3+2i)) = π/4 ──
+ax = axes[2]
+x0, y0 = 3, 2
+angle = np.pi / 4
+t = np.linspace(0, 3.8, 200)
+xs = x0 + t * np.cos(angle)
+ys = y0 + t * np.sin(angle)
+ax.plot(xs, ys, color=ROOT_CLR, lw=2.5)
+# open circle at start point (endpoint excluded)
+ax.plot(x0, y0, 'o', color=ROOT_CLR, markersize=9, zorder=5,
+        fillstyle='none', markeredgewidth=2.5)
+ax.text(x0 + 0.1, y0 - 0.35, '$(3,\\ 2)$', color=ROOT_CLR, fontsize=9)
+# dashed horizontal reference line
+ax.plot([x0, x0 + 3.8], [y0, y0], '--', color='gray', lw=0.9)
+# angle arc
+arc = mpatches.Arc((x0, y0), 1.0, 1.0, angle=0,
+                   theta1=0, theta2=45, color=ASYM_CLR, lw=2)
+ax.add_patch(arc)
+ax.text(x0 + 0.68, y0 + 0.18, r'$\frac{\pi}{4}$', color=ASYM_CLR, fontsize=11)
+ax.axhline(0, color='black', lw=0.7)
+ax.axvline(0, color='black', lw=0.7)
+ax.set_xlim(-0.5, 7.5); ax.set_ylim(-0.5, 6.5)
+ax.set_aspect('equal'); ax.grid(True, alpha=0.2)
+ax.set_xlabel('Re', fontsize=10)
+ax.set_ylabel('Im', fontsize=10, rotation=0, labelpad=12)
+ax.set_title(r'$\arg(z-(3+2i))=\pi/4$' + '\n(Half-line)', fontsize=10)
+
+plt.suptitle('Locus Types', fontsize=13, fontweight='bold')
+plt.tight_layout()
+plt.show()
+```
+
+
+---
+
+## 시험 예제
+
+<details>
+<summary>**시험 예제** — $u = 2+i$, $u^* = 2-i$일 때 (Cambridge)</summary>
+
+**(i)** Argand diagram에 $u$, $u^*$, $u+u^*$ 표시:
+
+- $u = 2+i$ → $A(2,1)$
+- $u^* = 2-i$ → $B(2,-1)$
+- $u+u^* = 4+0i$ → $C(4,0)$
+
+$O,A,B,C$는 **마름모(rhombus)**를 형성한다.
+
+**(ii)** $\dfrac{u}{u^*}$를 $x+iy$ 형태로:
+
+$$\frac{2+i}{2-i} \times \frac{2+i}{2+i} = \frac{4+4i+i^2}{4-i^2} = \frac{3+4i}{5} = \frac{3}{5}+\frac{4}{5}i$$
+
+**(iii)** $\text{arg}\!\left(\dfrac{u}{u^*}\right)$를 이용하여 $\tan^{-1}\!\!\left(\dfrac{4}{3}\right) = 2\tan^{-1}\!\!\left(\dfrac{1}{2}\right)$ 증명:
+
+$$\text{arg}\!\left(\frac{u}{u^*}\right) = \text{arg}(u) - \text{arg}(u^*)$$
+
+$\text{arg}(u) = \tan^{-1}\!\!\left(\dfrac{1}{2}\right)$, $\text{arg}(u^*) = -\tan^{-1}\!\!\left(\dfrac{1}{2}\right)$
+
+$$\text{arg}\!\left(\frac{u}{u^*}\right) = \tan^{-1}\!\!\left(\frac{1}{2}\right) + \tan^{-1}\!\!\left(\frac{1}{2}\right) = 2\tan^{-1}\!\!\left(\frac{1}{2}\right)$$
+
+$\dfrac{u}{u^*} = \dfrac{3}{5}+\dfrac{4}{5}i$이므로 argument $= \tan^{-1}\!\!\left(\dfrac{4/5}{3/5}\right) = \tan^{-1}\!\!\left(\dfrac{4}{3}\right)$
+
+$$\therefore \tan^{-1}\!\!\left(\frac{4}{3}\right) = 2\tan^{-1}\!\!\left(\frac{1}{2}\right) \qquad \square$$
+
+</details>

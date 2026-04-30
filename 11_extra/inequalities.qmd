@@ -1,0 +1,223 @@
+---
+title: "Inequalities with Modulus (P3)"
+---
+
+# Inequalities with Modulus
+
+---
+
+## Modulus (절댓값) 기본
+
+$$|x| = \text{양수 또는 0} \qquad |3| = 3, \quad |-3| = 3$$
+
+### Modulus 함수 그래프 스케치
+
+$y = a|x - b| + c$ 형태:
+
+| 특징 | 계산 방법 |
+|---|---|
+| **Shape** | $a > 0$이면 V자, $a < 0$이면 ∧자 |
+| **Vertex** | $x - b = 0 \Rightarrow x = b$, $y = c$ → vertex: $(b,\, c)$ |
+| **y-intercept** | $x = 0$ 대입 |
+
+**예:** $y = 2|x - 3| + 1$
+
+- Shape: V자
+- Vertex: $x=3$, $y=1$ → $(3,\,1)$
+- y-int: $y = 2|0-3|+1 = 7$
+
+---
+
+## Type 1 — 방정식 (Equation)
+
+**형태:** $|f(x)| = g(x)$ 또는 $|f(x)| = |g(x)|$
+
+**방법: 양변을 제곱하면 모듈러스 기호가 사라진다**
+
+$$(|f(x)|)^2 = (g(x))^2 \Rightarrow [f(x)]^2 = [g(x)]^2$$
+
+이후 이차방정식을 풀면 된다.
+
+<details>
+<summary>**예제 1** — $|x-2| = \left|\dfrac{1}{3}x\right|$</summary>
+
+$$\left(|x-2|\right)^2 = \left(\left|\frac{1}{3}x\right|\right)^2$$
+
+$$(x-2)^2 = \frac{1}{9}x^2$$
+
+$$9x^2 - 36x + 36 = x^2 \Rightarrow 8x^2 - 36x + 36 = 0$$
+
+$$2x^2 - 9x + 9 = 0 \Rightarrow (2x-3)(x-3) = 0$$
+
+$$\boxed{x = \frac{3}{2}, \quad x = 3}$$
+
+</details>
+
+---
+
+## Type 2 — 부등식 (양변 모두 modulus)
+
+**형태:** $|f(x)| > |g(x)|$ 또는 $|f(x)| < |g(x)|$
+
+**방법: 양변을 제곱 → 이차부등식 풀기 (P1 방법)**
+
+이차부등식 풀기 순서:
+1. **인수분해**
+2. **그래프 스케치** (포물선)
+3. **색칠** (원하는 영역)
+4. **부등식 읽기**
+
+<details>
+<summary>**예제 1** — $|x-2| > 3|2x+1|$ [4 marks]</summary>
+
+$$\left(|x-2|\right)^2 > \left(3|2x+1|\right)^2$$
+
+$$(x-2)^2 > 9(2x+1)^2$$
+
+$$x^2-4x+4 > 9(4x^2+4x+1)$$
+
+$$x^2-4x+4 > 36x^2+36x+9$$
+
+$$0 > 35x^2+40x+5 \Rightarrow 7x^2+8x+1 < 0$$
+
+$$(x+1)(7x+1) < 0$$
+
+포물선 그래프: roots $x=-1$, $x=-\frac{1}{7}$, 아래쪽 영역:
+
+$$\boxed{-1 < x < -\frac{1}{7}}$$
+
+</details>
+
+<details>
+<summary>**예제 2** — $2|x-3| > |3x+1|$</summary>
+
+$$(2|x-3|)^2 > (|3x+1|)^2 \Rightarrow 4(x-3)^2 > (3x+1)^2$$
+
+$$4x^2-24x+36 > 9x^2+6x+1 \Rightarrow 0 > 5x^2+30x-35$$
+
+$$x^2+6x-7 < 0 \Rightarrow (x+7)(x-1) < 0$$
+
+$$\boxed{-7 < x < 1}$$
+
+</details>
+
+<details>
+<summary>**예제 3** — $|x+3a| > 2|x-2a|$, $a > 0$ 양수 상수</summary>
+
+$$(x+3a)^2 > 4(x-2a)^2$$
+
+$$x^2+6ax+9a^2 > 4x^2-16ax+16a^2$$
+
+$$0 > 3x^2-22ax+7a^2 \Rightarrow 3x^2-22ax+7a^2 < 0$$
+
+$$(3x-a)(x-7a) < 0$$
+
+$$\boxed{\frac{a}{3} < x < 7a}$$
+
+</details>
+
+<details>
+<summary>**예제 4** — $|2x+1| < 3|x-2|$</summary>
+
+$$(2x+1)^2 < 9(x-2)^2$$
+
+$$4x^2+4x+1 < 9x^2-36x+36$$
+
+$$0 < 5x^2-40x+35 \Rightarrow x^2-8x+7 > 0$$
+
+$$(x-1)(x-7) > 0$$
+
+포물선 아래가 아닌, 위쪽 영역 (since $> 0$):
+
+$$\boxed{x < 1 \text{ 또는 } x > 7}$$
+
+</details>
+
+<details>
+<summary>**예제 5** — $|3x-1| < |2x+5|$</summary>
+
+$$(3x-1)^2 < (2x+5)^2$$
+
+$$9x^2-6x+1 < 4x^2+20x+25 \Rightarrow 5x^2-26x-24 < 0$$
+
+$$(x-6)(5x+4) < 0$$
+
+$$\boxed{-\frac{4}{5} < x < 6}$$
+
+</details>
+
+---
+
+## Type 3 — 한쪽만 modulus → 그래프 접근
+
+**형태:** $|f(x)| > g(x)$ 또는 $|f(x)| < g(x)$ (한쪽이 일반 함수)
+
+**방법: 두 그래프를 모두 스케치하고 교점을 찾는다**
+
+스케치 순서 (modulus 함수 $y = |x-b|+c$):
+1. Shape (V자/∧자)
+2. Vertex
+3. y-intercept
+
+교점: 반사된 branch와 직선을 연립
+
+<details>
+<summary>**예제 1** — $|x-2| > 2x-3$ [4 marks]</summary>
+
+$y = |x-2|$: vertex $(2,0)$, y-int $= 2$
+
+$y = 2x-3$: x-int $= 1.5$, y-int $= -3$
+
+교점: $y = 2x-3$과 $y = -(x-2)$ (왼쪽 branch):
+
+$$2x-3 = -(x-2) \Rightarrow 2x-3 = -x+2 \Rightarrow 3x = 5 \Rightarrow x = \frac{5}{3}$$
+
+그래프에서 Red($|x-2|$) $>$ Green($2x-3$)인 영역:
+
+$$\boxed{x < \frac{5}{3}}$$
+
+</details>
+
+<details>
+<summary>**예제 2** — $|x-3| < 3x-4$ [4 marks]</summary>
+
+$y = |x-3|$: vertex $(3,0)$, y-int $= 3$
+
+$y = 3x-4$: x-int $= \frac{4}{3}$, y-int $= -4$
+
+교점: $y = 3x-4$와 $y = -(x-3)$:
+
+$$3x-4 = -(x-3) \Rightarrow 4x = 7 \Rightarrow x = \frac{7}{4}$$
+
+Red($|x-3|$) $<$ Green($3x-4$)인 영역:
+
+$$\boxed{x > \frac{7}{4}}$$
+
+</details>
+
+<details>
+<summary>**예제 3** — $2x > |x-1|$ [4 marks]</summary>
+
+$y = 2x$: 원점 통과, $(1,2)$
+
+$y = |x-1|$: vertex $(1,0)$, y-int $= 1$
+
+교점: $y=2x$와 $y = -(x-1)$:
+
+$$2x = -(x-1) \Rightarrow 3x = 1 \Rightarrow x = \frac{1}{3}$$
+
+Red($2x$) $>$ Green($|x-1|$)인 영역:
+
+$$\boxed{x > \frac{1}{3}}$$
+
+</details>
+
+---
+
+## 정리: 어떤 Type인지 판단하기
+
+| 상황 | Type | 방법 |
+|---|---|---|
+| $\|f\| = \|g\|$ 또는 $\|f\| = c$ | 방정식 | 양변 제곱 → 이차방정식 |
+| $\|f\| > \|g\|$ (양변 모두 modulus) | 부등식 Type 2 | 양변 제곱 → 이차부등식 |
+| $\|f\| > g(x)$ (한쪽만 modulus) | 부등식 Type 3 | 두 그래프 스케치 → 교점 |
