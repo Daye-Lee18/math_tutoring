@@ -2,9 +2,7 @@
 title: "Differential Equations — Core Concepts"
 ---
 
-# Differential Equations — Core Concepts
 
----
 
 ## 1. Solving Separable 1st Order Differential Equations
 
