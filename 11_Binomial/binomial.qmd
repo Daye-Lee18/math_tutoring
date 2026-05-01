@@ -46,51 +46,51 @@ $$\boxed{(1+x)^n = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \
 :::
 
 <details>
-<summary>**왜 다항식으로 근사하나? — 그리고 Taylor → Maclaurin → Binomial 계층**</summary>
+<summary>**Why approximate with polynomials? — and the Taylor → Maclaurin → Binomial hierarchy**</summary>
 
-**왜 다항식(polynomial)으로 근사하는가?**
+**Why approximate using polynomials?**
 
-다항식은 더하기와 곱하기만으로 이루어진 가장 단순한 함수다. 복잡한 함수를 다항식으로 바꾸면:
+A polynomial is the simplest possible function — built entirely from addition and multiplication. Converting a complicated function into a polynomial:
 
-| 상황 | 이유 |
+| Situation | Reason |
 |---|---|
-| **숫자 계산** | $\sqrt{1.04}$는 직접 못 구하지만 $1 + \frac{1}{2}(0.04) = 1.02$는 손으로 계산 가능 |
-| **적분** | $\int \frac{1}{\sqrt{1+x^3}}\,dx$는 닫힌 형태가 없지만 다항식으로 바꾸면 항별로 적분 가능 |
-| **물리/공학** | $\sin\theta \approx \theta$ (소각 근사) — 미분방정식을 단순화할 때 |
-| **컴퓨터** | 계산기 내부에서 $\sin x$, $e^x$, $\ln x$ 모두 다항식 근사로 계산함 |
+| **Numerical computation** | $\sqrt{1.04}$ cannot be found directly, but $1 + \frac{1}{2}(0.04) = 1.02$ is easy to calculate by hand |
+| **Integration** | $\int \frac{1}{\sqrt{1+x^3}}\,dx$ has no closed form, but a polynomial approximation can be integrated term by term |
+| **Physics / Engineering** | $\sin\theta \approx \theta$ (small-angle approximation) — used to simplify differential equations |
+| **Computing** | Calculators internally evaluate $\sin x$, $e^x$, $\ln x$ using polynomial approximations |
 
 ---
 
-**계층 구조:**
+**Hierarchy:**
 
 $$\text{Taylor series} \supset \text{Maclaurin series} \supset \text{Binomial expansion}$$
 
-| | 공식 | 중심 | 조건 |
+| | Formula | Centre | Condition |
 |---|---|---|---|
-| **Taylor series** | $\displaystyle\sum_{r=0}^{\infty}\frac{f^{(r)}(a)}{r!}(x-a)^r$ | 임의의 점 $x=a$ | $x$가 $a$ 근방 |
-| **Maclaurin series** | $\displaystyle\sum_{r=0}^{\infty}\frac{f^{(r)}(0)}{r!}x^r$ | $x=0$ ($a=0$인 특수 케이스) | $x$가 $0$ 근방 |
+| **Taylor series** | $\displaystyle\sum_{r=0}^{\infty}\frac{f^{(r)}(a)}{r!}(x-a)^r$ | arbitrary point $x=a$ | $x$ near $a$ |
+| **Maclaurin series** | $\displaystyle\sum_{r=0}^{\infty}\frac{f^{(r)}(0)}{r!}x^r$ | $x=0$ (special case: $a=0$) | $x$ near $0$ |
 | **Binomial expansion** | $1 + nx + \dfrac{n(n-1)}{2!}x^2 + \cdots$ | $x=0$ | $\|x\| < 1$ |
 
-Binomial expansion은 $f(x) = (1+x)^n$에 Maclaurin을 적용한 결과다.
+The binomial expansion is the result of applying Maclaurin's series to $f(x) = (1+x)^n$.
 
 ---
 
-**왜 분수 지수가 $x$의 1, 2, 3승으로 표현되나?**
+**Why does a fractional power expand into powers of $x$?**
 
-$f(x) = (1+x)^n$을 반복 미분하면:
+Repeatedly differentiating $f(x) = (1+x)^n$:
 
-| 미분 | $x=0$ 대입 |
+| Derivative | Value at $x=0$ |
 |---|---|
 | $f(x) = (1+x)^n$ | $f(0) = 1$ |
 | $f'(x) = n(1+x)^{n-1}$ | $f'(0) = n$ |
 | $f''(x) = n(n-1)(1+x)^{n-2}$ | $f''(0) = n(n-1)$ |
 | $f'''(x) = n(n-1)(n-2)(1+x)^{n-3}$ | $f'''(0) = n(n-1)(n-2)$ |
 
-Maclaurin 공식 $f(x) = f(0) + f'(0)x + \dfrac{f''(0)}{2!}x^2 + \cdots$에 대입하면:
+Substituting into the Maclaurin formula $f(x) = f(0) + f'(0)x + \dfrac{f''(0)}{2!}x^2 + \cdots$:
 
 $$(1+x)^n = 1 + nx + \frac{n(n-1)}{2!}x^2 + \frac{n(n-1)(n-2)}{3!}x^3 + \cdots$$
 
-$|x| < 1$은 다항식 근사값이 실제 값으로 수렴하는 조건이다.
+The condition $|x| < 1$ ensures the polynomial approximation converges to the true value.
 
 </details>
 

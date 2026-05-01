@@ -1,18 +1,18 @@
-# Further Trigonometry — 핵심개념 (A-Level P3 & P4)
+# Further Trigonometry — Key Concepts (A-Level P3 & P4)
 
 ---
 
-## 암기 팁 한눈에 보기
+## Memory Tips at a Glance
 
-| 섹션 | 팁 | 핵심 한 줄 |
+| Section | Tip | Key Idea |
 |------|-----|------------|
-| **Basic Identity** | "3-from-1" | $\sin^2x+\cos^2x=1$ 하나에서 $\div\cos^2x$, $\div\sin^2x$로 나머지 2개 유도 |
-| **Angle Sum** | "SC+CS / CC−SS" | sin은 교차쌍·부호 그대로 / cos은 동일쌍·부호 뒤집힘 / tan은 분모 부호 반대 |
-| **cos2x 세 형태** | 없애고 싶은 항으로 선택 | $\cos^2x$ 없애기 → $1-2\sin^2x$ / $\sin^2x$ 없애기 → $2\cos^2x-1$ |
-| **sec/csc/cot 미분** | "co- 붙으면 음수" + 쌍 | tan↔sec, cot↔csc / sec·csc는 자기 자신 생존 |
-| **Sum-to-Product** | 부호 따라 앞 함수 결정 | $+$이면 앞 함수 유지 / $-$이면 sin↔cos 교체 / cos−cos만 전체 음수 |
-| **Compound** | 직각삼각형 시각화 | $a, b$ = 두 변, $R=\sqrt{a^2+b^2}$ = 빗변, $\tan\alpha = b/a$ |
-| **해 여러 개** | θ=nx로 치환 후 범위 확장 | $x\in[0,2\pi]$이면 $\theta=nx\in[0,2n\pi]$ → 주기마다 +2π 반복 |
+| **Basic Identity** | "3-from-1" | Derive the other 2 from $\sin^2x+\cos^2x=1$ by $\div\cos^2x$ or $\div\sin^2x$ |
+| **Angle Sum** | "SC+CS / CC−SS" | sin: cross pairs, sign unchanged / cos: same pairs, sign flips / tan: denominator sign reversed |
+| **Three forms of cos2x** | Choose based on which term to eliminate | Eliminate $\cos^2x$ → $1-2\sin^2x$ / Eliminate $\sin^2x$ → $2\cos^2x-1$ |
+| **sec/csc/cot derivatives** | "negative if it has co-" + paired | tan↔sec, cot↔csc / sec and csc survive as themselves |
+| **Sum-to-Product** | Leading function determined by sign | $+$: leading function stays / $-$: sin↔cos swap / cos−cos only one with overall negative |
+| **Compound** | Visualise as right triangle | $a, b$ = two sides, $R=\sqrt{a^2+b^2}$ = hypotenuse, $\tan\alpha = b/a$ |
+| **Multiple solutions** | Substitute θ=nx then expand range | If $x\in[0,2\pi]$ then $\theta=nx\in[0,2n\pi]$ → add +2π for each period |
 
 ---
 
@@ -24,9 +24,9 @@
 | 2 | $1 + \tan^2 x = \sec^2 x$ | Dividing by $\cos^2 x$ |
 | 3 | $\cot^2 x + 1 = \csc^2 x$ | Dividing by $\sin^2 x$ |
 
-> **Tip — "3-from-1" chain:** 공식 ①만 외우면 나머지는 유도.
+> **Tip — "3-from-1" chain:** Memorise only formula ① and derive the rest.
 > ① $\div \cos^2 x$ → ② / ① $\div \sin^2 x$ → ③
-> 외울 것은 사실상 $\sin^2 x + \cos^2 x = 1$ 하나뿐.
+> In practice, you only need to remember $\sin^2 x + \cos^2 x = 1$.
 
 ---
 
@@ -41,17 +41,17 @@
 | 5 | $\tan(x+y) = \dfrac{\tan x + \tan y}{1 - \tan x \tan y}$ | divide (1)÷(3) by $\cos x \cos y$ |
 | 6 | $\tan(x-y) = \dfrac{\tan x - \tan y}{1 + \tan x \tan y}$ | substitute $y \to -y$ in (5) |
 
-> **Tip — "SC+CS / CC−SS" 니모닉:**
+> **Tip — "SC+CS / CC−SS" mnemonic:**
 >
-> | | 공식 | 암기 코드 | 부호 |
+> | | Formula | Memory code | Sign |
 > |---|------|----------|------|
-> | $\sin(A+B)$ | $\sin A\cos B + \cos A\sin B$ | **SC + CS** | ± 그대로 |
-> | $\cos(A+B)$ | $\cos A\cos B - \sin A\sin B$ | **CC − SS** | ± **반대** |
-> | $\tan(A+B)$ | $\dfrac{\tan A + \tan B}{1 - \tan A\tan B}$ | 분자=합, 분모=1∓곱 | 분모 부호 **반대** |
+> | $\sin(A+B)$ | $\sin A\cos B + \cos A\sin B$ | **SC + CS** | ± unchanged |
+> | $\cos(A+B)$ | $\cos A\cos B - \sin A\sin B$ | **CC − SS** | ± **reversed** |
+> | $\tan(A+B)$ | $\dfrac{\tan A + \tan B}{1 - \tan A\tan B}$ | numerator = sum, denominator = 1∓product | denominator sign **reversed** |
 >
-> - **sin**: 서로 다른 쌍 (S·C + C·S), 부호는 ± 그대로
-> - **cos**: 같은 쌍 (C·C − S·S), 부호는 **뒤집힘** → cos(+)는 빼고, cos(−)는 더함
-> - **tan**: $A-B$ 버전은 분자는 빼고, 분모는 1**+**곱 (분모 부호만 반대)
+> - **sin**: cross pairs (S·C + C·S), sign is ± unchanged
+> - **cos**: same pairs (C·C − S·S), sign is **flipped** → cos(+) subtracts, cos(−) adds
+> - **tan**: for the $A-B$ version, subtract in numerator and use 1**+**product in denominator (only the denominator sign is reversed)
 
 > **Why does "substitute $y \to -y$" work?**
 > $\sin$ and $\tan$ are **odd functions**; $\cos$ is an **even function**:
@@ -62,32 +62,32 @@
 
 ### (A) Double Angle Formulae
 
-> **"let $y = x$"의 의미:** Section 2의 Angle Sum 공식에서 $y$ 자리에 $x$를 그대로 대입하면 $\sin(x+x)$, $\cos(x+x)$, $\tan(x+x)$ 가 되고, 이것이 곧 Double Angle 공식이 됩니다. 즉 새로운 공식이 아니라 Angle Sum의 특수 케이스입니다.
+> **What "let $y = x$" means:** Substituting $x$ in place of $y$ in the Angle Sum formulae from Section 2 gives $\sin(x+x)$, $\cos(x+x)$, $\tan(x+x)$, which are exactly the Double Angle formulae. They are not new formulae — they are simply a special case of Angle Sum.
 
-**유도 과정:**
+**Derivation:**
 
 $$\sin(x+y)\big|_{y=x} \;=\; \sin x\cos x + \cos x\sin x \;\Rightarrow\; \boxed{\sin 2x = 2\sin x \cos x}$$
 
 $$\cos(x+y)\big|_{y=x} \;=\; \cos x\cos x - \sin x\sin x \;\Rightarrow\; \cos 2x = \cos^2 x - \sin^2 x$$
 
-cos2x 세 가지 형태 (Basic Identity $\cos^2x = 1-\sin^2x$ 또는 $\sin^2x = 1-\cos^2x$ 대입):
+Three forms of cos2x (substitute the Basic Identity $\cos^2x = 1-\sin^2x$ or $\sin^2x = 1-\cos^2x$):
 
 $$\boxed{\cos 2x = \cos^2 x - \sin^2 x = 1 - 2\sin^2 x = 2\cos^2 x - 1}$$
 
-> **Tip — cos2x 세 형태 선택 가이드:**
+> **Tip — Guide to choosing the right form of cos2x:**
 >
-> | 상황 | 사용할 형태 |
+> | Situation | Form to use |
 > |------|------------|
-> | $\sin^2 x$와 $\cos^2 x$ 둘 다 있음 | $\cos^2 x - \sin^2 x$ |
-> | $\cos^2 x$를 없애고 싶음 (sin만 남기기) | $1 - 2\sin^2 x$ |
-> | $\sin^2 x$를 없애고 싶음 (cos만 남기기) | $2\cos^2 x - 1$ |
+> | Both $\sin^2 x$ and $\cos^2 x$ are present | $\cos^2 x - \sin^2 x$ |
+> | Want to eliminate $\cos^2 x$ (leave only sin) | $1 - 2\sin^2 x$ |
+> | Want to eliminate $\sin^2 x$ (leave only cos) | $2\cos^2 x - 1$ |
 >
-> 역방향: $\sin^2 x = \dfrac{1-\cos 2x}{2}$, $\cos^2 x = \dfrac{1+\cos 2x}{2}$ → **적분할 때 필수** (Half Angle)
+> In reverse: $\sin^2 x = \dfrac{1-\cos 2x}{2}$, $\cos^2 x = \dfrac{1+\cos 2x}{2}$ → **essential for integration** (Half Angle)
 
 $$\tan(x+y)\big|_{y=x} \;=\; \frac{\tan x+\tan x}{1-\tan x\tan x} \;\Rightarrow\; \boxed{\tan 2x = \frac{2\tan x}{1 - \tan^2 x}}$$
 
-> **왜 유용한가?** 방정식에 $\sin x$와 $\sin 2x$ (또는 $\cos 2x$)가 동시에 섞여 있을 때, Double Angle로 $2x$ 항을 $x$로 바꿔 **각도를 통일**한 뒤 인수분해(factorise)할 수 있습니다.
-> 예: $\sin 2x = \sin x$ → $2\sin x\cos x - \sin x = 0$ → $\sin x(2\cos x - 1) = 0$
+> **Why is this useful?** When an equation mixes $\sin x$ with $\sin 2x$ (or $\cos 2x$), use the Double Angle formula to rewrite the $2x$ term in terms of $x$, **unifying the angles**, and then factorise.
+> e.g. $\sin 2x = \sin x$ → $2\sin x\cos x - \sin x = 0$ → $\sin x(2\cos x - 1) = 0$
 
 ---
 

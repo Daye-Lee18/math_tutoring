@@ -1,4 +1,4 @@
-# Integration — 실전문제 Solutions (Mark Scheme)
+# Integration — Exam Problems Solutions (Mark Scheme)
 
 ---
 

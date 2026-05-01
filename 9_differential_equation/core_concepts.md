@@ -30,7 +30,7 @@ $$\frac{dy}{dx} = f(x)\,g(y)$$
 ---
 
 <details>
-<summary>**Ex 1 — General solutions** (분리변수로 일반해 구하기)</summary>
+<summary>**Ex 1 — General solutions** (finding the general solution by separation of variables)</summary>
 
 **i.** $\displaystyle\frac{dy}{dx} = (1+2y)(1-2x)$
 
@@ -42,7 +42,7 @@ $$\frac{1}{2}\ln|1+2y| = x - x^2 + C$$
 
 $$\boxed{\ln|1+2y| = 2x - 2x^2 + A \quad (A = 2C)}$$
 
-또는 $y = \dfrac{1}{2}\!\left(e^{2x-2x^2+A}-1\right)$로 쓸 수도 있다.
+Alternatively, this can be written as $y = \dfrac{1}{2}\!\left(e^{2x-2x^2+A}-1\right)$.
 
 ---
 
@@ -60,7 +60,7 @@ $$\boxed{y = \frac{-1}{\tan x - x + C}}$$
 
 **iii.** $\displaystyle\frac{dy}{dx} = 2e^{x-y}$
 
-$e^{x-y} = e^x \cdot e^{-y}$이므로 분리 가능:
+Since $e^{x-y} = e^x \cdot e^{-y}$, the equation is separable:
 
 Separate: $e^y\,dy = 2e^x\,dx$
 
@@ -75,7 +75,7 @@ $$\boxed{y = \ln(2e^x + C)}$$
 ---
 
 <details>
-<summary>**Ex 2 — Particular solutions** (초기조건으로 특수해 구하기)</summary>
+<summary>**Ex 2 — Particular solutions** (finding the particular solution using initial conditions)</summary>
 
 **i.** $\displaystyle\frac{dy}{dx} = \sin x\cos^2 x;\quad y = 0 \text{ when } x = \frac{\pi}{3}$
 
@@ -83,11 +83,11 @@ Separate: $dy = \sin x\cos^2 x\,dx$
 
 $$\int dy = \int \sin x\cos^2 x\,dx$$
 
-**치환:** $u = \cos x,\; du = -\sin x\,dx$
+**Substitution:** $u = \cos x,\; du = -\sin x\,dx$
 
 $$y = -\int u^2\,du = -\frac{u^3}{3} + C = -\frac{\cos^3 x}{3} + C$$
 
-**초기조건 대입:** $x = \dfrac{\pi}{3},\; y = 0$:
+**Apply initial condition:** $x = \dfrac{\pi}{3},\; y = 0$:
 
 $$0 = -\frac{(1/2)^3}{3} + C \implies C = \frac{1}{24}$$
 
@@ -97,7 +97,7 @@ $$\boxed{y = -\frac{\cos^3 x}{3} + \frac{1}{24}}$$
 
 **ii.** $\displaystyle(1-x^2)\frac{dy}{dx} = xy + y;\quad x = 0.5,\; y = 6$
 
-우변 인수분해: $xy + y = y(x+1)$
+Factorize the right-hand side: $xy + y = y(x+1)$
 
 $$\frac{dy}{dx} = \frac{y(x+1)}{1-x^2} = \frac{y(x+1)}{(1-x)(1+x)} = \frac{y}{1-x}$$
 
@@ -107,7 +107,7 @@ $$\int \frac{1}{y}\,dy = \int \frac{1}{1-x}\,dx$$
 
 $$\ln|y| = -\ln|1-x| + C$$
 
-**초기조건 대입:** $x = 0.5,\; y = 6$:
+**Apply initial condition:** $x = 0.5,\; y = 6$:
 
 $$\ln 6 = -\ln(0.5) + C \implies C = \ln 6 - \ln 2 = \ln 3$$
 
@@ -151,13 +151,13 @@ These three models appear frequently in exam questions. Understand the **physica
 ::: {.callout-tip title="KEY"}
 - All three are separable — solve each by separating variables  
 - The $-k$ in the exponent means all three **approach a limit** as $t \to \infty$: $N \to 0$, $\theta \to \theta_0$, $V \to P/k$  
-- In exam questions, the constant $A$ is always determined by the **initial condition** (값을 알고 있는 시점 = $t = 0$)
+- In exam questions, the constant $A$ is always determined by the **initial condition** (the moment when the value is known, i.e. $t = 0$)
 :::
 
 ---
 
 <details>
-<summary>**Deriving the solutions** (풀이과정 — 시험에 나오면 반드시 쓸 것)</summary>
+<summary>**Deriving the solutions** (show this in full if asked in the exam)</summary>
 
 ### Decay: $\dfrac{dN}{dt} = -kN$
 
@@ -269,7 +269,7 @@ $$\boxed{V = 50(1 - e^{-0.1t})}$$
 
 $$\boxed{V \to 50\ \text{litres}}$$
 
-이것이 **평형 부피**: 유입 속도 = 유출 속도인 상태.
+This is the **equilibrium volume**: the state where the inflow rate equals the outflow rate.
 
 </details>
 

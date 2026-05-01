@@ -37,77 +37,77 @@ $$
 
 ### 3) Trigonometric
 
-#### 공식표 (패턴별 그룹)
+#### Formula Table (by pattern group)
 
 **[Group A] sin / cos — 4-cycle**
 
-| Function | Derivative | 부호 |
+| Function | Derivative | Sign |
 |----------|------------|------|
 | $(\sin x)'$ | $= \cos x$ | $+$ |
 | $(\cos x)'$ | $= -\sin x$ | $-$ ← **co**sine |
 
-**[Group B] tan / sec 쌍**
+**[Group B] tan / sec pair**
 
-| Function | Derivative | 패턴 |
-|----------|------------|------|
-| ▶ $(\tan x)'$ | $= \sec^2 x$ | $+$ · tan 미분 → sec 등장 |
-| ▶ $(\sec x)'$ | $= \sec x \tan x$ | $+$ · sec이 자기 자신 생존 |
+| Function | Derivative | Pattern |
+|----------|------------|---------|
+| ▶ $(\tan x)'$ | $= \sec^2 x$ | $+$ · differentiating tan produces sec |
+| ▶ $(\sec x)'$ | $= \sec x \tan x$ | $+$ · sec survives as a factor |
 
-**[Group C] cot / csc 쌍 — Group B의 "co-" 버전 (전부 음수)**
+**[Group C] cot / csc pair — the "co-" version of Group B (all negative)**
 
-| Function | Derivative | 패턴 |
-|----------|------------|------|
-| ▶ $(\cot x)'$ | $= -\csc^2 x$ | $-$ · **co**t 미분 → csc 등장 |
-| ▶ $(\csc x)'$ | $= -\csc x \cot x$ | $-$ · **co**sc이 자기 자신 생존 |
+| Function | Derivative | Pattern |
+|----------|------------|---------|
+| ▶ $(\cot x)'$ | $= -\csc^2 x$ | $-$ · differentiating **co**t produces csc |
+| ▶ $(\csc x)'$ | $= -\csc x \cot x$ | $-$ · **co**sc survives as a factor |
 
-**[Group D] 역삼각함수**
+**[Group D] Inverse trigonometric functions**
 
-| Function | Derivative | 패턴 |
-|----------|------------|------|
+| Function | Derivative | Pattern |
+|----------|------------|---------|
 | ▶ $(\arcsin x)'$ | $= \dfrac{1}{\sqrt{1-x^2}}$ | $+$ |
-| ▶ $(\arccos x)'$ | $= -\dfrac{1}{\sqrt{1-x^2}}$ | $-$ ← **arc·co**s, co- rule 동일 |
-| ▶ $(\arctan x)'$ | $= \dfrac{1}{1+x^2}$ | $+$ · 별도 암기 |
+| ▶ $(\arccos x)'$ | $= -\dfrac{1}{\sqrt{1-x^2}}$ | $-$ ← **arc·co**s, same co- rule |
+| ▶ $(\arctan x)'$ | $= \dfrac{1}{1+x^2}$ | $+$ · memorise separately |
 
 ---
 
-#### 암기 Tips
+#### Memory Tips
 
-**Tip 1 — "co-" 붙으면 항상 음수**
+**Tip 1 — "co-" prefix always means negative**
 
-미분 결과에 minus가 붙는 함수는 전부 "co-"로 시작:
+Every function whose derivative carries a minus sign starts with "co-":
 
-$$\cos,\quad \cot,\quad \csc,\quad \arccos \quad \longrightarrow \text{ 전부 } (-)$$
+$$\cos,\quad \cot,\quad \csc,\quad \arccos \quad \longrightarrow \text{ all } (-)$$
 
-> 이것만 기억하면 9개 공식의 부호는 전부 해결.
+> Remember this and the sign of all 9 formulas is solved.
 
-**Tip 2 — tan↔sec, cot↔csc 쌍으로 다님**
+**Tip 2 — tan↔sec, cot↔csc travel in pairs**
 
-미분하면 자기 쌍의 파트너가 튀어나옴:
+Differentiating produces the partner from the same pair:
 
 $$\tan' = \sec^2 \quad\longleftrightarrow\quad \cot' = -\csc^2$$
 $$\sec' = \sec\cdot\tan \quad\longleftrightarrow\quad \csc' = -\csc\cdot\cot$$
 
-> Group B(tan/sec)를 외우고, Group C는 "전부 co-로 교체 + 음수"로 도출.
+> Memorise Group B (tan/sec); derive Group C by replacing everything with "co-" and negating.
 
-**Tip 3 — sec / csc는 자기 자신이 살아남음**
+**Tip 3 — sec / csc survive in their own derivative**
 
-$$(\sec x)' = \underbrace{\sec x}_{\text{자기 자신}} \cdot \tan x \qquad (\csc x)' = -\underbrace{\csc x}_{\text{자기 자신}} \cdot \cot x$$
+$$(\sec x)' = \underbrace{\sec x}_{\text{itself}} \cdot \tan x \qquad (\csc x)' = -\underbrace{\csc x}_{\text{itself}} \cdot \cot x$$
 
-> $e^x$처럼 미분 후에도 자기 자신이 인수로 남는다.
+> Like $e^x$, after differentiation the function itself remains as a factor.
 
-**Tip 4 — sin/cos는 4-cycle**
+**Tip 4 — sin/cos form a 4-cycle**
 
 $$\sin \xrightarrow{\;'\;} \cos \xrightarrow{\;'\;} -\sin \xrightarrow{\;'\;} -\cos \xrightarrow{\;'\;} \sin \xrightarrow{\;'\;} \cdots$$
 
-> 4번 미분하면 원래로. "앞으로 한 칸 이동"으로 기억.
+> Four differentiations return to the original. Think "shift forward by one step".
 
-**Tip 5 — 역삼각함수는 외우지 말고 유도**
+**Tip 5 — derive inverse trig derivatives rather than memorising them**
 
-$y = \arcsin x$이면 $x = \sin y$. 양변을 $x$로 미분:
+If $y = \arcsin x$ then $x = \sin y$. Differentiate both sides with respect to $x$:
 
 $$1 = \cos y \cdot \frac{dy}{dx} \implies \frac{dy}{dx} = \frac{1}{\cos y} = \frac{1}{\sqrt{1-\sin^2 y}} = \frac{1}{\sqrt{1-x^2}}$$
 
-같은 방법으로 $\arccos$, $\arctan$ 모두 유도 가능. ($\arccos$는 $x = \cos y$로 시작 → 결과에 음수 붙음.)
+The same method gives $\arccos$ and $\arctan$. ($\arccos$: start with $x = \cos y$ → result carries a minus sign.)
 
 ---
 

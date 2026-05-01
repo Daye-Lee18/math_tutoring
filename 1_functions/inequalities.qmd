@@ -1,0 +1,219 @@
+---
+title: "Inequalities with Modulus (P3)"
+---
+
+## Modulus Basics
+
+$$|x| \geq 0 \qquad |3| = 3, \quad |-3| = 3$$
+
+### Sketching the Modulus Function
+
+Form $y = a|x - b| + c$:
+
+| Feature | How to find |
+|---|---|
+| **Shape** | V-shape if $a > 0$, ∧-shape if $a < 0$ |
+| **Vertex** | $x - b = 0 \Rightarrow x = b$, $y = c$ → vertex: $(b,\, c)$ |
+| **y-intercept** | Substitute $x = 0$ |
+
+**Example:** $y = 2|x - 3| + 1$
+
+- Shape: V-shape
+- Vertex: $x=3$, $y=1$ → $(3,\,1)$
+- y-int: $y = 2|0-3|+1 = 7$
+
+---
+
+## Type 1 — Equation
+
+**Form:** $|f(x)| = g(x)$ or $|f(x)| = |g(x)|$
+
+**Method: square both sides to remove the modulus signs**
+
+$$(|f(x)|)^2 = (g(x))^2 \Rightarrow [f(x)]^2 = [g(x)]^2$$
+
+Then solve the resulting quadratic equation.
+
+<details>
+<summary>**Example 1** — $|x-2| = \left|\dfrac{1}{3}x\right|$</summary>
+
+$$\left(|x-2|\right)^2 = \left(\left|\frac{1}{3}x\right|\right)^2$$
+
+$$(x-2)^2 = \frac{1}{9}x^2$$
+
+$$9x^2 - 36x + 36 = x^2 \Rightarrow 8x^2 - 36x + 36 = 0$$
+
+$$2x^2 - 9x + 9 = 0 \Rightarrow (2x-3)(x-3) = 0$$
+
+$$\boxed{x = \frac{3}{2}, \quad x = 3}$$
+
+</details>
+
+---
+
+## Type 2 — Inequality (modulus on both sides)
+
+**Form:** $|f(x)| > |g(x)|$ or $|f(x)| < |g(x)|$
+
+**Method: square both sides → solve quadratic inequality (P1 method)**
+
+Steps for solving a quadratic inequality:
+1. **Factorise**
+2. **Sketch the graph** (parabola)
+3. **Shade** the required region
+4. **Read off the inequality**
+
+<details>
+<summary>**Example 1** — $|x-2| > 3|2x+1|$ [4 marks]</summary>
+
+$$\left(|x-2|\right)^2 > \left(3|2x+1|\right)^2$$
+
+$$(x-2)^2 > 9(2x+1)^2$$
+
+$$x^2-4x+4 > 9(4x^2+4x+1)$$
+
+$$x^2-4x+4 > 36x^2+36x+9$$
+
+$$0 > 35x^2+40x+5 \Rightarrow 7x^2+8x+1 < 0$$
+
+$$(x+1)(7x+1) < 0$$
+
+Parabola: roots $x=-1$, $x=-\frac{1}{7}$, region below the x-axis:
+
+$$\boxed{-1 < x < -\frac{1}{7}}$$
+
+</details>
+
+<details>
+<summary>**Example 2** — $2|x-3| > |3x+1|$</summary>
+
+$$(2|x-3|)^2 > (|3x+1|)^2 \Rightarrow 4(x-3)^2 > (3x+1)^2$$
+
+$$4x^2-24x+36 > 9x^2+6x+1 \Rightarrow 0 > 5x^2+30x-35$$
+
+$$x^2+6x-7 < 0 \Rightarrow (x+7)(x-1) < 0$$
+
+$$\boxed{-7 < x < 1}$$
+
+</details>
+
+<details>
+<summary>**Example 3** — $|x+3a| > 2|x-2a|$, $a > 0$ positive constant</summary>
+
+$$(x+3a)^2 > 4(x-2a)^2$$
+
+$$x^2+6ax+9a^2 > 4x^2-16ax+16a^2$$
+
+$$0 > 3x^2-22ax+7a^2 \Rightarrow 3x^2-22ax+7a^2 < 0$$
+
+$$(3x-a)(x-7a) < 0$$
+
+$$\boxed{\frac{a}{3} < x < 7a}$$
+
+</details>
+
+<details>
+<summary>**Example 4** — $|2x+1| < 3|x-2|$</summary>
+
+$$(2x+1)^2 < 9(x-2)^2$$
+
+$$4x^2+4x+1 < 9x^2-36x+36$$
+
+$$0 < 5x^2-40x+35 \Rightarrow x^2-8x+7 > 0$$
+
+$$(x-1)(x-7) > 0$$
+
+Region above the parabola (since $> 0$):
+
+$$\boxed{x < 1 \text{ or } x > 7}$$
+
+</details>
+
+<details>
+<summary>**Example 5** — $|3x-1| < |2x+5|$</summary>
+
+$$(3x-1)^2 < (2x+5)^2$$
+
+$$9x^2-6x+1 < 4x^2+20x+25 \Rightarrow 5x^2-26x-24 < 0$$
+
+$$(x-6)(5x+4) < 0$$
+
+$$\boxed{-\frac{4}{5} < x < 6}$$
+
+</details>
+
+---
+
+## Type 3 — One-sided modulus → graphical approach
+
+**Form:** $|f(x)| > g(x)$ or $|f(x)| < g(x)$ (one side is an ordinary function)
+
+**Method: sketch both graphs and find intersection points**
+
+Sketching order (for modulus function $y = |x-b|+c$):
+1. Shape (V-shape / ∧-shape)
+2. Vertex
+3. y-intercept
+
+Intersection: solve the reflected branch simultaneously with the line
+
+<details>
+<summary>**Example 1** — $|x-2| > 2x-3$ [4 marks]</summary>
+
+$y = |x-2|$: vertex $(2,0)$, y-int $= 2$
+
+$y = 2x-3$: x-int $= 1.5$, y-int $= -3$
+
+Intersection: solve $y = 2x-3$ simultaneously with $y = -(x-2)$ (left branch):
+
+$$2x-3 = -(x-2) \Rightarrow 2x-3 = -x+2 \Rightarrow 3x = 5 \Rightarrow x = \frac{5}{3}$$
+
+Region where Red($|x-2|$) $>$ Green($2x-3$):
+
+$$\boxed{x < \frac{5}{3}}$$
+
+</details>
+
+<details>
+<summary>**Example 2** — $|x-3| < 3x-4$ [4 marks]</summary>
+
+$y = |x-3|$: vertex $(3,0)$, y-int $= 3$
+
+$y = 3x-4$: x-int $= \frac{4}{3}$, y-int $= -4$
+
+Intersection: solve $y = 3x-4$ simultaneously with $y = -(x-3)$:
+
+$$3x-4 = -(x-3) \Rightarrow 4x = 7 \Rightarrow x = \frac{7}{4}$$
+
+Region where Red($|x-3|$) $<$ Green($3x-4$):
+
+$$\boxed{x > \frac{7}{4}}$$
+
+</details>
+
+<details>
+<summary>**Example 3** — $2x > |x-1|$ [4 marks]</summary>
+
+$y = 2x$: passes through the origin, $(1,2)$
+
+$y = |x-1|$: vertex $(1,0)$, y-int $= 1$
+
+Intersection: solve $y=2x$ simultaneously with $y = -(x-1)$:
+
+$$2x = -(x-1) \Rightarrow 3x = 1 \Rightarrow x = \frac{1}{3}$$
+
+Region where Red($2x$) $>$ Green($|x-1|$):
+
+$$\boxed{x > \frac{1}{3}}$$
+
+</details>
+
+---
+
+## Summary: Identifying the Type
+
+| Situation | Type | Method |
+|---|---|---|
+| $\|f\| = \|g\|$ or $\|f\| = c$ | Equation | Square both sides → quadratic equation |
+| $\|f\| > \|g\|$ (modulus on both sides) | Inequality Type 2 | Square both sides → quadratic inequality |
+| $\|f\| > g(x)$ (modulus on one side only) | Inequality Type 3 | Sketch both graphs → find intersections |

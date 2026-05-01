@@ -1,18 +1,18 @@
-# Integration — 기본문제 Mark Scheme
+# Integration — Core Practice Mark Scheme
 
 ---
 
 ## Q01. Identify the types of the following integration
 
-> **Type 분류 기준:**
-> - **Standard** — 공식 직접 적용
-> - **Expand** — 전개 후 Standard
-> - **Trig identity** — 삼각 항등식으로 변환
-> - **Reverse chain rule** — $\int f'(x)\cdot g(f(x))\,dx$ 형태
-> - **Substitution** — $u$ 치환
-> - **Partial fractions** — 부분분수
-> - **By parts** — 부분적분 $\int u\,dv = uv - \int v\,du$
-> - **Poly division + PF** — 분자 차수 ≥ 분모 → 나눗셈 먼저
+> **Type classification:**
+> - **Standard** — apply the formula directly
+> - **Expand** — expand first, then Standard
+> - **Trig identity** — convert using a trigonometric identity
+> - **Reverse chain rule** — recognise the form $\int f'(x)\cdot g(f(x))\,dx$
+> - **Substitution** — $u$-substitution
+> - **Partial fractions** — decompose into partial fractions
+> - **By parts** — integration by parts $\int u\,dv = uv - \int v\,du$
+> - **Poly division + PF** — numerator degree ≥ denominator → divide first
 
 ---
 
@@ -164,7 +164,7 @@ $$= -\cos x\ln(\sec x) + \int \sin x\,dx \tag{M1}$$
 
 $$\boxed{= -\cos x\ln(\sec x) - \cos x + C} \tag{A1}$$
 
-> **Note:** $\ln(\sec x) = -\ln(\cos x)$이므로 $\cos x\ln(\cos x) - \cos x + C$로도 쓸 수 있음.
+> **Note:** Since $\ln(\sec x) = -\ln(\cos x)$, this can also be written as $\cos x\ln(\cos x) - \cos x + C$.
 
 ---
 

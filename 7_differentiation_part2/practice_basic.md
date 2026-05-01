@@ -1,4 +1,4 @@
-# Differentiation Part 2 — 기본문제 Mark Scheme
+# Differentiation Part 2 — Core Practice Mark Scheme
 
 ---
 

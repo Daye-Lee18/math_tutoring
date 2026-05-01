@@ -66,19 +66,19 @@
 ---
 
 <details>
-<summary>**Explicit — Integration techniques (4, 5번 간단 메모)**</summary>
+<summary>**Explicit — Integration techniques (brief notes on 4 and 5)**</summary>
 
-**4) Partial fraction (부분분수)** — 다음 Integration 파트에서 자세히 다룸
+**4) Partial fraction** — covered in detail in the next Integration unit
 
-적분하기 어려운 분수식을 단순한 분수들의 합으로 쪼개는 기법.
+A technique for splitting a difficult rational expression into a sum of simpler fractions.
 
 $$\frac{1}{x(x+1)} = \frac{1}{x} - \frac{1}{x+1} \implies \int \frac{1}{x(x+1)}\,dx = \ln|x| - \ln|x+1| + C$$
 
 ---
 
-**5) Trapezium rule (사다리꼴 공식)** — 커리큘럼에서 다루지 않음
+**5) Trapezium rule** — not covered in this curriculum
 
-곡선 아래 넓이를 사다리꼴로 근사하는 수치 적분법. 해석적으로 적분이 어려울 때 사용.
+A numerical integration method that approximates the area under a curve using trapezoids. Used when analytical integration is difficult.
 
 $$\int_a^b f(x)\,dx \approx \frac{h}{2}\bigl[y_0 + 2(y_1 + \cdots + y_{n-1}) + y_n\bigr], \qquad h = \frac{b-a}{n}$$
 
@@ -89,16 +89,16 @@ $$\int_a^b f(x)\,dx \approx \frac{h}{2}\bigl[y_0 + 2(y_1 + \cdots + y_{n-1}) + y
 ### 1.1 Cartesian — Implicit $f(x, y) = 0$
 
 ::: {style="font-size: 0.85em; color: #666;"}
-**Explicit** $y = f(x)$: $y$가 혼자 분리돼 있어 값을 바로 읽을 수 있음 (ex. $y = x^2 + 3x$)  
-**Implicit** $f(x,y) = 0$: $x$와 $y$가 식 안에 섞여 있는 형태 — 이항 가능 여부와 무관하게 형태 자체가 implicit
+**Explicit** $y = f(x)$: $y$ is isolated on its own, so its value can be read directly (e.g. $y = x^2 + 3x$)  
+**Implicit** $f(x,y) = 0$: $x$ and $y$ are mixed together inside the equation — the form itself is implicit regardless of whether rearrangement is possible
 
-| 방정식 | 이항하면? | 실제로 쓰는 방법 |
+| Equation | If rearranged? | Method used in practice |
 |---|---|---|
-| $x^2 + y = 2$ | $y = 2-x^2$ — 쉽게 가능 | explicit으로 바꿔서 미분 |
-| $x^2 + y^3 = 2$ | $y = \sqrt[3]{2-x^2}$ — 가능하지만 복잡 | implicit 미분이 더 편함 |
-| $x^2 + y^2 = 1$ | $y = \pm\sqrt{1-x^2}$ — $\pm$ 때문에 단일 함수 불가 | implicit 미분만 가능 |
+| $x^2 + y = 2$ | $y = 2-x^2$ — easy | Rearrange to explicit form and differentiate |
+| $x^2 + y^3 = 2$ | $y = \sqrt[3]{2-x^2}$ — possible but complicated | Implicit differentiation is more convenient |
+| $x^2 + y^2 = 1$ | $y = \pm\sqrt{1-x^2}$ — not a single function due to $\pm$ | Implicit differentiation only |
 
-즉, implicit 미분을 쓰는 이유는 **이항이 불가능하거나, 이항해도 너무 복잡할 때** 편리하기 때문.
+In short, implicit differentiation is useful **when rearrangement is impossible, or when rearranging would be too complicated**.
 :::
 
 **Key rules:**
@@ -108,17 +108,17 @@ $$\frac{d}{dx}(y^n) = ny^{n-1}\frac{dy}{dx}$$
 <table style="border-collapse: collapse; width: 100%; font-size: 0.93em; margin: 0.5em 0 1.2em 0;">
 <tr>
   <td style="border: 1px solid #ddd; padding: 10px 14px; width: 50%; vertical-align: top;">
-    <strong>왜 이렇게 되는가? — Chain rule on $y$</strong><br><br>
-    Implicit에서 $y$는 <strong>$x$의 함수</strong> $y(x)$다.<br>
-    즉 $y^n = [y(x)]^n$ — <strong>합성함수</strong>이므로 chain rule 적용:<br><br>
-    $$\frac{d}{dx}(y^n) = \underbrace{ny^{n-1}}_{\text{바깥 미분}} \times \underbrace{\frac{dy}{dx}}_{\text{안쪽 미분}}$$
+    <strong>Why does this work? — Chain rule on $y$</strong><br><br>
+    In implicit differentiation, $y$ is a <strong>function of $x$</strong>, i.e. $y(x)$.<br>
+    So $y^n = [y(x)]^n$ — a <strong>composite function</strong>, so the chain rule applies:<br><br>
+    $$\frac{d}{dx}(y^n) = \underbrace{ny^{n-1}}_{\text{outer derivative}} \times \underbrace{\frac{dy}{dx}}_{\text{inner derivative}}$$
   </td>
   <td style="border: 1px solid #ddd; padding: 10px 14px; width: 50%; vertical-align: top;">
-    <strong>확인</strong><br><br>
-    $y = x^2$이면:<br><br>
-    직접 계산: $\dfrac{d}{dx}(y^3) = \dfrac{d}{dx}(x^6) = 6x^5$<br><br>
-    공식 적용: $3y^2 \cdot \dfrac{dy}{dx} = 3x^4 \cdot 2x = 6x^5$ ✓<br><br>
-    <span style="color: #555; font-size: 0.9em;">$y$에 관한 항을 $x$로 미분할 때마다 끝에 $\dfrac{dy}{dx}$가 붙는다.</span>
+    <strong>Verification</strong><br><br>
+    If $y = x^2$:<br><br>
+    Direct computation: $\dfrac{d}{dx}(y^3) = \dfrac{d}{dx}(x^6) = 6x^5$<br><br>
+    Using the formula: $3y^2 \cdot \dfrac{dy}{dx} = 3x^4 \cdot 2x = 6x^5$ ✓<br><br>
+    <span style="color: #555; font-size: 0.9em;">Every time a term in $y$ is differentiated with respect to $x$, a $\dfrac{dy}{dx}$ factor is appended.</span>
   </td>
 </tr>
 </table>
@@ -128,15 +128,15 @@ $$\frac{d}{dx}(xy) = y + x\frac{dy}{dx} \qquad \text{(product rule)}$$
 <table style="border-collapse: collapse; width: 100%; font-size: 0.93em; margin: 0.5em 0 1.2em 0;">
 <tr>
   <td style="border: 1px solid #ddd; padding: 10px 14px; width: 50%; vertical-align: top;">
-    <strong>왜 이렇게 되는가? — Product rule on $x \cdot y$</strong><br><br>
-    $u = x,\quad v = y$로 놓으면:<br><br>
+    <strong>Why does this work? — Product rule on $x \cdot y$</strong><br><br>
+    Let $u = x,\quad v = y$:<br><br>
     $$\frac{d}{dx}(uv) = u'v + uv'$$
     $$= 1 \cdot y \;+\; x \cdot \frac{dy}{dx} \;=\; y + x\frac{dy}{dx}$$
   </td>
   <td style="border: 1px solid #ddd; padding: 10px 14px; width: 50%; vertical-align: top;">
-    <strong>왜 $v' = \dfrac{dy}{dx}$인가?</strong><br><br>
-    $v = y$도 $x$의 함수이므로, $v$를 $x$로 미분하면 $\dfrac{dy}{dx}$.<br><br>
-    <span style="color: #555; font-size: 0.9em;">위 Rule 1과 같은 이유 — $y$항을 $x$로 미분할 때마다 $\dfrac{dy}{dx}$가 붙는다.</span>
+    <strong>Why is $v' = \dfrac{dy}{dx}$?</strong><br><br>
+    Since $v = y$ is also a function of $x$, differentiating $v$ with respect to $x$ gives $\dfrac{dy}{dx}$.<br><br>
+    <span style="color: #555; font-size: 0.9em;">Same reason as Rule 1 above — every time a $y$ term is differentiated with respect to $x$, a $\dfrac{dy}{dx}$ factor is appended.</span>
   </td>
 </tr>
 </table>
@@ -146,20 +146,20 @@ $$\frac{d}{dx}(xy) = y + x\frac{dy}{dx} \qquad \text{(product rule)}$$
 > **Note:** Differential equations yield a **general solution** (with constant $C$); a given condition pins down the **particular solution**.
 
 <details>
-<summary>**Separable vs Non-separable — 어떻게 구분하는가?**</summary>
+<summary>**Separable vs Non-separable — How to tell them apart**</summary>
 
-$\dfrac{dy}{dx} = (\text{x만의 식}) \times (\text{y만의 식})$ 형태면 → **Separable**
+If $\dfrac{dy}{dx}$ can be written as $(\text{expression in } x \text{ only}) \times (\text{expression in } y \text{ only})$ → **Separable**
 
-| 방정식 | 분리 시도 | 판정 |
+| Equation | Separation attempt | Verdict |
 |--------|-----------|------|
 | $\dfrac{dy}{dx} = xy$ | $\dfrac{1}{y}\,dy = x\,dx$ | **Separable** ✓ |
 | $\dfrac{dy}{dx} = x^2(1+y^2)$ | $\dfrac{1}{1+y^2}\,dy = x^2\,dx$ | **Separable** ✓ |
-| $\dfrac{dy}{dx} = x + y$ | 분리 불가 ($y$가 $x$와 더해짐) | **Non-separable** ✗ |
-| $\dfrac{dy}{dx} = \dfrac{x+y}{x}$ | $1 + \dfrac{y}{x}$ 형태 — 분리 불가 | **Non-separable** ✗ |
+| $\dfrac{dy}{dx} = x + y$ | Cannot separate ($y$ is added to $x$) | **Non-separable** ✗ |
+| $\dfrac{dy}{dx} = \dfrac{x+y}{x}$ | Takes the form $1 + \dfrac{y}{x}$ — cannot separate | **Non-separable** ✗ |
 
-**빠른 판별:** 우변이 $x$와 $y$의 **곱** → separable, **합/차** or $\tfrac{y}{x}$처럼 섞임 → non-separable.
+**Quick test:** if the right-hand side is a **product** of $x$ and $y$ → separable; if $x$ and $y$ are mixed by **addition/subtraction** or as $\tfrac{y}{x}$ → non-separable.
 
-**풀이 흐름:**
+**Solution flow:**
 
 $$\frac{dy}{dx} = xy \;\longrightarrow\; \frac{1}{y}\,dy = x\,dx \;\longrightarrow\; \ln|y| = \frac{x^2}{2} + C$$
 
@@ -230,9 +230,9 @@ iv. $\sin(x + y) = \cos y$
 ### 1.2 Parametric $\begin{cases} y = f(t) \\ x = g(t) \end{cases}$
 
 ::: {style="font-size: 0.85em; color: #666;"}
-$x$와 $y$를 직접 연결하는 대신, 제3의 변수 **$t$ (parameter)**를 통해 간접적으로 정의.  
-예: $x = \cos t,\; y = \sin t$ → $t$ 소거하면 $x^2 + y^2 = 1$ (원)  
-**언제 쓰는가?** $y$를 $x$로 직접 쓰기 어려운 곡선(원, 타원 등)을 표현할 때.
+Instead of linking $x$ and $y$ directly, both are defined indirectly through a third variable **$t$ (parameter)**.  
+Example: $x = \cos t,\; y = \sin t$ → eliminating $t$ gives $x^2 + y^2 = 1$ (a circle)  
+**When is it used?** When a curve (circle, ellipse, etc.) is difficult to express with $y$ written directly in terms of $x$.
 :::
 
 **Differentiation:**
@@ -240,11 +240,11 @@ $x$와 $y$를 직접 연결하는 대신, 제3의 변수 **$t$ (parameter)**를 
 $$\boxed{\frac{dy}{dx} = \frac{dy/dt}{dx/dt}}$$
 
 <details>
-<summary>**왜 이렇게 되는가?**</summary>
+<summary>**Why does this hold?**</summary>
 
 Chain rule: $\dfrac{dy}{dx} = \dfrac{dy}{dt} \times \dfrac{dt}{dx} = \dfrac{dy/dt}{dx/dt}$
 
-직관적으로 $dt$가 약분되는 분수처럼 생각하면 됨.
+Intuitively, think of $dt$ cancelling as in a fraction.
 
 </details>
 
@@ -253,11 +253,11 @@ Chain rule: $\dfrac{dy}{dx} = \dfrac{dy}{dt} \times \dfrac{dt}{dx} = \dfrac{dy/d
 $$\int y\,dx = \int y\,\frac{dx}{dt}\,dt$$
 
 <details>
-<summary>**왜 이렇게 되는가?**</summary>
+<summary>**Why does this hold?**</summary>
 
-$x = g(t)$이면 $dx = \dfrac{dx}{dt}\,dt$로 치환. 이제 $y$도 $t$로 표현돼 있으니 $t$에 대한 적분으로 완전히 바꿀 수 있다.
+If $x = g(t)$, substitute $dx = \dfrac{dx}{dt}\,dt$. Since $y$ is also expressed in terms of $t$, the integral can be written entirely in terms of $t$.
 
-**예:** $y = t^2,\; x = t^3 \implies \int y\,dx = \int t^2 \cdot 3t^2\,dt = \dfrac{3t^5}{5} + C$
+**Example:** $y = t^2,\; x = t^3 \implies \int y\,dx = \int t^2 \cdot 3t^2\,dt = \dfrac{3t^5}{5} + C$
 
 </details>
 
@@ -301,21 +301,21 @@ iii. $y = 5\cos t + 4,\quad x = 2\sin t - 1$
 <details>
 <summary>**Solutions**</summary>
 
-**i.** $t = 5-x$ 대입:
+**i.** Substitute $t = 5-x$:
 
 $$\boxed{y = x^2 - 10x + 24}$$
 
 ---
 
-**ii.** $x^2 - y^2$ 계산:
+**ii.** Compute $x^2 - y^2$:
 
 $$x^2 = t^2 + 2 + \frac{1}{t^2},\quad y^2 = t^2 - 2 + \frac{1}{t^2} \implies \boxed{x^2 - y^2 = 4}$$
 
 ---
 
-**iii.** $\sin^2 t + \cos^2 t = 1$ 이용 — $\sin t = \dfrac{x+1}{2},\; \cos t = \dfrac{y-4}{5}$:
+**iii.** Using $\sin^2 t + \cos^2 t = 1$ — $\sin t = \dfrac{x+1}{2},\; \cos t = \dfrac{y-4}{5}$:
 
-$$\boxed{\frac{(x+1)^2}{4} + \frac{(y-4)^2}{25} = 1} \qquad \text{(중심 }(-1,4)\text{인 타원)}$$
+$$\boxed{\frac{(x+1)^2}{4} + \frac{(y-4)^2}{25} = 1} \qquad \text{(ellipse with centre }(-1,4)\text{)}$$
 
 </details>
 
@@ -324,8 +324,8 @@ $$\boxed{\frac{(x+1)^2}{4} + \frac{(y-4)^2}{25} = 1} \qquad \text{(중심 }(-1,4
 ## 2. Finding the Equation of a Tangent
 
 ::: {style="font-size: 0.88em; color: #555; margin-bottom: 0.8em;"}
-**Tangent (접선):** 곡선 위 한 점에서 곡선에 접하는 직선. 그 점에서의 기울기 $= \dfrac{dy}{dx}$.  
-직선의 방정식은 점 $(x_1, y_1)$과 기울기 $m$으로부터: $y - y_1 = m(x - x_1)$
+**Tangent:** a straight line touching the curve at a single point. Its slope at that point $= \dfrac{dy}{dx}$.  
+Equation of the line through $(x_1, y_1)$ with slope $m$: $y - y_1 = m(x - x_1)$
 :::
 
 **General procedure:** find $\dfrac{dy}{dx}$ at the given point → use $y - y_1 = m(x - x_1)$.
@@ -388,7 +388,7 @@ $$\frac{dy}{dx} = \frac{\sec t \tan t}{-2\sin t} = -\frac{\sec^2 t}{2} \implies 
 
 $$\boxed{y = -\frac{1}{2}x + 2}$$
 
-※ $\cos t = 1$을 만족하는 $t$는 $0,\ \pm 2\pi,\ \pm 4\pi,\ \ldots$ 로 무한히 많다. 그러나 $\sec t$는 주기 $2\pi$인 함수이므로 $\cos t = 1$인 모든 $t$에서 $\sec t = 1$로 동일 → $\dfrac{dy}{dx} = -\dfrac{\sec^2 t}{2} = -\dfrac{1}{2}$로 결과가 같다. 편의상 $t = 0$을 사용.
+Note: There are infinitely many values of $t$ satisfying $\cos t = 1$: $t = 0,\ \pm 2\pi,\ \pm 4\pi,\ \ldots$ However, since $\sec t$ has period $2\pi$, we have $\sec t = 1$ for every such $t$, giving the same result $\dfrac{dy}{dx} = -\dfrac{\sec^2 t}{2} = -\dfrac{1}{2}$. It is convenient to use $t = 0$.
 
     </details>
   </td>
@@ -406,9 +406,7 @@ $$\boxed{y = -\frac{1}{2}x + 2}$$
 ::: {.callout-tip}
 ## Key — For Implicit and Parametric equations
 
-Implicit/Parametric에서는 "turning point"라는 표현 대신 **접선의 방향**으로 특이점을 표현한다. **왜?** $y$가 $x$로 명시적으로 분리되어 있지 않아 $\dfrac{d^2y}{dx^2}$를 구하는 것이 번거롭기 때문. 대신 $\dfrac{dy}{dx}$의 **부호 변화**로 극대/극소를 판별한다.
-
-*For implicit and parametric equations, instead of "turning point" we describe special points by the **direction of the tangent**. **Why?** Because $y$ is not explicitly separated as a function of $x$, making it inconvenient to compute $\dfrac{d^2y}{dx^2}$. Instead, we determine local maxima/minima by checking the **sign change** of $\dfrac{dy}{dx}$.*
+For implicit and parametric equations, instead of "turning point" we describe special points by the **direction of the tangent**. **Why?** Because $y$ is not explicitly separated as a function of $x$, making it inconvenient to compute $\dfrac{d^2y}{dx^2}$. Instead, we determine local maxima/minima by checking the **sign change** of $\dfrac{dy}{dx}$.
 
 - A point at which the tangent is **parallel to $x$-axis** $\Rightarrow$ $dy = 0$
   - i.e. $\dfrac{dy}{dt} = 0$ (parametric) &nbsp;or&nbsp; numerator of $\dfrac{dy}{dx} = 0$ (implicit)
@@ -416,90 +414,84 @@ Implicit/Parametric에서는 "turning point"라는 표현 대신 **접선의 방
   - i.e. $\dfrac{dx}{dt} = 0$ (parametric) &nbsp;or&nbsp; denominator of $\dfrac{dy}{dx} = 0$ (implicit)
 
 <details>
-<summary>**왜 dy = 0, dx = 0 으로 구분하는가?**</summary>
+<summary>**Why use $dy = 0$ and $dx = 0$ separately?**</summary>
 
-Parametric/Implicit에서 기울기는 항상 **분수** 형태:
+In parametric/implicit equations, the gradient is always a **fraction**:
 
 $$\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$$
 
-**수평 접선 (horizontal tangent / parallel to $x$-axis)** → 기울기 (slope) $= 0$ → 분자 (numerator) $= 0$
+**Horizontal tangent (parallel to $x$-axis)** → slope $= 0$ → numerator $= 0$
 
 $$\frac{dy}{dx} = 0 \iff \frac{dy}{dt} = 0$$
 
-**수직 접선 (vertical tangent / perpendicular to $x$-axis)** → 기울기 (slope) $= \infty$ (정의 불가, undefined) → 분모 (denominator) $= 0$
+**Vertical tangent (perpendicular to $x$-axis)** → slope $= \infty$ (undefined) → denominator $= 0$
 
 $$\frac{dy}{dx} = \text{undefined} \iff \frac{dx}{dt} = 0$$
 
-분수 (fraction)가 0이 되려면 위 (분자, numerator)가 0, 무한대가 되려면 아래 (분모, denominator)가 0 — 원리는 explicit의 $\dfrac{dy}{dx} = 0$과 같고, 분자·분모를 **각각 따로 (separately)** 보는 것뿐이다.
-
-*For a fraction to equal zero, the numerator must be zero; for it to be undefined, the denominator must be zero — the principle is the same as setting $\dfrac{dy}{dx} = 0$ in the explicit case, except we treat the numerator and denominator separately.*
+For a fraction to equal zero, the numerator must be zero; for it to be undefined, the denominator must be zero — the principle is the same as setting $\dfrac{dy}{dx} = 0$ in the explicit case, except we treat the numerator and denominator separately.
 
 </details>
 
 <details>
-<summary>**Second derivative test 란?**</summary>
+<summary>**What is the second derivative test?**</summary>
 
-Explicit $y = f(x)$에서 극대/극소 (local max/min)를 판별하는 방법.
+Method for identifying local maxima and minima from $y = f(x)$.
 
-**절차 (procedure):**
+**Procedure:**
 
-1. $\dfrac{dy}{dx} = 0$ 을 풀어 stationary point $x = a$ 를 찾는다
-2. $\dfrac{d^2y}{dx^2}$를 계산하여 $x = a$에 대입:
+1. Solve $\dfrac{dy}{dx} = 0$ to find stationary points $x = a$
+2. Compute $\dfrac{d^2y}{dx^2}$ and substitute $x = a$:
 
-| $\dfrac{d^2y}{dx^2}\big|_{x=a}$ | 판정 |
+| $\dfrac{d^2y}{dx^2}\big|_{x=a}$ | Conclusion |
 |---|---|
-| $> 0$ | 극소 (local minimum) — 아래로 볼록 (concave up) |
-| $< 0$ | 극대 (local maximum) — 위로 볼록 (concave down) |
-| $= 0$ | 판별 불가 (inconclusive) → 부호 변화 (sign change)로 직접 확인 |
+| $> 0$ | local minimum — concave up |
+| $< 0$ | local maximum — concave down |
+| $= 0$ | inconclusive → check sign change directly |
 
-**Implicit/Parametric에서 번거로운 이유 (why it's inconvenient):** $\dfrac{dy}{dx}$가 이미 $x$, $y$ 모두 포함한 복잡한 식이라, 한 번 더 미분하면 식이 매우 복잡해진다. 그래서 대신 $\dfrac{dy}{dx}$의 **부호 변화 (sign change)**를 직접 확인하는 방법을 쓴다.
+**Why this is inconvenient for implicit/parametric:** $\dfrac{dy}{dx}$ already involves both $x$ and $y$, so differentiating once more gives a very complicated expression. Instead, check the sign change of $\dfrac{dy}{dx}$ directly:
 
-*Since $\dfrac{dy}{dx}$ already involves both $x$ and $y$, differentiating once more yields a very complicated expression. Instead, we directly check the sign change of $\dfrac{dy}{dx}$:*
-
-| $P$ 왼쪽 (left of $P$) | $P$ | $P$ 오른쪽 (right of $P$) | 판정 |
+| left of $P$ | $P$ | right of $P$ | Conclusion |
 |:---:|:---:|:---:|---|
-| $+$ | $0$ | $-$ | 극대 (local maximum) |
-| $-$ | $0$ | $+$ | 극소 (local minimum) |
-| $+$ | $0$ | $+$ | Stationary point of inflection (극값 아님, not a turning point) |
+| $+$ | $0$ | $-$ | local maximum |
+| $-$ | $0$ | $+$ | local minimum |
+| $+$ | $0$ | $+$ | stationary point of inflection (not a turning point) |
 
 </details>
 :::
 
 ::: {style="font-size: 0.83em; color: #555; margin-top: -0.4em; margin-bottom: 1.2em;"}
-**용어 정리**
+**Terminology**
 
-| 한국어 | 영어 | 설명 |
-|---|---|---|
-| 정류점 (접선이 수평) | **Stationary point** | $\dfrac{dy}{dx} = 0$인 모든 점 |
-| 극값점 (극대/극소) | **Turning point** | Stationary point 중 기울기 부호가 바뀌는 점 (local max/min) |
-| 변곡점 | **Point of inflection** | 곡선의 오목/볼록이 바뀌는 점 — $\dfrac{d^2y}{dx^2} = 0$이고 부호 변화 |
+| Term | Definition |
+|---|---|
+| **Stationary point** | Any point where $\dfrac{dy}{dx} = 0$ (tangent is horizontal) |
+| **Turning point** | A stationary point where the sign of the gradient changes (local max/min) |
+| **Point of inflection** | A point where the concavity of the curve changes — $\dfrac{d^2y}{dx^2} = 0$ with sign change |
 
-> Turning point ⊂ Stationary point. 변곡점은 $\dfrac{dy}{dx} = 0$일 필요 없음 (단, $\dfrac{dy}{dx} = 0$이면서 변곡점인 경우 → *stationary point of inflection*).
+> Turning point ⊂ Stationary point. A point of inflection does not require $\dfrac{dy}{dx} = 0$ (but if it does, it is a *stationary point of inflection*).
 
 <details>
-<summary>**Stationary point인데 turning point가 아닌 경우는?**</summary>
+<summary>**When is a stationary point not a turning point?**</summary>
 
 → **Stationary point of inflection**
 
-**예시:** $y = x^3$ at $x = 0$
+**Example:** $y = x^3$ at $x = 0$
 
 $$\frac{dy}{dx} = 3x^2 \implies \left.\frac{dy}{dx}\right|_{x=0} = 0 \quad \checkmark \text{ (stationary point)}$$
 
-그런데 기울기 부호 (sign of gradient)를 확인하면:
+Checking the sign of the gradient:
 
-| 구간 (interval) | $\dfrac{dy}{dx} = 3x^2$ | 부호 (sign) |
+| Interval | $\dfrac{dy}{dx} = 3x^2$ | Sign |
 |---|---|---|
 | $x < 0$ | $3x^2 > 0$ | $+$ |
 | $x = 0$ | $0$ | $0$ |
 | $x > 0$ | $3x^2 > 0$ | $+$ |
 
-부호가 **바뀌지 않음 (no sign change)** → turning point 아님. 대신 이 점에서 곡선의 오목/볼록 (concavity)이 바뀌므로 → **point of inflection**.
+The sign **does not change** → not a turning point. However, since the concavity of the curve changes at this point → **point of inflection**.
 
-*The sign does not change, so this is not a turning point. However, since the concavity of the curve changes at this point, it is a point of inflection.*
-
-| | $\dfrac{dy}{dx} = 0$ | 기울기 부호 변화 | $\dfrac{d^2y}{dx^2} = 0$ |
+| | $\dfrac{dy}{dx} = 0$ | gradient sign change | $\dfrac{d^2y}{dx^2} = 0$ |
 |---|:---:|:---:|:---:|
-| Turning point | ✓ | ✓ | 보통 ✓ |
+| Turning point | ✓ | ✓ | usually ✓ |
 | Stationary point of inflection | ✓ | ✗ | ✓ |
 | (Non-stationary) point of inflection | ✗ | ✗ | ✓ |
 

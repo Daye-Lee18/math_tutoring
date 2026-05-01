@@ -21,7 +21,7 @@
 ### (1) Substitution to cancel out
 
 <details>
-<summary>**TYPE 1 — 단번에 해치워야 하는 놈들** (straightforward linear substitution)</summary>
+<summary>**TYPE 1 — Enemies you can dispatch in one go** (straightforward linear substitution)</summary>
 
 $$\int (2x+3)^5\,dx \qquad \int \cos(3-2x)\,dx \qquad \int 4e^{4x-1}\,dx$$
 
@@ -44,10 +44,10 @@ $$= \int e^u\,du = \boxed{e^{4x-1} + C}$$
 </details>
 
 <details>
-<summary>**TYPE 2 — 단번에 해치울 수도 있지만 풀이과정을 보여줘야 하는 놈들** (derivative of inner function is visible in the integrand)</summary>
+<summary>**TYPE 2 — Enemies you could dispatch in one go, but must show working** (derivative of inner function is visible in the integrand)</summary>
 
 ::: {style="font-size: 0.8em; color: #666;"}
-integrand = 피적분함수 — $\int \underbrace{f(x)}_{\text{integrand}} \, dx$ 에서 $\int$와 $dx$ 사이에 있는 식 전체
+integrand = the expression between $\int$ and $dx$ — the entire expression $f(x)$ in $\int \underbrace{f(x)}_{\text{integrand}} \, dx$
 :::
 
 $$\int (2x+3)(x^2+3x+3)^5\,dx \qquad \int \sin^2 x\cos x\,dx \qquad \int xe^{x^2}\,dx$$
@@ -85,7 +85,7 @@ $$= \frac{1}{2}\int u^{-2}\,du = \boxed{-\frac{1}{2(2e^x-3)} + C}$$
 </details>
 
 <details>
-<summary>**TYPE 3 — 대체 허점을 안보이는 센 놈들** (보통 문제에서 급소를 알려 줌 — substitution given)</summary>
+<summary>**TYPE 3 — Tough enemies that show no obvious weak point** (the substitution is usually given in the question)</summary>
 
 $$\int \frac{1}{x^2+1}\,dx; \quad x = \tan\theta \qquad\qquad \int \sec^3 x\,dx; \quad u = \sec x$$
 
@@ -131,13 +131,13 @@ $$= \int (1-u^2)(-du) = -u + \frac{u^3}{3} + C = \boxed{-\cos x + \frac{\cos^3 x
 ### (2) Partial Fractions
 
 <details>
-<summary>**TYPE 1a — 서로 다른 일차 인수** (distinct linear factors)</summary>
+<summary>**TYPE 1a — Distinct linear factors**</summary>
 
 $$\int \frac{1}{x(x+2)}\,dx$$
 
 $$\frac{1}{x(x+2)} = \frac{A}{x} + \frac{B}{x+2}$$
 
-> 분모 각 인수마다 분자를 상수 $A, B$로 놓는다. 양변에 분모를 곱한 뒤 편한 $x$ 값 대입으로 $A, B$ 결정.
+> Place a constant numerator ($A$, $B$, …) over each factor in the denominator. Multiply both sides through by the denominator, then substitute convenient values of $x$ to determine $A$ and $B$.
 
 $$\int \frac{1}{x(x+2)}\,dx \;\longrightarrow\; \int \frac{A}{x}\,dx + \int \frac{B}{x+2}\,dx = A\ln|x| + B\ln|x+2| + C$$
 
@@ -150,49 +150,49 @@ $$\boxed{\frac{1}{2}\ln|x| - \frac{1}{2}\ln|x+2| + C = \frac{1}{2}\ln\left|\frac
 </details>
 
 <details>
-<summary>**TYPE 1b — 반복되는 일차 인수** (repeated linear factor)</summary>
+<summary>**TYPE 1b — Repeated linear factor**</summary>
 
 $$\int \frac{1}{x(x+2)^2}\,dx$$
 
 $$\frac{1}{x(x+2)^2} = \frac{A}{x} + \frac{B}{x+2} + \frac{C}{(x+2)^2}$$
 
-> **"각 거듭제곱마다 항을 추가"란?**
-> $(x+2)^2$이 분모에 있으면, $(x+2)^1$과 $(x+2)^2$ **두 항을 모두** 써야 한다는 뜻.
-> 즉 $\frac{B}{x+2}$ 하나만 쓰면 안 되고, $\frac{B}{x+2} + \frac{C}{(x+2)^2}$ 둘 다 필요.
+> **What does "add a term for each power" mean?**
+> If $(x+2)^2$ appears in the denominator, you must include **both** $(x+2)^1$ and $(x+2)^2$ as separate terms.
+> That is, writing only $\frac{B}{x+2}$ is not enough — you need both $\frac{B}{x+2} + \frac{C}{(x+2)^2}$.
 >
-> 비유: $(x+2)^3$이면 → $\dfrac{B}{x+2} + \dfrac{C}{(x+2)^2} + \dfrac{D}{(x+2)^3}$ 세 항 모두 필요.
+> Analogy: if the factor is $(x+2)^3$, you need all three terms: $\dfrac{B}{x+2} + \dfrac{C}{(x+2)^2} + \dfrac{D}{(x+2)^3}$.
 
-$$\int \frac{C}{(x+2)^2}\,dx = -\frac{C}{x+2} + C' \quad\leftarrow\text{ ln이 아니라 역수 형태로 적분}$$
+$$\int \frac{C}{(x+2)^2}\,dx = -\frac{C}{x+2} + C' \quad\leftarrow\text{ integrates as a reciprocal, not as a logarithm}$$
 
 ---
 
 **Solution:** &nbsp; $1 = A(x+2)^2 + Bx(x+2) + Cx$
 
-$x=0$: $4A=1 \Rightarrow A=\tfrac{1}{4}$; &nbsp; $x=-2$: $-2C=1 \Rightarrow C=-\tfrac{1}{2}$; &nbsp; $x^2$ 계수: $A+B=0 \Rightarrow B=-\tfrac{1}{4}$
+$x=0$: $4A=1 \Rightarrow A=\tfrac{1}{4}$; &nbsp; $x=-2$: $-2C=1 \Rightarrow C=-\tfrac{1}{2}$; &nbsp; coefficient of $x^2$: $A+B=0 \Rightarrow B=-\tfrac{1}{4}$
 
 $$\boxed{\frac{1}{4}\ln|x| - \frac{1}{4}\ln|x+2| + \frac{1}{2(x+2)} + C}$$
 
 </details>
 
 <details>
-<summary>**TYPE 1c — 분자 차수 ≥ 분모 차수** (improper fraction → long division first)</summary>
+<summary>**TYPE 1c — Degree of numerator ≥ degree of denominator** (improper fraction → long division first)</summary>
 
 $$\int \frac{x^2}{x^2-4}\,dx$$
 
-> **Improper fraction (가분수)이란?**
-> 분자의 최고 차수 $\geq$ 분모의 최고 차수인 분수식.
-> 예: $\dfrac{x^2}{x^2-4}$ → 분자도 2차, 분모도 2차 → improper.
-> 이 상태에서는 부분분수 분해를 **바로 적용할 수 없다**.
+> **What is an improper fraction?**
+> A rational expression where the degree of the numerator $\geq$ the degree of the denominator.
+> Example: $\dfrac{x^2}{x^2-4}$ → numerator and denominator are both degree 2 → improper.
+> In this form, partial fractions **cannot be applied directly**.
 >
-> **Polynomial long division (다항식 나눗셈)이란?**
-> 분자를 분모로 나눠서 **정수 부분 + 나머지 분수** 형태로 바꾸는 것.
-> 숫자 나눗셈 $\dfrac{7}{3} = 2 + \dfrac{1}{3}$과 같은 원리를 다항식에 적용.
+> **What is polynomial long division?**
+> Dividing the numerator by the denominator to rewrite the expression as **quotient + remainder fraction**.
+> The same principle as numerical division: $\dfrac{7}{3} = 2 + \dfrac{1}{3}$, applied to polynomials.
 
-$$\frac{x^2}{x^2-4} \xrightarrow{\text{나눗셈}} 1 + \frac{4}{x^2-4} \xrightarrow{\text{부분분수}} 1 + \frac{A}{x-2} + \frac{B}{x+2}$$
+$$\frac{x^2}{x^2-4} \xrightarrow{\text{division}} 1 + \frac{4}{x^2-4} \xrightarrow{\text{partial fractions}} 1 + \frac{A}{x-2} + \frac{B}{x+2}$$
 
 $$\int \frac{x^2}{x^2-4}\,dx = \int 1\,dx + \int \frac{A}{x-2}\,dx + \int \frac{B}{x+2}\,dx$$
 
-> **Note:** 분자 차수 $\geq$ 분모 차수이면 **항상 나눗셈 먼저** — 나누지 않고 부분분수 시도하면 형태가 성립하지 않는다.
+> **Note:** Whenever the degree of the numerator $\geq$ degree of the denominator, **always divide first** — attempting partial fractions without dividing will fail.
 
 ---
 
@@ -209,7 +209,7 @@ $$\boxed{\int \frac{x^2}{x^2-4}\,dx = x + \ln|x-2| - \ln|x+2| + C}$$
 *(Study together with **The Table** in Section 3)*
 
 <details>
-<summary>**TYPE 1 — 형태를 바꿔야 하는 놈들** (use basic identities to rewrite the integrand)</summary>
+<summary>**TYPE 1 — expressions requiring identity conversion** (use basic identities to rewrite the integrand)</summary>
 
 $$\int \tan^2 x\,dx \qquad \int \sec^2 x\cot^2 x\,dx \qquad \int \cos x\csc^2 x\,dx$$
 
@@ -237,7 +237,7 @@ $$= \int u^{-2}\,du = \boxed{-\csc x + C}$$
 </details>
 
 <details>
-<summary>**TYPE 2 — 각을 바꿔서라도 힘(Power)을 깨야 하는 놈들** (use double-angle formulae to reduce powers)</summary>
+<summary>**TYPE 2 — expressions where powers must be reduced using double-angle formulae** (use double-angle formulae to reduce powers)</summary>
 
 $$\int \sin^2 x\,dx \qquad \int \sin^4 x\,dx \qquad \int \sin^3 x\,dx$$
 
@@ -262,29 +262,29 @@ $$= \int(1-u^2)(-du) = \boxed{-\cos x + \frac{\cos^3 x}{3} + C}$$
 </details>
 
 <details>
-<summary>**TYPE 3 — Product-to-sum으로 해체시켜야 하는 놈들** (products of trig functions with different angles)</summary>
+<summary>**TYPE 3 — expressions requiring product-to-sum decomposition** (products of trig functions with different angles)</summary>
 
 $$\int \sin 2x\cos 3x\,dx \qquad \int 2\cos x\cos 3x\,dx$$
 
 ---
 
-**공식 유도 — 원래 배운 식에서 적분 폼까지**
+**Formula derivation — from the sum-to-product identity to integration form**
 
-**① sin × cos 의 경우**
+**① sin × cos case**
 
-| 단계 | 식 |
+| Step | Expression |
 |------|-----|
-| 원래 배운 식 (Sum-to-Product) | $\sin P + \sin Q = 2\sin\!\left(\dfrac{P+Q}{2}\right)\cos\!\left(\dfrac{P-Q}{2}\right)$ |
-| 변환: $P = A+B,\; Q = A-B$ 로 치환 | $\sin(A+B) + \sin(A-B) = 2\sin A\cos B$ |
-| 적분에서 사용되는 폼 (÷2) | $\sin A\cos B = \tfrac{1}{2}[\sin(A+B)+\sin(A-B)]$ |
+| Known identity (Sum-to-Product) | $\sin P + \sin Q = 2\sin\!\left(\dfrac{P+Q}{2}\right)\cos\!\left(\dfrac{P-Q}{2}\right)$ |
+| Substitute $P = A+B,\; Q = A-B$ | $\sin(A+B) + \sin(A-B) = 2\sin A\cos B$ |
+| Integration form (÷2) | $\sin A\cos B = \tfrac{1}{2}[\sin(A+B)+\sin(A-B)]$ |
 
-**② cos × cos 의 경우**
+**② cos × cos case**
 
-| 단계 | 식 |
+| Step | Expression |
 |------|-----|
-| 원래 배운 식 (Sum-to-Product) | $\cos P + \cos Q = 2\cos\!\left(\dfrac{P+Q}{2}\right)\cos\!\left(\dfrac{P-Q}{2}\right)$ |
-| 변환: $P = A-B,\; Q = A+B$ 로 치환 | $\cos(A-B) + \cos(A+B) = 2\cos A\cos B$ |
-| 적분에서 사용되는 폼 (÷2) | $\cos A\cos B = \tfrac{1}{2}[\cos(A-B)+\cos(A+B)]$ |
+| Known identity (Sum-to-Product) | $\cos P + \cos Q = 2\cos\!\left(\dfrac{P+Q}{2}\right)\cos\!\left(\dfrac{P-Q}{2}\right)$ |
+| Substitute $P = A-B,\; Q = A+B$ | $\cos(A-B) + \cos(A+B) = 2\cos A\cos B$ |
+| Integration form (÷2) | $\cos A\cos B = \tfrac{1}{2}[\cos(A-B)+\cos(A+B)]$ |
 
 ---
 
@@ -317,46 +317,46 @@ $$\ln x \;\leftarrow\; 1,\; x,\; x^2\;\cdots \;\leftarrow\; \sin x,\; \cos x\;\c
 *(Priority: $\ln x$ is always $u$; $e^x$ is almost always $v'$.)*
 
 <details>
-<summary>**왜 저 순서인가? — Rhythm의 이유**</summary>
+<summary>**Why this order? — the reason for the Rhythm**</summary>
 
-Parts 공식을 적용하면 $\displaystyle\int u'v\,dx$ 가 남는다.  
-즉 **$u$를 미분했을 때 남은 적분이 더 쉬워지는 방향**으로 선택해야 한다.
+Applying the parts formula leaves $\displaystyle\int u'v\,dx$.  
+The correct choice is whichever makes **the remaining integral simpler after differentiating $u$**.
 
-| 함수 | 미분하면? | 적분하면? |
+| Function | After differentiating | After integrating |
 |------|-----------|-----------|
-| $\ln x$ | $\dfrac{1}{x}$ — 사라짐 | $x\ln x - x$ — 더 복잡해짐 |
-| $x^n$ | $nx^{n-1}$ — 차수 줄어듦 | $x^{n+1}$ — 차수 늘어남 |
-| $\sin x,\,\cos x$ | 서로 순환 | 서로 순환 |
-| $e^x$ | $e^x$ — 그대로 | $e^x$ — 그대로 |
+| $\ln x$ | $\dfrac{1}{x}$ — disappears | $x\ln x - x$ — becomes more complex |
+| $x^n$ | $nx^{n-1}$ — degree decreases | $x^{n+1}$ — degree increases |
+| $\sin x,\,\cos x$ | cycle with each other | cycle with each other |
+| $e^x$ | $e^x$ — unchanged | $e^x$ — unchanged |
 
-따라서 **흐름의 왼쪽일수록 $u$로 쓰는 게 유리** — 미분할수록 단순해지고, 오른쪽에 남는 적분이 쉬워지기 때문.
+Therefore **functions further left in the rhythm are better choices for $u$** — differentiating simplifies them, making the remaining integral on the right easier.
 
-- $\ln x$는 적분하면 더 복잡해지므로 무조건 $u$
-- $e^x$는 미분/적분해도 그대로이므로 $v'$로 써도 손해 없음
+- $\ln x$ becomes more complex when integrated, so always assign it as $u$
+- $e^x$ is unchanged by differentiation or integration, so assigning it as $v'$ loses nothing
 
-> **핵심:** "미분이 잘 된다"는 결과적으로 맞긴 하지만, 진짜 기준은 **미분 후 남는 $\int u'v\,dx$ 가 더 쉬워지는가** 이다.
+> **Key point:** "differentiates nicely" is broadly correct, but the true criterion is **whether the remaining $\int u'v\,dx$ is simpler after differentiating $u$**.
 
 </details>
 
 - Don't apply the formula mechanically — follow the **rhythm**.
 
 <details>
-<summary>**TYPE 1 — 단번에 죽는 놈들** (one application)</summary>
+<summary>**TYPE 1 — solved in a single application** (one application)</summary>
 
 $$\int xe^x\,dx \qquad \int x\sec^2 x\,dx \qquad \int \ln x\,dx$$
 
-> **왜 TYPE 1?** $u$를 한 번만 미분하면 상수가 되어 남은 적분이 바로 풀린다.
+> **Why TYPE 1?** Differentiating $u$ once gives a constant, so the remaining integral is immediately solvable.
 
 **Ex:** $\displaystyle\int xe^x\,dx$
 
-| | 선택 | 이유 |
+| | Choice | Reason |
 |---|---|---|
-| $u = x$ | $u' = 1$ | Rhythm상 $x$가 $e^x$보다 왼쪽 → $u$ |
-| $v' = e^x$ | $v = e^x$ | $e^x$는 적분해도 그대로 |
+| $u = x$ | $u' = 1$ | In the Rhythm, $x$ is left of $e^x$ → use as $u$ |
+| $v' = e^x$ | $v = e^x$ | $e^x$ is unchanged by integration |
 
 $$\int xe^x\,dx = xe^x - \int e^x\,dx = xe^x - e^x + C = e^x(x-1) + C$$
 
-→ $u = x$를 미분하니 $u' = 1$ (상수)이 되어 **한 번에 종료**.
+→ Differentiating $u = x$ gives $u' = 1$ (a constant) → **done in one step**.
 
 ---
 
@@ -371,11 +371,11 @@ $$= x\ln x - \int x\cdot\frac{1}{x}\,dx = x\ln x - x + C = \boxed{x(\ln x - 1) +
 </details>
 
 <details>
-<summary>**TYPE 2 — 두 번 치야 죽는 놈들** (apply twice)</summary>
+<summary>**TYPE 2 — requires two applications** (apply twice)</summary>
 
 $$\int x^2 e^{-x}\,dx \qquad \int x^2\sin x\,dx \qquad \int (\ln x)^2\,dx$$
 
-> **왜 TYPE 2?** $u = x^2$처럼 차수가 2인 경우, 한 번 미분하면 $2x$가 남아 아직 안 죽는다. 한 번 더 쳐야 상수가 된다.
+> **Why TYPE 2?** When $u = x^2$ (degree 2), one differentiation leaves $2x$ — not yet a constant. A second application is needed to reach a constant.
 
 **Ex:** $\displaystyle\int x^2 e^{-x}\,dx$
 
@@ -389,7 +389,7 @@ $$\int xe^{-x}\,dx = -xe^{-x} + \int e^{-x}\,dx = -xe^{-x} - e^{-x} + C$$
 
 $$\therefore\quad \int x^2 e^{-x}\,dx = -x^2 e^{-x} + 2(-xe^{-x} - e^{-x}) + C = -e^{-x}(x^2+2x+2) + C$$
 
-→ $x^2 \xrightarrow{\text{1st}} 2x \xrightarrow{\text{2nd}} 2$ (상수) → **두 번째에 종료**.
+→ $x^2 \xrightarrow{\text{1st}} 2x \xrightarrow{\text{2nd}} 2$ (constant) → **done on the second application**.
 
 ---
 
@@ -412,11 +412,11 @@ $$= x(\ln x)^2 - 2\int \ln x\,dx = x(\ln x)^2 - 2x(\ln x-1) + C = \boxed{x(\ln x
 </details>
 
 <details>
-<summary>**TYPE 3 — 정공으로는 아무래도 안 죽는 놈들 — 돌려치기** (cyclic)</summary>
+<summary>**TYPE 3 — cyclic integrals — solve as an equation** (cyclic)</summary>
 
 $$\int e^x\cos x\,dx \qquad \int e^{3x}\sin x\,dx$$
 
-> **왜 TYPE 3?** $e^x$와 $\sin x / \cos x$는 아무리 미분/적분해도 서로 순환한다. Parts를 두 번 적용하면 원래 적분 $I$가 우변에 다시 나타남 → 방정식으로 풀기.
+> **Why TYPE 3?** No matter how many times $e^x$ and $\sin x / \cos x$ are differentiated or integrated, they cycle into each other. Applying parts twice brings the original integral $I$ back on the right-hand side → solve as an equation.
 
 **Ex:** $I = \displaystyle\int e^x\cos x\,dx$
 
@@ -432,7 +432,7 @@ $$I = e^x\cos x + e^x\sin x - I$$
 
 $$2I = e^x(\cos x + \sin x) \implies \boxed{I = \tfrac{1}{2}e^x(\cos x + \sin x) + C}$$
 
-→ 두 번 Parts를 써도 $I$가 다시 나옴 → **우변의 $-I$를 좌변으로 넘겨서** 방정식으로 해결.
+→ Two applications of parts bring $I$ back → **move the $-I$ on the right to the left** and solve as an equation.
 
 ---
 
@@ -453,11 +453,11 @@ $$\frac{10I}{9} = \frac{e^{3x}(3\sin x - \cos x)}{9} \implies \boxed{I = \frac{e
 </details>
 
 <details>
-<summary>**TYPE 3★ — 1회 Parts + 치환으로 마무리되는 놈들**</summary>
+<summary>**TYPE 3★ — one application of parts, then finished by substitution**</summary>
 
 $$\int \sin^{-1} x\,dx$$
 
-> **왜 TYPE 3★?** Parts 한 번 후 남은 적분이 $\displaystyle\int\frac{x}{\sqrt{1-x^2}}\,dx$ — 순환하지 않고, 치환으로 깔끔하게 끝난다. TYPE 3의 돌려치기와 달리 **한 번에 종료**.
+> **Why TYPE 3★?** After one application of parts, the remaining integral is $\displaystyle\int\frac{x}{\sqrt{1-x^2}}\,dx$ — it does not cycle; it is resolved cleanly by substitution. Unlike the cyclic TYPE 3, **this finishes in one round**.
 
 **Ex:** $\displaystyle\int \sin^{-1}x\,dx$
 
@@ -465,7 +465,7 @@ $u = \sin^{-1}x,\; u' = \dfrac{1}{\sqrt{1-x^2}},\quad v' = 1,\; v = x$
 
 $$= x\sin^{-1}x - \int \frac{x}{\sqrt{1-x^2}}\,dx$$
 
-**치환:** $t = 1-x^2,\; dt = -2x\,dx \;\Rightarrow\; x\,dx = -\tfrac{1}{2}dt$
+**Substitution:** $t = 1-x^2,\; dt = -2x\,dx \;\Rightarrow\; x\,dx = -\tfrac{1}{2}dt$
 
 $$\int \frac{x}{\sqrt{1-x^2}}\,dx = \int \frac{1}{\sqrt{t}}\cdot\left(-\tfrac{1}{2}\right)dt = -\sqrt{t} = -\sqrt{1-x^2}$$
 
@@ -484,7 +484,7 @@ $$= e - 2\!\left(e - \Bigl[e^x\Bigr]_0^1\right)$$
 
 $$= e - 2\bigl(e - (e - 1)\bigr) = e - 2$$
 
-> **모범 풀이 습관:** 숫자나 괄호는 $[\ ]$ 밖으로 | 한 칸 내려 지고 새로운 기본으로 | 박스를 한 칸씩 오른쪽으로 이동
+> **Good practice:** move constants and brackets outside $[\ ]$ | indent each new line as you go deeper | shift the square brackets one step to the right
 
 </details>
 

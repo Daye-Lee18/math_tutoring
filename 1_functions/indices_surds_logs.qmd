@@ -4,35 +4,35 @@ title: "Indices, Surds & Logs (P3)"
 
 # Indices, Surds & Logs
 
-::: {.callout-note title="왜 중요한가?"}
-Logs는 다음 챕터들의 **기반(base)**이 된다: Differentiation(10점), Integration(10점), Differential Equations(10점), Complex Numbers(10점) — 총 40점 관련
+::: {.callout-note title="Why does this matter?"}
+Logs form the **foundation** of the following chapters: Differentiation (10 marks), Integration (10 marks), Differential Equations (10 marks), Complex Numbers (10 marks) — a total of 40 marks
 :::
 
 ---
 
-## Part 1 — Indices (지수)
+## Part 1 — Indices
 
-### 지수 법칙 7가지
+### 7 Laws of Indices
 
-| # | 법칙 | 주의: 적용 불가 |
+| # | Law | Caution: does not apply |
 |---|---|---|
-| 1 | $a^m \times a^n = a^{m+n}$ | $a^m + a^n \neq$ 단순화 불가 |
-| 2 | $a^m \div a^n = a^{m-n}$ | $a^m - a^n \neq$ 단순화 불가 |
+| 1 | $a^m \times a^n = a^{m+n}$ | $a^m + a^n \neq$ cannot be simplified |
+| 2 | $a^m \div a^n = a^{m-n}$ | $a^m - a^n \neq$ cannot be simplified |
 | 3 | $\dfrac{a^m}{b^m} = \left(\dfrac{a}{b}\right)^m$ | $a^m + b^m \neq (a+b)^m$ |
 | 4 | $(a \times b)^m = a^m \times b^m$ | $(a+b)^2 \neq a^2 + b^2$ |
 | 5 | $a^{-m} = \dfrac{1}{a^m}$, $\left(\dfrac{a}{b}\right)^{-m} = \left(\dfrac{b}{a}\right)^m$ | |
-| 6 | $a^0 = 1$, $1^{\text{any}} = 1$ | $0^0$ → 논의 안 함 |
+| 6 | $a^0 = 1$, $1^{\text{any}} = 1$ | $0^0$ → not discussed |
 | 7 | $\sqrt{x} = x^{1/2}$, $\sqrt[3]{x} = x^{1/3}$ | |
 
-::: {.callout-tip title="분수 지수 패턴 암기"}
+::: {.callout-tip title="Memorise the fractional index pattern"}
 $$x^{3/2} = x^{1+1/2} = x \cdot x^{1/2} = x\sqrt{x}$$
 $$x^{5/2} = x^{2+1/2} = x^2 \cdot x^{1/2} = x^2\sqrt{x}$$
 :::
 
 <details>
-<summary>**지수 방정식 풀기**</summary>
+<summary>**Solving index equations**</summary>
 
-**(i)** $x^{a/b} = y$ 이면 $x = y^{b/a}$
+**(i)** If $x^{a/b} = y$ then $x = y^{b/a}$
 
 **(ii)** $x^{3/2} = 8$
 $$x = 8^{2/3} = (2^3)^{2/3} = 2^2 = 4$$
@@ -44,51 +44,51 @@ $$x = \pm\sqrt{16} = \pm 4$$
 
 ---
 
-## Part 2 — Surds (무리수)
+## Part 2 — Surds
 
-무리수 = 분수로 나타낼 수 없는 수 ($\sqrt{2}, \sqrt{3}, \ldots$)
+Surds = numbers that cannot be expressed as a fraction ($\sqrt{2}, \sqrt{3}, \ldots$)
 
-### 단순화 (Simplification)
+### Simplification
 
-**방법:** 제곱수로 인수분해
+**Method:** Factorise using perfect squares
 
 $$\sqrt{18} = \sqrt{9\times2} = \sqrt{9}\cdot\sqrt{2} = 3\sqrt{2}$$
 $$\sqrt{180} = \sqrt{36\times5} = 6\sqrt{5}$$
 $$\sqrt{27} = \sqrt{9\times3} = 3\sqrt{3}$$
 
-### 덧셈/뺄셈
+### Addition / Subtraction
 
 ::: {.callout-warning}
-**같은 종류의 surd끼리만** 더하거나 뺄 수 있다.
+You can only add or subtract **surds of the same type**.
 :::
 
 $$3\sqrt{2} + 5\sqrt{2} = 8\sqrt{2} \qquad 12\sqrt{3} - 4\sqrt{3} = 8\sqrt{3}$$
 
-다른 종류면 먼저 단순화:
+If they are different types, simplify first:
 $$3\sqrt{2} + 5\sqrt{8} = 3\sqrt{2} + 5(2\sqrt{2}) = 3\sqrt{2} + 10\sqrt{2} = 13\sqrt{2}$$
 
-### 곱셈
+### Multiplication
 
 $$3\sqrt{2} \times 5\sqrt{5} = 15\sqrt{10}$$
 $$3\sqrt{2} \times 4\sqrt{8} = 12\sqrt{16} = 12(4) = 48$$
 
-### 나눗셈 — Rationalization (유리화)
+### Division — Rationalization
 
-분모에 surd가 있으면 → 분모를 없애는 과정
+When there is a surd in the denominator → the process of removing it from the denominator
 
-**단순 분모:**
+**Simple denominator:**
 $$\frac{3}{\sqrt{2}} = \frac{3}{\sqrt{2}} \times \frac{\sqrt{2}}{\sqrt{2}} = \frac{3\sqrt{2}}{2}$$
 
-**이항 분모 — 켤레(conjugate) 이용:**
+**Binomial denominator — use the conjugate:**
 $$\frac{3}{5+\sqrt{3}} \times \frac{5-\sqrt{3}}{5-\sqrt{3}} = \frac{3(5-\sqrt{3})}{(5)^2-(\sqrt{3})^2} = \frac{15-3\sqrt{3}}{22}$$
 
-> 켤레: $a+\sqrt{b}$의 켤레는 $a-\sqrt{b}$
+> Conjugate: the conjugate of $a+\sqrt{b}$ is $a-\sqrt{b}$
 
 ---
 
-## Part 3 — Logarithms (로그)
+## Part 3 — Logarithms
 
-### 정의 — Index form ↔ Log form
+### Definition — Index form ↔ Log form
 
 $$\boxed{a^x = b \quad \Longleftrightarrow \quad x = \log_a b}$$
 
@@ -97,29 +97,29 @@ $$\boxed{a^x = b \quad \Longleftrightarrow \quad x = \log_a b}$$
 | $2^3 = 8$ | $\log_2 8 = 3$ |
 | $3^4 = 81$ | $\log_3 81 = 4$ |
 
-**역방향 (Reverse step):** $\log_3 x = 4 \Rightarrow x = 3^4 = 81$
+**Reverse step:** $\log_3 x = 4 \Rightarrow x = 3^4 = 81$
 
-### Log의 제한 조건
+### Restrictions on Logs
 
 $$\log_{\underbrace{a}_{\text{base}}} \underbrace{b}_{\text{argument}}$$
 
-- **Argument** $b$: 0이 될 수 없음, 음수가 될 수 없음
-- **Base** $a$: 0이 될 수 없음, 음수가 될 수 없음, **1이 될 수 없음**
+- **Argument** $b$: cannot be 0, cannot be negative
+- **Base** $a$: cannot be 0, cannot be negative, **cannot be 1**
 
-### 특수값
+### Special values
 
 $$\log_a 1 = 0 \qquad \log_a a = 1$$
 
-### Log 법칙 3가지
+### 3 Laws of Logs
 
-**1. Power Rule (지수 법칙)**
+**1. Power Rule**
 $$\log_a x^n = n\log_a x$$
 
 $$\log_3 x^3 = 3\log_3 x \qquad \log_2 8 = \log_2 2^3 = 3\log_2 2 = 3$$
 
-::: {.callout-warning title="주의 (CAUTION)"}
-- $\log_a 5x^3 \neq 3\log_a 5x$ ← 틀림 ($5x$ 전체가 세제곱이 아님)
-- $\log_a (5x)^3 = 3\log_a (5x)$ ← 맞음
+::: {.callout-warning title="CAUTION"}
+- $\log_a 5x^3 \neq 3\log_a 5x$ ← incorrect ($5x$ as a whole is not cubed)
+- $\log_a (5x)^3 = 3\log_a (5x)$ ← correct
 :::
 
 **2. Product / Quotient Rule**
@@ -127,15 +127,15 @@ $$\log_a x + \log_a y = \log_a (xy)$$
 $$\log_a x - \log_a y = \log_a \!\left(\frac{x}{y}\right)$$
 
 ::: {.callout-warning}
-계수(coefficient)가 1이어야 적용 가능. 예:
+The coefficient must be 1 for these rules to apply. Example:
 $$\log_a x - 3\log_a y = \log_a x - \log_a y^3 = \log_a\!\left(\frac{x}{y^3}\right)$$
 $$3\log_a 2 + 2\log_a 5 = \log_a 2^3 + \log_a 5^2 = \log_a 8 + \log_a 25 = \log_a 200$$
 :::
 
-**적용 불가 패턴:**
-- $\log_a(x+y)$, $\log_a(x-y)$ → 열 수 없음
-- $(\log_a x)(\log_a y)$ → 열 수 없음
-- $\dfrac{\log_a x}{\log_a y}$ → 같은 base의 log로 단순화 불가
+**Patterns that do NOT apply:**
+- $\log_a(x+y)$, $\log_a(x-y)$ → cannot be expanded
+- $(\log_a x)(\log_a y)$ → cannot be expanded
+- $\dfrac{\log_a x}{\log_a y}$ → cannot be simplified to a single log with the same base
 
 ### Bases: Common vs Natural
 

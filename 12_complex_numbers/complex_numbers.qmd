@@ -1,83 +1,83 @@
 # Complex Numbers (P3)
 
-**시험 배점: 8–10 marks** — 50% 쉬움, 50% 어려움
+**Exam weighting: 8–10 marks** — 50% straightforward, 50% challenging
 
 ---
 
-## 기본 정의
+## Basic Definitions
 
 $$\boxed{i = \sqrt{-1}, \qquad i^2 = -1}$$
 
-### 음수 제곱근 단순화
+### Simplifying Square Roots of Negative Numbers
 
 $$\sqrt{-36} = \sqrt{-1\times36} = \sqrt{-1}\cdot\sqrt{36} = i(6) = 6i$$
 $$\sqrt{-18} = \sqrt{-1\times9\times2} = i(3)(\sqrt{2}) = 3\sqrt{2}\,i$$
 
-### 복소수의 형태
+### Form of a Complex Number
 
 $$z = \underbrace{a}_{\text{real}} + \underbrace{b}_{\text{imaginary}}i$$
 
-예: $z = 3 + 4i$ → $\text{Re}(z) = 3$, $\text{Im}(z) = 4$
+Example: $z = 3 + 4i$ → $\text{Re}(z) = 3$, $\text{Im}(z) = 4$
 
 ::: {.callout-important}
-답은 반드시 $a + bi$ 형태로 써야 한다. $\dfrac{41-i}{29}$처럼 단일 분수로 쓰면 안 됨.
+The answer must always be written in the form $a + bi$. Do not leave it as a single fraction like $\dfrac{41-i}{29}$.
 :::
 
 ---
 
-## 사칙연산 ★★
+## Arithmetic Operations ★★
 
-$z = 3+7i$, $w = 2+5i$일 때:
+Given $z = 3+7i$, $w = 2+5i$:
 
-**덧셈:** $z+w = 5+12i$
+**Addition:** $z+w = 5+12i$
 
-**뺄셈:** $z-w = 1+2i$
+**Subtraction:** $z-w = 1+2i$
 
-**곱셈:** $z \times w = (3+7i)(2+5i) = 6+15i+14i+35i^2 = 6+29i+35(-1) = -29+29i$
+**Multiplication:** $z \times w = (3+7i)(2+5i) = 6+15i+14i+35i^2 = 6+29i+35(-1) = -29+29i$
 
-**나눗셈 — 켤레 이용:**
+**Division — using the conjugate:**
 
 $$\frac{z}{w} = \frac{3+7i}{2+5i} \times \frac{2-5i}{2-5i} = \frac{6-15i+14i-35i^2}{4-25i^2} = \frac{41-i}{29} = \frac{41}{29} - \frac{1}{29}i$$
 
-### Conjugate (켤레 복소수)
+### Conjugate
 
 $$z = a + bi \implies z^* = a - bi$$
 
-부호만 바꿈: $z = 1+2i-\sqrt{3}i \Rightarrow z^* = 1-2i+\sqrt{3}i$
+Only the sign of the imaginary part changes: $z = 1+2i-\sqrt{3}i \Rightarrow z^* = 1-2i+\sqrt{3}i$
 
 ---
 
-## 복소수의 제곱근 ★★★
+## Square Roots of Complex Numbers ★★★
 
-$\sqrt{3+4i} = a+bi$ (단 $a,b$는 실수)
+$\sqrt{3+4i} = a+bi$ (where $a,b$ are real)
 
-**Step 1.** 양변을 제곱:
+**Step 1.** Square both sides:
 
 $$3+4i = (a+bi)^2 = a^2 + 2abi + b^2i^2 = (a^2-b^2) + 2abi$$
 
-**Step 2.** 실수부/허수부 비교:
+**Step 2.** Compare real and imaginary parts:
 
 $$a^2 - b^2 = 3 \qquad 2ab = 4 \implies b = \frac{2}{a}$$
 
-**Step 3.** 대입하여 풀기:
+**Step 3.** Substitute and solve:
 
 $$a^2 - \frac{4}{a^2} = 3 \implies a^4 - 3a^2 - 4 = 0 \implies (a^2-4)(a^2+1) = 0$$
 
-$a^2 = 4 \implies a = \pm 2$ ($a^2 = -1$은 $a$가 실수이므로 기각)
+$a^2 = 4 \implies a = \pm 2$ ($a^2 = -1$ is rejected since $a$ is real)
 
 $$a=2: b=1 \implies 2+i \qquad a=-2: b=-1 \implies -2-i$$
 
-$$\boxed{\sqrt{3+4i} = 2+i \text{ 또는 } -2-i}$$
+$$\boxed{\sqrt{3+4i} = 2+i \text{ or } -2-i}$$
 
 ---
 
-## Argand Diagram (아르강 다이어그램)
+## Argand Diagram
 
-$z = a + bi$를 좌표 $(a, b)$로 나타낸다 — 수직축은 허수축(Im), 수평축은 실수축(Re)
+$z = a + bi$ is represented by the coordinate $(a, b)$ — the vertical axis is the imaginary axis (Im), and the horizontal axis is the real axis (Re).
 
 ```{python}
 #| label: fig-argand-basic
-#| fig-cap: "Argand diagram: z = 3 + 4i — 점의 위치, modulus 벡터, right triangle"
+#| fig-cap: "Argand diagram: z = 3 + 4i — point position, modulus vector, and right triangle"
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -135,115 +135,115 @@ plt.tight_layout()
 plt.show()
 ```
 
-### Modulus (크기) R = |z| ★★
+### Modulus R = |z| ★★
 
 $$\boxed{R = |z| = \sqrt{a^2 + b^2}}$$
 
-읽는 법: $|z|$ → **"mod z"**, $|z-3|$ → **"mod z minus 3"**
+How to read it: $|z|$ → **"mod z"**, $|z-3|$ → **"mod z minus 3"**
 
-::: {.callout-warning title="주의"}
-$i$는 공식에 포함되지 않는다. $R = \sqrt{(3)^2 + (4i)^2}$는 틀림.
+::: {.callout-warning title="Warning"}
+$i$ is not included in the formula. $R = \sqrt{(3)^2 + (4i)^2}$ is incorrect.
 
 $z = 3+4i$: $R = \sqrt{3^2+4^2} = \sqrt{25} = 5$
 :::
 
-#### 연산 법칙
+#### Operation Rules
 
-- $z_1 \times z_2$: 모듈러스는 곱셈 $R_1 \times R_2$
-- $z_1 \div z_2$: 모듈러스는 나눗셈 $\dfrac{R_1}{R_2}$
+- $z_1 \times z_2$: the moduli are multiplied, $R_1 \times R_2$
+- $z_1 \div z_2$: the moduli are divided, $\dfrac{R_1}{R_2}$
 
-**예:** $z_1 = 3+4i$ ($R_1=5$), $z_2 = 6+8i$ ($R_2=10$)
+**Example:** $z_1 = 3+4i$ ($R_1=5$), $z_2 = 6+8i$ ($R_2=10$)
 
 - $|z_1^2| = 5\times5 = 25$
 - $|z_1\times z_2^2| = 5\times10\times10 = 500$
 
 <details>
-<summary>**왜 그런가? — Modulus 곱셈 법칙 증명**</summary>
+<summary>**Why does this work? — Proof of the modulus multiplication rule**</summary>
 
-$z_1 = a+bi$, $z_2 = c+di$로 놓으면:
+Let $z_1 = a+bi$ and $z_2 = c+di$:
 
 $$z_1 z_2 = (ac-bd) + (ad+bc)i$$
 
 $$|z_1 z_2|^2 = (ac-bd)^2 + (ad+bc)^2$$
 
-전개하면:
+Expanding:
 
 $$= a^2c^2 \cancel{- 2abcd} + b^2d^2 + a^2d^2 + \cancel{2abcd} + b^2c^2$$
 
 $$= a^2c^2 + b^2d^2 + a^2d^2 + b^2c^2 = (a^2+b^2)(c^2+d^2) = |z_1|^2|z_2|^2$$
 
-따라서 $\boxed{|z_1 z_2| = |z_1||z_2|}$
+Therefore, $\boxed{|z_1 z_2| = |z_1||z_2|}$.
 
-**지수 형태로 보면 더 직관적:**
+This is even more intuitive in exponential form:
 
 $$z_1 = R_1 e^{i\theta_1}, \quad z_2 = R_2 e^{i\theta_2}$$
 
 $$z_1 z_2 = R_1 R_2\, e^{i(\theta_1+\theta_2)}$$
 
-크기(R)끼리 곱해지는 게 그냥 보임. $\square$
+It is clear that the moduli $R$ are multiplied. $\square$
 
 </details>
 
-### Argument (편각) θ = arg(z) ★★★
+### Argument θ = arg(z) ★★★
 
-사실 어떤 복소수의 argument는 무한히 많다 — 같은 방향에 $360°$씩 더하거나 빼도 같은 방향이기 때문이다:
+In fact, a complex number has infinitely many arguments, because adding or subtracting multiples of $360°$ gives the same direction:
 
 $$\arg(z) = \theta,\; \theta \pm 360°,\; \theta \pm 720°,\; \ldots$$
 
-그 중에서 딱 하나로 고정한 값을 **principal argument (주편각)** 라고 한다:
+The single standardized value chosen from these is called the **principal argument**:
 
-$$\boxed{-180° < \arg(z) \leq 180°} \qquad \text{또는} \quad -\pi < \arg(z) \leq \pi$$
+$$\boxed{-180° < \arg(z) \leq 180°} \qquad \text{or} \quad -\pi < \arg(z) \leq \pi$$
 
-::: {.callout-note title="왜 0°~360°가 아니라 −180°~180°인가?"}
-**켤레복소수 = 실수축(Re)에 대한 reflection**이라는 사실에서 자연스럽게 나온다.
+::: {.callout-note title="Why −180° to 180° instead of 0° to 360°?"}
+This naturally comes from the fact that **the conjugate is the reflection in the real axis (Re)**.
 
 $$z = a+bi \quad \xrightarrow{\text{reflection on Re-axis}} \quad z^* = a-bi$$
 
-실수축을 기준으로 위쪽과 아래쪽을 대칭적으로 나누면:
+If we split the plane symmetrically above and below the real axis:
 
-| 위치 | 범위 | 관계 |
+| Position | Range | Relationship |
 |---|---|---|
-| Re축 위쪽 (Im $> 0$) | $0° < \theta \leq 180°$ | $z$ |
-| Re축 아래쪽 (Im $< 0$) | $-180° < \theta < 0°$ | $z^*$ |
-| Re축 위 (Im $= 0$) | $\theta = 0°$ 또는 $180°$ | 실수 |
+| Above the Re axis (Im $> 0$) | $0° < \theta \leq 180°$ | $z$ |
+| Below the Re axis (Im $< 0$) | $-180° < \theta < 0°$ | $z^*$ |
+| On the Re axis (Im $= 0$) | $\theta = 0°$ or $180°$ | Real number |
 
-이 구조 덕분에 $\arg(z^*) = -\arg(z)$ 가 항상 성립한다 — **부호만 뒤집으면 켤레**.
+With this structure, $\arg(z^*) = -\arg(z)$ always holds — **changing only the sign gives the conjugate**.
 
-$0°$~$360°$를 쓰면 $\arg(z^*) = 360° - \arg(z)$가 되어 이 대칭성이 깨진다.
+If we use $0°$ to $360°$, then $\arg(z^*) = 360° - \arg(z)$, so this symmetry is lost.
 
-- $-180°$와 $+180°$는 **같은 방향** (음의 실수축)이므로 하나만 포함 → 관례상 $+180°$ 포함
+- $-180°$ and $+180°$ represent **the same direction** (the negative real axis), so only one is included → by convention, $+180°$ is included.
 :::
 
-::: {.callout-important title="삼각함수 CAST vs Argument — 무엇이 다른가?"}
-예각 α 계산은 동일하다. **Q3, Q4에서 범위가 달라진다.**
+::: {.callout-important title="Trigonometric CAST vs Argument — What is different?"}
+The acute angle $\alpha$ is calculated in the same way. **The range changes in Q3 and Q4.**
 
-| 사분면 | CAST (0° ~ 360°) | Argument (−180° < θ ≤ 180°) | 예 (α = 45°) |
+| Quadrant | CAST (0° ~ 360°) | Argument (−180° < θ ≤ 180°) | Example (α = 45°) |
 |---|---|---|---|
 | Q1 | α | α | 45° |
 | Q2 | 180° − α | 180° − α | 135° |
 | Q3 | **180° + α** | **α − 180°** | 225° vs **−135°** |
 | Q4 | **360° − α** | **−α** | 315° vs **−45°** |
 
-같은 방향을 가리키는 각도지만 argument는 반드시 −180° ~ 180° 안에 있어야 하므로 Q3/Q4에서 음수로 표현한다.
+These angles point in the same direction, but the argument must lie within −180° to 180°, so Q3/Q4 are written as negative angles.
 (225° − 360° = −135°, 315° − 360° = −45°)
 :::
 
-#### 2단계 방법
+#### Two-Step Method
 
-**Step 1.** $\alpha$ 구하기: $\alpha = \tan^{-1}\!\left(\dfrac{|b|}{|a|}\right)$ — 부호와 $i$는 무시, 절댓값 사용
+**Step 1.** Find $\alpha$: $\alpha = \tan^{-1}\!\left(\dfrac{|b|}{|a|}\right)$ — ignore signs and $i$; use absolute values.
 
-**Step 2.** 사분면 규칙 적용:
+**Step 2.** Apply the quadrant rule:
 
-| 사분면 | 규칙 |
+| Quadrant | Rule |
 |---|---|
-| 1사분면 (오른쪽 위) | $\text{Arg} = \alpha$ |
-| 2사분면 (왼쪽 위) | $\text{Arg} = 180° - \alpha$ |
-| 3사분면 (왼쪽 아래) | $\text{Arg} = \alpha - 180°$ |
-| 4사분면 (오른쪽 아래) | $\text{Arg} = -\alpha$ |
+| Q1 (upper right) | $\text{Arg} = \alpha$ |
+| Q2 (upper left) | $\text{Arg} = 180° - \alpha$ |
+| Q3 (lower left) | $\text{Arg} = \alpha - 180°$ |
+| Q4 (lower right) | $\text{Arg} = -\alpha$ |
 
 ```{python}
 #| label: fig-argument-quadrants
-#| fig-cap: "Argument — 4사분면 예제: 각 복소수와 편각"
+#| fig-cap: "Argument — four-quadrant examples: each complex number and its argument"
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -318,9 +318,9 @@ plt.show()
 ```
 
 <details>
-<summary>**예제** — 4가지 복소수의 argument 구하기</summary>
+<summary>**Example** — Finding the arguments of four complex numbers</summary>
 
-**(1)** $z = 3+4i$ → $(3,4)$, 1사분면
+**(1)** $z = 3+4i$ → $(3,4)$, Q1
 
 $\alpha = \tan^{-1}\!\left(\frac{4}{3}\right) = 53.13°$
 
@@ -328,7 +328,7 @@ $\text{Arg}(z) = \alpha = 53.13°$
 
 ---
 
-**(2)** $z = -\sqrt{3}+i$ → $(-\sqrt{3},1)$, 2사분면
+**(2)** $z = -\sqrt{3}+i$ → $(-\sqrt{3},1)$, Q2
 
 $\alpha = \tan^{-1}\!\left(\frac{1}{\sqrt{3}}\right) = 30°$
 
@@ -336,7 +336,7 @@ $\text{Arg}(z) = 180° - 30° = 150°$
 
 ---
 
-**(3)** $z = -2-2i$ → $(-2,-2)$, 3사분면
+**(3)** $z = -2-2i$ → $(-2,-2)$, Q3
 
 $\alpha = \tan^{-1}\!\left(\frac{2}{2}\right) = 45°$
 
@@ -344,7 +344,7 @@ $\text{Arg}(z) = 45° - 180° = -135°$
 
 ---
 
-**(4)** $z = \sqrt{3}-i$ → $(\sqrt{3},-1)$, 4사분면
+**(4)** $z = \sqrt{3}-i$ → $(\sqrt{3},-1)$, Q4
 
 $\alpha = \tan^{-1}\!\left(\frac{1}{\sqrt{3}}\right) = 30°$
 
@@ -352,58 +352,58 @@ $\text{Arg}(z) = -30°$
 
 </details>
 
-#### 연산 법칙
+#### Operation Rules
 
-- $z_1 \times z_2$: argument는 **덧셈** $\theta_1 + \theta_2$
-- $z_1 \div z_2$: argument는 **뺄셈** $\theta_1 - \theta_2$
+- $z_1 \times z_2$: arguments are **added**, $\theta_1 + \theta_2$
+- $z_1 \div z_2$: arguments are **subtracted**, $\theta_1 - \theta_2$
 
 <details open>
 <summary>**Why does this work? — Argument addition/subtraction rule**</summary>
 
-지수 형태로 쓰면 바로 보인다:
+This is clear in exponential form:
 
 $$z_1 = R_1 e^{i\theta_1}, \quad z_2 = R_2 e^{i\theta_2}$$
 
-**곱셈 (addition):**
+**Multiplication (addition):**
 
 $$z_1 z_2 = R_1 R_2\, e^{i(\theta_1+\theta_2)}$$
 
-지수의 $i$ 앞 숫자가 그대로 argument이므로 $\arg(z_1 z_2) = \theta_1 + \theta_2$. $\square$
+The coefficient of $i$ in the exponent is the argument, so $\arg(z_1 z_2) = \theta_1 + \theta_2$. $\square$
 
-**나눗셈 (subtraction):**
+**Division (subtraction):**
 
 $$\frac{z_1}{z_2} = \frac{R_1 e^{i\theta_1}}{R_2 e^{i\theta_2}} = \frac{R_1}{R_2}\, e^{i(\theta_1 - \theta_2)} \implies \arg\!\left(\frac{z_1}{z_2}\right) = \theta_1 - \theta_2 \qquad \square$$
 
-**직관적으로:** 복소수를 곱하면 Argand diagram에서 **회전이 합쳐지고**, 나누면 **회전이 빠진다** — 지수법칙 $e^{a} \cdot e^{b} = e^{a+b}$, $\dfrac{e^a}{e^b} = e^{a-b}$와 완전히 같은 원리.
+**Intuitively:** multiplying complex numbers **combines rotations** on the Argand diagram, while dividing **removes a rotation**. This is exactly the same principle as the exponent laws $e^{a} \cdot e^{b} = e^{a+b}$ and $\dfrac{e^a}{e^b} = e^{a-b}$.
 
 </details>
 
 ---
 
-## 복소수의 3가지 표현 형태 ★★
+## Three Forms of a Complex Number ★★
 
-| 형태 | 표현 | 용도 |
+| Form | Expression | Use |
 |---|---|---|
-| **Rectangular (직교)** = Cartesian | $z = a + bi$ | Argand diagram 좌표 $(a,b)$ |
-| **Polar (극)** | $z = R(\cos\theta + i\sin\theta)$ | 지수형에서 직교형으로 변환 |
-| **Exponential (지수)** = Euler form | $z = Re^{i\theta}$ ($\theta$는 라디안) | 거듭제곱 계산 |
+| **Rectangular** = Cartesian | $z = a + bi$ | Coordinates $(a,b)$ on the Argand diagram |
+| **Polar** | $z = R(\cos\theta + i\sin\theta)$ | Converting from exponential form to rectangular form |
+| **Exponential** = Euler form | $z = Re^{i\theta}$ ($\theta$ in radians) | Calculating powers |
 
-[변환 순서: $a+bi \leftrightarrow R(\cos\theta+i\sin\theta) \leftrightarrow Re^{i\theta}$]{style="background-color:#FEF08A; padding:4px 6px; border-radius:4px;"}
+[Conversion order: $a+bi \leftrightarrow R(\cos\theta+i\sin\theta) \leftrightarrow Re^{i\theta}$]{style="background-color:#FEF08A; padding:4px 6px; border-radius:4px;"}
 
-### 변환 규칙 요약
+### Summary of Conversion Rules
 
-**직교 → 극/지수** (R과 θ 구하기):
+**Rectangular → polar/exponential** (find R and θ):
 
-$$R = \sqrt{a^2+b^2}, \qquad \theta = \arg(z) \text{ (사분면 규칙 적용, 라디안으로)}$$
+$$R = \sqrt{a^2+b^2}, \qquad \theta = \arg(z) \text{ (apply the quadrant rule, in radians)}$$
 
-**극/지수 → 직교** (a와 b 구하기):
+**Polar/exponential → rectangular** (find a and b):
 
 $$a = R\cos\theta, \qquad b = R\sin\theta$$
 
 ---
 
 <details>
-<summary>**변환 예제 1** — 직교 → 극 → 지수: $z = -1+\sqrt{3}\,i$</summary>
+<summary>**Conversion Example 1** — Rectangular → polar → exponential: $z = -1+\sqrt{3}\,i$</summary>
 
 **Step 1.** Modulus:
 
@@ -415,26 +415,26 @@ $$\alpha = \tan^{-1}\!\left(\frac{\sqrt{3}}{1}\right) = 60° = \frac{\pi}{3}$$
 
 $$\theta = 180° - 60° = 120° = \frac{2\pi}{3}$$
 
-**Step 3.** 세 가지 형태:
+**Step 3.** Three forms:
 
-$$\text{직교: } z = -1+\sqrt{3}\,i$$
+$$\text{Rectangular: } z = -1+\sqrt{3}\,i$$
 
-$$\text{극: } z = 2\!\left(\cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3}\right)$$
+$$\text{Polar: } z = 2\!\left(\cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3}\right)$$
 
-$$\text{지수: } \boxed{z = 2e^{i \cdot 2\pi/3}}$$
+$$\text{Exponential: } \boxed{z = 2e^{i \cdot 2\pi/3}}$$
 
 </details>
 
 <details>
-<summary>**변환 예제 2** — 지수 → 극 → 직교: $z = 4e^{i\pi/3}$</summary>
+<summary>**Conversion Example 2** — Exponential → polar → rectangular: $z = 4e^{i\pi/3}$</summary>
 
 $R = 4$, $\theta = \dfrac{\pi}{3} = 60°$ (Q1)
 
-**극 형태:**
+**Polar form:**
 
 $$z = 4\!\left(\cos\frac{\pi}{3} + i\sin\frac{\pi}{3}\right)$$
 
-**직교 형태:** $\cos 60° = \dfrac{1}{2}$, $\sin 60° = \dfrac{\sqrt{3}}{2}$
+**Rectangular form:** $\cos 60° = \dfrac{1}{2}$, $\sin 60° = \dfrac{\sqrt{3}}{2}$
 
 $$a = 4 \cdot \frac{1}{2} = 2, \qquad b = 4 \cdot \frac{\sqrt{3}}{2} = 2\sqrt{3}$$
 
@@ -443,7 +443,7 @@ $$\boxed{z = 2 + 2\sqrt{3}\,i}$$
 </details>
 
 <details>
-<summary>**변환 예제 3** — 극 → 직교: $z = 3\!\left(\cos\dfrac{5\pi}{6} + i\sin\dfrac{5\pi}{6}\right)$</summary>
+<summary>**Conversion Example 3** — Polar → rectangular: $z = 3\!\left(\cos\dfrac{5\pi}{6} + i\sin\dfrac{5\pi}{6}\right)$</summary>
 
 $R = 3$, $\theta = \dfrac{5\pi}{6} = 150°$ (Q2)
 
@@ -458,17 +458,17 @@ $$\boxed{z = -\frac{3\sqrt{3}}{2} + \frac{3}{2}i}$$
 ---
 
 <details>
-<summary>**예제** — $z = \sqrt{3}+i$, $z^6$이 실수임을 보이기</summary>
+<summary>**Example** — For $z = \sqrt{3}+i$, show that $z^6$ is real</summary>
 
 **(i)** Modulus and argument:
 
 $$R = \sqrt{(\sqrt{3})^2+1^2} = \sqrt{4} = 2$$
 
-$$\alpha = \tan^{-1}\!\left(\frac{1}{\sqrt{3}}\right) = 30° = \frac{\pi}{6} \text{ (1사분면)}$$
+$$\alpha = \tan^{-1}\!\left(\frac{1}{\sqrt{3}}\right) = 30° = \frac{\pi}{6} \text{ (Q1)}$$
 
 $$\text{Arg}(z) = \frac{\pi}{6}$$
 
-**(ii)** 지수 형태로 변환:
+**(ii)** Convert to exponential form:
 
 $$z = 2e^{i(\pi/6)}$$
 
@@ -476,68 +476,68 @@ $$z^6 = \left(2e^{i\pi/6}\right)^6 = 2^6\left[e^{i\pi/6}\right]^6 = 64\,e^{i\pi}
 
 $$z^6 = 64(\cos\pi + i\sin\pi) = 64(-1 + i\cdot0) = -64$$
 
-$z^6 = -64$ — 허수부가 0이므로 실수. $\square$
+$z^6 = -64$ — the imaginary part is 0, so it is real. $\square$
 
 </details>
 
 ---
 
-## Locus (자취/궤적) ★★★
+## Locus ★★★
 
-**Locus = 조건을 만족하는 모든 점 $z$의 집합.** 조건식을 보고 Argand diagram에서 어떤 도형이 그려지는지 파악하는 게 핵심이다.
+**A locus is the set of all points $z$ that satisfy a given condition.** The key is to identify what shape the condition represents on the Argand diagram.
 
 ::: {.callout-note}
-스케치가 아닌 **정확한 scale drawing** 필요
+You need an **accurate scale drawing**, not just a rough sketch.
 :::
 
-### 식 읽는 법
+### How to Read Expressions
 
-$|z - (a+bi)|$는 "$z$와 점 $(a,b)$ 사이의 거리"다. 부호에 주의:
+$|z - (a+bi)|$ means "the distance between $z$ and the point $(a,b)$." Pay attention to signs:
 
-| 식 | 같은 표현 | 의미 |
+| Expression | Equivalent form | Meaning |
 |---|---|---|
-| $|z-3+2i|$ | $|z-(3-2i)|$ | $(3,-2)$로부터의 거리 |
-| $|z+2+3i|$ | $|z-(-2-3i)|$ | $(-2,-3)$으로부터의 거리 |
-| $|z-4|$ | $|z-(4+0i)|$ | $(4,0)$으로부터의 거리 |
-| $|z+2i|$ | $|z-(0-2i)|$ | $(0,-2)$으로부터의 거리 |
-| $|z|$ | $|z-0|$ | 원점으로부터의 거리 |
+| $|z-3+2i|$ | $|z-(3-2i)|$ | Distance from $(3,-2)$ |
+| $|z+2+3i|$ | $|z-(-2-3i)|$ | Distance from $(-2,-3)$ |
+| $|z-4|$ | $|z-(4+0i)|$ | Distance from $(4,0)$ |
+| $|z+2i|$ | $|z-(0-2i)|$ | Distance from $(0,-2)$ |
+| $|z|$ | $|z-0|$ | Distance from the origin |
 
-### 자취의 종류 — 패턴 3가지
+### Types of Loci — Three Patterns
 
-| 조건식 | 도형 |
+| Condition | Shape |
 |---|---|
-| $|z - c| = r$ | 중심 $c$, 반지름 $r$인 **원** (circle) |
-| $|z - z_1| = |z - z_2|$ | $z_1$과 $z_2$의 **수직이등분선** (perpendicular bisector) |
-| $\arg(z - c) = \theta$ | 점 $c$에서 각도 $\theta$ 방향 **반직선** (half-line) |
+| $|z - c| = r$ | **Circle** with centre $c$ and radius $r$ |
+| $|z - z_1| = |z - z_2|$ | **Perpendicular bisector** of $z_1$ and $z_2$ |
+| $\arg(z - c) = \theta$ | **Half-line** from point $c$ in direction $\theta$ |
 
 ---
 
-**(a) $|z - c| = r$ — 원**
+**(a) $|z - c| = r$ — Circle**
 
-::: {.callout-tip title="풀이 스텝"}
-**Step 1.** $c$ (중심) 읽기 — $|z - c|$에서 $c$ 자리의 복소수. 부호 주의: $|z - (1+2i)|$이면 중심은 $(1, 2)$.
+::: {.callout-tip title="Solution Steps"}
+**Step 1.** Read $c$ (the centre) — the complex number in the $c$ position in $|z - c|$. Watch the signs: if $|z - (1+2i)|$, the centre is $(1, 2)$.
 
-**Step 2.** $r$ (반지름) 읽기 — 우변의 숫자.
+**Step 2.** Read $r$ (the radius) — the number on the right-hand side.
 
-**Step 3.** Cartesian 방정식으로 변환: $(x-a)^2 + (y-b)^2 = r^2$
+**Step 3.** Convert to a Cartesian equation: $(x-a)^2 + (y-b)^2 = r^2$.
 
-**Step 4.** Argand diagram에 중심 표시 후 원 그리기.
+**Step 4.** Mark the centre on the Argand diagram, then draw the circle.
 :::
 
 <details open>
-<summary>**예제** — $|z-(1+2i)| = 3$의 locus를 구하고 Argand diagram에 나타내라.</summary>
+<summary>**Example** — Find the locus of $|z-(1+2i)| = 3$ and show it on an Argand diagram.</summary>
 
-**Step 1.** 중심 읽기: $|z - (1+2i)| \Rightarrow c = 1+2i$ → 중심 $(1,\,2)$
+**Step 1.** Read the centre: $|z - (1+2i)| \Rightarrow c = 1+2i$ → centre $(1,\,2)$
 
-**Step 2.** 반지름: $r = 3$
+**Step 2.** Radius: $r = 3$
 
-**Step 3.** Cartesian 방정식: $(x-1)^2 + (y-2)^2 = 9$
+**Step 3.** Cartesian equation: $(x-1)^2 + (y-2)^2 = 9$
 
-**Step 4.** → **중심 $(1,2)$, 반지름 $3$인 원**
+**Step 4.** → **A circle with centre $(1,2)$ and radius $3$**
 
 ```{python}
 #| label: fig-locus-circle
-#| fig-cap: "|z−(1+2i)| = 3 — 중심 (1,2), 반지름 3인 원"
+#| fig-cap: "|z−(1+2i)| = 3 — circle with centre (1,2) and radius 3"
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -576,41 +576,41 @@ plt.tight_layout(); plt.show()
 
 ---
 
-**(b) $|z - z_1| = |z - z_2|$ — 수직이등분선**
+**(b) $|z - z_1| = |z - z_2|$ — Perpendicular Bisector**
 
-::: {.callout-tip title="풀이 스텝"}
-**Step 1.** $z_1$, $z_2$ 좌표로 읽기.
+::: {.callout-tip title="Solution Steps"}
+**Step 1.** Read $z_1$ and $z_2$ as coordinates.
 
-**Step 2.** 중점 계산: $M = \left(\dfrac{x_1+x_2}{2},\, \dfrac{y_1+y_2}{2}\right)$
+**Step 2.** Find the midpoint: $M = \left(\dfrac{x_1+x_2}{2},\, \dfrac{y_1+y_2}{2}\right)$.
 
-**Step 3.** $z_1 z_2$의 기울기 계산 → 수직이등분선 기울기 = 음의 역수.
+**Step 3.** Find the gradient of the line through $z_1$ and $z_2$ → the perpendicular bisector has the negative reciprocal gradient.
 
-**Step 4.** 중점을 지나고 Step 3의 기울기를 갖는 직선 방정식 작성.
+**Step 4.** Write the equation of the line through the midpoint with the gradient from Step 3.
 
-> **대안 — 대수적 방법:** $z = x+yi$로 놓고 $|z-z_1|^2 = |z-z_2|^2$ 전개.
+> **Alternative — algebraic method:** Let $z = x+yi$ and expand $|z-z_1|^2 = |z-z_2|^2$.
 :::
 
 <details open>
-<summary>**예제** — $|z - 3| = |z - i|$의 locus를 구하고 방정식을 써라.</summary>
+<summary>**Example** — Find the locus of $|z - 3| = |z - i|$ and write its equation.</summary>
 
-**Step 1.** 두 점 읽기: $z_1 = 3 \to (3,\,0)$, $\quad z_2 = i \to (0,\,1)$
+**Step 1.** Read the two points: $z_1 = 3 \to (3,\,0)$, $\quad z_2 = i \to (0,\,1)$
 
-**Step 2.** 중점:
+**Step 2.** Midpoint:
 
 $$M = \left(\frac{3+0}{2},\,\frac{0+1}{2}\right) = \left(\frac{3}{2},\,\frac{1}{2}\right)$$
 
-**Step 3.** $z_1 z_2$의 기울기: $\dfrac{1-0}{0-3} = -\dfrac{1}{3}$ → 수직이등분선 기울기: $3$
+**Step 3.** Gradient of the line through $z_1$ and $z_2$: $\dfrac{1-0}{0-3} = -\dfrac{1}{3}$ → perpendicular bisector gradient: $3$
 
-**Step 4.** 방정식:
+**Step 4.** Equation:
 
-> **왜 $x, y$로 쓰나?** locus는 점들의 집합이고, 점은 Argand diagram에서 좌표 $(x, y)$로 표현되기 때문. $z$는 "조건을 만족하는 복소수"이고, 그 점들이 그리는 도형의 방정식은 $x, y$로 쓰는 게 표준이야. ($z = x + yi$로 놓는 순간 복소수 세계 → 좌표 세계로 전환되는 것.)
+> **Why write it in terms of $x$ and $y$?** A locus is a set of points, and points are represented by coordinates $(x,y)$ on the Argand diagram. $z$ is the complex number satisfying the condition, and the equation of the shape traced by those points is normally written in $x$ and $y$. Once we let $z = x + yi$, we are moving from the complex-number setting to the coordinate-geometry setting.
 
 $$y - \frac{1}{2} = 3\!\left(x - \frac{3}{2}\right) \implies \boxed{y = 3x - 4}$$
 
 <details>
-<summary>대수적 방법으로도 확인</summary>
+<summary>Check using the algebraic method</summary>
 
-$z = x+yi$로 놓으면:
+Let $z = x+yi$:
 
 $$|z-3|^2 = |z-i|^2$$
 
@@ -624,7 +624,7 @@ $$-6x + 9 = -2y + 1 \implies \boxed{y = 3x-4}$$
 
 ```{python}
 #| label: fig-locus-perp
-#| fig-cap: "|z−3| = |z−i| — 수직이등분선 y = 3x − 4"
+#| fig-cap: "|z−3| = |z−i| — perpendicular bisector y = 3x − 4"
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -670,36 +670,36 @@ plt.tight_layout(); plt.show()
 
 ---
 
-**(c) $|z - z_1| < |z - z_2|$ — 수직이등분선의 한쪽 (region)**
+**(c) $|z - z_1| < |z - z_2|$ — One Side of the Perpendicular Bisector (Region)**
 
-::: {.callout-tip title="풀이 스텝"}
-**Step 1.** (b)와 동일하게 수직이등분선 방정식 구하기 (경계선).
+::: {.callout-tip title="Solution Steps"}
+**Step 1.** As in (b), find the equation of the perpendicular bisector (the boundary line).
 
-**Step 2.** 부등호 해석: $|z-z_1| < |z-z_2|$ → "$z$가 $z_1$에 더 가깝다" → **$z_1$ 쪽**을 shade.
+**Step 2.** Interpret the inequality: $|z-z_1| < |z-z_2|$ → "$z$ is closer to $z_1$" → shade the **$z_1$ side**.
 
-**Step 3.** 테스트 점(보통 원점) 대입해서 shade 방향 확인.
+**Step 3.** Substitute a test point (usually the origin) to confirm which side to shade.
 
-**Step 4.** 경계선을 점선(dashed)으로 그리고 해당 영역을 shade — strict inequality($<$)이므로 경계선 자체는 포함 안 됨.
+**Step 4.** Draw the boundary as a dashed line and shade the required region — since the inequality is strict ($<$), the boundary line itself is not included.
 :::
 
 <details open>
-<summary>**예제** — $|z - 3| < |z - i|$를 만족하는 영역을 나타내라.</summary>
+<summary>**Example** — Show the region satisfying $|z - 3| < |z - i|$.</summary>
 
-**Step 1.** 수직이등분선: (b)에서 구한 $y = 3x - 4$ (점선으로 표시)
+**Step 1.** Perpendicular bisector: $y = 3x - 4$ from (b), shown as a dashed line.
 
-**Step 2.** 부등호 해석: $|z-3| < |z-i|$ → $z$가 $z_1 = (3,0)$에 더 가깝다 → **$z_1$ 쪽** shade
+**Step 2.** Interpret the inequality: $|z-3| < |z-i|$ → $z$ is closer to $z_1 = (3,0)$ → shade the **$z_1$ side**.
 
-**Step 3.** 테스트 점 원점 $(0,0)$ 대입:
+**Step 3.** Substitute the test point, the origin $(0,0)$:
 
-$$|0-3| = 3, \quad |0-i| = 1 \implies 3 < 1 \text{ 거짓}$$
+$$|0-3| = 3, \quad |0-i| = 1 \implies 3 < 1 \text{ false}$$
 
-→ 원점은 포함 안 됨 → 원점 반대쪽(오른쪽 아래)이 정답 영역. ✓
+→ the origin is not included → the required region is the side opposite the origin (lower right).
 
-**Step 4.** $z_1 = (3,0)$ 쪽(경계선 오른쪽 아래)을 shade, 경계선은 점선.
+**Step 4.** Shade the $z_1 = (3,0)$ side (lower right of the boundary line), with the boundary dashed.
 
 ```{python}
 #| label: fig-locus-region
-#| fig-cap: "|z−3| < |z−i| — 수직이등분선 오른쪽 아래 영역 (z1 쪽)"
+#| fig-cap: "|z−3| < |z−i| — lower-right region of the perpendicular bisector (z1 side)"
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -745,51 +745,51 @@ plt.tight_layout(); plt.show()
 
 ---
 
-**(d) $\arg(z - c) = \theta$ — 반직선 (half-line)**
+**(d) $\arg(z - c) = \theta$ — Half-line**
 
-::: {.callout-note title="반직선이란?"}
-**반직선(half-line / ray)** = 특정 점에서 시작해서 한 방향으로 무한히 뻗어나가는 직선의 절반.
+::: {.callout-note title="What is a half-line?"}
+A **half-line / ray** is half of a line: it starts at a specific point and extends infinitely in one direction.
 
-$\arg(z - c) = \theta$에서:
+In $\arg(z - c) = \theta$:
 
-- $z - c$는 점 $c$에서 $z$까지의 벡터 ← **왜 벡터?** 점 − 점 = 벡터. $z - c$는 $c$에서 $z$까지의 방향과 거리를 담고 있기 때문. 좌표 기하에서 $\overrightarrow{AB} = B - A$인 것과 같은 원리.
-- 그 벡터의 편각이 $\theta$로 고정 → $c$에서 출발해 각도 $\theta$ 방향으로 뻗는 선
+- $z - c$ is the vector from point $c$ to point $z$. **Why a vector?** Point minus point gives a vector. $z - c$ contains the direction and distance from $c$ to $z$, just like $\overrightarrow{AB} = B - A$ in coordinate geometry.
+- The argument of that vector is fixed at $\theta$ → the line starts at $c$ and extends in direction $\theta$.
 
-**왜 직선이 아니라 반직선인가?** $\arg$는 한 방향만 정의하기 때문. 반대 방향 $(\theta + \pi)$은 다른 편각이므로 포함되지 않는다.
+**Why a half-line, not a full line?** $\arg$ defines only one direction. The opposite direction $(\theta + \pi)$ has a different argument, so it is not included.
 
-**왜 시작점이 포함 안 되는가?** $z = c$이면 $z - c = 0$이고, $\arg(0)$은 정의되지 않는다 → 시작점 $c$는 **열린 원(open circle)**으로 표시.
+**Why is the starting point not included?** If $z = c$, then $z - c = 0$, and $\arg(0)$ is undefined → the starting point $c$ is shown with an **open circle**.
 
-$\arg(0)$이 정의되지 않는 이유는 arctan 계산의 문제가 아니라, **$z = 0$은 크기가 0인 점이라 방향(direction) 자체가 없기 때문**이다. 길이가 0인 벡터 $\vec{0}$가 어느 방향을 가리킨다고 말할 수 없는 것과 같다.
+The reason $\arg(0)$ is undefined is not a problem with arctan; it is because **$z = 0$ has magnitude 0 and therefore has no direction**. It is like the zero vector $\vec{0}$: it does not point in any direction.
 :::
 
-::: {.callout-tip title="풀이 스텝"}
-**Step 1.** $c$ (시작점) 읽기 — $\arg(z - c)$에서 $c$ 자리. 부호 주의: $\arg(z - 2 - i) = \arg(z - (2+i))$이면 시작점 $(2, 1)$.
+::: {.callout-tip title="Solution Steps"}
+**Step 1.** Read $c$ (the starting point) — the $c$ position in $\arg(z - c)$. Watch the signs: if $\arg(z - 2 - i) = \arg(z - (2+i))$, the starting point is $(2, 1)$.
 
-**Step 2.** $\theta$ (각도) 읽기 — 라디안이면 도(°)로 변환해도 OK.
+**Step 2.** Read $\theta$ (the angle) — if it is in radians, converting to degrees is fine.
 
-**Step 3.** Argand diagram에 시작점을 **열린 원(open circle)**으로 표시 — $z = c$이면 $\arg(0)$ 미정의이므로 제외.
+**Step 3.** Mark the starting point with an **open circle** on the Argand diagram — if $z = c$, then $\arg(0)$ is undefined, so the point is excluded.
 
-**Step 4.** 시작점에서 양의 실수 방향 기준으로 각도 $\theta$만큼 반시계 회전한 방향으로 반직선 그리기.
+**Step 4.** From the starting point, draw a half-line in the direction obtained by rotating anticlockwise by angle $\theta$ from the positive real direction.
 :::
 
 <details open>
-<summary>**예제** — $\arg(z - 2 - i) = \dfrac{\pi}{3}$의 locus를 나타내라.</summary>
+<summary>**Example** — Show the locus of $\arg(z - 2 - i) = \dfrac{\pi}{3}$.</summary>
 
-**Step 1.** 시작점 읽기: $\arg(z - (2+i))$ → $c = 2+i$ → 시작점 $(2,\,1)$
+**Step 1.** Read the starting point: $\arg(z - (2+i))$ → $c = 2+i$ → starting point $(2,\,1)$
 
-**Step 2.** 각도: $\theta = \dfrac{\pi}{3} = 60°$
+**Step 2.** Angle: $\theta = \dfrac{\pi}{3} = 60°$
 
-**Step 3.** 시작점 $(2,1)$을 **열린 원**으로 표시 ($z=2+i$이면 $\arg(0)$ 미정의 → 제외)
+**Step 3.** Mark the starting point $(2,1)$ with an **open circle** ($z=2+i$ gives $\arg(0)$ undefined → excluded).
 
-**Step 4.** $(2,1)$에서 $60°$ 방향으로 뻗는 반직선 그리기
+**Step 4.** Draw the half-line extending from $(2,1)$ in the $60°$ direction.
 
-::: {.callout-warning title="주의"}
-시작점은 항상 **열린 원(open circle)**으로 표시한다.
+::: {.callout-warning title="Warning"}
+Always mark the starting point with an **open circle**.
 :::
 
 ```{python}
 #| label: fig-halfline-example
-#| fig-cap: "Half-line: arg(z − 2 − i) = π/3 — 시작점 (2,1), 각도 60°"
+#| fig-cap: "Half-line: arg(z − 2 − i) = π/3 — starting point (2,1), angle 60°"
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -846,7 +846,7 @@ plt.show()
 
 ```{python}
 #| label: fig-locus
-#| fig-cap: "Locus 3가지 타입 — 원, 수직이등분선, 반직선"
+#| fig-cap: "Three types of loci — circle, perpendicular bisector, half-line"
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -1022,7 +1022,7 @@ $$\therefore \tan^{-1}\!\!\left(\frac{4}{3}\right) = 2\tan^{-1}\!\!\left(\frac{1
 
 ---
 
-## 연습문제
+## Practice Questions
 
 ---
 
@@ -1035,7 +1035,7 @@ $$\therefore \tan^{-1}\!\!\left(\frac{4}{3}\right) = 2\tan^{-1}\!\!\left(\frac{1
 &emsp;*(c)* &ensp; write down the conjugate $z^*$. &emsp; **(1)**
 
 <details>
-<summary>풀이</summary>
+<summary>Solution</summary>
 
 $z = 4-3i$, $w = 1+2i$
 
@@ -1060,7 +1060,7 @@ $$\frac{z}{w} = \frac{4-3i}{1+2i}\times\frac{1-2i}{1-2i} = \frac{4-8i-3i+6i^2}{1
 **Q2** &nbsp; Find the square roots of $5+12i$, giving your answers in the form $a+bi$ where $a$ and $b$ are real. **(5)**
 
 <details>
-<summary>풀이</summary>
+<summary>Solution</summary>
 
 Let $\sqrt{5+12i} = a+bi$. Square both sides: &emsp; **M1**
 
@@ -1085,17 +1085,17 @@ $$\boxed{\sqrt{5+12i} = 3+2i \quad \text{or} \quad -3-2i} \quad \textbf{A1}$$
 &emsp;*(b)* &ensp; Hence find $\left|\dfrac{z_1}{z_2}\right|$ and $\arg\!\left(\dfrac{z_1}{z_2}\right)$. &emsp; **(2)**
 
 <details>
-<summary>풀이</summary>
+<summary>Solution</summary>
 
 **(a)**
 
-$z_1 = -1+\sqrt{3}\,i$ — 2사분면:
+$z_1 = -1+\sqrt{3}\,i$ — second quadrant:
 
 $$|z_1| = \sqrt{1+3} = \boxed{2} \quad \textbf{B1}$$
 
 $$\alpha = \tan^{-1}\!\!\left(\frac{\sqrt{3}}{1}\right) = \frac{\pi}{3} \implies \arg(z_1) = \pi - \frac{\pi}{3} = \boxed{\frac{2\pi}{3}} \quad \textbf{M1 A1}$$
 
-$z_2 = \sqrt{3}-i$ — 4사분면:
+$z_2 = \sqrt{3}-i$ — fourth quadrant:
 
 $$|z_2| = \sqrt{3+1} = \boxed{2} \quad \textbf{B1}$$
 
@@ -1118,13 +1118,13 @@ $$\arg\!\left(\frac{z_1}{z_2}\right) = \frac{2\pi}{3} - \left(-\frac{\pi}{6}\rig
 &emsp;*(b)* &ensp; Hence find $z^8$ and show that $z^8$ is a positive real number. &emsp; **(4)**
 
 <details>
-<summary>풀이</summary>
+<summary>Solution</summary>
 
 **(a)**
 
 $$R = \sqrt{1^2+1^2} = \sqrt{2} \quad \textbf{B1}$$
 
-1사분면: $\theta = \tan^{-1}(1) = \dfrac{\pi}{4}$ &emsp; **M1**
+First quadrant: $\theta = \tan^{-1}(1) = \dfrac{\pi}{4}$ &emsp; **M1**
 
 $$\boxed{z = \sqrt{2}\,e^{i\pi/4}} \quad \textbf{A1}$$
 
@@ -1136,7 +1136,7 @@ $$e^{2\pi i} = \cos 2\pi + i\sin 2\pi = 1 \quad \textbf{M1}$$
 
 $$z^8 = \boxed{16}$$
 
-$\text{Im}(z^8) = 0$이므로 양의 실수. $\square$ &emsp; **A1**
+$\text{Im}(z^8) = 0$, so it is a positive real number. $\square$ &emsp; **A1**
 
 </details>
 
@@ -1149,7 +1149,7 @@ $\text{Im}(z^8) = 0$이므로 양의 실수. $\square$ &emsp; **A1**
 &emsp;*(b)* &ensp; $\arg(z-1) = \dfrac{\pi}{4}$ &emsp; **(3)**
 
 <details>
-<summary>풀이</summary>
+<summary>Solution</summary>
 
 **(a)** Rewrite: $|z-(3-i)| = 2$ &emsp; **M1**
 
@@ -1172,7 +1172,7 @@ $\text{Im}(z^8) = 0$이므로 양의 실수. $\square$ &emsp; **A1**
 &emsp;*(c)* &ensp; Given that $u$ is a root of $z^2 + az + b = 0$ where $a, b \in \mathbb{R}$, find $a$ and $b$. &emsp; **(3)**
 
 <details>
-<summary>풀이</summary>
+<summary>Solution</summary>
 
 **(a)**
 
@@ -1182,11 +1182,11 @@ $$u^2 = (1+2i)^2 = 1+4i+4i^2 = 1+4i-4 = -3+4i \quad \square \quad \textbf{B1 B1}
 
 $$|u^2| = \sqrt{9+16} = \boxed{5} \quad \textbf{B1}$$
 
-2사분면: $\alpha = \tan^{-1}\!\!\left(\dfrac{4}{3}\right) = 0.9273\ldots$ &emsp; **M1**
+Second quadrant: $\alpha = \tan^{-1}\!\!\left(\dfrac{4}{3}\right) = 0.9273\ldots$ &emsp; **M1**
 
 $$\arg(u^2) = \pi - 0.9273 = \boxed{2.21\text{ rad}} \quad \textbf{A1}$$
 
-**(c)** $a, b$가 실수이므로 복소수 근은 켤레쌍 → 다른 근은 $u^* = 1-2i$. &emsp; **M1**
+**(c)** Since $a$ and $b$ are real, complex roots occur as a conjugate pair → the other root is $u^* = 1-2i$. &emsp; **M1**
 
 $$\text{Sum} = (1+2i)+(1-2i) = 2 = -a \implies \boxed{a = -2} \quad \textbf{A1}$$
 

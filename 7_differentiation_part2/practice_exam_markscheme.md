@@ -1,4 +1,4 @@
-# Differentiation Part 2 — 실전문제 Mark Scheme
+# Differentiation Part 2 — Exam Problems Mark Scheme
 
 ---
 

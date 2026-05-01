@@ -1,23 +1,25 @@
 ---
-title: "A-Level Mathematics Tutoring"
+title: "Mathematics Tutoring"
 ---
 
-A-Level Pure Mathematics (P3/P4) 과외 수업 자료입니다.
-개념 설명은 영어, 주석 및 풀이 가이드는 한국어로 제공합니다.
+A-Level Pure Mathematics (P3/P4) tutoring materials.
 
-## Topics
+## Topics and Practice Problems
 
-| Unit | Topic |
-|------|-------|
-| 2 | [Transformation](2_transformation/basic_forms.qmd) |
-| 3 | [Numerical Methods](3_numerical_method/core_concept.qmd) |
-| 4 | [Further Trigonometry](4_further_tria/further_trigonometry.qmd) |
-| 5 | [Differentiation Pt.1](5_differentiation_part1/core_concepts.md) |
-| 6 | [Review Exercise](6_review_exercise/review_exercise.qmd) |
-| 7 | [Differentiation Pt.2](7_differentiation_part2/core_concepts_v2.md) |
-| 8 | [Integration](8_integration/core_concepts.md) |
-| 9 | [Differential Equations](9_differential_equation/core_concepts.qmd) |
-| 10 | [Vectors](10_vector/core_concepts.qmd) |
-| 11 | [Inequalities with Modulus](11_extra/inequalities.qmd) |
-| 12 | [Binomial Theorem](11_extra/binomial.qmd) |
-| 13 | [Complex Numbers (P3)](11_extra/complex_numbers.qmd) |
+| Unit | Topic | Practice Problems | formulae sheet |
+|------|-------|-------------------| ----------------|
+| 1 | [Functions]| | - |
+| 2 | [Transformation](2_transformation/basic_forms.qmd) | [Practice Problems](2_transformation/assignments.qmd) | - |
+| 3 | [Numerical Methods](3_numerical_method/core_concept.qmd) | - | - |
+| 4 | [Further Trigonometry](4_further_tria/further_trigonometry.qmd) | [Practice Problems](4_further_tria/further_trig_assignments.md) | [Formula Sheet](4_further_tria/trig_formulae.md) |
+| 5 | [Differentiation Pt.1](5_differentiation_part1/core_concepts.md) | [Practice Problems](5_differentiation_part1/practice_exam.md) | - |
+| 6 | [Review Exercise](6_review_exercise/review_exercise.qmd) | - | - |
+| 7 | [Differentiation Pt.2](7_differentiation_part2/core_concepts_v2.md) | [Practice Problems](7_differentiation_part2/practice_exam_markscheme.md) | - |
+| 8 | [Integration](8_integration/core_concepts.md) * [Trig Integration](8_integration/trig_practice_p3p4.qmd)  | [Practice Problems](8_integration/practice_problems.qmd)| - |
+| 9 | [Differential Equations](9_differential_equation/core_concepts.qmd) * [DE trig](9_differential_equation/differential_equation_trig_practice.md)| [Practice Problems](9_differential_equation/differential_equation_hard.md)  | - |
+| 10 | [Vectors](10_vector/core_concepts.qmd) | [Practice Problems](10_vector/vector_practice_a_ms.md) | - |
+| 11 | [Binomial Theorem](11_Binomial/binomial.qmd) | [Practice Problems](11_Binomial/binomial_practice.md) | - |
+| 12 | [Complex Numbers (P3)](12_complex_numbers/complex_numbers.qmd) | [Practice Problems](12_complex_numbers/complex_numbers_practice_ms.md)|  - |
+
+
+## Past Papers and Mark Schemes

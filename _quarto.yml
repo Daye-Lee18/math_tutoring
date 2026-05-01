@@ -4,7 +4,6 @@ project:
   render:
     - "**/*.qmd"
     - "**/*.md"
-    - "!9_differential_equation/core_concepts.md"
 
 website:
   title: "A-Level Maths Tutoring"
@@ -12,7 +11,7 @@ website:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Pure Mathematics"
+      - text: "Pure Mathematics 3 & 4"
         menu:
           - text: "2 · Transformation"
             href: 2_transformation/basic_forms.qmd
@@ -22,58 +21,26 @@ website:
             href: 4_further_tria/further_trigonometry.qmd
           - text: "4 · Further Trig — Formula Sheet"
             href: 4_further_tria/trig_formulae.md
-          - text: "4 · Further Trig — Practice"
-            href: 4_further_tria/further_trig_practice_basic.md
           - text: "5 · Differentiation Pt.1"
-            href: 5_differentiation_part1/core_concepts.md
-          - text: "5 · Differentiation Pt.1 — Practice"
-            href: 5_differentiation_part1/practice_basic.md
+            href: 5_differentiation_part1/core_concepts.qmd
           - text: "6 · Review Exercise"
             href: 6_review_exercise/review_exercise.qmd
           - text: "7 · Differentiation Pt.2"
             href: 7_differentiation_part2/core_concepts_v2.md
-          - text: "7 · Differentiation Pt.2 — Practice"
-            href: 7_differentiation_part2/practice_basic.md
           - text: "8 · Integration"
             href: 8_integration/core_concepts.md
-          - text: "8 · Integration — Practice"
-            href: 8_integration/integration_practice_basic.md
-          - text: "8 · Trig Integration P3&P4"
-            href: 8_integration/trig_practice_p3p4.qmd
           - text: "9 · Differential Equations"
             href: 9_differential_equation/core_concepts.qmd
-          - text: "9 · Differential Eq. — Practice"
-            href: 9_differential_equation/differential_equation_practice_basic.md
-          - text: "9 · Differential Eq. — Hard"
-            href: 9_differential_equation/differential_equation_hard.md
-          - text: "9 · Differential Eq. — Trig Practice"
-            href: 9_differential_equation/differential_equation_trig_practice.md
           - text: "10 · Vectors"
             href: 10_vector/core_concepts.qmd
-          - text: "10 · Vectors — Practice A"
-            href: 10_vector/vector_practice_a.md
-          - text: "10 · Vectors — Practice A (MS)"
-            href: 10_vector/vector_practice_a_ms.md
           - text: "11 · Binomial (P3)"
             href: 11_extra/binomial.qmd
-          - text: "11 · Binomial — Practice"
-            href: 11_extra/binomial_practice.md
-          - text: "11 · Binomial — Practice (MS)"
-            href: 11_extra/binomial_practice_ms.md
-          - text: "11 · Indices, Surds & Logs"
-            href: 11_extra/indices_surds_logs.qmd
-          - text: "11 · Inequalities with Modulus"
-            href: 11_extra/inequalities.qmd
-          - text: "11 · Inequalities — Practice"
-            href: 11_extra/inequalities_practice.md
-          - text: "11 · Inequalities — Practice (MS)"
-            href: 11_extra/inequalities_practice_ms.md
-          - text: "11 · Complex Numbers (P3)"
-            href: 11_extra/complex_numbers.qmd
-          - text: "11 · Complex Numbers — Practice"
-            href: 11_extra/complex_numbers_practice.md
-          - text: "11 · Complex Numbers — Practice (MS)"
-            href: 11_extra/complex_numbers_practice_ms.md
+          - text: "12 · Indices, Surds & Logs"
+            href: 12_extra/indices_surds_logs.qmd
+          - text: "13 · Inequalities with Modulus"
+            href: 13_extra/inequalities.qmd
+          - text: "14 · Complex Numbers (P3)"
+            href: 14_extra/complex_numbers.qmd
 
 format:
   html:

@@ -2,26 +2,26 @@
 
 ---
 
-## 1. Scalar Product (내적)
+## 1. Scalar Product (Dot Product)
 
-### 내적이란?
+### What is the dot product?
 
-벡터끼리 "곱하는" 방법 중 하나다. 두 벡터를 입력하면 **숫자(scalar) 하나**가 나온다 — 그래서 scalar product라고 부른다.
+One of the ways to "multiply" two vectors. Given two vectors as input, a single **number (scalar)** comes out — which is why it is called the scalar product.
 
-::: {.callout-note title="왜 배우나? — 내적의 용도"}
-내적은 딱 두 가지 상황에서 쓴다:
+::: {.callout-note title="Why do we study this? — Uses of the dot product"}
+The dot product is used in exactly two situations:
 
-1. **두 벡터 사이의 각도를 구할 때** — $\cos\theta = \dfrac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}$
-2. **두 벡터가 수직인지 확인할 때** — 내적 $= 0$ 이면 수직
+1. **Finding the angle between two vectors** — $\cos\theta = \dfrac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}$
+2. **Checking whether two vectors are perpendicular** — if the dot product $= 0$, they are perpendicular
 
-좌표(성분)만 알면 각도를 바로 계산할 수 있다는 게 핵심이다. 내적이 없으면 두 직선이 이루는 각도, 점과 직선 사이의 거리 등을 구할 방법이 없다.
+The key point is that you can calculate the angle directly from the components (coordinates) alone. Without the dot product, there is no way to find the angle between two lines or the distance from a point to a line.
 :::
 
-**직관:** 두 벡터가 같은 방향을 향할수록 내적이 크다. 완전히 수직이면 0, 반대 방향이면 음수가 된다.
+**Intuition:** The more two vectors point in the same direction, the larger the dot product. If they are exactly perpendicular it is 0; if they point in opposite directions it is negative.
 
 $$\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta$$
 
-### Geometric Meaning (기하학적 의미)
+### Geometric Meaning
 
 **Dot product = magnitude of one vector × projection of the other onto it**
 
@@ -108,24 +108,24 @@ $$\boxed{\lambda = 2}$$
 :::
 
 <details>
-<summary>**벡터 방정식과 $y = mx + c$ 의 연결**</summary>
+<summary>**Connection between the vector equation and $y = mx + c$**</summary>
 
-2D에서 벡터 방정식 $\vec{r} = \begin{pmatrix}x_0\\y_0\end{pmatrix} + \lambda\begin{pmatrix}p\\q\end{pmatrix}$은 parametric 형태로:
+In 2D, the vector equation $\vec{r} = \begin{pmatrix}x_0\\y_0\end{pmatrix} + \lambda\begin{pmatrix}p\\q\end{pmatrix}$ in parametric form is:
 
 $$x = x_0 + \lambda p, \qquad y = y_0 + \lambda q$$
 
-$\lambda$를 소거하면 $\lambda = \dfrac{x-x_0}{p} = \dfrac{y-y_0}{q}$이므로:
+Eliminating $\lambda$ gives $\lambda = \dfrac{x-x_0}{p} = \dfrac{y-y_0}{q}$, so:
 
 $$y = \underbrace{\frac{q}{p}}_{m}\,x + \underbrace{\!\left(y_0 - \frac{q}{p}x_0\right)}_{c}$$
 
-즉 **방향벡터의 성분 비율이 그대로 기울기**가 된다:
+That is, **the ratio of the direction vector components becomes the gradient directly**:
 
 $$m = \frac{q}{p} = \frac{\Delta y}{\Delta x}$$
 
-**예:** $\vec{r} = \begin{pmatrix}1\\3\end{pmatrix} + \lambda\begin{pmatrix}2\\6\end{pmatrix}$ → $m = \dfrac{6}{2} = 3$, $c = 3 - 3(1) = 0$ → $y = 3x$
+**Example:** $\vec{r} = \begin{pmatrix}1\\3\end{pmatrix} + \lambda\begin{pmatrix}2\\6\end{pmatrix}$ → $m = \dfrac{6}{2} = 3$, $c = 3 - 3(1) = 0$ → $y = 3x$
 
 ::: {.callout-note}
-3D에서는 $y = mx+c$ 형태가 불가능하다. 미지수가 3개인데 식이 하나로는 직선을 특정할 수 없기 때문이다. 그래서 3D에서는 벡터 형태나 Cartesian 형태 $\dfrac{x-a_1}{b_1} = \dfrac{y-a_2}{b_2} = \dfrac{z-a_3}{b_3}$를 써야 한다.
+In 3D, the $y = mx+c$ form is not possible. With three unknowns, a single equation cannot uniquely define a line. In 3D you must use the vector form or the Cartesian form $\dfrac{x-a_1}{b_1} = \dfrac{y-a_2}{b_2} = \dfrac{z-a_3}{b_3}$.
 :::
 
 </details>

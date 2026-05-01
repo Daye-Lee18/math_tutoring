@@ -1,4 +1,4 @@
-# Further Trigonometry — 실전문제 Mark Scheme (A-Level P3 & P4)
+# Further Trigonometry — Exam Problems Mark Scheme (A-Level P3 & P4)
 
 ---
 

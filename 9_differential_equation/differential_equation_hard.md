@@ -1,15 +1,15 @@
-# Differential Equations — 심화문제 Mark Scheme
+# Differential Equations — Advanced Problems Mark Scheme
 
-> **난이도:** A-Level P4 최상위 / 시험 전 마무리용  
-> **예상 소요:** 약 2시간 (문제만 먼저 풀고 풀이 확인 권장)
+> **Level:** A-Level P4 top tier / final exam preparation  
+> **Estimated time:** approximately 2 hours (recommended: attempt questions first, then check solutions)
 
 ---
 
-## Q1. Separable DE — 양변 모두 부분분수 (Double Partial Fractions)
+## Q1. Separable DE — Double Partial Fractions
 
-> **[문제 해석]**  
-> 우변이 $y$끼리의 곱 × $x$끼리의 곱으로 완전히 분리되는 형태다. 각 변수를 한쪽으로 몰아 변수분리한 뒤, 좌변($y$ 쪽)과 우변($x$ 쪽) **각각에** 부분분수를 적용해야 한다. 적분하면 양변 모두 로그 형태가 나오고, 이 로그들을 합치면서 초기조건으로 $C$를 결정해 implicit solution을 도출하는 것이 핵심이다.  
-> (e)는 implicit solution에 $x=6$을 대입한 뒤, 2차방정식처럼 $y$를 풀어내면 된다.
+> **[Problem notes]**  
+> The right-hand side separates completely as a product of a $y$-factor and an $x$-factor. After separating variables, apply partial fractions to **each side** independently (the $y$ side on the left, the $x$ side on the right). Integrating both sides gives two logarithmic expressions; combining these with the initial condition determines $C$ and yields an implicit solution.  
+> For (e): substitute $x=6$ into the implicit solution, then solve for $y$ as a quadratic-style equation.
 
 $$\frac{dy}{dx} = \frac{y(y-3)}{x(x+2)}, \qquad y = 6 \text{ when } x = 2$$
 
@@ -38,15 +38,15 @@ $$\left(\frac{y-3}{y}\right)^2 = \frac{2x^3}{(x+2)^3}$$
 
 $$\frac{dy}{dx} = \frac{y(y-3)}{x(x+2)}$$
 
-두 변수를 각각 한쪽으로 모은다:
+Collect each variable to its own side:
 
 $$\frac{1}{y(y-3)}\,dy = \frac{1}{x(x+2)}\,dx \tag{M1}$$
 
-양변을 적분하면 된다. $\checkmark$
+Integrate both sides. $\checkmark$
 
 ---
 
-#### (b) 좌변 부분분수
+#### (b) Partial fractions on the left
 
 $$\frac{1}{y(y-3)} = \frac{A}{y} + \frac{B}{y-3}$$
 
@@ -61,7 +61,7 @@ $$\int \frac{dy}{y(y-3)} = -\frac{1}{3}\ln|y| + \frac{1}{3}\ln|y-3| = \frac{1}{3
 
 ---
 
-#### (c) 우변 부분분수
+#### (c) Partial fractions on the right
 
 $$\frac{1}{x(x+2)} = \frac{A}{x} + \frac{B}{x+2}$$
 
@@ -76,13 +76,13 @@ $$\int \frac{dx}{x(x+2)} = \frac{1}{2}\ln|x| - \frac{1}{2}\ln|x+2| = \frac{1}{2}
 
 ---
 
-#### (d) 초기조건 적용 → implicit solution
+#### (d) Apply initial condition → implicit solution
 
-(b), (c)로부터:
+From (b) and (c):
 
 $$\frac{1}{3}\ln\left|\frac{y-3}{y}\right| = \frac{1}{2}\ln\left|\frac{x}{x+2}\right| + C \tag{M1}$$
 
-**초기조건** $x = 2,\ y = 6$ 대입:
+**Initial condition** $x = 2,\ y = 6$:
 
 $$\frac{1}{3}\ln\left|\frac{3}{6}\right| = \frac{1}{2}\ln\left|\frac{2}{4}\right| + C$$
 
@@ -90,15 +90,15 @@ $$\frac{1}{3}\ln\frac{1}{2} = \frac{1}{2}\ln\frac{1}{2} + C$$
 
 $$-\frac{\ln 2}{3} = -\frac{\ln 2}{2} + C \implies C = \frac{\ln 2}{2} - \frac{\ln 2}{3} = \frac{\ln 2}{6} \tag{A1}$$
 
-따라서:
+Therefore:
 
 $$\frac{1}{3}\ln\left|\frac{y-3}{y}\right| = \frac{1}{2}\ln\left|\frac{x}{x+2}\right| + \frac{\ln 2}{6}$$
 
-양변에 $\times 6$:
+Multiply both sides by $6$:
 
 $$2\ln\left|\frac{y-3}{y}\right| = 3\ln\left|\frac{x}{x+2}\right| + \ln 2 \tag{M1}$$
 
-로그 법칙으로 정리:
+Simplify using log laws:
 
 $$\ln\left(\frac{y-3}{y}\right)^2 = \ln\left(\frac{x}{x+2}\right)^3 + \ln 2 = \ln\frac{2x^3}{(x+2)^3}$$
 
@@ -106,11 +106,11 @@ $$\boxed{\left(\frac{y-3}{y}\right)^2 = \frac{2x^3}{(x+2)^3}} \quad \checkmark \
 
 ---
 
-#### (e) $x = 6$일 때 $y$ 값
+#### (e) Value of $y$ when $x = 6$
 
 $$\left(\frac{y-3}{y}\right)^2 = \frac{2 \times 6^3}{(6+2)^3} = \frac{2 \times 216}{512} = \frac{432}{512} = \frac{27}{32} \tag{M1}$$
 
-$x = 2$에서 $y = 6 > 3$이므로 $\dfrac{y-3}{y} > 0$. 따라서:
+At $x = 2$, $y = 6 > 3$, so $\dfrac{y-3}{y} > 0$. Therefore:
 
 $$\frac{y-3}{y} = \sqrt{\frac{27}{32}} = \frac{3\sqrt{3}}{4\sqrt{2}} = \frac{3\sqrt{6}}{8} \tag{M1}$$
 
@@ -120,16 +120,16 @@ $$y = \frac{24}{8 - 3\sqrt{6}} \approx \frac{24}{8 - 7.348} \approx \frac{24}{0.
 
 $$\boxed{y \approx 36.8} \tag{A1}$$
 
-> **검증:** $\left(\frac{36.8-3}{36.8}\right)^2 = \left(\frac{33.8}{36.8}\right)^2 \approx 0.919^2 \approx 0.844 \approx \frac{27}{32}$ ✓
+> **Verification:** $\left(\frac{36.8-3}{36.8}\right)^2 = \left(\frac{33.8}{36.8}\right)^2 \approx 0.919^2 \approx 0.844 \approx \frac{27}{32}$ ✓
 </detail>
 
 ---
 
-## Q2. Separable DE — 치환 $u = \ln y$ + 부분분수
+## Q2. Separable DE — Substitution $u = \ln y$ + partial fractions
 
-> **[문제 해석]**  
-> 우변에 $\ln y$가 붙어 있어서 그냥 변수분리하면 $\int \frac{dy}{y \ln y}$가 나온다 — 이 적분이 $u = \ln y$로 치환해야 깔끔해진다는 신호다. 치환 후 방정식이 $u$에 대한 separable DE로 바뀌고, 우변 $\frac{1}{x(x+1)}$은 다시 부분분수로 처리한다. 최종적으로 $y = e^{u(x)}$ 형태로 explicit solution을 구할 수 있다.  
-> $x \to \infty$일 때의 점근값을 구하는 것도 중요한 포인트.
+> **[Problem notes]**  
+> The presence of $\ln y$ on the right means direct separation gives $\int \frac{dy}{y \ln y}$ — a signal that the substitution $u = \ln y$ is needed to simplify it. After the substitution the equation becomes a separable DE in $u$, and $\frac{1}{x(x+1)}$ on the right is handled with partial fractions. The final explicit solution has the form $y = e^{u(x)}$.  
+> Finding the asymptotic value as $x \to \infty$ is also an important part of this question.
 
 $$x(x+1)\,\frac{dy}{dx} = y\ln y, \qquad y = e \text{ when } x = 1$$
 
@@ -145,31 +145,31 @@ $$x(x+1)\,\frac{du}{dx} = u$$
 
 <details>
 <summary>Solution</summary>
-#### (a) 치환 $u = \ln y$
+#### (a) Substitution $u = \ln y$
 
-$u = \ln y \implies y = e^u$이므로, 체인 룰:
+Since $u = \ln y \implies y = e^u$, by the chain rule:
 
 $$\frac{dy}{dx} = e^u \cdot \frac{du}{dx} = y\,\frac{du}{dx} \tag{M1}$$
 
-원래 방정식에 대입:
+Substitute into the original equation:
 
 $$x(x+1) \cdot y\,\frac{du}{dx} = y \cdot \ln y = y \cdot u$$
 
-양변을 $y > 0$으로 나누면:
+Divide both sides by $y > 0$:
 
 $$x(x+1)\,\frac{du}{dx} = u \quad \checkmark \tag{A1}$$
 
 ---
 
-#### (b) 변수분리 + 부분분수
+#### (b) Separate variables + partial fractions
 
 $$\frac{du}{u} = \frac{dx}{x(x+1)} \tag{M1}$$
 
-우변 부분분수:
+Partial fractions on the right:
 
 $$\frac{1}{x(x+1)} = \frac{1}{x} - \frac{1}{x+1}$$
 
-양변 적분:
+Integrate both sides:
 
 $$\int \frac{du}{u} = \int \left(\frac{1}{x} - \frac{1}{x+1}\right)dx \tag{M1}$$
 
@@ -179,9 +179,9 @@ $$|u| = e^C \cdot \frac{x}{x+1} \implies u = A\,\frac{x}{x+1} \quad (A \in \math
 
 ---
 
-#### (c) 초기조건 적용
+#### (c) Apply initial condition
 
-$x = 1,\ y = e$이므로 $u = \ln e = 1$:
+Since $x = 1,\ y = e$, we have $u = \ln e = 1$:
 
 $$1 = A \cdot \frac{1}{1+1} = \frac{A}{2} \implies A = 2 \tag{M1 A1}$$
 
@@ -189,28 +189,28 @@ $$\boxed{u = \frac{2x}{x+1}}$$
 
 ---
 
-#### (d) $y$ 를 $x$로 표현
+#### (d) Express $y$ in terms of $x$
 
-$u = \ln y$이므로:
+Since $u = \ln y$:
 
 $$\ln y = \frac{2x}{x+1}$$
 
 $$\boxed{y = e^{2x/(x+1)}} \tag{A1}$$
 
-**$x \to \infty$일 때:**
+**As $x \to \infty$:**
 
 $$\frac{2x}{x+1} = \frac{2}{1 + 1/x} \to 2$$
 
 $$y \to e^2 \approx 7.39 \tag{A1}$$
 
-> **해석:** $y$는 $e$에서 시작해 $e^2$에 점근적으로 접근한다. 초기조건 검증: $x=1$이면 $y = e^{2/2} = e$ ✓
+> **Interpretation:** $y$ starts at $e$ and approaches $e^2$ asymptotically. Verification of initial condition: at $x=1$, $y = e^{2/2} = e$ ✓
 </detail>
 
-## Q3. Connected Rates of Change — 원통형 탱크 배수
+## Q3. Connected Rates of Change — Draining a Cylindrical Tank
 
-> **[문제 해석]**  
-> 주어진 건 $\frac{dV}{dt}$인데, 구해야 하는 건 $\frac{dh}{dt}$다. 원통형이므로 $V = \pi r^2 h$로 $V$와 $h$를 연결한 뒤 양변을 $t$로 미분하면 $\frac{dV}{dt}$와 $\frac{dh}{dt}$가 연결된다 — 이게 connected rates의 핵심이다. 이후 나온 $\frac{dh}{dt} = -\frac{2}{9\pi}\sqrt{h}$를 separable DE로 풀면 $h(t)$를 구할 수 있다.  
-> $h$가 작아질수록 배수 속도가 느려진다는 물리적 의미도 이해해두면 좋다.
+> **[Problem notes]**  
+> The given quantity is $\frac{dV}{dt}$, but the required quantity is $\frac{dh}{dt}$. For a cylinder, $V = \pi r^2 h$ connects $V$ and $h$; differentiating both sides with respect to $t$ links $\frac{dV}{dt}$ and $\frac{dh}{dt}$ — this is the key idea behind connected rates. The resulting $\frac{dh}{dt} = -\frac{2}{9\pi}\sqrt{h}$ is then solved as a separable DE to obtain $h(t)$.  
+> It is worth understanding the physical meaning: as $h$ decreases, the outflow rate slows down — the tank drains more slowly as it empties.
 
 A large cylindrical water tank has a circular cross-section of radius 3 metres. Water drains through a small hole at the base. By Torricelli's Law, the volume flow rate satisfies
 
@@ -235,7 +235,7 @@ $$h = \left(3 - \frac{t}{9\pi}\right)^2$$
 
 #### (a) Connected rates
 
-원통형이므로: $V = \pi r^2 h = \pi(3)^2 h = 9\pi h$
+For a cylinder: $V = \pi r^2 h = \pi(3)^2 h = 9\pi h$
 
 $$\frac{dV}{dt} = 9\pi\,\frac{dh}{dt} \tag{M1}$$
 
@@ -243,7 +243,7 @@ $$9\pi\,\frac{dh}{dt} = -2\sqrt{h} \implies \frac{dh}{dt} = -\frac{2}{9\pi}\sqrt
 
 ---
 
-#### (b) DE 풀기
+#### (b) Solve the DE
 
 $$h^{-1/2}\,dh = -\frac{2}{9\pi}\,dt \tag{M1}$$
 
@@ -251,7 +251,7 @@ $$\int h^{-1/2}\,dh = \int -\frac{2}{9\pi}\,dt$$
 
 $$2\sqrt{h} = -\frac{2}{9\pi}t + C \tag{A1}$$
 
-**초기조건** $t = 0,\ h = 9$:
+**Initial condition** $t = 0,\ h = 9$:
 
 $$2\sqrt{9} = C \implies C = 6 \tag{M1}$$
 
@@ -261,9 +261,9 @@ $$\boxed{h = \left(3 - \frac{t}{9\pi}\right)^2} \quad \checkmark \tag{A1}$$
 
 ---
 
-#### (c) 탱크가 비는 시간
+#### (c) Time for the tank to empty
 
-$h = 0$이 되는 조건:
+Condition for $h = 0$:
 
 $$3 - \frac{t}{9\pi} = 0 \implies t = 27\pi \tag{M1}$$
 
@@ -271,7 +271,7 @@ $$\boxed{t = 27\pi \approx 85 \text{ minutes}} \tag{A1}$$
 
 ---
 
-#### (d) $t = 30$분일 때 $h$
+#### (d) Depth $h$ when $t = 30$ minutes
 
 $$\sqrt{h} = 3 - \frac{30}{9\pi} = 3 - \frac{10}{3\pi} \tag{M1}$$
 
@@ -281,20 +281,20 @@ $$h \approx 1.9390^2 \approx \boxed{3.76 \text{ m}} \tag{A1}$$
 
 ---
 
-#### (e) $h = 1$ m일 때 감소 속도
+#### (e) Rate of decrease when $h = 1$ m
 
 $$\frac{dh}{dt} = -\frac{2}{9\pi}\sqrt{1} = -\frac{2}{9\pi} \approx -0.0707 \text{ m/min} \tag{A1}$$
 
-> 깊이가 분당 약 0.0707 m (7.07 cm)씩 줄어들고 있다.
+> The depth is decreasing at approximately 0.0707 m (7.07 cm) per minute.
 
-> **핵심 포인트:** $h$가 작을수록 $\sqrt{h}$가 작아져 배수 속도가 느려진다 — 비어가면서 점점 느리게 빠진다.
+> **Key point:** As $h$ decreases, $\sqrt{h}$ decreases, so the drainage rate slows down — the tank empties more slowly as it approaches empty.
 </detail>
 
-## Q4. Applied DE — Drug Infusion Model (다단계 문제)
+## Q4. Applied DE — Drug Infusion Model (multi-step problem)
 
-> **[문제 해석]**  
-> 약물이 일정 속도로 들어오고 체내에서 비율로 빠져나가는 모델로, 형태는 $\frac{dQ}{dt} = R - kQ$다. 장기 평형값 $Q_\infty = R/k$를 먼저 구하면 해의 형태를 미리 예측할 수 있다. 특히 (e)에서 주입이 **중단되는 순간** 새로운 초기조건 $Q_0 = 400$이 설정되며, 이후는 완전히 다른 DE ($\frac{dQ}{d\tau} = -kQ$)를 새로 풀어야 한다 — 원래 식을 그대로 이어가면 틀린다.  
-> (d)와 (e)(ii)의 답이 같게 나오는 대칭 구조를 이해하면 개념이 잡힌다.
+> **[Problem notes]**  
+> The model has drug entering at a constant rate and being eliminated proportionally, giving the form $\frac{dQ}{dt} = R - kQ$. Finding the long-term equilibrium $Q_\infty = R/k$ first lets you predict the shape of the solution. Crucially, in (e), the moment the infusion **stops**, a new initial condition $Q_0 = 400$ is set and an entirely different DE ($\frac{dQ}{d\tau} = -kQ$) must be solved from scratch — continuing the original equation past this point is wrong.  
+> Understanding the symmetric structure where answers to (d) and (e)(ii) match helps consolidate the underlying concept.
 
 A drug is administered intravenously at a constant rate of $60$ mg/hour. The body eliminates the drug at a rate proportional to the current amount $Q$ mg present, with elimination constant $k = 0.15$ hr$^{-1}$.
 
@@ -317,29 +317,29 @@ A drug is administered intravenously at a constant rate of $60$ mg/hour. The bod
 <details>
 <summary>Solution</summary>
 
-#### (a) DE 세우기
+#### (a) Setting up the DE
 
 $$\boxed{\frac{dQ}{dt} = 60 - 0.15Q} \tag{B1}$$
 
-*(유입 60 mg/hr, 유출 $0.15Q$ mg/hr)*
+*(inflow 60 mg/hr, outflow $0.15Q$ mg/hr)*
 
 ---
 
-#### (b) 평형 수준
+#### (b) Equilibrium level
 
-$\dfrac{dQ}{dt} = 0$일 때:
+Setting $\dfrac{dQ}{dt} = 0$:
 
 $$60 - 0.15Q_\infty = 0 \implies Q_\infty = \frac{60}{0.15} = 400 \text{ mg} \tag{B1}$$
 
-$400 \in [200,\ 500]$이므로 **안전 범위 내** — 치료 농도를 유지하면서 독성 수준에 도달하지 않는다. \tag{A1}
+Since $400 \in [200,\ 500]$, this is **within the safe range** — therapeutic concentration is maintained without reaching toxic levels. \tag{A1}
 
 ---
 
-#### (c) DE 풀기
+#### (c) Solve the DE
 
 $$\int \frac{dQ}{60 - 0.15Q} = \int dt \tag{M1}$$
 
-치환: $u = 60 - 0.15Q,\; du = -0.15\,dQ$
+Substitution: $u = 60 - 0.15Q,\; du = -0.15\,dQ$
 
 $$-\frac{1}{0.15}\ln|60 - 0.15Q| = t + C \tag{A1}$$
 
@@ -347,7 +347,7 @@ $$\ln|60 - 0.15Q| = -0.15t + C'$$
 
 $$60 - 0.15Q = Ae^{-0.15t}$$
 
-**초기조건** $t = 0,\ Q = 0$:
+**Initial condition** $t = 0,\ Q = 0$:
 
 $$60 = A \tag{M1}$$
 
@@ -357,11 +357,11 @@ $$0.15Q = 60(1 - e^{-0.15t})$$
 
 $$\boxed{Q = 400\left(1 - e^{-0.15t}\right)} \tag{A1}$$
 
-> **구조 확인:** $t\to\infty$이면 $Q \to 400$ ✓, $t=0$이면 $Q=0$ ✓
+> **Structure check:** as $t\to\infty$, $Q \to 400$ ✓; at $t=0$, $Q=0$ ✓
 
 ---
 
-#### (d) $Q = 200$mg에 도달하는 시간
+#### (d) Time for $Q$ to reach 200 mg
 
 $$200 = 400(1 - e^{-0.15t}) \tag{M1}$$
 
@@ -375,15 +375,15 @@ $$\boxed{t \approx 4.62 \text{ hours}} \tag{A1}$$
 
 ---
 
-#### (e)(i) 주입 중단 후 감쇠
+#### (e)(i) Decay after infusion stops
 
-$\tau = 0$일 때 $Q_0 = 400$ mg, 이후 순수 감쇠:
+At $\tau = 0$, $Q_0 = 400$ mg; from this point the drug decays purely:
 
 $$\frac{dQ}{d\tau} = -0.15Q \implies Q = 400\,e^{-0.15\tau} \tag{B1}$$
 
 ---
 
-#### (e)(ii) $Q < 200$mg이 되는 시간
+#### (e)(ii) Time for $Q$ to fall below 200 mg
 
 $$400e^{-0.15\tau} = 200 \implies e^{-0.15\tau} = 0.5 \tag{M1}$$
 
@@ -391,39 +391,39 @@ $$\tau = \frac{\ln 2}{0.15} \tag{A1}$$
 
 $$\boxed{\tau \approx 4.62 \text{ hours}} \tag{A1}$$
 
-> **대칭적 결과 해석:** 주입 시작 후 200mg에 도달하는 시간과, 주입 중단 후 400mg에서 200mg으로 내려가는 시간이 같다. 이것은 우연이 아니다 — 두 경우 모두 $e^{-0.15t} = 0.5$라는 동일한 방정식에서 비롯된다.
+> **Symmetric result:** The time to reach 200 mg after starting the infusion equals the time to fall from 400 mg to 200 mg after stopping it. This is not a coincidence — both cases reduce to the same equation $e^{-0.15t} = 0.5$.
 
 ---
 
-#### (f) 그래프 스케치 가이드
+#### (f) Graph sketch guide
 
 ```
 Q (mg)
 500 |
     |
-400 |·············································· Q∞ = 400 (점근선)
-    |                              ╲ (주입 중단 후 감쇠)
+400 |·············································· Q∞ = 400 (asymptote)
+    |                              ╲ (decay after infusion stops)
     |                         ╱────╲
 300 |                    ╱───       ╲
     |               ╱──              ╲
-200 |──────────╱                      ╲──────────── 200 (치료 최솟값)
+200 |──────────╱                      ╲──────────── 200 (min. therapeutic)
     |       ↑                          ↑
     |    t≈4.62                     τ≈4.62
   0 +──────────────────────────────────────────── t
-    0                    ↑ 주입 중단 (Q=400)
+    0                    ↑ infusion stops (Q=400)
 ```
 
-**레이블:**
-- $Q_\infty = 400$ (수평 점근선)
-- 상승 구간: $Q = 400(1 - e^{-0.15t})$ — 위로 볼록, 오목
-- 하강 구간: $Q = 400e^{-0.15\tau}$ — 지수감쇠, 아래로 볼록
+**Labels:**
+- $Q_\infty = 400$ (horizontal asymptote)
+- Rising phase: $Q = 400(1 - e^{-0.15t})$ — concave, curving upward
+- Falling phase: $Q = 400e^{-0.15\tau}$ — exponential decay, convex
 </detail>
 
-## Summary: Q1–Q4 핵심 기법 정리
+## Summary: Key techniques for Q1–Q4
 
-| 문제 | 핵심 기법 | 자주 하는 실수 |
+| Question | Key technique | Common mistake |
 |---|---|---|
-| Q1 | 양변 부분분수 → 로그를 합쳐서 지수 비교 | $C$ 계산 후 양변을 6배 하기 전에 대입하는 실수 |
-| Q2 | $u = \ln y$ 치환으로 비선형 → 선형화 | $\frac{dy}{dx}$를 $\frac{du}{dx}$로 바꿀 때 체인 룰 빠트림 |
-| Q3 | Connected rates: $V$와 $h$ 관계 먼저 | 반지름 제곱 빠트려서 $\frac{dV}{dt} = \frac{dh}{dt}$로 잘못 씀 |
-| Q4 | $R - kQ$형 적분 → 초기조건 두 번 (주입 중/후) | 주입 중단 후 $Q_0$를 다시 설정하지 않고 원래 식 연장 |
+| Q1 | Partial fractions on both sides → combine logs, compare exponents | Substituting the initial condition before multiplying through by 6 |
+| Q2 | $u = \ln y$ substitution linearises the equation | Forgetting the chain rule when converting $\frac{dy}{dx}$ to $\frac{du}{dx}$ |
+| Q3 | Connected rates: link $V$ and $h$ first | Dropping the squared radius and writing $\frac{dV}{dt} = \frac{dh}{dt}$ |
+| Q4 | $R - kQ$ form integration → initial condition applied twice (during / after infusion) | Continuing the original equation past the stopping point instead of resetting $Q_0$ |

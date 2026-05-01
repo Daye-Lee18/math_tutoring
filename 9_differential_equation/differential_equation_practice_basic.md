@@ -1,14 +1,14 @@
-# Differential Equations — 기본문제 Mark Scheme
+# Differential Equations — Core Practice Mark Scheme
 
 ---
 
 ## Q01. Classify the following differential equations
 
-> **분류 기준:**
-> - **Direct integration** — $\dfrac{dy}{dx} = f(x)$ 형태, $y$가 없으므로 그냥 적분
-> - **Separable** — 우변이 $f(x)\,g(y)$로 인수분해됨
-> - **Separable (exponential)** — $\dfrac{dy}{dx} = ky$ 형태, 지수함수 해
-> - **Applied (Decay / Cooling / Leaking)** — 실생활 모델
+> **Classification criteria:**
+> - **Direct integration** — form $\dfrac{dy}{dx} = f(x)$; no $y$ present, integrate directly
+> - **Separable** — right-hand side factors as $f(x)\,g(y)$
+> - **Separable (exponential)** — form $\dfrac{dy}{dx} = ky$; exponential solution
+> - **Applied (Decay / Cooling / Leaking)** — real-world model
 
 ---
 
@@ -60,11 +60,11 @@ $$\boxed{y = \ln(2e^x + C)} \tag{A1}$$
 
 $$dy = \sin x\cos^2 x\,dx \tag{M1}$$
 
-**치환:** $u = \cos x,\; du = -\sin x\,dx$
+**Substitution:** $u = \cos x,\; du = -\sin x\,dx$
 
 $$y = -\int u^2\,du = -\frac{\cos^3 x}{3} + C \tag{A1}$$
 
-**초기조건:** $x = \dfrac{\pi}{3},\; y = 0$: $\quad \cos\dfrac{\pi}{3} = \dfrac{1}{2}$
+**Initial condition:** $x = \dfrac{\pi}{3},\; y = 0$: $\quad \cos\dfrac{\pi}{3} = \dfrac{1}{2}$
 
 $$0 = -\frac{(1/2)^3}{3} + C \implies C = \frac{1}{24} \tag{M1}$$
 
@@ -76,7 +76,7 @@ $$\boxed{y = -\frac{\cos^3 x}{3} + \frac{1}{24}} \tag{A1}$$
 
 **Type:** Separable (particular solution)
 
-**인수분해:** $xy + y = y(x+1)$, $\quad 1-x^2 = (1-x)(1+x)$
+**Factorise:** $xy + y = y(x+1)$, $\quad 1-x^2 = (1-x)(1+x)$
 
 $$\frac{dy}{dx} = \frac{y(1+x)}{(1-x)(1+x)} = \frac{y}{1-x} \tag{M1}$$
 
@@ -84,7 +84,7 @@ $$\frac{1}{y}\,dy = \frac{1}{1-x}\,dx \tag{M1}$$
 
 $$\ln|y| = -\ln|1-x| + C \tag{A1}$$
 
-**초기조건:** $x = 0.5,\; y = 6$:
+**Initial condition:** $x = 0.5,\; y = 6$:
 
 $$\ln 6 = -\ln(0.5) + C = \ln 2 + C \implies C = \ln 3 \tag{M1}$$
 
@@ -267,9 +267,9 @@ $$\boxed{y = \left(\frac{3x^2}{2} + 3x + 8\right)^{1/3}} \tag{A1}$$
 
 ### (b) $\displaystyle x\frac{dy}{dx} = y + xy$
 
-**Type:** Separable (인수분해 필요)
+**Type:** Separable (factorisation needed)
 
-**인수분해:** $y + xy = y(1+x)$
+**Factorise:** $y + xy = y(1+x)$
 
 $$x\frac{dy}{dx} = y(1+x) \implies \frac{1}{y}\,dy = \frac{1+x}{x}\,dx = \left(\frac{1}{x} + 1\right)dx \tag{M1}$$
 
@@ -291,7 +291,7 @@ $$-e^{-y} + y = \tan x + C \tag{A1}$$
 
 $$\boxed{y - e^{-y} = \tan x + C} \tag{A1}$$
 
-> **Note:** 이 경우 $y$를 명시적으로 분리할 수 없다 — implicit form이 최종 답.
+> **Note:** In this case $y$ cannot be made explicit — the implicit form is the final answer.
 
 ---
 
@@ -341,12 +341,12 @@ $$\boxed{P = \frac{5000e^{0.3}}{9 + e^{0.3}} \approx 622} \tag{A1}$$
 
 ---
 
-## Summary: 자주 하는 실수
+## Summary: Common Mistakes
 
-| 실수 | 올바른 접근 |
+| Mistake | Correct approach |
 |---|---|
-| 양변 적분 후 상수 $C$를 양쪽에 각각 쓴다 | $C$는 **한쪽에만** — 어차피 합쳐서 하나 |
-| $\ln\|y\| = \ldots$ 에서 $e$를 씌울 때 $A$ 부호를 빠트린다 | $y = e^C \cdot e^{f(x)} = Ae^{f(x)}$ — $A > 0$이지만 $\pm$를 포함하면 $A \in \mathbb{R} \setminus \{0\}$ |
-| 특수해 구할 때 $C$를 결정하지 않고 답을 쓴다 | 항상 **초기조건 대입 → $C$ 계산 → 대입** 3단계 |
-| Cooling 문제에서 $\theta$ 대신 $\theta - \theta_0$를 분리하지 않고 그냥 $\theta$를 분리 | $\dfrac{d\theta}{dt} = -k(\theta - \theta_0)$: $u = \theta - \theta_0$으로 치환하거나, 인수를 그대로 분리 |
-| Leaking 문제에서 평형 조건 ($P - kV_\infty = 0$)을 모른다 | 장기 해 $V \to V_\infty$이면 $\dfrac{dV}{dt} \to 0$ |
+| Writing the constant $C$ on both sides after integrating | $C$ goes on **one side only** — combining both gives a single constant anyway |
+| Forgetting the sign of $A$ when exponentiating $\ln\|y\| = \ldots$ | $y = e^C \cdot e^{f(x)} = Ae^{f(x)}$ — $A > 0$, but including $\pm$ gives $A \in \mathbb{R} \setminus \{0\}$ |
+| Writing the answer for a particular solution without determining $C$ | Always follow three steps: **substitute initial condition → solve for $C$ → substitute back** |
+| Separating $\theta$ instead of $\theta - \theta_0$ in Cooling problems | $\dfrac{d\theta}{dt} = -k(\theta - \theta_0)$: substitute $u = \theta - \theta_0$, or separate the factor directly |
+| Not knowing the equilibrium condition ($P - kV_\infty = 0$) in Leaking problems | When $V \to V_\infty$ in the long run, $\dfrac{dV}{dt} \to 0$ |

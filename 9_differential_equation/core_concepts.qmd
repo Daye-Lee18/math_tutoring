@@ -34,7 +34,7 @@ $$\frac{dy}{dx} = f(x)\,g(y)$$
 ---
 
 <details>
-<summary>**Ex 1 — General solutions** (분리변수로 일반해 구하기)</summary>
+<summary>**Ex 1 — General solutions** (finding general solutions by separating variables)</summary>
 
 **i.** $\displaystyle\frac{dy}{dx} = (1+2y)(1-2x)$
 
@@ -46,7 +46,7 @@ $$\frac{1}{2}\ln|1+2y| = x - x^2 + C$$
 
 $$\boxed{\ln|1+2y| = 2x - 2x^2 + A \quad (A = 2C)}$$
 
-또는 $y = \dfrac{1}{2}\!\left(e^{2x-2x^2+A}-1\right)$로 쓸 수도 있다.
+Alternatively, this can be written as $y = \dfrac{1}{2}\!\left(e^{2x-2x^2+A}-1\right)$.
 
 ---
 
@@ -64,7 +64,7 @@ $$\boxed{y = \frac{-1}{\tan x - x + C}}$$
 
 **iii.** $\displaystyle\frac{dy}{dx} = 2e^{x-y}$
 
-$e^{x-y} = e^x \cdot e^{-y}$이므로 분리 가능:
+Since $e^{x-y} = e^x \cdot e^{-y}$, the equation is separable:
 
 Separate: $e^y\,dy = 2e^x\,dx$
 
@@ -79,7 +79,7 @@ $$\boxed{y = \ln(2e^x + C)}$$
 ---
 
 <details>
-<summary>**Ex 2 — Particular solutions** (초기조건으로 특수해 구하기)</summary>
+<summary>**Ex 2 — Particular solutions** (finding particular solutions using initial conditions)</summary>
 
 **i.** $\displaystyle\frac{dy}{dx} = \sin x\cos^2 x;\quad y = 0 \text{ when } x = \frac{\pi}{3}$
 
@@ -87,11 +87,11 @@ Separate: $dy = \sin x\cos^2 x\,dx$
 
 $$\int dy = \int \sin x\cos^2 x\,dx$$
 
-**치환:** $u = \cos x,\; du = -\sin x\,dx$
+**Substitution:** $u = \cos x,\; du = -\sin x\,dx$
 
 $$y = -\int u^2\,du = -\frac{u^3}{3} + C = -\frac{\cos^3 x}{3} + C$$
 
-**초기조건 대입:** $x = \dfrac{\pi}{3},\; y = 0$:
+**Apply initial condition:** $x = \dfrac{\pi}{3},\; y = 0$:
 
 $$0 = -\frac{(1/2)^3}{3} + C \implies C = \frac{1}{24}$$
 
@@ -101,7 +101,7 @@ $$\boxed{y = -\frac{\cos^3 x}{3} + \frac{1}{24}}$$
 
 **ii.** $\displaystyle(1-x^2)\frac{dy}{dx} = xy + y;\quad x = 0.5,\; y = 6$
 
-우변 인수분해: $xy + y = y(x+1)$
+Factorise the right-hand side: $xy + y = y(x+1)$
 
 $$\frac{dy}{dx} = \frac{y(x+1)}{1-x^2} = \frac{y(x+1)}{(1-x)(1+x)} = \frac{y}{1-x}$$
 
@@ -111,7 +111,7 @@ $$\int \frac{1}{y}\,dy = \int \frac{1}{1-x}\,dx$$
 
 $$\ln|y| = -\ln|1-x| + C$$
 
-**초기조건 대입:** $x = 0.5,\; y = 6$:
+**Apply initial condition:** $x = 0.5,\; y = 6$:
 
 $$\ln 6 = -\ln(0.5) + C \implies C = \ln 6 - \ln 2 = \ln 3$$
 
@@ -140,9 +140,9 @@ U-substitution works when **the derivative of the "inner" function is already pr
 :::
 
 <details>
-<summary>**풀이 비교 — $\displaystyle\int \sin x\cos^2 x\,dx$: u-sub vs product-to-sum**</summary>
+<summary>**Solution comparison — $\displaystyle\int \sin x\cos^2 x\,dx$: u-sub vs product-to-sum**</summary>
 
-### Method 1: U-substitution (권장)
+### Method 1: U-substitution (recommended)
 
 Set $u = \cos x \implies \dfrac{du}{dx} = -\sin x \implies \sin x\,dx = -du$
 
@@ -154,17 +154,17 @@ $$= -\frac{u^3}{3} + C = \boxed{-\frac{\cos^3 x}{3} + C}$$
 
 ### Method 2: Product-to-sum identity
 
-Triple angle identity 이용: $\sin 3x = 3\sin x - 4\sin^3 x$, $\cos 3x = 4\cos^3 x - 3\cos x$
+Using the triple angle identity: $\sin 3x = 3\sin x - 4\sin^3 x$, $\cos 3x = 4\cos^3 x - 3\cos x$
 
-여기서는 다음 identity 사용:
+Here we use the identity:
 
 $$\sin x \cos^2 x = \frac{1}{4}(\sin 3x + \sin x)$$
 
-> *유도:* $\sin 3x = \sin(2x+x) = \sin 2x\cos x + \cos 2x\sin x$
+> *Derivation:* $\sin 3x = \sin(2x+x) = \sin 2x\cos x + \cos 2x\sin x$
 > $= 2\sin x\cos^2 x + (1-2\sin^2 x)\sin x = 3\sin x - 4\sin^3 x$
-> 한편 $\sin x\cos^2 x = \sin x(1-\sin^2 x)$이므로 $\sin 3x + \sin x = 4\sin x - 4\sin^3 x = 4\sin x\cos^2 x$ $\implies \sin x\cos^2 x = \tfrac{1}{4}(\sin 3x + \sin x)$
+> Since $\sin x\cos^2 x = \sin x(1-\sin^2 x)$, we get $\sin 3x + \sin x = 4\sin x - 4\sin^3 x = 4\sin x\cos^2 x$ $\implies \sin x\cos^2 x = \tfrac{1}{4}(\sin 3x + \sin x)$
 
-따라서:
+Therefore:
 
 $$\int \sin x\cos^2 x\,dx = \frac{1}{4}\int(\sin 3x + \sin x)\,dx$$
 
@@ -172,11 +172,11 @@ $$= \frac{1}{4}\left(-\frac{\cos 3x}{3} - \cos x\right) + C = \boxed{-\frac{\cos
 
 ---
 
-### 두 답이 같은 이유
+### Why the two answers are equivalent
 
-$-\dfrac{\cos^3 x}{3}$과 $-\dfrac{\cos 3x}{12} - \dfrac{\cos x}{4}$는 상수 차이만 있는 동일한 함수야.
+$-\dfrac{\cos^3 x}{3}$ and $-\dfrac{\cos 3x}{12} - \dfrac{\cos x}{4}$ are the same function, differing only by a constant.
 
-$\cos 3x = 4\cos^3 x - 3\cos x$를 대입하면:
+Substituting $\cos 3x = 4\cos^3 x - 3\cos x$:
 
 $$-\frac{4\cos^3 x - 3\cos x}{12} - \frac{\cos x}{4} = -\frac{\cos^3 x}{3} + \frac{\cos x}{4} - \frac{\cos x}{4} = -\frac{\cos^3 x}{3}$$
 
@@ -204,7 +204,7 @@ These three models appear frequently in exam questions. Understand the **physica
 ::: {.callout-tip title="KEY"}
 - All three are separable — solve each by separating variables
 - The $-k$ in the exponent means all three **approach a limit** as $t \to \infty$: $N \to 0$, $\theta \to \theta_0$, $V \to P/k$
-- In exam questions, the constant $A$ is always determined by the **initial condition** (값을 알고 있는 시점 = $t = 0$)
+- In exam questions, the constant $A$ is always determined by the **initial condition** (the known point, typically $t = 0$)
 :::
 
 ```{python}
@@ -309,7 +309,7 @@ plt.show()
 ---
 
 <details>
-<summary>**Deriving the solutions** (풀이과정 — 시험에 나오면 반드시 쓸 것)</summary>
+<summary>**Deriving the solutions** (show this working in full in the exam)</summary>
 
 ### Decay: $\dfrac{dN}{dt} = -kN$
 
@@ -421,7 +421,7 @@ $$\boxed{V = 50(1 - e^{-0.1t})}$$
 
 $$\boxed{V \to 50\ \text{litres}}$$
 
-이것이 **평형 부피**: 유입 속도 = 유출 속도인 상태.
+This is the **equilibrium volume**: the state where inflow rate equals outflow rate.
 
 </details>
 
@@ -437,24 +437,24 @@ $$\boxed{V \to 50\ \text{litres}}$$
 | $\dfrac{dy}{dx} = ky(L-y)$ | Logistic (S-curve) | $y = \dfrac{L}{1+Ae^{-kLx}}$ |
 
 <details>
-<summary>**Logistic equation — 풀이 증명**</summary>
+<summary>**Logistic equation — derivation of solution**</summary>
 
-### Step 1 — 변수분리
+### Step 1 — Separate variables
 
 $$\frac{dy}{y(L-y)} = k\,dx$$
 
-### Step 2 — 좌변 부분분수
+### Step 2 — Partial fractions on the left
 
 $$\frac{1}{y(L-y)} = \frac{A}{y} + \frac{B}{L-y}$$
 
-$1 = A(L-y) + By$에서:
+From $1 = A(L-y) + By$:
 
 - $y = 0$: $\quad A = \dfrac{1}{L}$
 - $y = L$: $\quad B = \dfrac{1}{L}$
 
 $$\frac{1}{L}\left(\frac{1}{y} + \frac{1}{L-y}\right)dy = k\,dx$$
 
-### Step 3 — 적분
+### Step 3 — Integrate
 
 $$\frac{1}{L}\int\left(\frac{1}{y} + \frac{1}{L-y}\right)dy = \int k\,dx$$
 
@@ -464,27 +464,27 @@ $$\ln\left|\frac{y}{L-y}\right| = kLx + C'$$
 
 $$\frac{y}{L-y} = Ae^{kLx}$$
 
-### Step 4 — $y$에 대해 풀기
+### Step 4 — Solve for $y$
 
 $$y = Ae^{kLx}(L-y) \implies y\left(1 + Ae^{kLx}\right) = ALe^{kLx}$$
 
-분자분모를 $Ae^{kLx}$로 나누면:
+Dividing numerator and denominator by $Ae^{kLx}$:
 
 $$\boxed{y = \frac{L}{1 + Be^{-kLx}}} \quad \left(B = \frac{1}{A}\right)$$
 
-### 왜 S자 곡선인가 — 변곡점 증명
+### Why the S-shape — proving the inflection point
 
-| | 값 |
+| | Value |
 |---|---|
 | $x \to -\infty$ | $y \to 0$ |
 | $x \to +\infty$ | $y \to L$ |
-| 변곡점 | $y = \dfrac{L}{2}$ |
+| Inflection point | $y = \dfrac{L}{2}$ |
 
-$\dfrac{dy}{dx} = ky(L-y)$를 $x$로 한 번 더 미분:
+Differentiate $\dfrac{dy}{dx} = ky(L-y)$ once more with respect to $x$:
 
 $$\frac{d^2y}{dx^2} = k\frac{dy}{dx}(L-2y) = k^2y(L-y)(L-2y)$$
 
-$0 < y < L$ 구간에서 $\dfrac{d^2y}{dx^2} = 0$이 되는 조건은 $y = \dfrac{L}{2}$ → 이 점에서 증가 속도 최대, S자 곡선의 변곡점.
+For $0 < y < L$, the condition $\dfrac{d^2y}{dx^2} = 0$ requires $y = \dfrac{L}{2}$ — at this point the growth rate is maximum, giving the inflection point of the S-curve.
 
 </details>
 
@@ -938,11 +938,11 @@ $$\boxed{\frac{dh}{dt} = \frac{1}{64\pi}\cdot 4 = \frac{1}{16\pi} \approx 0.0199
 </details>
 
 <details>
-<summary>**Cone — $l$ 과 $A_{\rm surf}$ 유도**</summary>
+<summary>**Cone — derivation of $l$ and $A_{\rm surf}$**</summary>
 
 ### Slant height $l = \sqrt{r^2 + h^2}$
 
-원뿔의 단면을 보면 반지름 $r$, 높이 $h$, 빗변 $l$ 로 이루어진 직각삼각형이 나온다.
+A cross-section of a cone gives a right triangle with legs $r$ (radius) and $h$ (height), and hypotenuse $l$.
 
 $$l^2 = r^2 + h^2 \implies \boxed{l = \sqrt{r^2 + h^2}}$$
 
@@ -950,13 +950,13 @@ $$l^2 = r^2 + h^2 \implies \boxed{l = \sqrt{r^2 + h^2}}$$
 
 ### Lateral surface area $= \pi r l$
 
-원뿔의 옆면을 펼치면 **부채꼴**이 된다.
+Unrolling the lateral surface of a cone gives a **sector**.
 
-| | 값 |
+| | Value |
 |---|---|
-| 부채꼴의 반지름 | $l$ (slant height) |
-| 부채꼴의 호의 길이 | $2\pi r$ (원뿔 밑면의 둘레) |
-| 부채꼴의 넓이 | $\dfrac{1}{2} \times l \times 2\pi r = \pi r l$ |
+| Sector radius | $l$ (slant height) |
+| Arc length of sector | $2\pi r$ (circumference of base) |
+| Area of sector | $\dfrac{1}{2} \times l \times 2\pi r = \pi r l$ |
 
 $$\boxed{A_{\rm lateral} = \pi r l}$$
 
@@ -964,7 +964,7 @@ $$\boxed{A_{\rm lateral} = \pi r l}$$
 
 ### Total surface area $A_{\rm surf} = \pi r(r + l)$
 
-밑면(원) + 옆면(부채꼴):
+Base (circle) + lateral surface (sector):
 
 $$A_{\rm surf} = \underbrace{\pi r^2}_{\text{base}} + \underbrace{\pi r l}_{\text{lateral}} = \boxed{\pi r(r + l)}$$
 

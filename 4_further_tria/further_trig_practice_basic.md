@@ -1,4 +1,4 @@
-# Further Trigonometry — 기본문제 Mark Scheme
+# Further Trigonometry — Core Practice Mark Scheme
 
 ---
 

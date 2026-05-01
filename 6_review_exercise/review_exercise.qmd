@@ -85,7 +85,7 @@ $$\boxed{x = \dfrac{e-3}{1-2e} = \dfrac{3-e}{2e-1}} \tag{M1, M1, A1, A1}$$
 # Q4 — Simultaneous Equations **(8)**
 
 ::: {style="font-size: 0.8em; color: #666;"}
-Simultaneous equations = 연립방정식
+Simultaneous equations
 :::
 
 Giving your answers to 2 decimal places, solve the simultaneous equations:
@@ -484,15 +484,15 @@ $$2\sin\theta\cos\theta(\sin^2\theta+\cos^2\theta) = 2\sin\theta\cos\theta = \si
 
 **(f)** $\dfrac{\sin 3\theta}{\sin\theta} - \dfrac{\cos 3\theta}{\cos\theta} \equiv 2$
 
-**Step 1.** 통분 — 분모를 $\sin\theta\cos\theta$로 맞춤:
+**Step 1.** Common denominator — align both fractions to $\sin\theta\cos\theta$:
 
 $$\frac{\sin 3\theta\cos\theta - \cos 3\theta\sin\theta}{\sin\theta\cos\theta}$$
 
-**Step 2.** 분자는 sine의 차 공식 $\sin(A-B) = \sin A\cos B - \cos A\sin B$ 역방향:
+**Step 2.** The numerator is the sine difference formula $\sin(A-B) = \sin A\cos B - \cos A\sin B$ in reverse:
 
 $$= \frac{\sin(3\theta - \theta)}{\sin\theta\cos\theta} = \frac{\sin 2\theta}{\sin\theta\cos\theta}$$
 
-**Step 3.** 분모를 double angle 공식으로 변환 — $\sin 2\theta = 2\sin\theta\cos\theta$:
+**Step 3.** Convert the denominator using the double angle formula $\sin 2\theta = 2\sin\theta\cos\theta$:
 
 $$= \frac{\sin 2\theta}{\frac{1}{2}\sin 2\theta} = 2 \quad \blacksquare$$
 
@@ -500,15 +500,15 @@ $$= \frac{\sin 2\theta}{\frac{1}{2}\sin 2\theta} = 2 \quad \blacksquare$$
 
 **(g)** $\csc\theta - 2\cot 2\theta\cos\theta \equiv 2\sin\theta$
 
-**Step 1.** 정의로 풀어쓰기 — $\csc\theta = \dfrac{1}{\sin\theta}$, $\cot 2\theta = \dfrac{\cos 2\theta}{\sin 2\theta}$:
+**Step 1.** Expand using definitions — $\csc\theta = \dfrac{1}{\sin\theta}$, $\cot 2\theta = \dfrac{\cos 2\theta}{\sin 2\theta}$:
 
 $$\frac{1}{\sin\theta} - \frac{2\cos 2\theta\cos\theta}{\sin 2\theta}$$
 
-**Step 2.** $\sin 2\theta = 2\sin\theta\cos\theta$ 대입해서 통분:
+**Step 2.** Substitute $\sin 2\theta = 2\sin\theta\cos\theta$ and combine fractions:
 
 $$\frac{1}{\sin\theta} - \frac{2\cos 2\theta\cos\theta}{2\sin\theta\cos\theta} = \frac{1}{\sin\theta} - \frac{\cos 2\theta}{\sin\theta} = \frac{1 - \cos 2\theta}{\sin\theta}$$
 
-**Step 3.** $1 - \cos 2\theta = 2\sin^2\theta$ 적용:
+**Step 3.** Apply $1 - \cos 2\theta = 2\sin^2\theta$:
 
 $$= \frac{2\sin^2\theta}{\sin\theta} = 2\sin\theta \quad \blacksquare$$
 
@@ -516,35 +516,35 @@ $$= \frac{2\sin^2\theta}{\sin\theta} = 2\sin\theta \quad \blacksquare$$
 
 **(h)** $\dfrac{\sec\theta-1}{\sec\theta+1} \equiv \tan^2\dfrac{\theta}{2}$
 
-**Step 1.** $\sec\theta = \dfrac{1}{\cos\theta}$ 로 바꿔서 분모/분자 정리:
+**Step 1.** Rewrite using $\sec\theta = \dfrac{1}{\cos\theta}$ and simplify:
 
 $$\frac{1/\cos\theta - 1}{1/\cos\theta + 1} = \frac{1 - \cos\theta}{1 + \cos\theta}$$
 
-**Step 2.** half-angle 공식 적용 — $1-\cos\theta = 2\sin^2\!\tfrac{\theta}{2}$, $1+\cos\theta = 2\cos^2\!\tfrac{\theta}{2}$:
+**Step 2.** Apply the half-angle identities — $1-\cos\theta = 2\sin^2\!\tfrac{\theta}{2}$, $1+\cos\theta = 2\cos^2\!\tfrac{\theta}{2}$:
 
 $$= \frac{2\sin^2(\theta/2)}{2\cos^2(\theta/2)} = \tan^2\frac{\theta}{2} \quad \blacksquare$$
 
 ::: {style="font-size: 0.85em; color: #666;"}
-**Half-angle 공식 유도:** $\cos 2\alpha = 1 - 2\sin^2\alpha$ 에서 $\alpha = \theta/2$ 로 놓으면 $1 - \cos\theta = 2\sin^2(\theta/2)$.  같은 방식으로 $\cos 2\alpha = 2\cos^2\alpha - 1$ 에서 $1 + \cos\theta = 2\cos^2(\theta/2)$.
+**Half-angle identity derivation:** From $\cos 2\alpha = 1 - 2\sin^2\alpha$, set $\alpha = \theta/2$ to get $1 - \cos\theta = 2\sin^2(\theta/2)$.  Similarly from $\cos 2\alpha = 2\cos^2\alpha - 1$, $1 + \cos\theta = 2\cos^2(\theta/2)$.
 :::
 
 ---
 
 **(i)** $\tan\!\left(\dfrac{\pi}{4}-x\right) \equiv \dfrac{1-\sin 2x}{\cos 2x}$
 
-**Step 1.** $\tan\!\left(\dfrac{\pi}{4} - x\right)$에 tan 차 공식 적용 — $\tan\!\left(\dfrac{\pi}{4}\right) = 1$:
+**Step 1.** Apply the tan difference formula to $\tan\!\left(\dfrac{\pi}{4} - x\right)$ — using $\tan\!\left(\dfrac{\pi}{4}\right) = 1$:
 
 $$= \frac{1 - \tan x}{1 + \tan x}$$
 
-**Step 2.** $\tan x = \dfrac{\sin x}{\cos x}$ 로 바꿔서 분자/분모에 $\cos x$ 곱하기:
+**Step 2.** Substitute $\tan x = \dfrac{\sin x}{\cos x}$ and multiply numerator and denominator by $\cos x$:
 
 $$= \frac{\cos x - \sin x}{\cos x + \sin x}$$
 
-**Step 3.** 분자/분모에 $(\cos x - \sin x)$를 곱해서 분자를 제곱 형태로 만들기:
+**Step 3.** Multiply numerator and denominator by $(\cos x - \sin x)$ to create a squared numerator:
 
 $$= \frac{(\cos x - \sin x)^2}{\cos^2 x - \sin^2 x} = \frac{\cos^2 x - 2\sin x\cos x + \sin^2 x}{\cos^2 x - \sin^2 x}$$
 
-**Step 4.** $\cos^2 x + \sin^2 x = 1$, $2\sin x\cos x = \sin 2x$, $\cos^2 x - \sin^2 x = \cos 2x$ 적용:
+**Step 4.** Apply $\cos^2 x + \sin^2 x = 1$, $2\sin x\cos x = \sin 2x$, $\cos^2 x - \sin^2 x = \cos 2x$:
 
 $$= \frac{1 - \sin 2x}{\cos 2x} \quad \blacksquare$$
 
