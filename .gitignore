@@ -4,6 +4,17 @@ _output/
 Issac_tutoring/
 __pycache__/
 .DS_Store
+*.pdf
+*.csv
+*.xlsx
+*.docx
+*.pptx
+*.zip
+*.tar.gz
+*.log
+*.aux
+*.out
+*.toc
 
 /.quarto/
 **/*.quarto_ipynb
